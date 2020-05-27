@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>07d04eb9-6ab9-46cf-a3c3-a2e1d24fbeef</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Distance.TextureModifier.Content</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\01.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\02.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\03.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\04.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\05.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\06.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\07.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\08.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\09.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\k.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\krisky.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Krispy\krispy.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\01.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\02.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\03.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\04.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\05.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\06.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\07.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\08.PNG" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\09.PNG" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\10.PNG" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\11.PNG" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\12.PNG" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\13.PNG" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\14.PNG" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\15.PNG" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\16.PNG" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\17.PNG" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\18.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\19.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\20.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\21.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\22.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\23.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\Torcht\24.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\mod.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Mod\Data\Textures\Refract\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Mod\Data\Atprtsd\" />
+  </ItemGroup>
+</Project>

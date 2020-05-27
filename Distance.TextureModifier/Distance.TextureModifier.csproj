@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06A78A9A-7A66-431F-8023-36EAA5D0FBAF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Distance.TextureModifier</RootNamespace>
+    <AssemblyName>Distance.TextureModifier</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.1.2.0.1\lib\net35\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\Distance.Assemblies\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp.dev">
+      <HintPath>..\Distance.Assemblies\Assembly-CSharp.dev.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJSON, Version=0.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LitJson.0.15.0\lib\net35\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Reactor.API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.Mod.SDK.2.2.0\lib\net35\Reactor.API.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\Distance.Assemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\Distance.Assemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Declarations.cs" />
+    <Compile Include="Entry.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Resource\LoadMaterialInstance.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Resource\LoadMaterial.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Resource\LoadPrefabInstance.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Resource\LoadPrefab.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Resource\LoadTexture.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Resource\LoadLevelPreviewTexture.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Resource\LoadTextureFromFile.cs" />
+    <Compile Include="Harmony\UnityEngine\Material\ctor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceModificator.cs" />
+    <Compile Include="TextureLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="..\Distance.Shared\Distance.Shared.projitems" Label="Shared" />
+  <Import Project="..\Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems" Label="Shared" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>SET INCLUDE=$(SolutionDir)Distance.TextureModifier.Content
+SET BUILD=$(ProjectDir)$(OutDir)
+SET PACKAGES=$(SolutionDir)Build\Distance Texture Modifier
+
+CALL :MAKEDIR "%25PACKAGES%25"
+
+CALL :COPYDIR "%25INCLUDE%25\Mod" "%25PACKAGES%25"
+CALL :COPY "%25BUILD%25Distance.TextureModifier.dll" "%25PACKAGES%25"
+
+EXIT 0
+
+:MAKEDIR
+IF NOT EXIST %251 MKDIR %251
+GOTO :EOF
+
+:COPY
+XCOPY /s /Y /v %251 %252
+GOTO :EOF
+
+:COPYDIR
+XCOPY /i /s /Y /v %251 %252
+GOTO :EOF</PostBuildEvent>
+  </PropertyGroup>
+</Project>
