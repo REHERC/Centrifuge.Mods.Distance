@@ -1,9 +1,0 @@
-﻿{
-  "FriendlyName": "Texture Modifier",
-  "Author": "Reherc",
-  "Contact": "Github: @REHERC",
-  "ModuleFileName": "Distance.TextureModifier.dll",
-  "Dependencies": [],
-  "SkipLoad": false,
-  "Priority": 10
-}

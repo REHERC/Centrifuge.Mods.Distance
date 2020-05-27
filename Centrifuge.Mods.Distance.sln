@@ -17,6 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distance.Assemblies", "Dist
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.Shared", "Distance.Shared\Distance.Shared.shproj", "{15B08B61-BEB4-40A6-8789-02B655A4B307}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{FBE54414-7B38-45CC-8C16-CAA856909722}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.Shared\Distance.Shared.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
