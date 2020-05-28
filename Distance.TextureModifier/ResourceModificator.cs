@@ -54,21 +54,31 @@ namespace Distance.TextureModifier
             material.mainTexture = texture;
             //material.color = Colors.white;
 
+            bool applyPatch = false;
+
             foreach (var property in Declarations.materialTextureProperties)
             {
                 if (material.HasProperty(property))
                 {
+                    applyPatch = true;
+                    break;
+
                     try
                     {
                         material.SetTexture(property, texture);
-                        //material.SetTextureOffset(property, new Vector2(0, 0));
-                        //material.SetTextureScale(property, new Vector2(1, 1));
+                        //material.SetTextureOffset(property, Vector2.zero);
+                        //material.SetTextureScale(property, Vector2.one);
                     }
                     catch (System.Exception)
                     {
 
                     }
                 }
+            }
+
+            if (applyPatch)
+            {
+                material.CopyPropertiesFromMaterial(textureLoader_.GetRandomMaterial());
             }
         }
 
@@ -82,9 +92,12 @@ namespace Distance.TextureModifier
 
         public void PatchGameObject(GameObject gameObject)
         {
-            foreach (var renderer in gameObject.GetComponents<Renderer>().Concat(gameObject.GetComponentsInChildren<Renderer>(true)))
+            if (gameObject)
             {
-                PatchRenderer(renderer);
+                foreach (var renderer in gameObject.GetComponents<Renderer>().Concat(gameObject.GetComponentsInChildren<Renderer>(true)))
+                {
+                    PatchRenderer(renderer);
+                }
             }
         }
 
@@ -98,18 +111,39 @@ namespace Distance.TextureModifier
 
         public void PatchRenderer(Renderer renderer)
         {
-            switch (renderer)
+            if (renderer)
             {
-                case MeshRenderer _:
-                case SkinnedMeshRenderer _:
-                case ParticleRenderer _:
-                case ParticleSystemRenderer _:
-                default:
-                    PatchMaterial(renderer.material);
-                    PatchMaterials(renderer.materials);
-                    PatchMaterial(renderer.sharedMaterial);
-                    PatchMaterials(renderer.sharedMaterials);
-                    break;
+                switch (renderer)
+                {
+                    case MeshRenderer _:
+                    case SkinnedMeshRenderer _:
+                    case ParticleRenderer _:
+                    case ParticleSystemRenderer _:
+                    default:
+                        PatchMaterial(renderer.material);
+                        PatchMaterials(renderer.materials);
+                        PatchMaterial(renderer.sharedMaterial);
+                        PatchMaterials(renderer.sharedMaterials);
+
+                        /*
+                        Material material = textureLoader_.GetRandomMaterial();
+
+                        ReplaceMaterials(renderer.materials, material);
+                        ReplaceMaterials(renderer.sharedMaterials, material);
+
+                        renderer.material = material;
+                        renderer.sharedMaterial = material;
+                        */
+                        break;
+                }
+            }
+        }
+
+        public void ReplaceMaterials(Material[] collection, Material replacement)
+        {
+            for(int index = 0; index < collection.Length; index++)
+            {
+                collection[index] = replacement;
             }
         }
 

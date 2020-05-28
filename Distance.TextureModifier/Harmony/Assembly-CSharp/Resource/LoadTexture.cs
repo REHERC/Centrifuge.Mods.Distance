@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Distance.TextureModifier.Harmony
 {
-    [HarmonyPatch(typeof(Resource), "LoadTexture")]
+    //[HarmonyPatch(typeof(Resource), "LoadTexture")]
     internal static class Resource__LoadTexture
     {
         [HarmonyPrefix]

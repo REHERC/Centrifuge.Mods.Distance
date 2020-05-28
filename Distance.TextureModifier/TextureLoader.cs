@@ -93,10 +93,28 @@ namespace Distance.TextureModifier
                 System.Array.Resize(ref textures, textures.Length + 1);
                 textures[textures.Length - 1] = texture as Texture2D;
 
-                Material material = new Material(Shader.Find(Declarations.UnlitTextureShader))
+                Material material = new Material(Shader.Find(Declarations.StandardShader))
                 {
-                    mainTexture = texture
+                    mainTexture = texture,
+                    color = Color.white
                 };
+
+                foreach (var property in Declarations.materialTextureProperties)
+                {
+                    if (material.HasProperty(property))
+                    {
+                        try
+                        {
+                            material.SetTexture(property, texture);
+                            material.SetTextureOffset(property, Vector2.zero);
+                            material.SetTextureScale(property, Vector2.one);
+                        }
+                        catch (System.Exception)
+                        {
+
+                        }
+                    }
+                }
 
                 System.Array.Resize(ref materials, materials.Length + 1);
                 materials[materials.Length - 1] = material as Material;
@@ -126,15 +144,26 @@ namespace Distance.TextureModifier
             }
         }
 
-        public Material GetRandomMaterial()
+        public Material GetRandomMaterial(int stack = 10)
         {
-            if (materials.Length is 0)
+            if (materials.Length is 0 || stack <= 0)
             {
                 return null;
             }
             else
             {
-                return materials.RandomElement() as Material;
+                Material result = materials.RandomElement() as Material;
+
+                if (result)
+                {
+                    return result;
+                }
+                else
+                {
+                    ClearResources();
+                    LoadTextures("Textures");
+                    return GetRandomMaterial(stack - 1);
+                }
             }
         }
     }

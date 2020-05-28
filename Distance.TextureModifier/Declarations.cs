@@ -59,7 +59,7 @@ namespace Distance.TextureModifier
             "_CarScreenTex",//
             "_CityDetailTex",
             "_CloudDetailTex",
-            //"_ColorBuffer",//
+            "_ColorBuffer",//
             "_Control",//
             "_CutOffsetTex",//
             "_DecalTex",//
@@ -76,8 +76,8 @@ namespace Distance.TextureModifier
             "_Emissive",
             "_EmitDetailTex",
             "_EmitTex",
-            ///"_FadeTex",//
-            ///"_FallOff",//
+            "_FadeTex",//
+            "_FallOff",//
             "_Flare",//
             "_FrameTex",//
             //"_FrontTex",//
@@ -85,9 +85,9 @@ namespace Distance.TextureModifier
             "_GlitchTex",//
             "_GlossMap",//
             "_GradientTex",
-            ///"_Illum",//
+            "_Illum",//
             //"_LeftTex",//
-            ///"_LightMap",//
+            "_LightMap",//
             ///"_LightTextureB0",//
             "_LinesTex",//
             "_Main",
@@ -95,7 +95,7 @@ namespace Distance.TextureModifier
             "_MainTex2",
             "_MainTex3",
             "_MainTexture",
-            "_MetallicGlossMap",//
+            ///"_MetallicGlossMap",//
             //"_MotionTex",//
             "_NoiseTex",
             "_NonBlurredTex",//
@@ -107,9 +107,9 @@ namespace Distance.TextureModifier
             "_PatternTex",//
             "_RampTex",//
             "_RandomTexture",//
-            "_ReflectMap",//
-            "_Refraction",//
-            //"_RgbDepthTex",//
+            ///"_ReflectMap",//
+            ///"_Refraction",//
+            "_RgbDepthTex",//
             "_RgbTex",//
             //"_RightTex",//
             //"_SSAO",//
@@ -125,7 +125,7 @@ namespace Distance.TextureModifier
             "_SubtractiveTex",//
             "_TeleTex",
             "_Tex",
-            "_TranslucencyMap",//
+            ///"_TranslucencyMap",//
             //"_UpTex"//
         };
     }

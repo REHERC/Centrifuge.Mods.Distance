@@ -2,13 +2,15 @@
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
 using Reactor.API.Storage;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Distance.TextureModifier
 {
     [ModEntryPoint("com.distance.reherc/texturemodifier")]
-    public class Entry
+    public class Entry : MonoBehaviour
     {
         public static Entry Instance;
 
@@ -40,9 +42,16 @@ namespace Distance.TextureModifier
             Events.Level.PostLoad.Subscribe(LevelPostLoad);
         }
 
+        internal void LateInitialize(Events.Managers.AwakeGameManager.Data data)
+        {
+            Events.Managers.AwakeGameManager.Unsubscribe(LateInitialize);
+
+            StartCoroutine(ReskinResourcePrefabs());
+        }
+
         public void Load()
         {
-            Loader.ClearResources();
+            Loader.ClearResources(true);
             Loader.LoadTextures("Textures");
         }
 
@@ -50,31 +59,78 @@ namespace Distance.TextureModifier
         {
             Load();
 
-            GameObject[] objects = data.level_.AllGameObjectsInLevelIEnumerable_.ToArray().Concat(Resources.FindObjectsOfTypeAll(typeof(GameObject))).Cast<GameObject>().ToArray();
+            StartCoroutine(ReskinLevelObjects(data.level_));
+        }
 
 
-            foreach (var obj in objects)
-            {
-                Modifier.PatchGameObject(obj);
-            }
+        internal IEnumerator ReskinResourcePrefabs()
+        {
+            List<GameObject> objects = new List<GameObject>();
 
-            foreach (var renderers in from obj in objects select obj.GetComponents<Renderer>().Concat(obj.GetComponentsInChildren<Renderer>(true)))
-            {
-                Modifier.PatchRenderers(renderers);
-            }
+            objects.AddRange(Resources.FindObjectsOfTypeAll<GameObject>());
+            objects.AddRange(Resource.LoadAllInFolder<GameObject>(Resource.editorPrefabsFolder_).Cast<GameObject>());
+            objects.AddRange(Resource.LoadAllInFolder<GameObject>(Resource.splineRoadTemplatesFolder_).Cast<GameObject>());
+            objects.AddRange(Resource.LoadAllInFolder<GameObject>(Resource.splineTunnelTemplatesFolder_).Cast<GameObject>());
+            objects.AddRange(from spline in Resources.FindObjectsOfTypeAll<SplineSegment>() select spline.gameObject);
+
+            yield return StartCoroutine(Reskin(objects));
+
+            objects.Clear();
+
+            yield break;
         }
         
-        internal void LateInitialize(Events.Managers.AwakeGameManager.Data data)
+        internal IEnumerator ReskinLevelObjects(Level level)
         {
-            Events.Managers.AwakeGameManager.Unsubscribe(LateInitialize);
-            
-            Modifier.PatchCollection(Resource.LoadAllInFolder<Material>(Resource.materialsFolder_));
-            Modifier.PatchCollection(Resources.FindObjectsOfTypeAll<Material>());
+            List<GameObject> objects = new List<GameObject>();
 
-            Modifier.PatchCollection(Resource.LoadAllInFolder<GameObject>(Resource.prefabsFolder_));
-            Modifier.PatchCollection(Resource.LoadAllInFolder<GameObject>(Resource.editorPrefabsFolder_));
-            Modifier.PatchCollection(Resource.LoadAllInFolder<GameObject>(Resource.splineRoadTemplatesFolder_));
-            Modifier.PatchCollection(Resource.LoadAllInFolder<GameObject>(Resource.splineTunnelTemplatesFolder_));
+            objects.AddRange(Resources.FindObjectsOfTypeAll<GameObject>());
+            objects.AddRange(level.AllGameObjectsInLevelIEnumerable_);
+
+            level.Layers_.ForEach((layer) =>
+            {
+                objects.AddRange(layer.GameObjects_);
+            });
+
+            objects.AddRange(from affector in TrackMaster.affectorNodes_ select affector.Key.Link_.Spline_.gameObject);
+            objects.AddRange(from renderer in FindObjectsOfType<Renderer>() select renderer.gameObject);
+            objects.AddRange(from serializable in FindObjectsOfType<SerialComponent>() select serializable.gameObject);
+
+            yield return StartCoroutine(Reskin(objects));
+
+            objects.Clear();
+
+            yield break;
+        }
+
+        internal IEnumerator Reskin(List<GameObject> list)
+        {
+            yield return null;
+
+            GameObject[] objects = list.ToArray().RemoveDuplicates();
+
+            for (int index = 0; index < objects.Length; index++)
+            {
+                try
+                {
+                    GameObject current = objects[index];
+
+                    if (!current)
+                    {
+                        continue;
+                    }
+
+                    Modifier.PatchGameObject(current);
+                    Modifier.PatchGameObjects(current.GetChildren());
+                }
+                catch (System.Exception error)
+                {
+                    Logger.Exception(error);
+                }
+                yield return null;
+            }
+
+            yield break;
         }
     }
 }
