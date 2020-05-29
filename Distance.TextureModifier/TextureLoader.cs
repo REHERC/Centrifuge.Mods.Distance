@@ -93,7 +93,7 @@ namespace Distance.TextureModifier
                 System.Array.Resize(ref textures, textures.Length + 1);
                 textures[textures.Length - 1] = texture as Texture2D;
 
-                Material material = new Material(Shader.Find(Declarations.StandardShader))
+                Material material = new Material(Shader.Find(Declarations.UnlitTextureShader))
                 {
                     mainTexture = texture,
                     color = Color.white
@@ -107,7 +107,7 @@ namespace Distance.TextureModifier
                         {
                             material.SetTexture(property, texture);
                             material.SetTextureOffset(property, Vector2.zero);
-                            material.SetTextureScale(property, Vector2.one);
+                            material.SetTextureScale(property, Vector2.one * 10);
                         }
                         catch (System.Exception)
                         {

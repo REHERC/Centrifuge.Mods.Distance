@@ -1,7 +1,7 @@
 ﻿#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0162 // unreachable code detected
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Distance.TextureModifier
@@ -66,8 +66,9 @@ namespace Distance.TextureModifier
                     try
                     {
                         material.SetTexture(property, texture);
-                        //material.SetTextureOffset(property, Vector2.zero);
+                        material.SetTextureOffset(property, Vector2.zero);
                         //material.SetTextureScale(property, Vector2.one);
+                        material.SetTextureScale(property, Vector2.one * 10);
                     }
                     catch (System.Exception)
                     {

@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{FBE54414-7B3
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.ExternalModdingTools", "Distance.ExternalModdingTools\Distance.ExternalModdingTools.csproj", "{7F70DC8B-8FAC-45E6-88A4-9A89217AA8B6}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.Shared\Distance.Shared.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
@@ -39,6 +41,10 @@ Global
 		{06A78A9A-7A66-431F-8023-36EAA5D0FBAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06A78A9A-7A66-431F-8023-36EAA5D0FBAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06A78A9A-7A66-431F-8023-36EAA5D0FBAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F70DC8B-8FAC-45E6-88A4-9A89217AA8B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F70DC8B-8FAC-45E6-88A4-9A89217AA8B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F70DC8B-8FAC-45E6-88A4-9A89217AA8B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F70DC8B-8FAC-45E6-88A4-9A89217AA8B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

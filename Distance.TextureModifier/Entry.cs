@@ -103,7 +103,7 @@ namespace Distance.TextureModifier
             yield break;
         }
 
-        internal IEnumerator Reskin(List<GameObject> list)
+        internal IEnumerator Reskin(List<GameObject> list, bool pause = false)
         {
             yield return null;
 
@@ -127,7 +127,16 @@ namespace Distance.TextureModifier
                 {
                     Logger.Exception(error);
                 }
-                yield return null;
+
+                if (pause)
+                {
+                    yield return null;
+                }
+            }
+
+            if (!pause)
+            {
+                yield return StartCoroutine(Reskin(list, true));
             }
 
             yield break;
