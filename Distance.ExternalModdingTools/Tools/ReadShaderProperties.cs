@@ -1,4 +1,5 @@
-﻿using Distance.ExternalModdingTools.Attributes;
+﻿#pragma warning disable IDE1006
+using Distance.ExternalModdingTools.Attributes;
 using Distance.ExternalModdingTools.Forms;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace Distance.ExternalModdingTools.Tools
             "Vector",
             "any"
         };
+
+        string nl => Environment.NewLine;
 
         string[] files;
         LoggerWindow log;
@@ -59,8 +62,8 @@ namespace Distance.ExternalModdingTools.Tools
             sorted = new Dictionary<string, List<string>>();
             count = 0;
 
+            state.SetProgress(0);
             state.SetMaxProgress(files.Length);
-
             foreach (var file in from f in files where File.Exists(f) select new FileInfo(f))
             {
                 ReadShader(file);
@@ -78,7 +81,7 @@ namespace Distance.ExternalModdingTools.Tools
                 state.SetStatus($"[{state.Progress}%] - Scanning...");
             }
 
-            string nl = Environment.NewLine;
+            
 
             output = OpenWindow<LoggerWindow>().Rename("Output");
 
@@ -107,8 +110,6 @@ namespace Distance.ExternalModdingTools.Tools
 
         public void AddProperty(string property)
         {
-
-
             string name = property[0] is '[' ? property.Split(' ')[1] : property.Split(' ')[0];
             string declaration = property.Substring(name.Length + 1).Split('=')[0];
 
