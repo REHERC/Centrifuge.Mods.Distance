@@ -46,14 +46,6 @@ namespace Distance.TextureModifier
                 return;
             }
 
-            //Entry.Instance.Logger.Info(material.name);
-
-            Texture texture = textureLoader_.GetRandomTexture();
-
-            //material.shader = Shader.Find(Declarations.StandardShader);
-            material.mainTexture = texture;
-            //material.color = Colors.white;
-
             bool applyPatch = false;
 
             foreach (var property in Declarations.materialTextureProperties)
@@ -62,18 +54,6 @@ namespace Distance.TextureModifier
                 {
                     applyPatch = true;
                     break;
-
-                    try
-                    {
-                        material.SetTexture(property, texture);
-                        material.SetTextureOffset(property, Vector2.zero);
-                        //material.SetTextureScale(property, Vector2.one);
-                        material.SetTextureScale(property, Vector2.one * 10);
-                    }
-                    catch (System.Exception)
-                    {
-
-                    }
                 }
             }
 

@@ -67,7 +67,9 @@ namespace Distance.TextureModifier
         {
             List<GameObject> objects = new List<GameObject>();
 
+            objects.AddRange(FindObjectsOfType<GameObject>());
             objects.AddRange(Resources.FindObjectsOfTypeAll<GameObject>());
+            objects.AddRange(Resource.LoadAllInFolder<GameObject>(Resource.prefabsFolder_).Cast<GameObject>());
             objects.AddRange(Resource.LoadAllInFolder<GameObject>(Resource.editorPrefabsFolder_).Cast<GameObject>());
             objects.AddRange(Resource.LoadAllInFolder<GameObject>(Resource.splineRoadTemplatesFolder_).Cast<GameObject>());
             objects.AddRange(Resource.LoadAllInFolder<GameObject>(Resource.splineTunnelTemplatesFolder_).Cast<GameObject>());
@@ -84,6 +86,7 @@ namespace Distance.TextureModifier
         {
             List<GameObject> objects = new List<GameObject>();
 
+            objects.AddRange(FindObjectsOfType<GameObject>());
             objects.AddRange(Resources.FindObjectsOfTypeAll<GameObject>());
             objects.AddRange(level.AllGameObjectsInLevelIEnumerable_);
 
@@ -134,10 +137,10 @@ namespace Distance.TextureModifier
                 }
             }
 
-            if (!pause)
-            {
+            //if (!pause)
+            //{
                 yield return StartCoroutine(Reskin(list, true));
-            }
+            //}
 
             yield break;
         }

@@ -82,9 +82,9 @@ namespace Distance.TextureModifier
             {
                 Texture2D texture = new Texture2D(512, 512)
                 {
-                    anisoLevel = 5,
+                    anisoLevel = 1,
                     filterMode = FilterMode.Trilinear,
-                    wrapMode = TextureWrapMode.Clamp
+                    wrapMode = TextureWrapMode.Repeat
                 };
 
                 byte[] bitmapData = File.ReadAllBytes(file.FullName);
@@ -93,28 +93,11 @@ namespace Distance.TextureModifier
                 System.Array.Resize(ref textures, textures.Length + 1);
                 textures[textures.Length - 1] = texture as Texture2D;
 
-                Material material = new Material(Shader.Find(Declarations.UnlitTextureShader))
-                {
-                    mainTexture = texture,
-                    color = Color.white
-                };
+                Material material = new Material(Shader.Find(Declarations.CustomShadelessTexture));
 
-                foreach (var property in Declarations.materialTextureProperties)
-                {
-                    if (material.HasProperty(property))
-                    {
-                        try
-                        {
-                            material.SetTexture(property, texture);
-                            material.SetTextureOffset(property, Vector2.zero);
-                            material.SetTextureScale(property, Vector2.one * 10);
-                        }
-                        catch (System.Exception)
-                        {
-
-                        }
-                    }
-                }
+                material.SetTexture("_MainTex", texture);
+                material.SetTextureScale("_MainTex", Vector2.one * Mathf.Round(Random.Range(0, 50) / 10));
+                material.SetColor("_Color", new Color(0.75f, 0.75f, 0.75f, 0.02f));
 
                 System.Array.Resize(ref materials, materials.Length + 1);
                 materials[materials.Length - 1] = material as Material;

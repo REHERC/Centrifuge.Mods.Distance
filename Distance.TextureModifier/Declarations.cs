@@ -4,8 +4,7 @@ namespace Distance.TextureModifier
 {
     public class Declarations
     {
-        public const string UnlitTextureShader = "Unlit/Texture";
-        public const string StandardShader = "Standard";
+        public const string CustomShadelessTexture = "Custom/Shadeless/Texture";
 
         public static readonly string[] textureFileExtensions = new string[]
         {
@@ -49,84 +48,101 @@ namespace Distance.TextureModifier
         }
 
         public static readonly string[] materialTextureProperties = new string[] {
-            ///"NoiseTex",//
-            ///"StartColor",//
-            ///"_Alpha",//
-            ///"_BackTex",//
-            ///"_BumpMap",
-            ///"_BumpSpecMap",
-            ///"_CameraMotionTex",//
-            ///"_CarScreenTex",//
-            ///"_CityDetailTex",
-            ///"_CloudDetailTex",
-            ///"_ColorBuffer",//
-            ///"_Control",//
-            ///"_CutOffsetTex",//
-            ///"_DecalTex",//
-            ///"_Detail",//
-            ///"_DetailAlbedoMap",//
-            ///"_DetailMask",//
-            ///"_DetailNormalMap",//
-            ///"_DetailTex",
-            ///"_DirectionTex",//
-            ///"_DirtyLensTexture",//
-            ///"_DotsTex",//
-            ///"_DownTex",//
-            ///"_EmissionMap",
-            ///"_Emissive",
-            ///"_EmitDetailTex",
-            ///"_EmitTex",
-            ///"_FadeTex",//
-            ///"_FallOff",//
-            ///"_Flare",//
-            ///"_FrameTex",//
-            ///"_FrontTex",//
-            ///"_FullScreenMask",//
-            ///"_GlitchTex",//
-            ///"_GlossMap",//
-            ///"_GradientTex",
-            ///"_Illum",//
-            ///"_LeftTex",//
-            ///"_LightMap",//
-            ///"_LightTextureB0",//
-            ///"_LinesTex",//
-            ///"_Main",
-            "_MainTex",
+            "_Alpha",
+            "_AlphaTex",
+            ///"_BackTex",
+            "_BumpMap",
+            "_BumpSpecMap",
+            "_CameraMotionTex",
+            "_CarScreenTex",
+            "_CityDetailTex",
+            "_CloudDetailTex",
+            "_ColorBuffer",
+            "_Control",
+            "_CoverTex",
+            "_CromaTex",
+            "_CutOffsetTex",
+            "_DecalTex",
+            "_Detail",
+            "_DetailAlbedoMap",
+            "_DetailMask",
+            "_DetailNormalMap",
+            "_DetailTex",
+            "_DirectionTex",
+            "_DirtyLensTexture",
+            "_DispTex",
+            "_DotsTex",
+            ///"_DownTex",
+            "_EmissionMap",
+            "_Emissive",
+            "_EmitDetailTex",
+            "_EmitTex",
+            "_FadeTex",
+            "_FallOff",
+            "_FgOverlap",
+            "_Flare",
+            "_FrameTex",
+            ///"_FrontTex",
+            "_FullScreenMask",
+            "_GlitchTex",
+            "_GlossMap",
+            "_GradientTex",
+            "_GrainTex",
+            "_HardnessTex",
+            "_Illum",
+            ///"_LeftTex",
+            "_LightMap",
+            "_LightTex",
+            "_LightTextureB0",
+            "_LinesTex",
+            "_LowRez",
+            "_Main",
             "_MainTex2",
             "_MainTex3",
-            ///"_MainTexture",
-            ///"_MetallicGlossMap",//
-            ///"_MotionTex",//
-            ///"_NoiseTex",
-            ///"_NonBlurredTex",//
-            ///"_Normal",
-            ///"_NormalTex",
-            ///"_OcclusionMap",//
-            ///"_ParallaxMap",//
-            ///"_PatternBumpTex",//
-            ///"_PatternTex",//
-            ///"_RampTex",//
-            ///"_RandomTexture",//
-            ///"_ReflectMap",//
-            ///"_Refraction",//
-            ///"_RgbDepthTex",//
-            ///"_RgbTex",//
-            ///"_RightTex",//
-            ///"_SSAO",//
-            ///"_SeamlessDetailTex",//
-            ///"_SeamlessTex",//
-            ///"_ShadowOffset",//
-            ///"_SparkleTex",//
-            ///"_Splat0",
-            ///"_Splat1",
-            ///"_Splat2",
-            ///"_Splat3",
-            ///"_StaticTex",//
-            ///"_SubtractiveTex",//
-            ///"_TeleTex",
-            ///"_Tex",
-            ///"_TranslucencyMap",//
-            //"_UpTex"//
+            "_MainTex",
+            "_MainTexture",
+            "_Mask",
+            "_MetallicGlossMap",
+            "_MotionTex",
+            "_NoiseTex",
+            "_NonBlurredTex",
+            "_Normal",
+            "_NormalTex",
+            "_OcclusionMap",
+            "_ParallaxMap",
+            "_PatternBumpTex",
+            "_PatternTex",
+            "_RampTex",
+            "_RandomTexture",
+            "_ReflectMap",
+            "_Refraction",
+            "_RgbDepthTex",
+            "_RgbTex",
+            ///"_RightTex",
+            "_ScratchTex",
+            "_SeamlessBumpTex",
+            "_SeamlessDetailTex",
+            "_SeamlessTex",
+            "_ShadowOffset",
+            ///"_Skybox",
+            "_SliceGuide",
+            "_SparkleTex",
+            "_Splat0",
+            "_Splat1",
+            "_Splat2",
+            "_Splat3",
+            "_SSAO",
+            "_StaticTex",
+            //"_SubtractiveTex",
+            //"_TeleTex",
+            "_Tex",
+            //"_TranslucencyMap",
+            ///"_UpTex",
+            "_VignetteTex",
+            "_ZCurve",
+            "NoiseTex",
+            //"StarColor",
+            //"StartColor"
         };
     }
 }
