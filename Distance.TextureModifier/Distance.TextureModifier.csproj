@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,11 +41,18 @@
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>..\Distance.Assemblies\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp.dev">
+    <Reference Include="Assembly-CSharp.dev, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Distance.Assemblies\Assembly-CSharp.dev.dll</HintPath>
+    </Reference>
+    <Reference Include="Centrifuge.Distance, Version=1.0.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\Centrifuge.Distance.dll</HintPath>
     </Reference>
     <Reference Include="LitJSON, Version=0.15.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LitJson.0.15.0\lib\net35\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\NAudio.dll</HintPath>
     </Reference>
     <Reference Include="Reactor.API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Centrifuge.Mod.SDK.2.2.0\lib\net35\Reactor.API.dll</HintPath>
@@ -54,16 +63,19 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\Distance.Assemblies\UnityEngine.dll</HintPath>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\Distance.Assemblies\UnityEngine.UI.dll</HintPath>
+    <Reference Include="UnityEngine.Networking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Declarations.cs" />
-    <Compile Include="Entry.cs" />
+    <Compile Include="Mod.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Resource\LoadPrefab.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Resource\LoadLevelPreviewTexture.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Resource\LoadTextureFromFile.cs" />
@@ -72,6 +84,7 @@
     <Compile Include="TextureLoader.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="mod.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
@@ -79,16 +92,26 @@
   <Import Project="..\Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>SET INCLUDE=$(SolutionDir)Distance.TextureModifier.Content
+    <PostBuildEvent>SET MODNAME=Distance Texture Modifier
+SET INCLUDE=$(SolutionDir)Distance.TextureModifier.Content
+
 SET BUILD=$(ProjectDir)$(OutDir)
-SET PACKAGES=$(SolutionDir)Build\Distance Texture Modifier
+SET PACKAGES=$(SolutionDir)Build\%25MODNAME%25\Centrifuge
 
-CALL :MAKEDIR "%25PACKAGES%25"
+SET MOD=%25PACKAGES%25\Mods\%25MODNAME%25
 
-CALL :COPYDIR "%25INCLUDE%25\Mod" "%25PACKAGES%25"
-CALL :COPY "%25BUILD%25Distance.TextureModifier.dll" "%25PACKAGES%25"
+REM ===== COPY MOD FILES =====
+
+CALL :MAKEDIR "%25MOD%25"
+
+CALL :COPYDIR "%25INCLUDE%25\Mod" "%25MOD%25"
+CALL :COPY "%25BUILD%25Distance.TextureModifier.dll" "%25MOD%25"
+
+CALL :INCLUDEGSL Centrifuge.Distance
 
 EXIT 0
+
+REM ===== BUILD SUBROUTINES  =====
 
 :MAKEDIR
 IF NOT EXIST %251 MKDIR %251
@@ -100,6 +123,11 @@ GOTO :EOF
 
 :COPYDIR
 XCOPY /i /s /Y /v %251 %252
+GOTO :EOF
+
+:INCLUDEGSL
+CALL :MAKEDIR "%25PACKAGES%25\GameSupport"
+CALL :COPY "%25BUILD%25%251.dll" "%25PACKAGES%25\GameSupport"
 GOTO :EOF</PostBuildEvent>
   </PropertyGroup>
 </Project>

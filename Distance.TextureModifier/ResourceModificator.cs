@@ -50,11 +50,8 @@ namespace Distance.TextureModifier
 
             foreach (var property in Declarations.materialTextureProperties)
             {
-                if (material.HasProperty(property))
-                {
-                    applyPatch = true;
-                    break;
-                }
+                applyPatch = true;
+                break;
             }
 
             if (applyPatch)
@@ -106,15 +103,6 @@ namespace Distance.TextureModifier
                         PatchMaterial(renderer.sharedMaterial);
                         PatchMaterials(renderer.sharedMaterials);
 
-                        /*
-                        Material material = textureLoader_.GetRandomMaterial();
-
-                        ReplaceMaterials(renderer.materials, material);
-                        ReplaceMaterials(renderer.sharedMaterials, material);
-
-                        renderer.material = material;
-                        renderer.sharedMaterial = material;
-                        */
                         break;
                 }
             }

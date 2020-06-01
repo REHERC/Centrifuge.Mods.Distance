@@ -20,6 +20,12 @@ namespace Distance.TextureModifier
             materials = new Object[0];
         }
 
+        public void Load(bool gc = false)
+        {
+            ClearResources(gc);
+            LoadTextures("Textures");
+        }
+
         public void ClearResources(bool garbageCollect = false)
         {
             ClearResources(ref textures);
@@ -120,8 +126,7 @@ namespace Distance.TextureModifier
                 }
                 else
                 {
-                    ClearResources();
-                    LoadTextures("Textures");
+                    Load(true);
                     return GetRandomTexture(stack - 1);
                 }
             }
@@ -143,8 +148,7 @@ namespace Distance.TextureModifier
                 }
                 else
                 {
-                    ClearResources();
-                    LoadTextures("Textures");
+                    Load(true);
                     return GetRandomMaterial(stack - 1);
                 }
             }

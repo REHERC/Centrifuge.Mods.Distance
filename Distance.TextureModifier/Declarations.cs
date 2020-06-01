@@ -133,16 +133,16 @@ namespace Distance.TextureModifier
             "_Splat3",
             "_SSAO",
             "_StaticTex",
-            //"_SubtractiveTex",
-            //"_TeleTex",
+            "_SubtractiveTex",
+            "_TeleTex",
             "_Tex",
-            //"_TranslucencyMap",
+            "_TranslucencyMap",
             ///"_UpTex",
             "_VignetteTex",
             "_ZCurve",
             "NoiseTex",
-            //"StarColor",
-            //"StartColor"
+            "StarColor",
+            "StartColor"
         };
     }
 }

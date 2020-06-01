@@ -9,7 +9,7 @@ namespace Distance.TextureModifier.Harmony
         [HarmonyPostfix]
         internal static void Postfix(ref GameObject __result)
         {
-            Entry.Instance.Modifier.Patch(__result);
+            Mod.Instance.Modifier.Patch(__result);
         }
     }
 }

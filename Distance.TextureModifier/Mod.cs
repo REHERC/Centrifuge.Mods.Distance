@@ -1,18 +1,22 @@
-﻿using Reactor.API.Attributes;
+﻿using Centrifuge.Distance.Game;
+using Centrifuge.Distance.GUI.Data;
+using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
 using Reactor.API.Storage;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
 namespace Distance.TextureModifier
 {
-    [ModEntryPoint("com.distance.reherc/texturemodifier")]
-    public class Entry : MonoBehaviour
+    [ModEntryPoint("com.github.reherc/Distance.TextureModifier")]
+    public class Mod : MonoBehaviour
     {
-        public static Entry Instance;
+        public static Mod Instance;
 
         public IManager Manager { get; set; }
 
@@ -28,6 +32,7 @@ namespace Distance.TextureModifier
         {
             Instance = this;
             Manager = manager;
+
             Data = new FileSystem();
 
             Logger = LogManager.GetForCurrentAssembly();
@@ -40,6 +45,8 @@ namespace Distance.TextureModifier
 
             Events.Managers.AwakeGameManager.Subscribe(LateInitialize);
             Events.Level.PostLoad.Subscribe(LevelPostLoad);
+
+            CreateMenus();
         }
 
         internal void LateInitialize(Events.Managers.AwakeGameManager.Data data)
@@ -49,10 +56,24 @@ namespace Distance.TextureModifier
             StartCoroutine(ReskinResourcePrefabs());
         }
 
+        public void CreateMenus()
+        {
+            MenuTree menu = new MenuTree("texturemodifier#main.menu", "Texture Modifier");
+
+            menu.ActionButton(
+                MenuDisplayMode.Both,
+                "texturemodifier#main.menu/datafolder-open",
+                "OPEN DATA FOLDER",
+                () => { Process.Start(Path.Combine(Data.RootDirectory, "Data")); },
+                "Open the folder used to load textures."
+            );
+
+            Menus.AddNew(MenuDisplayMode.Both, menu, "Settings for the Texture Modifier mod");
+        }
+
         public void Load()
         {
-            Loader.ClearResources(true);
-            Loader.LoadTextures("Textures");
+            Loader.Load();
         }
 
         internal void LevelPostLoad(Events.Level.PostLoad.Data data)
@@ -69,7 +90,7 @@ namespace Distance.TextureModifier
 
             objects.AddRange(FindObjectsOfType<GameObject>());
             objects.AddRange(Resources.FindObjectsOfTypeAll<GameObject>());
-            objects.AddRange(Resource.LoadAllInFolder<GameObject>(Resource.prefabsFolder_).Cast<GameObject>());
+
             objects.AddRange(Resource.LoadAllInFolder<GameObject>(Resource.editorPrefabsFolder_).Cast<GameObject>());
             objects.AddRange(Resource.LoadAllInFolder<GameObject>(Resource.splineRoadTemplatesFolder_).Cast<GameObject>());
             objects.AddRange(Resource.LoadAllInFolder<GameObject>(Resource.splineTunnelTemplatesFolder_).Cast<GameObject>());

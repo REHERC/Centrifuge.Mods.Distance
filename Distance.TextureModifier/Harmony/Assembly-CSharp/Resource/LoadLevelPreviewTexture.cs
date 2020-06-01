@@ -9,7 +9,7 @@ namespace Distance.TextureModifier.Harmony
         [HarmonyPostfix]
         internal static void Postfix(ref Texture __result)
         {
-            __result = Object.Instantiate(Entry.Instance.Loader.GetRandomTexture());
+            __result = Object.Instantiate(Mod.Instance.Loader.GetRandomTexture());
         }
     }
 }
