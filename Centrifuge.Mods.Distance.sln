@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distance.Assemblies", "Dist
 	ProjectSection(SolutionItems) = preProject
 		Distance.Assemblies\Assembly-CSharp-firstpass.dll = Distance.Assemblies\Assembly-CSharp-firstpass.dll
 		Distance.Assemblies\Assembly-CSharp.dev.dll = Distance.Assemblies\Assembly-CSharp.dev.dll
-		Distance.Assemblies\UnityEngine.dll = Distance.Assemblies\UnityEngine.dll
-		Distance.Assemblies\UnityEngine.UI.dll = Distance.Assemblies\UnityEngine.UI.dll
 	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.Shared", "Distance.Shared\Distance.Shared.shproj", "{15B08B61-BEB4-40A6-8789-02B655A4B307}"
@@ -25,12 +23,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{FBE54414-7B3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.ExternalModdingTools", "Distance.ExternalModdingTools\Distance.ExternalModdingTools.csproj", "{7F70DC8B-8FAC-45E6-88A4-9A89217AA8B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.TrackMusic", "Distance.TrackMusic\Distance.TrackMusic.csproj", "{7282013C-A962-4903-B580-A54D99AAF034}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.TrackMusic.Content", "Distance.TrackMusic.Content\Distance.TrackMusic.Content.shproj", "{58BFEE58-73A0-4451-9DA7-0FB51F1C53EA}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.Shared\Distance.Shared.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{07d04eb9-6ab9-46cf-a3c3-a2e1d24fbeef}*SharedItemsImports = 13
 		Distance.Shared\Distance.Shared.projitems*{15b08b61-beb4-40a6-8789-02b655a4b307}*SharedItemsImports = 13
+		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
+		Distance.Shared\Distance.Shared.projitems*{7282013c-a962-4903-b580-a54d99aaf034}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,10 @@ Global
 		{7F70DC8B-8FAC-45E6-88A4-9A89217AA8B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F70DC8B-8FAC-45E6-88A4-9A89217AA8B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F70DC8B-8FAC-45E6-88A4-9A89217AA8B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7282013C-A962-4903-B580-A54D99AAF034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7282013C-A962-4903-B580-A54D99AAF034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7282013C-A962-4903-B580-A54D99AAF034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7282013C-A962-4903-B580-A54D99AAF034}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

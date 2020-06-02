@@ -1,0 +1,14 @@
+﻿{
+    "FriendlyName": "Track Music",
+    "Author": "Corecii",
+    "Contact": "corecii@corecii.com",
+    "ModuleFileName": "Distance.TrackMusic.dll",
+    "Dependencies": [
+        "System.Windows.Forms.dll"
+    ],
+    "RequiredGSLs": [
+        "com.github.reherc/Centrifuge.Distance"
+    ],
+    "SkipLoad": false,
+    "Priority": 10
+}

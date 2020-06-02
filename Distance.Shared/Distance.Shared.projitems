@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Events\Managers\AwakeGameManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ObjectEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Harmony\Assembly-CSharp\GameManager\Awake.cs" />
   </ItemGroup>
 </Project>

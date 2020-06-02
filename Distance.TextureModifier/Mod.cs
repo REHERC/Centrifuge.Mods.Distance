@@ -3,6 +3,7 @@ using Centrifuge.Distance.GUI.Data;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
+using Reactor.API.Runtime.Patching;
 using Reactor.API.Storage;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,7 +42,7 @@ namespace Distance.TextureModifier
 
             Modifier = new ResourceModificator(Loader);
 
-            Reactor.API.Runtime.Patching.RuntimePatcher.AutoPatch();
+            RuntimePatcher.AutoPatch();
 
             Events.Managers.AwakeGameManager.Subscribe(LateInitialize);
             Events.Level.PostLoad.Subscribe(LevelPostLoad);

@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7282013C-A962-4903-B580-A54D99AAF034}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Distance.TrackMusic</RootNamespace>
+    <AssemblyName>Distance.TrackMusic</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.1.2.0.1\lib\net35\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\Distance.Assemblies\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp.dev">
+      <HintPath>..\Distance.Assemblies\Assembly-CSharp.dev.dll</HintPath>
+    </Reference>
+    <Reference Include="Centrifuge.Distance, Version=1.0.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\Centrifuge.Distance.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJSON, Version=0.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LitJson.0.15.0\lib\net35\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="Reactor.API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.Mod.SDK.2.2.0\lib\net35\Reactor.API.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationLogic.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\AudioEventTrigger\PlayMusic.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\AudioManager\Awake.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\AudioManager\OnEventPostLoad.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\GameObjectEx\GetDisplayName.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\LevelDataTab\Update.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\LevelEditor\OnLevelEditorExit.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\LevelSettings\Visit.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Level\ClearAndReset.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Level\LoadHelperEnumerator.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\MusicTrigger\PlayMusic.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\MusicTrigger\Visit.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\MusicZone\SetState.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\MusicZone\PlayMusic.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\MusicZone\Visit.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\NGUIComponentInspector\OnRemoveComponentClicked.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\NGUIComponentInspector\Init.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\ZEventListener\ComponentDescription_.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\ZEventListener\DisplayName_.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\ZEventListener\Visit-MusicChoice.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\ZEventListener\Visit-MusicTrack.cs" />
+    <Compile Include="LevelEditorLogic.cs" />
+    <Compile Include="Mod.cs" />
+    <Compile Include="Models\AttachedData.cs" />
+    <Compile Include="Models\CustomData.cs" />
+    <Compile Include="Models\CustomDataInfo.cs" />
+    <Compile Include="Models\MusicChoice.cs" />
+    <Compile Include="Models\MusicChoiceEntry.cs" />
+    <Compile Include="Models\MusicTrack.cs" />
+    <Compile Include="Models\MusicZoneData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoundPlayerLogic.cs" />
+    <Compile Include="Util\Base16k.cs" />
+    <Compile Include="VariablesLogic.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="..\Distance.Shared\Distance.Shared.projitems" Label="Shared" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>SET MODNAME=Distance Track Music
+SET INCLUDE=$(SolutionDir)Distance.TrackMusic.Content
+
+SET BUILD=$(ProjectDir)$(OutDir)
+SET PACKAGES=$(SolutionDir)Build\%25MODNAME%25\Centrifuge
+
+SET MOD=%25PACKAGES%25\Mods\%25MODNAME%25
+
+REM ===== COPY MOD FILES =====
+
+CALL :MAKEDIR "%25MOD%25"
+
+CALL :COPYDIR "%25INCLUDE%25\Mod" "%25MOD%25"
+CALL :COPY "%25BUILD%25Distance.TrackMusic.dll" "%25MOD%25"
+
+CALL :INCLUDEGSL Centrifuge.Distance
+CALL :INCLUDEDEPENDENCY System.Windows.Forms
+
+EXIT 0
+
+REM ===== BUILD SUBROUTINES  =====
+
+:MAKEDIR
+IF NOT EXIST %251 MKDIR %251
+GOTO :EOF
+
+:COPY
+XCOPY /s /Y /v %251 %252
+GOTO :EOF
+
+:COPYDIR
+XCOPY /i /s /Y /v %251 %252
+GOTO :EOF
+
+:INCLUDEGSL
+CALL :MAKEDIR "%25PACKAGES%25\GameSupport"
+CALL :COPY "%25BUILD%25%251.dll" "%25PACKAGES%25\GameSupport"
+GOTO :EOF
+
+:INCLUDEDEPENDENCY
+CALL :MAKEDIR "%25MOD%25\Dependencies"
+CALL :COPY "%25BUILD%25%251.dll" "%25MOD%25\Dependencies"
+GOTO :EOF</PostBuildEvent>
+  </PropertyGroup>
+</Project>
