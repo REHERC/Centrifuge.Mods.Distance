@@ -83,7 +83,7 @@
     <Compile Include="StateProvider.cs" />
     <Compile Include="Tool.cs" />
     <Compile Include="ToolManager.cs" />
-    <Compile Include="Tools\ReadShaderProperties.cs" />
+    <Compile Include="Tools\ReadShaderProperties\ReadShaderProperties.cs" />
     <Compile Include="Tools\TestTool.cs" />
     <EmbeddedResource Include="Forms\LoggerWindow.resx">
       <DependentUpon>LoggerWindow.cs</DependentUpon>
