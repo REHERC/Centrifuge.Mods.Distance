@@ -30,7 +30,7 @@ namespace Distance.TrackMusic
                 return false;
             }
 
-            if (!mod_.enabled_)
+            if (!mod_.Enabled)
             {
                 StopCustomMusic();
                 return false;

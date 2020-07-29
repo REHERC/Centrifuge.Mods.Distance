@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Distance.TrackMusic.Editor.Tools;
+using UnityEngine;
 
 namespace Distance.TrackMusic
 {
@@ -15,27 +16,26 @@ namespace Distance.TrackMusic
             mod_ = GetComponent<Mod>();
         }
 
-
         public void AddMusicChoiceSelection()
         {
-            EditorTools.AddMusicChoiceTool.Target = G.Sys.LevelEditor_.SelectedObjects_.ToArray();
-            G.Sys.LevelEditor_.StartNewToolJobOfType(typeof(EditorTools.AddMusicChoiceTool), false);
+            AddMusicChoiceTool.Target = G.Sys.LevelEditor_.SelectedObjects_.ToArray();
+            G.Sys.LevelEditor_.StartNewToolJobOfType(typeof(AddMusicChoiceTool), false);
         }
 
         public void AddMusicChoiceLevelSettings()
         {
-            EditorTools.AddMusicChoiceTool.Target = new GameObject[] { G.Sys.LevelEditor_.WorkingSettings_.gameObject };
-            G.Sys.LevelEditor_.StartNewToolJobOfType(typeof(EditorTools.AddMusicChoiceTool), false);
+            AddMusicChoiceTool.Target = new GameObject[] { G.Sys.LevelEditor_.WorkingSettings_.gameObject };
+            G.Sys.LevelEditor_.StartNewToolJobOfType(typeof(AddMusicChoiceTool), false);
         }
 
         public void AddMusicTrack()
         {
-            G.Sys.LevelEditor_.StartNewToolJobOfType(typeof(EditorTools.AddMusicTrackTool), false);
+            G.Sys.LevelEditor_.StartNewToolJobOfType(typeof(AddMusicTrackTool), false);
         }
 
         public void ToggleCustomMusic()
         {
-            G.Sys.LevelEditor_.StartNewToolJobOfType(typeof(EditorTools.ToggleMusicTool), false);
+            G.Sys.LevelEditor_.StartNewToolJobOfType(typeof(ToggleMusicTool), false);
         }
 
         public void ResetLevelSettings(LevelSettings __instance)
@@ -51,7 +51,9 @@ namespace Distance.TrackMusic
             }
 
             __instance.gameObject.RemoveComponents<ZEventListener>();
+
             mod_.soundPlayer_.Update();
+
             NeedsRefresh = true;
         }
     }

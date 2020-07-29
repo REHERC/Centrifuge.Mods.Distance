@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distance.Assemblies", "Distance.Assemblies", "{83201AB6-55D6-472B-98F8-BA11061CC2EA}"
 	ProjectSection(SolutionItems) = preProject
 		Distance.Assemblies\Assembly-CSharp-firstpass.dll = Distance.Assemblies\Assembly-CSharp-firstpass.dll
-		Distance.Assemblies\Assembly-CSharp.dev.dll = Distance.Assemblies\Assembly-CSharp.dev.dll
 	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.Shared", "Distance.Shared\Distance.Shared.shproj", "{15B08B61-BEB4-40A6-8789-02B655A4B307}"

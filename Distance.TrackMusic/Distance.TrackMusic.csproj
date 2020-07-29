@@ -36,20 +36,20 @@
     <Reference Include="0Harmony, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Lib.Harmony.1.2.0.1\lib\net35\0Harmony.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-CSharp, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.18\lib\net35\Assembly-CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>..\Distance.Assemblies\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp.dev">
-      <HintPath>..\Distance.Assemblies\Assembly-CSharp.dev.dll</HintPath>
-    </Reference>
-    <Reference Include="Centrifuge.Distance, Version=1.0.12.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\Centrifuge.Distance.dll</HintPath>
+    <Reference Include="Centrifuge.Distance, Version=1.0.18.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.18\lib\net35\Centrifuge.Distance.dll</HintPath>
     </Reference>
     <Reference Include="LitJSON, Version=0.15.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LitJson.0.15.0\lib\net35\LitJSON.dll</HintPath>
     </Reference>
     <Reference Include="NAudio, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\NAudio.dll</HintPath>
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.18\lib\net35\NAudio.dll</HintPath>
     </Reference>
     <Reference Include="Reactor.API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Centrifuge.Mod.SDK.2.2.0\lib\net35\Reactor.API.dll</HintPath>
@@ -62,17 +62,26 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\UnityEngine.dll</HintPath>
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.18\lib\net35\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\UnityEngine.Networking.dll</HintPath>
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.18\lib\net35\UnityEngine.Networking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.12\lib\net35\UnityEngine.UI.dll</HintPath>
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.18\lib\net35\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationLogic.cs" />
+    <Compile Include="Editor\Tools\AddMusicChoiceAction.cs" />
+    <Compile Include="Editor\Tools\AddMusicChoiceTool.cs" />
+    <Compile Include="Editor\Tools\AddMusicTrackAction.cs" />
+    <Compile Include="Editor\Tools\AddMusicTrackTool.cs" />
+    <Compile Include="Editor\Tools\AddOrRemoveMusicChoiceAction.cs" />
+    <Compile Include="Editor\Tools\RemoveMusicChoiceAction.cs" />
+    <Compile Include="Editor\Tools\RemoveMusicChoiceTool.cs" />
+    <Compile Include="Editor\Tools\ToggleMusicAction.cs" />
+    <Compile Include="Editor\Tools\ToggleMusicTool.cs" />
     <Compile Include="Harmony\Assembly-CSharp\AudioEventTrigger\PlayMusic.cs" />
     <Compile Include="Harmony\Assembly-CSharp\AudioManager\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\AudioManager\OnEventPostLoad.cs" />
@@ -94,7 +103,7 @@
     <Compile Include="Harmony\Assembly-CSharp\ZEventListener\Visit-MusicChoice.cs" />
     <Compile Include="Harmony\Assembly-CSharp\ZEventListener\Visit-MusicTrack.cs" />
     <Compile Include="LevelEditorLogic.cs" />
-    <Compile Include="Mod.cs" />
+    <Compile Include="Entry.cs" />
     <Compile Include="Models\AttachedData.cs" />
     <Compile Include="Models\CustomData.cs" />
     <Compile Include="Models\CustomDataInfo.cs" />

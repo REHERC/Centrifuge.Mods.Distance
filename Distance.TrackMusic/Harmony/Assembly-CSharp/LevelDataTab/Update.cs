@@ -11,11 +11,13 @@ namespace Distance.TrackMusic.Harmony
         internal static void Postfix(LevelDataTab __instance, ref bool ___propertiesAreBeingDisplayed_)
         {
             Mod mod = Mod.Instance;
+
             if (___propertiesAreBeingDisplayed_ || __instance.IsSelectionValid_)
             {
                 if (mod.levelEditor_.NeedsRefresh)
                 {
                     mod.levelEditor_.NeedsRefresh = false;
+
                     try
                     {
                         __instance.GetComponent<NGUIObjectInspectorTabAbstract>()?.ClearComponentInspectors();
