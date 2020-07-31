@@ -1,0 +1,12 @@
+﻿{
+  "FriendlyName": "<mod_friendly_name>",
+  "Author": "<mod_author>",
+  "Contact": "<author_contact>",
+  "ModuleFileName": "MySuperMod.dll",
+  "Priority": 10,
+  "SkipLoad": false,
+  "Dependencies": [],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ]
+}
