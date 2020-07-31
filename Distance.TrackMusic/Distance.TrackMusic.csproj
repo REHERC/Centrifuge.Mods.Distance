@@ -117,7 +117,6 @@
     <Compile Include="Harmony\Assembly-CSharp\ZEventListener\Visit-MusicTrack.cs" />
     <Compile Include="LevelEditorLogic.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="Mod.cs" />
     <Compile Include="Models\AttachedData.cs" />
     <Compile Include="Models\CustomData.cs" />
     <Compile Include="Models\CustomDataInfo.cs" />
@@ -131,7 +130,6 @@
     <Compile Include="VariablesLogic.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="mod.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

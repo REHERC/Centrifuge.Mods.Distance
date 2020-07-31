@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distance.Assemblies", "Distance.Assemblies", "{83201AB6-55D6-472B-98F8-BA11061CC2EA}"
 	ProjectSection(SolutionItems) = preProject
 		Distance.Assemblies\Assembly-CSharp-firstpass.dll = Distance.Assemblies\Assembly-CSharp-firstpass.dll
+		Distance.Assemblies\Mono.Windows.Forms.dll = Distance.Assemblies\Mono.Windows.Forms.dll
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{FBE54414-7B38-45CC-8C16-CAA856909722}"
