@@ -1,4 +1,4 @@
-﻿using LitJson;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,12 +29,12 @@ namespace Distance.TrackMusic.Models
 
         public override bool ReadDataString(string data)
         {
-            JsonMapper.ToObject<MusicChoice>(data);
+            JsonConvert.PopulateObject(data, this);
             return true;
         }
         public override string WriteDataString()
         {
-            return JsonMapper.ToJson(this);
+            return JsonConvert.SerializeObject(this);
         }
 
         public MusicChoice Clone()

@@ -1,6 +1,5 @@
-﻿using Distance.Shared.Extensions;
-using Distance.TrackMusic.Util;
-using LitJson;
+﻿using Distance.TrackMusic.Util;
+using Newtonsoft.Json;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -65,36 +64,27 @@ namespace Distance.TrackMusic.Models
         public override bool ReadDataString(string data)
         {
             var separatorLoc = data.IndexOf(':');
-
             if (separatorLoc == -1)
             {
                 return false;
             }
-
             var numSub = data.Substring(0, separatorLoc);
-            
-            var success = int.TryParse(numSub, out int num);
-
+            int num = -1;
+            var success = int.TryParse(numSub, out num);
             if (!success || data.Length < separatorLoc + 1 + num)
             {
                 return false;
             }
-
             var jsonStr = data.Substring(separatorLoc + 1, num);
             var embedStr = data.Substring(separatorLoc + 1 + num);
             var embedBytes = Base16k.FromBase16kString(embedStr);
-            
-            //JsonConvert.PopulateObject(jsonStr, this);
-
-            var deserialized = JsonMapper.ToObject<MusicTrack>(jsonStr);
-            this.CopyPropertiesFrom(deserialized);
-
+            JsonConvert.PopulateObject(jsonStr, this);
             Embedded = embedBytes;
             return true;
         }
         public override string WriteDataString()
         {
-            var asJson = JsonMapper.ToJson(this);
+            var asJson = JsonConvert.SerializeObject(this);
             var embedStr = Base16k.ToBase16kString(Embedded);
             return asJson.Length.ToString() + ':' + asJson + embedStr;
         }
