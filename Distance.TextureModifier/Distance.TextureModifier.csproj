@@ -87,7 +87,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
-  <Import Project="..\Distance.Shared\Distance.Shared.projitems" Label="Shared" />
   <Import Project="..\Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

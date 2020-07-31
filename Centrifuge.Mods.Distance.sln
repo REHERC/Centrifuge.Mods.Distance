@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distance.Assemblies", "Dist
 		Distance.Assemblies\Assembly-CSharp-firstpass.dll = Distance.Assemblies\Assembly-CSharp-firstpass.dll
 	EndProjectSection
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.Shared", "Distance.Shared\Distance.Shared.shproj", "{15B08B61-BEB4-40A6-8789-02B655A4B307}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{FBE54414-7B38-45CC-8C16-CAA856909722}"
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
@@ -28,12 +26,9 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.TrackMusic.Content
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Distance.Shared\Distance.Shared.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{07d04eb9-6ab9-46cf-a3c3-a2e1d24fbeef}*SharedItemsImports = 13
-		Distance.Shared\Distance.Shared.projitems*{15b08b61-beb4-40a6-8789-02b655a4b307}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
-		Distance.Shared\Distance.Shared.projitems*{7282013c-a962-4903-b580-a54d99aaf034}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

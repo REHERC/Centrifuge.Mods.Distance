@@ -44,16 +44,13 @@ namespace Distance.TextureModifier
 
             RuntimePatcher.AutoPatch();
 
-            Events.Managers.AwakeGameManager.Subscribe(LateInitialize);
             Events.Level.PostLoad.Subscribe(LevelPostLoad);
 
             CreateMenus();
         }
 
-        internal void LateInitialize(Events.Managers.AwakeGameManager.Data data)
+        internal void LateInitialize(IManager manager)
         {
-            Events.Managers.AwakeGameManager.Unsubscribe(LateInitialize);
-
             StartCoroutine(ReskinResourcePrefabs());
         }
 
