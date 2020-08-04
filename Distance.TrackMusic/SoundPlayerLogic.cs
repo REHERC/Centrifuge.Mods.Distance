@@ -18,9 +18,9 @@ namespace Distance.TrackMusic
         
         public void Update()
         {
-            mod_.variables_.CachedMusicTrack.Update();
-            mod_.variables_.CachedMusicChoice.Update();
-            mod_.variables_.CachedMusicZoneData.Update();
+            mod_.Variables.CachedMusicTrack.Update();
+            mod_.Variables.CachedMusicChoice.Update();
+            mod_.Variables.CachedMusicZoneData.Update();
         }
 
         public bool PlayTrack(string trackName, float fadeTimeMs = 2000f, bool force = false)
@@ -50,7 +50,7 @@ namespace Distance.TrackMusic
                 return false;
             }
 
-            if (!force && mod_.variables_.PlayingMusic && AudioManager.CurrentAudioFile_ != null && AudioManager.CurrentAudioFile_.FileName == track.FileLocation)
+            if (!force && mod_.Variables.PlayingMusic && AudioManager.CurrentAudioFile_ != null && AudioManager.CurrentAudioFile_.FileName == track.FileLocation)
             {
                 return true;
             }
@@ -68,7 +68,7 @@ namespace Distance.TrackMusic
             
             try
             {
-                G.Sys.AudioManager_.PlayMP3(track.FileLocation, mod_.variables_.PlayingMusic ? 0f : fadeTimeMs);
+                G.Sys.AudioManager_.PlayMP3(track.FileLocation, mod_.Variables.PlayingMusic ? 0f : fadeTimeMs);
             }
             catch (Exception e)
             {
@@ -90,8 +90,8 @@ namespace Distance.TrackMusic
             G.Sys.AudioManager_.perLevelMusicOverride_ = true;
             G.Sys.AudioManager_.currentMusicState_ = AudioManager.MusicState.PerLevel;
 
-            mod_.variables_.CurrentTrackName = trackName;
-            mod_.variables_.PlayingMusic = true;
+            mod_.Variables.CurrentTrackName = trackName;
+            mod_.Variables.PlayingMusic = true;
 
             AudioManager.PostEvent("Mute_All_Music");
 
@@ -100,13 +100,13 @@ namespace Distance.TrackMusic
 
         public void StopCustomMusic()
         {
-            if (mod_.variables_.PlayingMusic && G.Sys.AudioManager_.CurrentMusicState_ == AudioManager.MusicState.PerLevel)
+            if (mod_.Variables.PlayingMusic && G.Sys.AudioManager_.CurrentMusicState_ == AudioManager.MusicState.PerLevel)
             {
                 G.Sys.AudioManager_.perLevelMusicOverride_ = false;
 
                 G.Sys.AudioManager_.SwitchToOfficialMusic();
-                mod_.variables_.PlayingMusic = false;
-                mod_.variables_.CurrentTrackName = null;
+                mod_.Variables.PlayingMusic = false;
+                mod_.Variables.CurrentTrackName = null;
             }
         }
 
@@ -119,7 +119,7 @@ namespace Distance.TrackMusic
                 return null;
             }
 
-            var choice = mod_.variables_.CachedMusicChoice.GetOrCreate(listener, () => MusicChoice.FromObject(listener));
+            var choice = mod_.Variables.CachedMusicChoice.GetOrCreate(listener, () => MusicChoice.FromObject(listener));
             
             if (choice == null)
             {
@@ -147,7 +147,7 @@ namespace Distance.TrackMusic
 
             Update();
 
-            var tracks = mod_.variables_.CachedMusicTrack.Pairs.Select(pair => pair.Value);
+            var tracks = mod_.Variables.CachedMusicTrack.Pairs.Select(pair => pair.Value);
             var embedded = tracks.Where(track => track.Embedded.Length > 0);
             var download = tracks.Where(track => track.Embedded.Length == 0 && !string.IsNullOrEmpty(track.DownloadUrl));
 
@@ -155,7 +155,7 @@ namespace Distance.TrackMusic
             foreach (var track in embedded.Concat(download))
             {
                 DownloadTrack(track, levelPath);
-                if (stopwatch.ElapsedMilliseconds >= mod_.config_.MaxMusicLevelLoadTimeMilli)
+                if (stopwatch.ElapsedMilliseconds >= mod_.Config.MaxMusicLevelLoadTimeMilli)
                 {
                     break;
                 }
@@ -164,7 +164,7 @@ namespace Distance.TrackMusic
 
         public MusicTrack GetTrack(string name)
         {
-            foreach (var pair in mod_.variables_.CachedMusicTrack.Pairs)
+            foreach (var pair in mod_.Variables.CachedMusicTrack.Pairs)
             {
                 var track = pair.Value;
 
@@ -247,13 +247,13 @@ namespace Distance.TrackMusic
 
                 while (!operation.isDone)
                 {
-                    if (stopwatch.ElapsedMilliseconds > mod_.config_.MaxMusicDownloadTimeMilli)
+                    if (stopwatch.ElapsedMilliseconds > mod_.Config.MaxMusicDownloadTimeMilli)
                     {
                         request.Abort();
                         Debug.Log($"Failed to download {track.Name}: it took too long!");
                         break;
                     }
-                    else if (request.downloadedBytes >= (ulong)mod_.config_.MaxMusicDownloadSizeBytes)
+                    else if (request.downloadedBytes >= (ulong)mod_.Config.MaxMusicDownloadSizeBytes)
                     {
                         request.Abort();
                         Debug.Log($"Failed to download {track.Name}: it is too big!");

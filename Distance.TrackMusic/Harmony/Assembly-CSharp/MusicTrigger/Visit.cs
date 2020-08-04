@@ -8,7 +8,7 @@ namespace Distance.TrackMusic.Harmony
         [HarmonyPostfix]
         internal static void Postfix(MusicTrigger __instance, IVisitor visitor)
         {
-            LevelEditorLogic levelEditor = Mod.Instance.levelEditor_;
+            LevelEditorLogic levelEditor = Mod.Instance.LevelEditor;
 
             if (visitor is NGUIComponentInspector)
             {

@@ -8,7 +8,7 @@ namespace Distance.TrackMusic.Harmony
         [HarmonyPostfix]
         internal static void Postfix(MusicTrigger __instance)
         {
-            SoundPlayerLogic soundPlayer = Mod.Instance.soundPlayer_;
+            SoundPlayerLogic soundPlayer = Mod.Instance.SoundPlayer;
             soundPlayer.PlayTrack(soundPlayer.GetMusicChoiceValue(__instance.gameObject, "Trigger"), 0f);
         }
     }

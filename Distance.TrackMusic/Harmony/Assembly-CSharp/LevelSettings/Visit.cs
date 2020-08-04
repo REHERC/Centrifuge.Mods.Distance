@@ -8,8 +8,8 @@ namespace Distance.TrackMusic.Harmony
         [HarmonyPostfix]
         internal static void Postfix(LevelSettings __instance, IVisitor visitor)
         {
-            SoundPlayerLogic soundPlayer = Mod.Instance.soundPlayer_;
-            LevelEditorLogic levelEditor = Mod.Instance.levelEditor_;
+            SoundPlayerLogic soundPlayer = Mod.Instance.SoundPlayer;
+            LevelEditorLogic levelEditor = Mod.Instance.LevelEditor;
 
             soundPlayer.DownloadAllTracks();
 

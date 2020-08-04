@@ -16,15 +16,15 @@ namespace Distance.TrackMusic.Harmony
             Debug.Log($"SetState {goingIn}");
             try
             {
-                var previous = mod.variables_.CachedMusicZoneData.GetOrCreate(__instance, () => new MusicZoneData());
+                var previous = mod.Variables.CachedMusicZoneData.GetOrCreate(__instance, () => new MusicZoneData());
                 if (goingIn)
                 {
-                    previous.PreviousTrackName = mod.variables_.CurrentTrackName;
-                    mod.soundPlayer_.PlayTrack(mod.soundPlayer_.GetMusicChoiceValue(__instance.gameObject, "Zone"), 0f);
+                    previous.PreviousTrackName = mod.Variables.CurrentTrackName;
+                    mod.SoundPlayer.PlayTrack(mod.SoundPlayer.GetMusicChoiceValue(__instance.gameObject, "Zone"), 0f);
                 }
                 else
                 {
-                    mod.soundPlayer_.PlayTrack(previous.PreviousTrackName, 0f);
+                    mod.SoundPlayer.PlayTrack(previous.PreviousTrackName, 0f);
                 }
             }
             catch (Exception e)

@@ -45,14 +45,14 @@ namespace Distance.TrackMusic
             foreach (var comp in __instance.gameObject.GetComponents<ZEventListener>())
             {
                 DestroyImmediate(comp); // required for when level clear and load happen on the same frame (all the time)
-                mod_.variables_.CachedMusicChoice.Remove(comp);
-                mod_.variables_.CachedMusicTrack.Remove(comp);
+                mod_.Variables.CachedMusicChoice.Remove(comp);
+                mod_.Variables.CachedMusicTrack.Remove(comp);
                 comp.Destroy();
             }
 
             __instance.gameObject.RemoveComponents<ZEventListener>();
 
-            mod_.soundPlayer_.Update();
+            mod_.SoundPlayer.Update();
 
             NeedsRefresh = true;
         }

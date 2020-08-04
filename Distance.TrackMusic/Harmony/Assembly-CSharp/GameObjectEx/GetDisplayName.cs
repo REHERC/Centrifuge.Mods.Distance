@@ -23,7 +23,7 @@ namespace Distance.TrackMusic.Harmony
 
             if (component.eventName_.StartsWith(CustomDataInfo.GetPrefix<MusicTrack>()))
             {
-                var track = Mod.Instance.variables_.CachedMusicTrack.GetOrCreate(component, () => MusicTrack.FromObject(component));
+                var track = Mod.Instance.Variables.CachedMusicTrack.GetOrCreate(component, () => MusicTrack.FromObject(component));
                 
                 if (track == null)
                 {

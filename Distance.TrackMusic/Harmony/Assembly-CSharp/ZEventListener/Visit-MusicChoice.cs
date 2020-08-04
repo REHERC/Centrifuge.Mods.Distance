@@ -29,7 +29,7 @@ namespace Distance.TrackMusic.Harmony
             
             var isEditing = inspector.isEditing_;
 
-            var data = mod.variables_.CachedMusicChoice.GetOrCreate(__instance, () => new MusicChoice());
+            var data = mod.Variables.CachedMusicChoice.GetOrCreate(__instance, () => new MusicChoice());
             if (data.LastWrittenData != __instance.eventName_)
             {
                 data.ReadObject(__instance);
@@ -81,7 +81,7 @@ namespace Distance.TrackMusic.Harmony
                 return;
             }
 
-            Mod.Instance.variables_.CachedMusicChoice.GetOrCreate(__instance, () => MusicChoice.FromObject(__instance));
+            Mod.Instance.Variables.CachedMusicChoice.GetOrCreate(__instance, () => MusicChoice.FromObject(__instance));
         }
     }
 }

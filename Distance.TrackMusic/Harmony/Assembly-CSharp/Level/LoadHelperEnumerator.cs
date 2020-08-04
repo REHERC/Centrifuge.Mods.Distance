@@ -8,7 +8,7 @@ namespace Distance.TrackMusic.Harmony
         [HarmonyPrefix]
         internal static void Prefix(bool isWorkingStateLevel)
         {
-            Mod.Instance.levelEditor_.IsWorkingStateLevel = isWorkingStateLevel;
+            Mod.Instance.LevelEditor.IsWorkingStateLevel = isWorkingStateLevel;
         }
     }
 }

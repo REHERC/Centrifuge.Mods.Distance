@@ -4,9 +4,7 @@
     "Contact": "corecii@corecii.com",
     "ModuleFileName": "Distance.TrackMusic.dll",
     "Dependencies": [
-        "System.Runtime.Serialization.dll",
-        "System.Windows.Forms.dll",
-        "Newtonsoft.Json.dll"
+        "System.Windows.Forms.dll"
     ],
     "RequiredGSLs": [
         "com.github.reherc/Centrifuge.Distance"

@@ -8,12 +8,12 @@ namespace Distance.TrackMusic.Harmony
         [HarmonyPrefix]
         internal static void Prefix(Level __instance, bool destroyObjects)
         {
-            if (destroyObjects && !Mod.Instance.levelEditor_.IsWorkingStateLevel)
+            if (destroyObjects && !Mod.Instance.LevelEditor.IsWorkingStateLevel)
             {
-                Mod.Instance.levelEditor_.ResetLevelSettings(__instance.Settings_);
+                Mod.Instance.LevelEditor.ResetLevelSettings(__instance.Settings_);
             }
 
-            Mod.Instance.levelEditor_.IsWorkingStateLevel = false;
+            Mod.Instance.LevelEditor.IsWorkingStateLevel = false;
         }
     }
 }

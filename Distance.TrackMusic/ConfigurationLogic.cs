@@ -8,7 +8,7 @@ namespace Distance.TrackMusic
     {
         private Settings Config;
 
-        public void Awake()
+        private void Awake()
         {
             Config = new Settings("Config");
 
@@ -26,7 +26,7 @@ namespace Distance.TrackMusic
             }
         }
 
-        public void Update()
+        private void Update()
         {
             if (Config.Dirty)
             {

@@ -14,9 +14,9 @@ namespace Distance.TrackMusic.Harmony
 
             if (___propertiesAreBeingDisplayed_ || __instance.IsSelectionValid_)
             {
-                if (mod.levelEditor_.NeedsRefresh)
+                if (mod.LevelEditor.NeedsRefresh)
                 {
-                    mod.levelEditor_.NeedsRefresh = false;
+                    mod.LevelEditor.NeedsRefresh = false;
 
                     try
                     {

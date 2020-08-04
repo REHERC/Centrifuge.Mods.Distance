@@ -25,11 +25,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.TrackMusic", "Dist
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.TrackMusic.Content", "Distance.TrackMusic.Content\Distance.TrackMusic.Content.shproj", "{58BFEE58-73A0-4451-9DA7-0FB51F1C53EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.SceneDumper", "Distance.SceneDumper\Distance.SceneDumper.csproj", "{0E1F111D-3A74-43C6-804E-C3D316624C64}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.SceneDumper.Content", "Distance.SceneDumper.Content\Distance.SceneDumper.Content.shproj", "{E84718C2-200C-415F-AD1D-0CC133C38E70}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{07d04eb9-6ab9-46cf-a3c3-a2e1d24fbeef}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
+		Distance.SceneDumper.Content\Distance.SceneDumper.Content.projitems*{e84718c2-200c-415f-ad1d-0cc133c38e70}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +53,10 @@ Global
 		{7282013C-A962-4903-B580-A54D99AAF034}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7282013C-A962-4903-B580-A54D99AAF034}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7282013C-A962-4903-B580-A54D99AAF034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E1F111D-3A74-43C6-804E-C3D316624C64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E1F111D-3A74-43C6-804E-C3D316624C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E1F111D-3A74-43C6-804E-C3D316624C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E1F111D-3A74-43C6-804E-C3D316624C64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,7 @@ namespace Distance.TrackMusic.Harmony
         {
             if (AudioManager.AllowCustomMusic_)
             {
-                SoundPlayerLogic soundPlayer = Mod.Instance.soundPlayer_;
+                SoundPlayerLogic soundPlayer = Mod.Instance.SoundPlayer;
 
                 soundPlayer.DownloadAllTracks();
                 

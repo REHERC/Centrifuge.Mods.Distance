@@ -29,7 +29,7 @@ namespace Distance.TrackMusic.Harmony
             
             var isEditing = inspector.isEditing_;
             
-            var data = mod.variables_.CachedMusicTrack.GetOrCreate(__instance, () => new MusicTrack());
+            var data = mod.Variables.CachedMusicTrack.GetOrCreate(__instance, () => new MusicTrack());
             
             if (data.LastWrittenData != __instance.eventName_)
             {
@@ -87,25 +87,25 @@ namespace Distance.TrackMusic.Harmony
                     data.WriteObject(__instance);
                     data.LastWrittenData = __instance.eventName_;
                     data.LastWritten = data.Clone();
-                    var lastTrackName = mod.variables_.CurrentTrackName;
+                    var lastTrackName = mod.Variables.CurrentTrackName;
 
                     if (lastTrackName == old.Name)
                     {
-                        mod.soundPlayer_.StopCustomMusic();
+                        mod.SoundPlayer.StopCustomMusic();
                     }
 
-                    mod.soundPlayer_.DownloadAllTracks();
+                    mod.SoundPlayer.DownloadAllTracks();
 
-                    if (lastTrackName == data.Name || mod.soundPlayer_.GetMusicChoiceValue(G.Sys.LevelEditor_.WorkingSettings_.gameObject, "Level") == data.Name)
+                    if (lastTrackName == data.Name || mod.SoundPlayer.GetMusicChoiceValue(G.Sys.LevelEditor_.WorkingSettings_.gameObject, "Level") == data.Name)
                     {
-                        mod.soundPlayer_.PlayTrack(data.Name, 0f);
+                        mod.SoundPlayer.PlayTrack(data.Name, 0f);
                     }
                 }
             }
 
             visitor.Visit("Name", ref data.Name, null);
             visitor.Visit("Type", ref data.FileType, null);
-            visitor.Visit("Embed File", ref data.EmbedFile, mod.variables_.MusicTrackOptions);
+            visitor.Visit("Embed File", ref data.EmbedFile, mod.Variables.MusicTrackOptions);
             
             visitor.VisitAction("Select File", () =>
             {
@@ -123,7 +123,7 @@ namespace Distance.TrackMusic.Harmony
                 {
                     data.EmbedFile = dlgOpen.FileName;
                 }
-            }, mod.variables_.MusicTrackButtonOptions);
+            }, mod.Variables.MusicTrackButtonOptions);
 
             visitor.Visit("Download URL", ref data.DownloadUrl, null);
 
@@ -147,7 +147,7 @@ namespace Distance.TrackMusic.Harmony
                 return;
             }
 
-            Mod.Instance.variables_.CachedMusicTrack.GetOrCreate(__instance, () => MusicTrack.FromObject(__instance));
+            Mod.Instance.Variables.CachedMusicTrack.GetOrCreate(__instance, () => MusicTrack.FromObject(__instance));
         }
     }
 }

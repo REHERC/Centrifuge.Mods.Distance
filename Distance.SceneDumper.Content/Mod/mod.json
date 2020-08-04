@@ -1,0 +1,12 @@
+﻿{
+  "FriendlyName": "Scene Dumper",
+  "Author": "Ciastex",
+  "Contact": "ciastex@live.com",
+  "ModuleFileName": "Distance.SceneDumper.dll",
+  "Priority": 10,
+  "SkipLoad": false,
+  "Dependencies": [],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ]
+}

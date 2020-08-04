@@ -9,7 +9,7 @@ namespace Distance.TrackMusic.Editor.Tools
         public void Toggle()
         {
             Mod.Instance.Enabled = !Mod.Instance.Enabled;
-            Mod.Instance.soundPlayer_.PlayTrack(Mod.Instance.soundPlayer_.GetMusicChoiceValue(G.Sys.LevelEditor_.WorkingSettings_.gameObject, "Level"), 0f);
+            Mod.Instance.SoundPlayer.PlayTrack(Mod.Instance.SoundPlayer.GetMusicChoiceValue(G.Sys.LevelEditor_.WorkingSettings_.gameObject, "Level"), 0f);
         }
 
         public override void Undo()

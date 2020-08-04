@@ -79,7 +79,7 @@ namespace Distance.TrackMusic.Editor.Tools
 
             if (gameObject.HasComponent<LevelSettings>())
             {
-                Mod.Instance.levelEditor_.NeedsRefresh = true;
+                Mod.Instance.LevelEditor.NeedsRefresh = true;
             }
 
             if (!gameObject.HasComponent<LevelSettings>())
