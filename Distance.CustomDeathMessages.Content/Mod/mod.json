@@ -1,0 +1,12 @@
+﻿{
+  "FriendlyName": "Custom Death Messages",
+  "Author": "Nico",
+  "Contact": "SteamID : larnin - Discord : Νісο#5480",
+  "ModuleFileName": "Distance.CustomDeathMessages.dll",
+  "Priority": 10,
+  "SkipLoad": false,
+  "Dependencies": [],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ]
+}
