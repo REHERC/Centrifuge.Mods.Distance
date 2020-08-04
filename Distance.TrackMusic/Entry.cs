@@ -1,4 +1,7 @@
-﻿using Distance.TrackMusic.Models;
+﻿using Centrifuge.Distance.Game;
+using Centrifuge.Distance.GUI.Controls;
+using Centrifuge.Distance.GUI.Data;
+using Distance.TrackMusic.Models;
 using Events;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
@@ -46,6 +49,8 @@ namespace Distance.TrackMusic
 
             DirectoryEx.CreateIfDoesNotExist("EditorMusic/");
 
+            CreateSettingsMenu();
+
             RuntimePatcher.AutoPatch();
         }
 
@@ -53,6 +58,35 @@ namespace Distance.TrackMusic
         {
             Logger.Warning("LateInitialize");
             PatchPostLoad(true);
+        }
+
+        private void CreateSettingsMenu()
+        {
+            MenuTree settingsMenu = new MenuTree("menu.mod.trackmusic", "Track Music Settings")
+            {
+                new IntegerSlider(MenuDisplayMode.Both, "setting:max_music_download_size", "MAXIMUM DOWNLOAD SIZE (MB)")
+                .WithGetter(() => (int)Config.MaxMusicDownloadSizeMB)
+                .WithSetter((x) => Config.MaxMusicDownloadSizeMB = x)
+                .LimitedByRange(10, 150)
+                .WithDefaultValue(30)
+                .WithDescription("Set the maximum file size to download for online music downloading."),
+
+                new IntegerSlider(MenuDisplayMode.Both, "setting:max_music_download_time", "MAXIMUM DOWNLOAD TIME (SECS)")
+                .WithGetter(() => (int)Config.MaxMusicDownloadTimeSeconds)
+                .WithSetter((x) => Config.MaxMusicDownloadTimeSeconds = x)
+                .LimitedByRange(5, 60)
+                .WithDefaultValue(15)
+                .WithDescription("Set the amount of time after which the music download times out (gets canceled)."),
+
+                new IntegerSlider(MenuDisplayMode.Both, "setting:max_level_load_time", "MAXIMUM LOAD TIME (SECS)")
+                .WithGetter(() => (int)Config.MaxMusicLevelLoadTimeSeconds)
+                .WithSetter((x) => Config.MaxMusicLevelLoadTimeSeconds = x)
+                .LimitedByRange(5, 60)
+                .WithDefaultValue(20)
+                .WithDescription("Set the amount of time after which the level loads whether the music download is complete or not."),
+            };
+
+            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "TRACK MUSIC SETTINGS", "Settings for the Track Music mod.");
         }
 
         public void PatchPostLoad(bool subscribe)

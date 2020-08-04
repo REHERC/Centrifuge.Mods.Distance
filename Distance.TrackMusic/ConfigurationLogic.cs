@@ -1,45 +1,16 @@
 ﻿using Reactor.API.Configuration;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace Distance.TrackMusic
 {
     public class ConfigurationLogic : MonoBehaviour
     {
-        private Settings Config;
-
-        private void Awake()
-        {
-            Config = new Settings("Config");
-
-            foreach (var entry in new Dictionary<string, object>()
-            {
-                { "MaxMusicDownloadSizeMB", 30.0f },
-                { "MaxMusicDownloadTimeSeconds", 15.0f },
-                { "MaxMusicLevelLoadTimeSeconds", 20.0f }
-            })
-            {
-                if (!Config.ContainsKey(entry.Key))
-                {
-                    Config[entry.Key] = entry.Value;
-                }
-            }
-        }
-
-        private void Update()
-        {
-            if (Config.Dirty)
-            {
-                Config.Save();
-            }
-        }
-
         #region Properties
-        #region MaxMusicDownloadSize
         public float MaxMusicDownloadSizeMB
         {
-            get => (float)Config["MaxMusicDownloadSizeMB"];
-            set => Config["MaxMusicDownloadSizeMB"] = value;
+            get => Get<float>("MaxMusicDownloadSizeMB");
+            set => Set("MaxMusicDownloadSizeMB", value);
         }
 
         public float MaxMusicDownloadSizeBytes
@@ -47,12 +18,11 @@ namespace Distance.TrackMusic
             get => MaxMusicDownloadSizeMB * 1000 * 1000;
             set => MaxMusicDownloadSizeMB = value / 1000 / 1000;
         }
-        #endregion
-        #region MaxMusicDownloadTime
+
         public float MaxMusicDownloadTimeSeconds
         {
-            get => (float)Config["MaxMusicDownloadTimeSeconds"];
-            set => Config["MaxMusicDownloadTimeSeconds"] = value;
+            get => Get<float>("MaxMusicDownloadTimeSeconds");
+            set => Set("MaxMusicDownloadTimeSeconds", value);
         }
 
         public float MaxMusicDownloadTimeMilli
@@ -60,12 +30,11 @@ namespace Distance.TrackMusic
             get => MaxMusicDownloadTimeSeconds * 1000;
             set => MaxMusicDownloadTimeSeconds = value / 1000;
         }
-        #endregion
-        #region MaxMusicLevelLoadTime
+
         public float MaxMusicLevelLoadTimeSeconds
         {
-            get => (float)Config["MaxMusicLevelLoadTimeSeconds"];
-            set => Config["MaxMusicLevelLoadTimeSeconds"] = value;
+            get => Get<float>("MaxMusicLevelLoadTimeSeconds");
+            set => Set("MaxMusicLevelLoadTimeSeconds", value);
         }
 
         public float MaxMusicLevelLoadTimeMilli
@@ -74,6 +43,42 @@ namespace Distance.TrackMusic
             set => MaxMusicLevelLoadTimeSeconds = value / 1000;
         }
         #endregion
-        #endregion
+
+        internal Settings Config;
+
+        public event Action<ConfigurationLogic> OnChanged;
+
+        private void Load()
+        {
+            Config = new Settings("Config");
+        }
+
+        public void Awake()
+        {
+            Load();
+
+            Get("MaxMusicDownloadSizeMB", 30.0f);
+            Get("MaxMusicDownloadTimeSeconds", 15.0f);
+            Get("MaxMusicLevelLoadTimeSeconds", 20.0f);
+
+            Save();
+        }
+
+        public T Get<T>(string key, T @default = default)
+        {
+            return Config.GetOrCreate(key, @default);
+        }
+
+        public void Set<T>(string key, T value)
+        {
+            Config[key] = value;
+            Save();
+        }
+
+        public void Save()
+        {
+            Config.Save();
+            OnChanged(this);
+        }
     }
 }

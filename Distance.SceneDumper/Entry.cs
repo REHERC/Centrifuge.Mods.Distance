@@ -77,12 +77,11 @@ namespace Distance.SceneDumper
 
                     Process.Start(new ProcessStartInfo(data.FullName));
                 })
-                .WithDescription("Opedns the folder containing dump logs.")
+                .WithDescription("Opens the folder containing dump logs.")
             };
 
             Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "SCENE DUMPER SETTINGS", "Settings for the Scene Dumper mod.");
         }
-
 
         private Hotkey _keybindDumperBasic = null;
         private Hotkey _keybindDumperDetailed = null;
