@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace Distance.SceneDumper
 {
-    [ModEntryPoint("com.github.ciastex/Distance.SceneDumper")]
+    [ModEntryPoint("eu.vddcore/Distance.SceneDumper")]
     public class Mod : MonoBehaviour
     {
         public static Mod Instance;

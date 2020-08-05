@@ -2,21 +2,15 @@
 using System;
 using UnityEngine;
 
-namespace Distance.SceneDumper
+namespace Distance.NoServerLimit
 {
     public class ConfigurationLogic : MonoBehaviour
     {
         #region Properties
-        public string DumpSceneBasic
+        public int MaxPlayerCount
         {
-            get => Get<string>("DumpSceneBasic");
-            set => Set("DumpSceneBasic", value);
-        }
-
-        public string DumpSceneDetailed
-        {
-            get => Get<string>("DumpSceneDetailed");
-            set => Set("DumpSceneDetailed", value);
+            get => Get<int>("MaxPlayerCount");
+            set => Set("MaxPlayerCount", value);
         }
         #endregion
 
@@ -26,15 +20,14 @@ namespace Distance.SceneDumper
 
         private void Load() 
         {
-            Config = new Settings("Config");
+            Config = new Settings("Server");
         }
 
         public void Awake()
         {
             Load();
 
-            Get("DumpSceneBasic", "LeftControl+F7");
-            Get("DumpSceneDetailed", "LeftControl+F8");
+            Get("MaxPlayerCount", 32);
 
             Save();
         }

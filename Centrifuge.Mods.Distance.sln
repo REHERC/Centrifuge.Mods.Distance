@@ -35,10 +35,13 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.CustomDeathMessage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.NoServerLimit", "Distance.NoServerLimit\Distance.NoServerLimit.csproj", "{249F576D-6A84-46D7-BAC7-308810DDDF8B}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.NoServerLimit.Content", "Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.shproj", "{260FE22A-730A-4723-A744-DD06302F92CB}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{07d04eb9-6ab9-46cf-a3c3-a2e1d24fbeef}*SharedItemsImports = 13
+		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{260fe22a-730a-4723-a744-dd06302f92cb}*SharedItemsImports = 13
 		Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.projitems*{57657ebc-1f29-4357-b4ef-45b2b22f5a3f}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
 		Distance.SceneDumper.Content\Distance.SceneDumper.Content.projitems*{e84718c2-200c-415f-ad1d-0cc133c38e70}*SharedItemsImports = 13

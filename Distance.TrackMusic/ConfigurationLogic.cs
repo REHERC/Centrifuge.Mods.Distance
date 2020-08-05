@@ -77,8 +77,8 @@ namespace Distance.TrackMusic
 
         public void Save()
         {
-            Config.Save();
-            OnChanged(this);
+            Config?.Save();
+            OnChanged?.Invoke(this);
         }
     }
 }

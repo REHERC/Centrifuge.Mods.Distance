@@ -2,7 +2,7 @@
   "FriendlyName": "No Server Limit",
   "Author": "Ciastex",
   "Contact": "Discord: Ciastex#6170",
-  "ModuleFileName": "NoServerLimit.dll",
+  "ModuleFileName": "Distance.NoServerLimit.dll",
   "Priority": 10,
   "SkipLoad": false,
   "Dependencies": [],
