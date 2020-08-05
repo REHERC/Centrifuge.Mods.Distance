@@ -1,0 +1,12 @@
+﻿{
+  "FriendlyName": "No Server Limit",
+  "Author": "Ciastex",
+  "Contact": "Discord: Ciastex#6170",
+  "ModuleFileName": "NoServerLimit.dll",
+  "Priority": 10,
+  "SkipLoad": false,
+  "Dependencies": [],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ]
+}

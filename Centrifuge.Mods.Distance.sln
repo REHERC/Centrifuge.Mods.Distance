@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.CustomDeathMessage
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.CustomDeathMessages.Content", "Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.shproj", "{57657EBC-1F29-4357-B4EF-45B2B22F5A3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.NoServerLimit", "Distance.NoServerLimit\Distance.NoServerLimit.csproj", "{249F576D-6A84-46D7-BAC7-308810DDDF8B}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
@@ -66,6 +68,10 @@ Global
 		{5AA5A388-EB90-4280-BB32-4496138DD00E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AA5A388-EB90-4280-BB32-4496138DD00E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AA5A388-EB90-4280-BB32-4496138DD00E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{249F576D-6A84-46D7-BAC7-308810DDDF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{249F576D-6A84-46D7-BAC7-308810DDDF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{249F576D-6A84-46D7-BAC7-308810DDDF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{249F576D-6A84-46D7-BAC7-308810DDDF8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
