@@ -37,6 +37,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.NoServerLimit", "D
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.NoServerLimit.Content", "Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.shproj", "{260FE22A-730A-4723-A744-DD06302F92CB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.CustomWheelHologram", "Distance.CustomWheelHologram\Distance.CustomWheelHologram.csproj", "{041CD13C-84A1-485A-B34F-F6E016C1FECF}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.CustomWheelHologram.Content", "Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.shproj", "{A26D9216-DAEA-4876-A182-70DF4FF5997B}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
@@ -44,6 +48,7 @@ Global
 		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{260fe22a-730a-4723-a744-dd06302f92cb}*SharedItemsImports = 13
 		Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.projitems*{57657ebc-1f29-4357-b4ef-45b2b22f5a3f}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
+		Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.projitems*{a26d9216-daea-4876-a182-70df4ff5997b}*SharedItemsImports = 13
 		Distance.SceneDumper.Content\Distance.SceneDumper.Content.projitems*{e84718c2-200c-415f-ad1d-0cc133c38e70}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +80,10 @@ Global
 		{249F576D-6A84-46D7-BAC7-308810DDDF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{249F576D-6A84-46D7-BAC7-308810DDDF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{249F576D-6A84-46D7-BAC7-308810DDDF8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{041CD13C-84A1-485A-B34F-F6E016C1FECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{041CD13C-84A1-485A-B34F-F6E016C1FECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{041CD13C-84A1-485A-B34F-F6E016C1FECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{041CD13C-84A1-485A-B34F-F6E016C1FECF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

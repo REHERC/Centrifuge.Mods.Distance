@@ -1,0 +1,14 @@
+﻿{
+    "FriendlyName": "Custom Wheel Hologram",
+    "Author": "Ciastex",
+    "Contact": "Discord: Ciastex#6170",
+    "ModuleFileName": "Distance.CustomWheelHologram.dll",
+    "Priority": 10,
+    "SkipLoad": false,
+    "Dependencies": [
+        "System.Windows.Forms.dll"
+    ],
+    "RequiredGSLs": [
+      "com.github.reherc/Centrifuge.Distance"
+    ]
+}

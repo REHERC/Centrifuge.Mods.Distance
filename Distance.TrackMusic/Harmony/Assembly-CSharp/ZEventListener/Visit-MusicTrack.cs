@@ -1,4 +1,6 @@
-﻿using Distance.TrackMusic.Models;
+﻿using Centrifuge.Distance.Data;
+using Centrifuge.Distance.Game;
+using Distance.TrackMusic.Models;
 using Harmony;
 using System;
 using System.IO;
@@ -73,7 +75,11 @@ namespace Distance.TrackMusic.Harmony
                             data.Embedded = new byte[0];
                             data.FileType = ".mp3";
                             anyChanges = true;
-                            // TODO: warn user
+
+                            MessageBox.Create($"Failed to embed {newRef} because {e}", "TRACK MUSIC ERROR")
+                               .SetButtons(MessageButtons.Ok)
+                               .Show();
+
                             UnityEngine.Debug.Log($"Failed to embed {newRef} because {e}");
                         }
                     }
