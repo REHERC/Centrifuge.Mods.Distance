@@ -1,7 +1,10 @@
 ﻿{
   "FriendlyName": "Custom Death Messages",
+  "Description": "Custom death messages (and more) for Distance multiplayer modes.",
   "Author": "Nico",
   "Contact": "SteamID : larnin - Discord : Νісο#5480",
+  "Porter": "Reherc",
+  "PorterContact": "Github: @REHERC",
   "ModuleFileName": "Distance.CustomDeathMessages.dll",
   "Priority": 10,
   "SkipLoad": false,

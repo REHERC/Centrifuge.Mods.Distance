@@ -1,7 +1,10 @@
 ﻿{
   "FriendlyName": "No Server Limit",
+  "Description": "Allows to increase the server players limit when hosting.",
   "Author": "Ciastex",
   "Contact": "Discord: Ciastex#6170",
+  "Porter": "Reherc",
+  "PorterContact": "Github: @REHERC",
   "ModuleFileName": "Distance.NoServerLimit.dll",
   "Priority": 10,
   "SkipLoad": false,

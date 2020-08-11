@@ -80,7 +80,7 @@ namespace Distance.SceneDumper
                 .WithDescription("Opens the folder containing dump logs.")
             };
 
-            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "SCENE DUMPER SETTINGS", "Settings for the Scene Dumper mod.");
+            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "SCENE DUMPER", "Settings for the Scene Dumper mod.");
         }
 
         private Hotkey _keybindDumperBasic = null;

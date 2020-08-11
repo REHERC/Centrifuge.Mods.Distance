@@ -57,7 +57,7 @@ namespace Distance.NoServerLimit
                     .WithDescription("Set the maximum supported server slot count.")
             };
 
-            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "NO SERVER LIMIT SETTINGS", "Change settings of the No Server Limit mod.");
+            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "NO SERVER LIMIT", "Settings for the No Server Limit mod.");
         }
     }
 }

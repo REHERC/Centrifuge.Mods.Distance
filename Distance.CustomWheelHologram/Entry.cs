@@ -109,12 +109,13 @@ namespace Distance.CustomWheelHologram
                         {
                             WheelImage.Delete();
                         }
-                    });
+                    })
+                    .Show();
                 })
                 .WithDescription("Resets the wheel hologram to the game's default.")
             };
 
-            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "CUSTOM WHEEL HOLOGRAM SETTINGS", "Change settings of the Custom Wheel Hologram mod and customize your vehicle's wheel image (works only with vanilla cars).");
+            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "CUSTOM WHEEL HOLOGRAM", "Change settings of the Custom Wheel Hologram mod and customize your vehicle's wheel image (works only with vanilla cars).");
         }
     }
 }

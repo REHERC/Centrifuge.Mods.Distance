@@ -1,14 +1,17 @@
 ﻿{
-    "FriendlyName": "Track Music",
-    "Author": "Corecii",
-    "Contact": "corecii@corecii.com",
-    "ModuleFileName": "Distance.TrackMusic.dll",
-    "Dependencies": [
-        "System.Windows.Forms.dll"
-    ],
-    "RequiredGSLs": [
-        "com.github.reherc/Centrifuge.Distance"
-    ],
-    "SkipLoad": false,
-    "Priority": 10
+  "FriendlyName": "Track Music",
+  "Description": "Include music with your levels that will play for other users of the mod.",
+  "Author": "Corecii",
+  "Contact": "corecii@corecii.com",
+  "Porter": "Reherc",
+  "PorterContact": "Github: @REHERC",
+  "ModuleFileName": "Distance.TrackMusic.dll",
+  "Dependencies": [
+    "System.Windows.Forms.dll"
+  ],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ],
+  "SkipLoad": false,
+  "Priority": 10
 }

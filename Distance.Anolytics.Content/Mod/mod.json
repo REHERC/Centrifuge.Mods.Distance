@@ -1,14 +1,13 @@
 ﻿{
-  "FriendlyName": "Scene Dumper",
-  "Description": "Development utilities mod (Centrifuge.DevTools for Distance).",
+  "FriendlyName": "Anolytics",
+  "Description": "Disable analytics in Distance, if it bothers you.",
   "Author": "Ciastex",
   "Contact": "Discord: Ciastex#6170",
   "Porter": "Reherc",
   "PorterContact": "Github: @REHERC",
-  "ModuleFileName": "Distance.SceneDumper.dll",
+  "ModuleFileName": "Distance.Anolytics.dll",
   "Priority": 10,
   "SkipLoad": false,
-  "Dependencies": [],
   "RequiredGSLs": [
     "com.github.reherc/Centrifuge.Distance"
   ]

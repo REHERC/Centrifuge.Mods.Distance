@@ -1,14 +1,17 @@
 ﻿{
-    "FriendlyName": "Custom Wheel Hologram",
-    "Author": "Ciastex",
-    "Contact": "Discord: Ciastex#6170",
-    "ModuleFileName": "Distance.CustomWheelHologram.dll",
-    "Priority": 10,
-    "SkipLoad": false,
-    "Dependencies": [
-        "System.Windows.Forms.dll"
-    ],
-    "RequiredGSLs": [
-      "com.github.reherc/Centrifuge.Distance"
-    ]
+  "FriendlyName": "Custom Wheel Hologram",
+  "Description": "Allows you to set your own wheel POV image for your Distance car.",
+  "Author": "Ciastex",
+  "Contact": "Discord: Ciastex#6170",
+  "Porter": "Reherc",
+  "PorterContact": "Github: @REHERC",
+  "ModuleFileName": "Distance.CustomWheelHologram.dll",
+  "Priority": 10,
+  "SkipLoad": false,
+  "Dependencies": [
+    "System.Windows.Forms.dll"
+  ],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ]
 }

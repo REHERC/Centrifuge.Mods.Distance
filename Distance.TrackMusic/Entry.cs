@@ -86,7 +86,7 @@ namespace Distance.TrackMusic
                 .WithDescription("Set the amount of time after which the level loads whether the music download is complete or not."),
             };
 
-            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "TRACK MUSIC SETTINGS", "Settings for the Track Music mod.");
+            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "TRACK MUSIC", "Settings for the Track Music mod.");
         }
 
         public void PatchPostLoad(bool subscribe)

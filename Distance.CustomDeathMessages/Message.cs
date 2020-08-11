@@ -56,7 +56,6 @@ namespace Distance.CustomDeathMessages
 
             JArray values = Mod.Instance.Config.Get(type.ToString(), new JArray());
 
-
             string[] entries = values.ToObject<string[]>();
 
             if (type == MessageType.None || !entries.Any())

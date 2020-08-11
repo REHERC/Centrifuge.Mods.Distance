@@ -41,10 +41,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.CustomWheelHologra
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.CustomWheelHologram.Content", "Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.shproj", "{A26D9216-DAEA-4876-A182-70DF4FF5997B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.Anolytics", "Distance.Anolytics\Distance.Anolytics.csproj", "{0AD5BDA8-85AB-4163-BA40-CF49F769BADF}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.Anolytics.Content", "Distance.Anolytics.Content\Distance.Anolytics.Content.shproj", "{19F17209-4A5C-43E2-86DC-CCE76DBA5C23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Task.PostBuild", "Solution.Task.PostBuild\Solution.Task.PostBuild.csproj", "{5C830F16-0EC2-4A38-8C17-CFFB8E55C847}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0E1F111D-3A74-43C6-804E-C3D316624C64} = {0E1F111D-3A74-43C6-804E-C3D316624C64}
+		{7282013C-A962-4903-B580-A54D99AAF034} = {7282013C-A962-4903-B580-A54D99AAF034}
+		{041CD13C-84A1-485A-B34F-F6E016C1FECF} = {041CD13C-84A1-485A-B34F-F6E016C1FECF}
+		{249F576D-6A84-46D7-BAC7-308810DDDF8B} = {249F576D-6A84-46D7-BAC7-308810DDDF8B}
+		{5AA5A388-EB90-4280-BB32-4496138DD00E} = {5AA5A388-EB90-4280-BB32-4496138DD00E}
+		{06A78A9A-7A66-431F-8023-36EAA5D0FBAF} = {06A78A9A-7A66-431F-8023-36EAA5D0FBAF}
+		{0AD5BDA8-85AB-4163-BA40-CF49F769BADF} = {0AD5BDA8-85AB-4163-BA40-CF49F769BADF}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{07d04eb9-6ab9-46cf-a3c3-a2e1d24fbeef}*SharedItemsImports = 13
+		Distance.Anolytics.Content\Distance.Anolytics.Content.projitems*{19f17209-4a5c-43e2-86dc-cce76dba5c23}*SharedItemsImports = 13
 		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{260fe22a-730a-4723-a744-dd06302f92cb}*SharedItemsImports = 13
 		Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.projitems*{57657ebc-1f29-4357-b4ef-45b2b22f5a3f}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
@@ -84,6 +100,14 @@ Global
 		{041CD13C-84A1-485A-B34F-F6E016C1FECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{041CD13C-84A1-485A-B34F-F6E016C1FECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{041CD13C-84A1-485A-B34F-F6E016C1FECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AD5BDA8-85AB-4163-BA40-CF49F769BADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AD5BDA8-85AB-4163-BA40-CF49F769BADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AD5BDA8-85AB-4163-BA40-CF49F769BADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AD5BDA8-85AB-4163-BA40-CF49F769BADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C830F16-0EC2-4A38-8C17-CFFB8E55C847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C830F16-0EC2-4A38-8C17-CFFB8E55C847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C830F16-0EC2-4A38-8C17-CFFB8E55C847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C830F16-0EC2-4A38-8C17-CFFB8E55C847}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

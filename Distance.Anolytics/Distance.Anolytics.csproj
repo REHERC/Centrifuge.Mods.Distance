@@ -1,31 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\ModuleInit.Fody.2.1.0\build\ModuleInit.Fody.props" Condition="Exists('..\packages\ModuleInit.Fody.2.1.0\build\ModuleInit.Fody.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7282013C-A962-4903-B580-A54D99AAF034}</ProjectGuid>
+    <ProjectGuid>{0AD5BDA8-85AB-4163-BA40-CF49F769BADF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Distance.TrackMusic</RootNamespace>
-    <AssemblyName>Distance.TrackMusic</AssemblyName>
+    <RootNamespace>Distance.Anolytics</RootNamespace>
+    <AssemblyName>Distance.Anolytics</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,7 +30,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
@@ -53,14 +38,8 @@
     <Reference Include="Assembly-CSharp, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.28\lib\net35\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\Distance.Assemblies\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
     <Reference Include="Centrifuge.Distance, Version=1.0.28.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.28\lib\net35\Centrifuge.Distance.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Windows.Forms">
-      <HintPath>..\Distance.Assemblies\Mono.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="NAudio, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.28\lib\net35\NAudio.dll</HintPath>
@@ -70,13 +49,9 @@
     </Reference>
     <Reference Include="Reactor.API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Centrifuge.Mod.SDK.2.3.0\lib\net35\Reactor.API.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -93,56 +68,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationLogic.cs" />
-    <Compile Include="Editor\Tools\AddMusicChoiceAction.cs" />
-    <Compile Include="Editor\Tools\AddMusicChoiceTool.cs" />
-    <Compile Include="Editor\Tools\AddMusicTrackAction.cs" />
-    <Compile Include="Editor\Tools\AddMusicTrackTool.cs" />
-    <Compile Include="Editor\Tools\AddOrRemoveMusicChoiceAction.cs" />
-    <Compile Include="Editor\Tools\RemoveMusicChoiceAction.cs" />
-    <Compile Include="Editor\Tools\RemoveMusicChoiceTool.cs" />
-    <Compile Include="Editor\Tools\ToggleMusicAction.cs" />
-    <Compile Include="Editor\Tools\ToggleMusicTool.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\AudioEventTrigger\PlayMusic.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\AudioManager\Awake.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\AudioManager\OnEventPostLoad.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\GameObjectEx\GetDisplayName.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\LevelDataTab\Update.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\LevelEditor\OnLevelEditorExit.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\LevelSettings\Visit.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\Level\ClearAndReset.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\Level\LoadHelperEnumerator.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\MusicTrigger\PlayMusic.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\MusicTrigger\Visit.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\MusicZone\SetState.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\MusicZone\PlayMusic.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\MusicZone\Visit.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\NGUIComponentInspector\OnRemoveComponentClicked.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\NGUIComponentInspector\Init.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\ZEventListener\ComponentDescription_.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\ZEventListener\DisplayName_.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\ZEventListener\Visit-MusicChoice.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\ZEventListener\Visit-MusicTrack.cs" />
-    <Compile Include="LevelEditorLogic.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="Models\AttachedData.cs" />
-    <Compile Include="Models\CustomData.cs" />
-    <Compile Include="Models\CustomDataInfo.cs" />
-    <Compile Include="Models\MusicChoice.cs" />
-    <Compile Include="Models\MusicChoiceEntry.cs" />
-    <Compile Include="Models\MusicTrack.cs" />
-    <Compile Include="Models\MusicZoneData.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Analytics\LogEvent.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\FileEx\WriteAllText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SoundPlayerLogic.cs" />
-    <Compile Include="Util\Base16k.cs" />
-    <Compile Include="VariablesLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>SET MODNAME=Distance Track Music
-SET INCLUDE=$(SolutionDir)Distance.TrackMusic.Content
+    <PostBuildEvent>SET MODNAME=Distance Anolytics
+SET INCLUDE=$(SolutionDir)Distance.Anolytics.Content
 
 SET BUILD=$(ProjectDir)$(OutDir)
 SET PACKAGES=$(SolutionDir)Build\%25MODNAME%25\Centrifuge
@@ -154,10 +91,9 @@ REM ===== COPY MOD FILES =====
 CALL :MAKEDIR "%25MOD%25"
 
 CALL :COPYDIR "%25INCLUDE%25\Mod" "%25MOD%25"
-CALL :COPY "%25BUILD%25Distance.TrackMusic.dll" "%25MOD%25"
+CALL :COPY "%25BUILD%25Distance.Anolytics.dll" "%25MOD%25"
 
 CALL :INCLUDEGSL Centrifuge.Distance
-CALL :INCLUDEDEPENDENCYRENAME Mono.Windows.Forms System.Windows.Forms
 
 EXIT 0
 
@@ -191,10 +127,4 @@ CALL :MAKEDIR "%25MOD%25\Dependencies"
 CALL :COPY "%25BUILD%25%251.dll" "%25MOD%25\Dependencies\%252.dll"
 GOTO :EOF</PostBuildEvent>
   </PropertyGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\ModuleInit.Fody.2.1.0\build\ModuleInit.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ModuleInit.Fody.2.1.0\build\ModuleInit.Fody.props'))" />
-  </Target>
 </Project>

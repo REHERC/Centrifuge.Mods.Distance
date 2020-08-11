@@ -1,0 +1,117 @@
+﻿:root {
+    --accent-color: 1, 104, 148;
+    --darkmost: 36, 45, 45;
+    --darkest: 54, 67, 69;
+    --darker: 74, 93, 95;
+    --dark: 116, 134, 136;
+    --medium: 188, 200, 200;
+    --light: 235, 253, 255;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: rgba(var(--darkmost));
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    width: 100vw;
+}
+
+main, main > div {
+    height: auto;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+main > div {
+    flex: 1 1 auto;
+    margin: 2em auto;
+    width: min(90%, 900px);
+    background: rgba(var(--medium), 0.15);
+    box-shadow: 0 0 1.5em rgba(var(--darker, 0.05));
+    background: rgba(var(--light));
+    color: rgba(var(--darker));
+}
+
+@media only screen and (max-width: 900px) {
+    main > div {
+        margin: 2em 0;
+        width: 100%;
+    }
+}
+
+main > div > div {
+    margin: 0.75em 2.8em;
+    background: none;
+    height: 100%;
+}
+
+main > div > header {
+    background: rgba(var(--accent-color));
+    box-shadow: inset 0 -4px rgba(var(--light), 0.5);
+    color: rgba(var(--light));
+    text-align: center;
+    vertical-align: middle;
+}
+
+header > h1 {
+    font-size: 2.1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    /*text-decoration: underline;*/
+}
+
+header > h2 {
+    font-size: 1.4em;
+    opacity: 0.9;
+}
+
+div > h1 {
+    font-size: 1.4em;
+    position: relative;
+    overflow-x: visible;
+}
+
+div > h1::before {
+    position: absolute;
+    content: ' ';
+    background: rgba(var(--accent-color), 0.8);
+    width: 6px;
+    height: 100%;
+    aspect-ratio: 1;
+    transform: translateX(-12px);
+}
+
+div > section {
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+div > section > p {
+    max-width: 80ch;
+    text-justify: auto;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: rgba(var(--accent-color))
+}
+
+span {
+    padding: 0 0.2em;
+    background: rgba(var(--darker), 0.2);
+    color: rgba(var(--darker), 0.85);
+}
