@@ -69,8 +69,7 @@ namespace Distance.TrackMusic.Models
                 return false;
             }
             var numSub = data.Substring(0, separatorLoc);
-            int num = -1;
-            var success = int.TryParse(numSub, out num);
+            var success = int.TryParse(numSub, out int num);
             if (!success || data.Length < separatorLoc + 1 + num)
             {
                 return false;

@@ -137,10 +137,15 @@ namespace Distance.TrackMusic.Harmony
 
             if (Error == null)
             {
-                Error = "None";
+                Error = "None".Colorize(Colors.white);
             }
+            else
+            {
+                Error = Error.Colorize(Colors.red);
+            }
+            //visitor.Visit("Error", ref Error, null);
 
-            visitor.Visit("Error", ref Error, null);
+            visitor.VisualLabel($"Error: {Error}".Colorize(Colors.white));
 
             return false;
         }

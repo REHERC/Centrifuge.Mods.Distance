@@ -80,13 +80,13 @@ header > h2 {
     opacity: 0.9;
 }
 
-div > h1 {
+main > div > div h1 {
     font-size: 1.4em;
     position: relative;
     overflow-x: visible;
 }
 
-div > h1::before {
+main > div > div h1::before {
     position: absolute;
     content: ' ';
     background: rgba(var(--accent-color), 0.8);
@@ -96,12 +96,22 @@ div > h1::before {
     transform: translateX(-12px);
 }
 
-div > section {
-    font-size: 1em;
-    line-height: 1.5em;
+main > div > div h2 {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1.2em;
+    position: relative;
+    overflow-x: visible;
 }
 
-div > section > p {
+div section {
+    font-size: 1em;
+    line-height: 1.5em;
+    padding-left: 0.8em;
+    display: block;
+}
+
+div section p {
     max-width: 80ch;
     text-justify: auto;
 }
@@ -114,4 +124,21 @@ span {
     padding: 0 0.2em;
     background: rgba(var(--darker), 0.2);
     color: rgba(var(--darker), 0.85);
+}
+
+span.block {
+    display: block;
+    line-height: normal;
+    white-space: pre;
+    tab-size: 8;
+    -moz-tab-size: 8;
+    -o-tab-size: 8;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    overflow-x: scroll;
+}
+
+img {
+    width: 100%;
 }

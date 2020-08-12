@@ -40,7 +40,15 @@ namespace Solution.Task.PostBuild
 
                 try
                 {
-                    string readme = template.FormatWith(manifest).FormatWith( new { DocumentStyle = css });
+                    ReadFile(manifest.ContentDirectory, "Readme/prerequisites.html", out string prerequisites);
+                    ReadFile(manifest.ContentDirectory, "Readme/instructions.html", out string instructions);
+
+                    string readme = template.FormatWith(manifest).FormatWith(new { 
+                        DocumentStyle = css,
+                        Prerequisites = prerequisites.FormatWith(manifest),
+                        Instructions = instructions.FormatWith(manifest)
+                    });
+
                     FileInfo readme_file = new FileInfo($@"{directory.FullName}\Build\{manifest.BuildPath}\Readme {manifest.FriendlyName}.html");
 
                     if (readme_file.Exists)

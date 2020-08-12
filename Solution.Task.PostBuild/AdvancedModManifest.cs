@@ -40,14 +40,17 @@ namespace Solution.Task.PostBuild
 
         [JsonIgnore]
         public string DependencyList => Dependencies != null && Dependencies.Any() ? string.Join(", ", Dependencies) : "<i>No dependencies</i>";
-        
+
         [JsonIgnore]
         public string GameSupportList => RequiredGSLs != null && RequiredGSLs.Any() ? string.Join(", ", RequiredGSLs) : "<i>No GSL required</i>";
 
         [JsonIgnore]
         public string CentrifugeVersion { get; set; } = "Not found";
-        
+
         [JsonIgnore]
         public DirectoryInfo ModDirectory { get; set; }
+
+        [JsonIgnore]
+        public DirectoryInfo ContentDirectory => new DirectoryInfo($"{ModDirectory.FullName}.Content");
     }
 }
