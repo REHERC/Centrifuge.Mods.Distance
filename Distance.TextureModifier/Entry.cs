@@ -46,15 +46,15 @@ namespace Distance.TextureModifier
 
             Events.Level.PostLoad.Subscribe(LevelPostLoad);
 
-            CreateMenus();
+            CreateSettingsMenu();
         }
 
-        internal void LateInitialize(IManager manager)
+        internal void LateInitialize(IManager _)
         {
             StartCoroutine(ReskinResourcePrefabs());
         }
 
-        public void CreateMenus()
+        public void CreateSettingsMenu()
         {
             MenuTree menu = new MenuTree("texturemodifier#main.menu", "Texture Modifier");
 

@@ -3,10 +3,10 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>02cd7385-b155-4974-843d-9d0dd6bbfbe5</SharedGUID>
+    <SharedGUID>a7ee87a2-a395-4018-a8c0-b12b44005e52</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Distance.NoServerLimit.Content</Import_RootNamespace>
+    <Import_RootNamespace>Distance.DecorativeLamp.Content</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Mod\mod.json" />

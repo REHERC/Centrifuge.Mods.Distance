@@ -1,0 +1,13 @@
+﻿{
+  "FriendlyName": "Decorative Lamp",
+  "Description": "Adds an optional decorative empire lamp to the car.",
+  "Author": "Reherc",
+  "Contact": "Github: @REHERC",
+  "ModuleFileName": "Distance.DecorativeLamp.dll",
+  "Priority": 10,
+  "SkipLoad": false,
+  "Dependencies": [],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ]
+}
