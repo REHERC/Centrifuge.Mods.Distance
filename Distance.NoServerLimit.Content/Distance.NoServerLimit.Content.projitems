@@ -13,4 +13,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Readme\instructions.html" />
+  </ItemGroup>
 </Project>

@@ -45,7 +45,7 @@ namespace Distance.NoServerLimit
                     .WithSubmitAction((x) => {
                         if (int.TryParse(x, out int result))
                         {
-                            Config.MaxPlayerCount = result;
+                            Config.MaxPlayerCount = Math.Max(2, result);
                         }
                         else
                         {
@@ -54,7 +54,7 @@ namespace Distance.NoServerLimit
                         }
                      })
                     .WithTitle("ENTER SLOT COUNT")
-                    .WithDescription("Set the maximum supported server slot count.")
+                    .WithDescription("Set the maximum supported slot count when hosting a multiplayer server.")
             };
 
             Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "NO SERVER LIMIT", "Settings for the No Server Limit mod.");

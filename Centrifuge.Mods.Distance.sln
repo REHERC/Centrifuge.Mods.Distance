@@ -61,6 +61,7 @@ Global
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{07d04eb9-6ab9-46cf-a3c3-a2e1d24fbeef}*SharedItemsImports = 13
 		Distance.Anolytics.Content\Distance.Anolytics.Content.projitems*{19f17209-4a5c-43e2-86dc-cce76dba5c23}*SharedItemsImports = 13
+		Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.projitems*{260fe22a-730a-4723-a744-dd06302f92cb}*SharedItemsImports = 13
 		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{260fe22a-730a-4723-a744-dd06302f92cb}*SharedItemsImports = 13
 		Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.projitems*{57657ebc-1f29-4357-b4ef-45b2b22f5a3f}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13

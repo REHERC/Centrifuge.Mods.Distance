@@ -11,4 +11,7 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Mod\mod.json" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Readme\instructions.html" />
+  </ItemGroup>
 </Project>
