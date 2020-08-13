@@ -10,6 +10,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Mod\mod.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Readme\Images\Import Music - 01.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Readme\Images\Import Music - 02.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Readme\Images\Import Music - 03.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Readme\Images\Select Music - 01.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Readme\Images\Select Music - 02.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Readme\Images\Select Music - 03.png" />
     <Content Include="$(MSBuildThisFileDirectory)Readme\instructions.html" />
   </ItemGroup>
 </Project>
