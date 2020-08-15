@@ -36,16 +36,16 @@
       <HintPath>..\packages\Lib.Harmony.1.2.0.1\lib\net35\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.28\lib\net35\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.29\lib\net35\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Centrifuge.Distance, Version=1.0.28.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.28\lib\net35\Centrifuge.Distance.dll</HintPath>
+    <Reference Include="Centrifuge.Distance, Version=1.0.29.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.29\lib\net35\Centrifuge.Distance.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Windows.Forms">
       <HintPath>..\Distance.Assemblies\Mono.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="NAudio, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.28\lib\net35\NAudio.dll</HintPath>
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.29\lib\net35\NAudio.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Json.Net.Unity3D.9.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
@@ -60,13 +60,13 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.28\lib\net35\UnityEngine.dll</HintPath>
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.29\lib\net35\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.28\lib\net35\UnityEngine.Networking.dll</HintPath>
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.29\lib\net35\UnityEngine.Networking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.28\lib\net35\UnityEngine.UI.dll</HintPath>
+      <HintPath>..\packages\Centrifuge.GameSupport.Distance.1.0.29\lib\net35\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
