@@ -1,0 +1,13 @@
+﻿{
+  "FriendlyName": "Editor Additions",
+  "Description": "Enhances the level editor with new features.",
+  "Author": "Reherc",
+  "Contact": "Github: @REHERC",
+  "ModuleFileName": "Distance.EditorAdditions.dll",
+  "Dependencies": [],
+  "RequiredGSLs": [
+      "com.github.reherc/Centrifuge.Distance"
+  ],
+  "SkipLoad": false,
+  "Priority": 10
+}

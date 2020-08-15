@@ -23,7 +23,7 @@ namespace Tools.External
             const int decimals = 2;
             double shift = Math.Pow(10, decimals);
 
-            float range = (float)(Math.Round((current / progress_.Maximum) * 100 * shift) / shift);
+            float range = (float)(Math.Round(current / progress_.Maximum * 100 * shift) / shift);
 
             string number = range.ToString();
 

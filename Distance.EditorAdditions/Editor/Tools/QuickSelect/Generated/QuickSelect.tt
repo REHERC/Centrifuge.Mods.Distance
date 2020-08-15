@@ -1,0 +1,50 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+// WARNING: (only applies for QuickSelect.cs)
+// This file was automatically generated from the QuickSelect.tt text template,
+// Do not modify this file as it will be overwritten when you rebuild the project
+// NOTE: 
+// QuickSelect.cs should be excluded from version control
+#pragma warning disable IDE1006
+using Centrifuge.Distance.EditorTools.Attributes;
+
+namespace Distance.EditorAdditions.Editor.Tools.QuickSelect 
+{
+<# for (int memory = 1; memory <= 9; memory++) { #>
+	#region Quick Selection #<#= memory #>
+	[EditorTool, KeyboardShortcut("CTRL+ALPHA<#= memory #>")]
+	public class SaveSelection<#= memory #> : SaveSelectionToolBase
+	{
+		internal static new ToolInfo info_ => new ToolInfo("Save Selection <#= memory #>", "Saves the inspected object into the memory.", ToolCategory.View, ToolButtonState.Button, true, <#= memory * 10 + 1100 #>);
+
+        public override ToolInfo Info_ => info_;
+
+        public override int QuickAccessIndex => <#= memory #>;
+
+        public static new void Register()
+        {
+            G.Sys.LevelEditor_.RegisterTool(info_);
+        }
+	}
+
+    [EditorTool, KeyboardShortcut("SHIFT+ALPHA<#= memory #>")]
+	public class LoadSelection<#= memory #> : LoadSelectionToolBase
+	{
+		internal static new ToolInfo info_ => new ToolInfo("Load Selection <#= memory #>", "Inspects the object saved into the memory.", ToolCategory.View, ToolButtonState.Button, false, <#= memory * 10 + 1200 #>);
+
+        public override ToolInfo Info_ => info_;
+
+        public override int QuickAccessIndex => <#= memory #>;
+
+        public static new void Register()
+        {
+            G.Sys.LevelEditor_.RegisterTool(info_);
+        }
+	}
+	#endregion
+<# } // end for loop #>
+}
