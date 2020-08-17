@@ -46,7 +46,7 @@ namespace Distance.EditorAdditions
                 .WithSetter((x) => Config.AdvancedMusicSelection = x)
                 .WithDescription("Display hidden dev music cues in the level editor music selector window."),
 
-                new CheckBox(MenuDisplayMode.MainMenu, "setting:display_workshop_levels", "INDEX WORKSHOP LEVELS")
+                new CheckBox(MenuDisplayMode.MainMenu, "setting:display_workshop_levels", "LIST WORKSHOP LEVELS")
                 .WithGetter(() => Config.DisplayWorkshopLevels)
                 .WithSetter((x) => Config.DisplayWorkshopLevels = x)
                 .WithDescription("Allows to open the workshop levels from the level editor (read only).")
