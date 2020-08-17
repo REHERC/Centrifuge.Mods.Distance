@@ -5,7 +5,6 @@ using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
 using Reactor.API.Runtime.Patching;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Distance.EditorAdditions

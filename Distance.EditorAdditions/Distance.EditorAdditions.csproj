@@ -78,14 +78,25 @@
     <Compile Include="Editor\Tools\QuickSelect\SaveSelectionToolBase.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Extensions\Assembly-CSharp\LevelEditor.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\ChangeLayerTool\OnSelectLayer.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\CreateCustomObjectTool\Start.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\DeleteTool\Run.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\GenerateTrackmogrifyLevelTool\Finish.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\GroupTool\Run.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Group\Visit.cs" />
     <Compile Include="Harmony\Assembly-CSharp\LevelEditorLevelNameSelectMenuLogic\GenerateLevelNameList.cs" />
     <Compile Include="Harmony\Assembly-CSharp\LevelEditorMusicTrackSelectMenuLogic\GenerateMusicNameList.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\LevelEditor\SelectObject.cs" />
     <Compile Include="Harmony\Assembly-CSharp\LibraryTab\Start.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\LoadLevelTool\Update.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\NewLevelTool\CreateNewLevel.cs" />
     <Compile Include="Harmony\Assembly-CSharp\NGUIObjectInspectorTabAbstract\CreateComponentInspectorsOnObject.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\QuitToMainMenuTool\Finish.cs" />
     <Compile Include="Harmony\Assembly-CSharp\ResourceManager\SetupPrefabFileDatas.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\SelectionGroupData\ctor.cs" />
     <Compile Include="Harmony\Assembly-CSharp\SelectMusicTrackNameFromListTool\AddEntries.cs" />
     <Compile Include="Harmony\Assembly-CSharp\TransformWrapper\Visit.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\UngroupTool\Run.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
