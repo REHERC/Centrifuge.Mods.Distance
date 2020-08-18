@@ -32,14 +32,17 @@ namespace Distance.NitronicHUD
             Logger = LogManager.GetForCurrentAssembly();
             Config = gameObject.AddComponent<ConfigurationLogic>();
 
+            RuntimePatcher.AutoPatch();
+
+            CreateSettingsMenu();
+        }
+
+        public void LateInitialize(IManager _)
+        {
             Scripts = new MonoBehaviour[]
             {
                 gameObject.AddComponent<VisualCountdown>()
             };
-
-            RuntimePatcher.AutoPatch();
-
-            CreateSettingsMenu();
         }
 
         public void CreateSettingsMenu()
