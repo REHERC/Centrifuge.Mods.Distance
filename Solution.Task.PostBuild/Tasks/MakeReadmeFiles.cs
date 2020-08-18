@@ -22,7 +22,7 @@ namespace Solution.Task.PostBuild.Tasks
 
             foreach (AdvancedModManifest manifest in manifests)
             {
-                Console.WriteLine($"Generating readme file for \"{manifest.FriendlyName}\"");
+                Console.WriteLine($"Generating readme file for \"{manifest.FriendlyName}\" ...");
 
                 try
                 {

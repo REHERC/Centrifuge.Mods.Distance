@@ -4,32 +4,33 @@ using System.Linq;
 
 namespace Solution.Task.PostBuild.Tasks
 {
-    public static class IncludeDefaultContent
+    public static class PackageAIO
     {
         public static void Run(DirectoryInfo _, DirectoryInfo directory)
         {
-            Console.WriteLine("Including common content from \"Build/Common\" ...");
+            Console.WriteLine("Creating all-in-one build ...");
 
             // Get the Build directory
             DirectoryInfo build = new DirectoryInfo(Path.Combine(directory.FullName, "Build"));
 
-            // Get the Build directory
-            DirectoryInfo common = new DirectoryInfo(Path.Combine(build.FullName, "Common"));
+            DirectoryInfo aio = new DirectoryInfo(Path.Combine(build.FullName, "Distance All In One"));
 
-            string[] build_exclusion = new string[1]
+            string[] build_exclusion = new string[2]
             {
-                common.Name
+                "Common",
+                aio.Name
             };
 
             foreach (DirectoryInfo mod_directory in from x in build.GetDirectories() where build_exclusion.All(y => !string.Equals(x.Name, y, StringComparison.InvariantCultureIgnoreCase)) select x)
             {
-                Console.WriteLine($"Copying content to \"Build/{mod_directory.Name}\" ...");
+                Console.WriteLine($"Adding \"{mod_directory.Name}\" ...");
 
-                common.CopyTo(mod_directory, true);
+                mod_directory.CopyTo(aio, true);
 
-                Console.WriteLine($"Content copied successfully!");
-
+                Console.WriteLine($"Mod added!");
             }
+
+            Console.WriteLine($"All-in-one build complete!");
         }
     }
 }

@@ -24,7 +24,13 @@ namespace Solution.Task.PostBuild
             DirectoryInfo application = new DirectoryInfo(Application.StartupPath);
             DirectoryInfo directory = new DirectoryInfo(Directory.GetCurrentDirectory());
 
+            // Create readme html files
             Tasks.MakeReadmeFiles.Run(application, directory);
+
+            // Make an "All In One" mod package containg all mods
+            Tasks.PackageAIO.Run(application, directory);
+
+            // Include contents of Build/common into every mod build
             Tasks.IncludeDefaultContent.Run(application, directory);
 
             return 0;

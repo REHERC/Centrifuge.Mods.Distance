@@ -12,7 +12,7 @@ namespace Distance.Anolytics.Harmony
 
             if (mod.Config.LogAnalytics)
             {
-                mod.Logger.Info($"Analytics request:\r\n  Page: {page}\r\n  Category: {category}\r\n  Action: {action}\r\n  Opt. Label: {opt_label}\r\n  Opt. Value: {opt_value}");
+                mod.Logger.Info($"Analytics request:\n  Page: {page}\n  Category: {category}\n  Action: {action}\n  Opt. Label: {opt_label}\n  Opt. Value: {opt_value}");
             }
 
             return !mod.Config.ShutDownAnalytics;
