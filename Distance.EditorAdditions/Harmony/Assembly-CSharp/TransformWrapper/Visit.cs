@@ -1,6 +1,6 @@
 ﻿using Centrifuge.Distance.Data;
 using Centrifuge.Distance.Game;
-using Harmony;
+using HarmonyLib;
 using UnityEngine;
 
 namespace Distance.EditorAdditions.Harmony

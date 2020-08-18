@@ -1,0 +1,13 @@
+﻿{
+  "FriendlyName": "Nitronic HUD",
+  "Description": "Adds the Nitronic Rush heads-up display and announcer countdown.",
+  "Author": "Reherc",
+  "Contact": "Github: @REHERC",
+  "ModuleFileName": "Distance.NitronicHUD.dll",
+  "Priority": 10,
+  "SkipLoad": false,
+  "Dependencies": [],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ]
+}

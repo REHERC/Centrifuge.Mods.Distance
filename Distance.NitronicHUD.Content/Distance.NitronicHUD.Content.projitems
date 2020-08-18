@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>1b79abb1-9caa-41f4-a88a-d84524e8f25a</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Distance.NitronicHUD.Content</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Readme\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Audio\countdown_1.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Audio\countdown_2.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Audio\countdown_3.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Audio\countdown_rush.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\mod.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\countdown" />
+    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\hud" />
+  </ItemGroup>
+</Project>

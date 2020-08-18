@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using LevelEditorTools;
 
 namespace Distance.EditorAdditions.Harmony

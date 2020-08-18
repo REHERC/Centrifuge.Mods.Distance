@@ -1,5 +1,5 @@
 ﻿using Events.Local;
-using Harmony;
+using HarmonyLib;
 
 namespace Distance.CustomDeathMessages.Harmony
 {
