@@ -4,11 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.TextureModifier", "Distance.TextureModifier\Distance.TextureModifier.csproj", "{06A78A9A-7A66-431F-8023-36EAA5D0FBAF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.TextureModifier.Content", "Distance.TextureModifier.Content\Distance.TextureModifier.Content.shproj", "{07D04EB9-6AB9-46CF-A3C3-A2E1D24FBEEF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distance.Assemblies", "Distance.Assemblies", "{83201AB6-55D6-472B-98F8-BA11061CC2EA}"
 	ProjectSection(SolutionItems) = preProject
+		Distance.Assemblies\AkSoundEngine.dll = Distance.Assemblies\AkSoundEngine.dll
 		Distance.Assemblies\Assembly-CSharp-firstpass.dll = Distance.Assemblies\Assembly-CSharp-firstpass.dll
 		Distance.Assemblies\Mono.Windows.Forms.dll = Distance.Assemblies\Mono.Windows.Forms.dll
 	EndProjectSection
@@ -22,51 +26,84 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.External", "Tools.External\Tools.External.csproj", "{7F70DC8B-8FAC-45E6-88A4-9A89217AA8B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.TrackMusic", "Distance.TrackMusic\Distance.TrackMusic.csproj", "{7282013C-A962-4903-B580-A54D99AAF034}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.TrackMusic.Content", "Distance.TrackMusic.Content\Distance.TrackMusic.Content.shproj", "{58BFEE58-73A0-4451-9DA7-0FB51F1C53EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.SceneDumper", "Distance.SceneDumper\Distance.SceneDumper.csproj", "{0E1F111D-3A74-43C6-804E-C3D316624C64}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.SceneDumper.Content", "Distance.SceneDumper.Content\Distance.SceneDumper.Content.shproj", "{E84718C2-200C-415F-AD1D-0CC133C38E70}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.CustomDeathMessages", "Distance.CustomDeathMessages\Distance.CustomDeathMessages.csproj", "{5AA5A388-EB90-4280-BB32-4496138DD00E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.CustomDeathMessages.Content", "Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.shproj", "{57657EBC-1F29-4357-B4EF-45B2B22F5A3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.NoServerLimit", "Distance.NoServerLimit\Distance.NoServerLimit.csproj", "{249F576D-6A84-46D7-BAC7-308810DDDF8B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.CustomWheelHologram", "Distance.CustomWheelHologram\Distance.CustomWheelHologram.csproj", "{041CD13C-84A1-485A-B34F-F6E016C1FECF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.CustomWheelHologram.Content", "Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.shproj", "{A26D9216-DAEA-4876-A182-70DF4FF5997B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.Anolytics", "Distance.Anolytics\Distance.Anolytics.csproj", "{0AD5BDA8-85AB-4163-BA40-CF49F769BADF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.Anolytics.Content", "Distance.Anolytics.Content\Distance.Anolytics.Content.shproj", "{19F17209-4A5C-43E2-86DC-CCE76DBA5C23}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Task.PostBuild", "Solution.Task.PostBuild\Solution.Task.PostBuild.csproj", "{5C830F16-0EC2-4A38-8C17-CFFB8E55C847}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0E1F111D-3A74-43C6-804E-C3D316624C64} = {0E1F111D-3A74-43C6-804E-C3D316624C64}
+		{C8FF4D2C-1255-4E90-A2CA-F5787B95E7C5} = {C8FF4D2C-1255-4E90-A2CA-F5787B95E7C5}
 		{7282013C-A962-4903-B580-A54D99AAF034} = {7282013C-A962-4903-B580-A54D99AAF034}
 		{041CD13C-84A1-485A-B34F-F6E016C1FECF} = {041CD13C-84A1-485A-B34F-F6E016C1FECF}
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
 		{249F576D-6A84-46D7-BAC7-308810DDDF8B} = {249F576D-6A84-46D7-BAC7-308810DDDF8B}
 		{5AA5A388-EB90-4280-BB32-4496138DD00E} = {5AA5A388-EB90-4280-BB32-4496138DD00E}
+		{83C8F38B-07E9-4A9B-8E5C-37981A28136E} = {83C8F38B-07E9-4A9B-8E5C-37981A28136E}
 		{06A78A9A-7A66-431F-8023-36EAA5D0FBAF} = {06A78A9A-7A66-431F-8023-36EAA5D0FBAF}
 		{0AD5BDA8-85AB-4163-BA40-CF49F769BADF} = {0AD5BDA8-85AB-4163-BA40-CF49F769BADF}
+		{7FF8ABD9-D1F2-48EC-A249-B68457D27BC5} = {7FF8ABD9-D1F2-48EC-A249-B68457D27BC5}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.DecorativeLamp", "Distance.DecorativeLamp\Distance.DecorativeLamp.csproj", "{C8FF4D2C-1255-4E90-A2CA-F5787B95E7C5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.DecorativeLamp.Content", "Distance.DecorativeLamp.Content\Distance.DecorativeLamp.Content.shproj", "{A7EE87A2-A395-4018-A8C0-B12B44005E52}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.NoServerLimit.Content", "Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.shproj", "{02CD7385-B155-4974-843D-9D0DD6BBFBE5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.EditorAdditions", "Distance.EditorAdditions\Distance.EditorAdditions.csproj", "{83C8F38B-07E9-4A9B-8E5C-37981A28136E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.EditorAdditions.Content", "Distance.EditorAdditions.Content\Distance.EditorAdditions.Content.shproj", "{E2E4AC75-D500-4D5D-A706-613A3DF688E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.NitronicHUD", "Distance.NitronicHUD\Distance.NitronicHUD.csproj", "{7FF8ABD9-D1F2-48EC-A249-B68457D27BC5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.NitronicHUD.Content", "Distance.NitronicHUD.Content\Distance.NitronicHUD.Content.shproj", "{1B79ABB1-9CAA-41F4-A88A-D84524E8F25A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Task.PreBuild", "Solution.Task.PreBuild\Solution.Task.PreBuild.csproj", "{F9FB724F-6555-4B6B-8D51-3140CA47D2FE}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -135,6 +172,10 @@ Global
 		{7FF8ABD9-D1F2-48EC-A249-B68457D27BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FF8ABD9-D1F2-48EC-A249-B68457D27BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FF8ABD9-D1F2-48EC-A249-B68457D27BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
