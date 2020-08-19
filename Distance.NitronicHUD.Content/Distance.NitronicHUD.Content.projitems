@@ -19,7 +19,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Mod\mod.json" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\countdown" />
-    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\hud" />
+    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\countdown.assets" />
+    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\hud.assets" />
   </ItemGroup>
 </Project>
