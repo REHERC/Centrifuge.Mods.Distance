@@ -87,6 +87,7 @@
   <ItemGroup>
     <Compile Include="ConfigurationLogic.cs" />
     <Compile Include="Entry.cs" />
+    <Compile Include="Extensions\Assembly-CSharp\ClientPlayerInfo.cs" />
     <Compile Include="Harmony\Assembly-CSharp\ClientLogic\OnEventPlayerActionMessage.cs" />
     <Compile Include="Harmony\Assembly-CSharp\ClientLogic\OnEventToAllClientsRemotePlayerActionMessage.cs" />
     <Compile Include="Message.cs" />
@@ -96,6 +97,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>SET MODNAME=Distance Custom Death Messages

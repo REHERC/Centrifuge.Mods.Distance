@@ -9,12 +9,11 @@ namespace Distance.CustomDeathMessages.Harmony
         [HarmonyPrefix]
         internal static bool Prefix(ClientLogic __instance, PlayerActionMessage.Data data)
         {
-            Mod.Instance.Logger.Warning("ClientLogic__OnEventPlayerActionMessage");
-
             string message = data.message_;
-            string username = __instance.GetLocalChatName();
+            string username = __instance.GetLocalPlayerInfo().username_;
+            string formattedName = __instance.GetLocalPlayerInfo().GetChatName(true);
 
-            string replacement = Message.GetMessage(message, username);
+            string replacement = Message.GetMessage(message, username, formattedName);
 
             Message.Send(replacement);
 

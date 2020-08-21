@@ -43,7 +43,7 @@ namespace Distance.CustomDeathMessages
             return result;
         }
 
-        public static string GetMessage(string message, string username)
+        public static string GetMessage(string message, string username, string formattedName)
         {
             MessageType type = GetMessageType(message);
 
@@ -63,7 +63,7 @@ namespace Distance.CustomDeathMessages
                 return $"{username} {message}";
             }
 
-            return string.Format(entries.RandomElement(), username, stuntMultiplier);
+            return string.Format(entries.RandomElement(), formattedName, stuntMultiplier, username).Colorize(Colors.tan);
         }
 
         public static void Send(string message)
