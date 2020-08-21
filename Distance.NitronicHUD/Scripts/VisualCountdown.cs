@@ -1,7 +1,6 @@
 ﻿using Distance.NitronicHUD.Data;
 using Reactor.API.Storage;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +10,7 @@ namespace Distance.NitronicHUD.Scripts
     {
         public const string AssetName = "Assets/Prefabs/NitronicCountdownHUD.prefab";
 
-        public Assets Assets { get; set; }
+        public Assets Assets { get; internal set; }
 
         public AssetBundle Bundle => Assets.Bundle as AssetBundle;
 
@@ -81,6 +80,7 @@ namespace Distance.NitronicHUD.Scripts
         private void SubscribeEvents()
         {
             Events.Game.PauseToggled.Subscribe(OnPauseToggled);
+            Events.Game.ModeInitialized.Subscribe(OnModeInitialized);
         }
         #endregion
 
@@ -89,11 +89,28 @@ namespace Distance.NitronicHUD.Scripts
         {
             Prefab.SetActive(!data.paused_);
         }
+
+        private void OnModeInitialized(Events.Game.ModeInitialized.Data data)
+        {
+            Prefab.SetActive(true);
+        }
         #endregion
-        
+
         public void Update()
         {
             float time = (float)Timex.ModeTime_;
+
+            // Make visible only in game mode
+
+            GameManager manager = G.Sys.GameManager_;
+            GameModeID mode = manager?.Mode_?.GameModeID_ ?? GameModeID.MainMenu;
+
+            bool loading = manager.BlackFade_.currentState_ != BlackFadeLogic.FadeState.Idle && !manager.IsLevelLoaded_;
+
+            if (mode == GameModeID.MainMenu || manager.IsLevelEditorMode_ || loading)
+            {
+                time = -10;
+            }
 
             foreach (KeyValuePair<Image, VisualCountdownDigit> digit in digits_)
             {

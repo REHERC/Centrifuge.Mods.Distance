@@ -39,9 +39,10 @@ namespace Distance.NitronicHUD
 
         public void Load()
         {
-            Scripts = new MonoBehaviour[]
+            Scripts = new MonoBehaviour[2]
             {
-                gameObject.AddComponent<VisualCountdown>()
+                gameObject.AddComponent<VisualCountdown>(),
+                gameObject.AddComponent<VisualDisplay>()
             };
         }
 
