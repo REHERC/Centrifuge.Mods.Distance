@@ -2,13 +2,13 @@
 {
     public struct VisualCountdownDigit
     {
-        public float Start;
-        public float Duration;
+        public float start;
+        public float duration;
 
         public VisualCountdownDigit(float start, float duration)
         {
-            Start = start;
-            Duration = duration;
+            this.start = start;
+            this.duration = duration;
         }
     }
 }

@@ -7,23 +7,52 @@ namespace Distance.NitronicHUD
     public class ConfigurationLogic : MonoBehaviour
     {
         #region Properties
-        public bool ShowBars
+        #region System Active States
+        public bool DisplayHeatMeters
         {
-            get => Get<bool>("ShowBars");
-            set => Set("ShowBars", value);
+            get => Get<bool>("DisplayHeatMeters");
+            set => Set("DisplayHeatMeters", value);
         }
 
-        public bool ShowCountdown
+        public bool DisplayCountdown
         {
-            get => Get<bool>("ShowCountdown");
-            set => Set("ShowCountdown", value);
+            get => Get<bool>("DisplayCountdown");
+            set => Set("DisplayCountdown", value);
         }
-        
+
+        public bool DisplayTimer
+        {
+            get => Get<bool>("DisplayTimer");
+            set => Set("DisplayTimer", value);
+        }
+
         public bool AnnouncerCountdown
         {
             get => Get<bool>("AnnouncerCountdown");
             set => Set("AnnouncerCountdown", value);
         }
+        #endregion
+        #region Systems Properties
+        #region HUD
+        public float HeatMetersScale
+        {
+            get => Get<float>("HeatMetersScale");
+            set => Set("HeatMetersScale", value);
+        }
+
+        public float HeatMetersOffset
+        {
+            get => Get<float>("HeatMetersOffset");
+            set => Set("HeatMetersOffset", value);
+        }
+
+        public float TimerScale
+        {
+            get => Get<float>("TimerScale");
+            set => Set("TimerScale", value);
+        }
+        #endregion
+        #endregion
         #endregion
 
         internal Settings Config;
@@ -39,9 +68,14 @@ namespace Distance.NitronicHUD
         {
             Load();
 
-            Get("ShowBars", true);
-            Get("ShowCountdown", true);
+            Get("DisplayHeatMeters", true);
+            Get("DisplayCountdown", true);
+            Get("DisplayTimer", true);
             Get("AnnouncerCountdown", true);
+
+            Get("HeatMetersScale", 1.0f);
+            Get("HeatMetersOffset", 0.0f);
+            Get("TimerScale", 1.0f);
 
             Save();
         }

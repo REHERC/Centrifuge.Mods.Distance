@@ -1,11 +1,11 @@
 ﻿using Centrifuge.Distance.Game;
-using Centrifuge.Distance.GUI.Controls;
 using Centrifuge.Distance.GUI.Data;
 using Distance.NitronicHUD.Scripts;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
 using Reactor.API.Runtime.Patching;
+using System.Linq;
 using UnityEngine;
 
 namespace Distance.NitronicHUD
@@ -22,6 +22,8 @@ namespace Distance.NitronicHUD
         public ConfigurationLogic Config { get; private set; }
 
         public MonoBehaviour[] Scripts { get; set; }
+
+        private VisualDisplay VisualDisplatScript => Scripts.Where(x => x is VisualDisplay).Cast<VisualDisplay>().FirstOrDefault();
 
         public void Initialize(IManager manager)
         {

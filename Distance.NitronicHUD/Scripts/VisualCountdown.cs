@@ -26,9 +26,12 @@ namespace Distance.NitronicHUD.Scripts
         }
 
         #region Initialize
-        private void CreatePrefab()
+        private void CreatePrefab(bool loadBundle = true)
         {
-            Assets = new Assets("countdown.assets");
+            if (loadBundle)
+            {
+                Assets = new Assets("countdown.assets");
+            }
 
             if (!Bundle)
             {
@@ -98,6 +101,11 @@ namespace Distance.NitronicHUD.Scripts
 
         public void Update()
         {
+            if (digits_.Length == 0)
+            {
+                return;
+            }
+
             float time = (float)Timex.ModeTime_;
 
             // Make visible only in game mode
@@ -105,9 +113,10 @@ namespace Distance.NitronicHUD.Scripts
             GameManager manager = G.Sys.GameManager_;
             GameModeID mode = manager?.Mode_?.GameModeID_ ?? GameModeID.MainMenu;
 
+            bool replay = G.Sys.ReplayManager_.IsReplayMode_;
             bool loading = manager.BlackFade_.currentState_ != BlackFadeLogic.FadeState.Idle && !manager.IsLevelLoaded_;
 
-            if (mode == GameModeID.MainMenu || manager.IsLevelEditorMode_ || loading)
+            if (mode == GameModeID.MainMenu || manager.IsLevelEditorMode_ || loading || replay)
             {
                 time = -10;
             }
@@ -120,9 +129,9 @@ namespace Distance.NitronicHUD.Scripts
 
         public float GetInterpolation(float time, VisualCountdownDigit data)
         {
-            float peak = data.Start + (data.Duration / 2);
-            float diff = peak - data.Start;
-            float curve = (1 / diff) * (-Mathf.Abs(time - data.Start - diff)) + 1;
+            float peak = data.start + (data.duration / 2);
+            float diff = peak - data.start;
+            float curve = (1 / diff) * (-Mathf.Abs(time - data.start - diff)) + 1;
             return Mathf.Max(0, curve);
         }
     }
