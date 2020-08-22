@@ -11,7 +11,10 @@ namespace Distance.NitronicHUD.Scripts
 {
     public class VisualDisplay : MonoBehaviour
     {
+        #region Properties and Fields
         public const string AssetName = "assets/nr hud/nr_hud.prefab";
+
+        public bool ForceDisplay { get; set; } = false;
 
         public Assets Assets { get; internal set; }
 
@@ -22,62 +25,9 @@ namespace Distance.NitronicHUD.Scripts
         private VisualDisplayContent[] huds_;
 
         private Text timer_;
-
-        public void Awake()
-        {
-            CreatePrefab();
-        }
-        public void ResetPrefab()
-        {
-            timer_ = null;
-            huds_ = new VisualDisplayContent[0];
-
-            Prefab.transform.parent = null;
-            Prefab.SetActive(false);
-
-            DestroyImmediate(Prefab);
-
-            CreatePrefab(false);
-        }
-
-        public void ApplyTransformationInfo()
-        {
-            if (huds_.Length >= 2)
-            {
-                for (int x = 0; x <= 1; x++)
-                {
-                    float direction = x == 0 ? 1 : -1;
-
-                    float scale = 0.5f; // whatever you want honestly...
-                    float position = 0;
-
-                    const float defaultScale = 1.7f;
-                    float newScale = defaultScale * scale;
-
-                    huds_[x].rectTransform.localScale = new Vector3(newScale * direction, newScale, newScale);
-                    //huds_[x].rectTransform.position = new Vector3(position * direction, 0, 0);
-                    huds_[x].rectTransform.anchoredPosition = new Vector2(position * direction, 0);
-
-                    Mod.Instance.Logger.Warning($"{huds_[x].rectTransform.name} {direction}");
-
-                }
-            }
-
-            if (timer_)
-            {
-                const float defaultScale = 0.5f;
-                float scale = 0.5f; // whatever you want honestly...
-
-                RectTransform rect = timer_.GetComponent<RectTransform>();
-
-                if (rect)
-                {
-                    rect.localScale = Vector2.one * defaultScale * scale;
-                }
-            }
-        }
-
-        #region Initialize
+        #endregion
+        
+        #region Prefab Setup
         private void CreatePrefab(bool loadBundle = true)
         {
             if (loadBundle)
@@ -115,11 +65,15 @@ namespace Distance.NitronicHUD.Scripts
             };
 
             timer_ = Prefab?.transform.Find("Time")?.GetComponent<Text>();
-
-            ApplyTransformationInfo();
         }
         #endregion
-    
+        
+        #region Unity Calls
+        public void Awake()
+        {
+            CreatePrefab();
+        }
+
         public void Update()
         {
             if (huds_.Length == 0)
@@ -127,11 +81,58 @@ namespace Distance.NitronicHUD.Scripts
                 return;
             }
 
+            UpdateVisibility();
+            UpdateTransforms();
             UpdateTimerText();
             UpdateHeatIndicators();
         }
+        #endregion
 
         #region Update Logic
+        #region Object Active States
+        private void UpdateVisibility()
+        {
+            ConfigurationLogic config = Mod.Instance.Config;
+
+            huds_.Do(x => x.rectTransform.gameObject.SetActive(config.DisplayHeatMeters || ForceDisplay));
+            timer_?.gameObject?.SetActive(config.DisplayTimer || ForceDisplay);
+        }
+        #endregion
+
+        #region Size / Position Logic
+        public void UpdateTransforms()
+        {
+            ConfigurationLogic config = Mod.Instance.Config;
+
+            if (huds_.Length >= 2)
+            {
+                for (int x = 0; x <= 1; x++)
+                {
+                    float direction = x == 0 ? 1 : -1;
+
+                    const float defaultScale = 1.7f;
+                    float newScale = defaultScale * config.HeatMetersScale;
+
+                    huds_[x].rectTransform.localScale = new Vector3(newScale * direction, newScale, newScale);
+                    huds_[x].rectTransform.anchoredPosition = new Vector2(config.HeatMetersHorizontalOffset * direction, config.HeatMetersVerticalOffset);
+                }
+            }
+
+            if (timer_)
+            {
+                const float defaultScale = 0.5f;
+
+                RectTransform rect = timer_.GetComponent<RectTransform>();
+
+                if (rect)
+                {
+                    rect.localScale = Vector2.one * defaultScale * config.TimerScale;
+                    rect.anchoredPosition = new Vector2(0, config.TimerVerticalOffset + 45);
+                }
+            }
+        }
+        #endregion
+
         #region Overheat Meter
         // TODO: Add config for this
         private const float HeatBlinkStartAmount = 0.7f;
@@ -179,6 +180,7 @@ namespace Distance.NitronicHUD.Scripts
             }
         }
         #endregion
+        
         #region Timer Logic
         private void UpdateTimerText()
         {

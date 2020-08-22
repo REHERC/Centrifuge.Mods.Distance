@@ -40,16 +40,28 @@ namespace Distance.NitronicHUD
             set => Set("HeatMetersScale", value);
         }
 
-        public float HeatMetersOffset
+        public int HeatMetersHorizontalOffset
         {
-            get => Get<float>("HeatMetersOffset");
-            set => Set("HeatMetersOffset", value);
+            get => Get<int>("HeatMetersHorizontalOffset");
+            set => Set("HeatMetersHorizontalOffset", value);
+        }
+
+        public int HeatMetersVerticalOffset
+        {
+            get => Get<int>("HeatMetersVerticalOffset");
+            set => Set("HeatMetersVerticalOffset", value);
         }
 
         public float TimerScale
         {
             get => Get<float>("TimerScale");
             set => Set("TimerScale", value);
+        }
+
+        public int TimerVerticalOffset
+        {
+            get => Get<int>("TimerVerticalOffset");
+            set => Set("TimerVerticalOffset", value);
         }
         #endregion
         #endregion
@@ -74,8 +86,10 @@ namespace Distance.NitronicHUD
             Get("AnnouncerCountdown", true);
 
             Get("HeatMetersScale", 1.0f);
-            Get("HeatMetersOffset", 0.0f);
+            Get("HeatMetersHorizontalOffset", 0);
+            Get("HeatMetersVerticalOffset", 0);
             Get("TimerScale", 1.0f);
+            Get("TimerVerticalOffset", 0);
 
             Save();
         }
