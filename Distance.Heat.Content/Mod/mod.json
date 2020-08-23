@@ -1,0 +1,9 @@
+﻿{
+  "FriendlyName": "Heat",
+  "Author": "Ciastex + Seekr + pigpenguin",
+  "Contact": "Discord: Seekr#3274; Steam: Seeker14491",
+  "ModuleFileName": "Heat.dll",
+  "Dependencies": [],
+  "SkipLoad": false,
+  "Priority": 10
+}
