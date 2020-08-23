@@ -109,6 +109,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.Heat.Content", "Di
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.Heat", "Distance.Heat\Distance.Heat.csproj", "{B21D17E3-F84D-491A-9609-9C6C004165DE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Distance.CustomCar", "Distance.CustomCar\Distance.CustomCar.csproj", "{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{02cd7385-b155-4974-843d-9d0dd6bbfbe5}*SharedItemsImports = 13
@@ -185,6 +187,10 @@ Global
 		{B21D17E3-F84D-491A-9609-9C6C004165DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B21D17E3-F84D-491A-9609-9C6C004165DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B21D17E3-F84D-491A-9609-9C6C004165DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
