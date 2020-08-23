@@ -12,7 +12,7 @@ namespace CustomCar
     [ModEntryPoint(ModID)]
     public class Mod
     {
-        public const string ModID = "com.github.larnin.CustomCar";
+        public const string ModID = "com.github.larnin/CustomCar";
 
         private List<Assets> _assets = new List<Assets>();
         private Log _log = LogManager.GetForCurrentAssembly();

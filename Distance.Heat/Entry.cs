@@ -14,9 +14,9 @@ using UnityEngine;
 namespace Distance.Heat
 {
     [ModEntryPoint(ModID)]
-    public class Mod : MonoBehaviour
+    public class Entry : MonoBehaviour
     {
-        public const string ModID = "com.github.Seeker14491.Heat";
+        public const string ModID = "com.github.Seeker14491/Heat";
 
         private ActivationMode ActivationMode
             => (ActivationMode)_settings.GetItem<int>(Resources.ActivationModeSettingsKey);

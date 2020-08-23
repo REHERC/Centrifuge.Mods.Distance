@@ -109,7 +109,9 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.Heat.Content", "Di
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.Heat", "Distance.Heat\Distance.Heat.csproj", "{B21D17E3-F84D-491A-9609-9C6C004165DE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Distance.CustomCar", "Distance.CustomCar\Distance.CustomCar.csproj", "{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.CustomCar.Content", "Distance.CustomCar.Content\Distance.CustomCar.Content.shproj", "{B250CC3F-E2F1-40E6-8A89-5AD23D54C019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.CustomCar", "Distance.CustomCar\Distance.CustomCar.csproj", "{502868DA-BA52-4E50-8163-F5AC29D75F7D}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -123,6 +125,7 @@ Global
 		Distance.Heat.Content\Distance.Heat.Content.projitems*{7f00b47c-1cb4-4d7d-96ab-3cfd23b03ace}*SharedItemsImports = 13
 		Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.projitems*{a26d9216-daea-4876-a182-70df4ff5997b}*SharedItemsImports = 13
 		Distance.DecorativeLamp.Content\Distance.DecorativeLamp.Content.projitems*{a7ee87a2-a395-4018-a8c0-b12b44005e52}*SharedItemsImports = 13
+		Distance.CustomCar.Content\Distance.CustomCar.Content.projitems*{b250cc3f-e2f1-40e6-8a89-5ad23d54c019}*SharedItemsImports = 13
 		Distance.EditorAdditions.Content\Distance.EditorAdditions.Content.projitems*{e2e4ac75-d500-4d5d-a706-613a3df688e3}*SharedItemsImports = 13
 		Distance.SceneDumper.Content\Distance.SceneDumper.Content.projitems*{e84718c2-200c-415f-ad1d-0cc133c38e70}*SharedItemsImports = 13
 	EndGlobalSection
@@ -187,10 +190,10 @@ Global
 		{B21D17E3-F84D-491A-9609-9C6C004165DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B21D17E3-F84D-491A-9609-9C6C004165DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B21D17E3-F84D-491A-9609-9C6C004165DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{502868DA-BA52-4E50-8163-F5AC29D75F7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{502868DA-BA52-4E50-8163-F5AC29D75F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{502868DA-BA52-4E50-8163-F5AC29D75F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{502868DA-BA52-4E50-8163-F5AC29D75F7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
