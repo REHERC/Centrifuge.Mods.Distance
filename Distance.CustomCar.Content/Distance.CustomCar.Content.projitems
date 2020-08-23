@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>19A1F907-1F24-4FF0-9ABA-E9793C5AA0A7</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Distance.CustomCar.Content</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Mod\mod.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Readme\AUTHORS.md" />
+    <Content Include="$(MSBuildThisFileDirectory)Readme\README.md" />
+    <Content Include="$(MSBuildThisFileDirectory)Tools\Tools.unitypackage" />
+  </ItemGroup>
+</Project>

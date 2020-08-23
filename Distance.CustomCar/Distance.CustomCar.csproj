@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectGuid>{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}</ProjectGuid>
+    <AssemblyName>CustomCar</AssemblyName>
+    <TargetFramework>net35</TargetFramework>
+    <AssemblyTitle>CustomCar</AssemblyTitle>
+    <Product>CustomCar</Product>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Centrifuge.GameSupport.Distance" Version="2.0.2" />
+    <PackageReference Include="Centrifuge.Mod.SDK" Version="3.1.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="mod.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

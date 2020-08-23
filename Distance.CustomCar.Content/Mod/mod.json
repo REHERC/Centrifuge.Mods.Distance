@@ -1,0 +1,9 @@
+﻿{
+  "FriendlyName": "Custom Car",
+  "Author": "Nico (larnin)",
+  "Contact": "SteamID : larnin - Discord : Nico#5480",
+  "ModuleFileName": "CustomCar.dll",
+  "Dependencies": [],
+  "SkipLoad": false,
+  "Priority": 9
+}
