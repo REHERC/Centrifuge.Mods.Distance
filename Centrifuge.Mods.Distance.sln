@@ -118,6 +118,7 @@ Global
 		Distance.NitronicHUD.Content\Distance.NitronicHUD.Content.projitems*{1b79abb1-9caa-41f4-a88a-d84524e8f25a}*SharedItemsImports = 13
 		Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.projitems*{57657ebc-1f29-4357-b4ef-45b2b22f5a3f}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
+		Distance.Heat.Content\Distance.Heat.Content.projitems*{7f00b47c-1cb4-4d7d-96ab-3cfd23b03ace}*SharedItemsImports = 13
 		Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.projitems*{a26d9216-daea-4876-a182-70df4ff5997b}*SharedItemsImports = 13
 		Distance.DecorativeLamp.Content\Distance.DecorativeLamp.Content.projitems*{a7ee87a2-a395-4018-a8c0-b12b44005e52}*SharedItemsImports = 13
 		Distance.EditorAdditions.Content\Distance.EditorAdditions.Content.projitems*{e2e4ac75-d500-4d5d-a706-613a3df688e3}*SharedItemsImports = 13
