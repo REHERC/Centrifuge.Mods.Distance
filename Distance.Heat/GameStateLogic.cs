@@ -1,6 +1,8 @@
-﻿namespace Distance.Heat
+﻿using UnityEngine;
+
+namespace Distance.Heat
 {
-    internal class GameState
+    internal class GameStateLogic : MonoBehaviour
     {
         public GeneralSettings GeneralSettings;
         public HoverScreenEmitter HoverScreenEmitter;
@@ -18,6 +20,17 @@
             HoverScreenEmitter = carGameObject ? carGameObject.GetComponent<HoverScreenEmitter>() : null;
             CarLogic = playerDataLocal ? playerDataLocal.CarLogic_ : null;
             CarStats = CarLogic ? CarLogic.CarStats_ : null;
+        }
+
+        private static UILabel GetAndActivateWatermark()
+        {
+            var anchorAlphaVersion = GameObject.Find("UI Root").transform.Find("Panel/Anchor : AlphaVersion");
+            var alphaVersion = anchorAlphaVersion.Find("AlphaVersion");
+
+            anchorAlphaVersion.gameObject.SetActive(true);
+            alphaVersion.gameObject.SetActive(true);
+
+            return alphaVersion.GetComponent<UILabel>();
         }
     }
 }

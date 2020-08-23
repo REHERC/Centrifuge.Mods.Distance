@@ -1,4 +1,4 @@
-﻿namespace Distance.Heat
+﻿namespace Distance.Heat.Enums
 {
     public enum ActivationMode
     {

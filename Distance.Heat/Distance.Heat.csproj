@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -92,18 +93,68 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivationMode.cs" />
-    <Compile Include="DisplayMode.cs" />
-    <Compile Include="DisplayUnits.cs" />
-    <Compile Include="GameState.cs" />
+    <Compile Include="ConfigurationLogic.cs" />
+    <Compile Include="Enums\ActivationMode.cs" />
+    <Compile Include="Enums\DisplayMode.cs" />
+    <Compile Include="Enums\DisplayUnits.cs" />
+    <Compile Include="GameStateLogic.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>SET MODNAME=Distance Heat
+SET INCLUDE=$(SolutionDir)Distance.Heat.Content
+
+SET BUILD=$(ProjectDir)$(OutDir)
+SET PACKAGES=$(SolutionDir)Build\%25MODNAME%25\Centrifuge
+
+SET MOD=%25PACKAGES%25\Mods\%25MODNAME%25
+
+REM ===== COPY MOD FILES =====
+
+CALL :MAKEDIR "%25MOD%25"
+
+CALL :COPYDIR "%25INCLUDE%25\Mod" "%25MOD%25"
+CALL :COPY "%25BUILD%25Distance.heat.dll" "%25MOD%25"
+
+CALL :INCLUDEGSL Centrifuge.Distance
+
+EXIT 0
+
+REM ===== BUILD SUBROUTINES  =====
+
+:MAKEDIR
+IF NOT EXIST %251 MKDIR %251
+GOTO :EOF
+
+:COPY
+ECHO NUL &gt; %252
+XCOPY /s /Y /v %251 %252
+GOTO :EOF
+
+:COPYDIR
+XCOPY /i /s /Y /v %251 %252
+GOTO :EOF
+
+:INCLUDEGSL
+CALL :MAKEDIR "%25PACKAGES%25\GameSupport"
+CALL :COPY "%25BUILD%25%251.dll" "%25PACKAGES%25\GameSupport"
+GOTO :EOF
+
+:INCLUDEDEPENDENCY
+CALL :MAKEDIR "%25MOD%25\Dependencies"
+CALL :COPY "%25BUILD%25%251.dll" "%25MOD%25\Dependencies"
+GOTO :EOF
+
+:INCLUDEDEPENDENCYRENAME
+CALL :MAKEDIR "%25MOD%25\Dependencies"
+CALL :COPY "%25BUILD%25%251.dll" "%25MOD%25\Dependencies\%252.dll"
+GOTO :EOF</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">
