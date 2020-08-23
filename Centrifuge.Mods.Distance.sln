@@ -105,6 +105,10 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.NitronicHUD.Conten
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Task.PreBuild", "Solution.Task.PreBuild\Solution.Task.PreBuild.csproj", "{F9FB724F-6555-4B6B-8D51-3140CA47D2FE}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.CustomCar.Content", "Distance.CustomCar.Content\Distance.CustomCar.Content.shproj", "{B250CC3F-E2F1-40E6-8A89-5AD23D54C019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.CustomCar", "Distance.CustomCar\Distance.CustomCar.csproj", "{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{02cd7385-b155-4974-843d-9d0dd6bbfbe5}*SharedItemsImports = 13
@@ -176,6 +180,10 @@ Global
 		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE4C9FC-1060-486E-86E4-5FB8FEF570FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
