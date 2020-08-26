@@ -64,11 +64,6 @@ namespace Distance.Heat
                 .WithSetter((x) => Config.WarningTreshold = x)
             };
 
-            for (int i = 1; i < 10; i++)
-            {
-                settingsMenu.ActionButton(MenuDisplayMode.Both, $"placeholder:button_{i}", $"PLACEHOLDER BUTTON #{i}", () => { });
-            }
-
             Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "HEAT DISPLAY", "Configure the Heat mod.");
         }
 
