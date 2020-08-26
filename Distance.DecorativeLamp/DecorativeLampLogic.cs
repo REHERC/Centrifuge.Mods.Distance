@@ -24,7 +24,7 @@ namespace Distance.DecorativeLamp
             carLogic_ = GetComponentInParent<CarLogic>();
 
             lamp_ = Instantiate(Resources.Load<GameObject>(LampPrefabName), transform.position, transform.rotation);
-            lamp_.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            
             lamp_.transform.parent = transform.parent;
 
             foreach (Collider collider in lamp_.GetComponentsInChildren<MeshCollider>(true))
@@ -51,9 +51,6 @@ namespace Distance.DecorativeLamp
             }
 
             light_ = lamp_.GetComponentInChildren<Light>();
-            light_.intensity = 0.75f;
-            light_.range = 20.0f;
-
             lamp_.SetActive(Mod.Instance.Config.Enabled);
 
             Events.Scene.LoadFinish.Subscribe(OnSceneLoaded);
@@ -71,6 +68,13 @@ namespace Distance.DecorativeLamp
 
         public void Update()
         {
+            // Set properties
+            ConfigurationLogic config = Mod.Instance.Config;
+            
+            lamp_.transform.localScale = Vector3.one * config.LampScale * 0.1f;
+            light_.intensity = config.LightIntensity;
+            light_.range = config.LightRange;
+
             if (Mod.Instance.Config.Spin)
             {
                 lamp_.transform.RotateAround(lamp_.transform.position, lamp_.transform.up, Mod.Instance.Config.SpinSpeed * Timex.deltaTime_);

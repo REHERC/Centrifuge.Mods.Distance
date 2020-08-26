@@ -24,6 +24,24 @@ namespace Distance.DecorativeLamp
             get => Get<int>("SpinSpeed");
             set => Set("SpinSpeed", value);
         }
+
+        public float LampScale
+        {
+            get => Get<float>("LampScale");
+            set => Set("LampScale", value);
+        }
+
+        public float LightIntensity
+        {
+            get => Get<float>("LightIntensity");
+            set => Set("LightIntensity", value);
+        }
+
+        public int LightRange
+        {
+            get => Get<int>("LightRange");
+            set => Set("LightRange", value);
+        }
         #endregion
 
         internal Settings Config;
@@ -42,6 +60,9 @@ namespace Distance.DecorativeLamp
             Get("Enabled", true);
             Get("Spin", false);
             Get("SpinSpeed", 50);
+            Get("LampScale", 1.0f);
+            Get("LightIntensity", 0.75f);
+            Get("LightRange", 20);
 
             Save();
         }

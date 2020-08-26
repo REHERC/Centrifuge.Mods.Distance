@@ -78,6 +78,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Task.PostBuild", "
 		{06A78A9A-7A66-431F-8023-36EAA5D0FBAF} = {06A78A9A-7A66-431F-8023-36EAA5D0FBAF}
 		{0AD5BDA8-85AB-4163-BA40-CF49F769BADF} = {0AD5BDA8-85AB-4163-BA40-CF49F769BADF}
 		{7FF8ABD9-D1F2-48EC-A249-B68457D27BC5} = {7FF8ABD9-D1F2-48EC-A249-B68457D27BC5}
+		{502868DA-BA52-4E50-8163-F5AC29D75F7D} = {502868DA-BA52-4E50-8163-F5AC29D75F7D}
+		{B21D17E3-F84D-491A-9609-9C6C004165DE} = {B21D17E3-F84D-491A-9609-9C6C004165DE}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.DecorativeLamp", "Distance.DecorativeLamp\Distance.DecorativeLamp.csproj", "{C8FF4D2C-1255-4E90-A2CA-F5787B95E7C5}"
@@ -108,10 +110,16 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.Heat.Content", "Distance.Heat.Content\Distance.Heat.Content.shproj", "{7F00B47C-1CB4-4D7D-96AB-3CFD23B03ACE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.Heat", "Distance.Heat\Distance.Heat.csproj", "{B21D17E3-F84D-491A-9609-9C6C004165DE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.CustomCar.Content", "Distance.CustomCar.Content\Distance.CustomCar.Content.shproj", "{B250CC3F-E2F1-40E6-8A89-5AD23D54C019}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.CustomCar", "Distance.CustomCar\Distance.CustomCar.csproj", "{502868DA-BA52-4E50-8163-F5AC29D75F7D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
