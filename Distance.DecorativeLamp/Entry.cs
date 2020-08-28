@@ -38,6 +38,7 @@ namespace Distance.DecorativeLamp
 
         public void CreateSettingsMenu()
         {
+            // TODO: Update readme instructions
             MenuTree settingsMenu = new MenuTree("menu.mod.decorativelamp", "Decorative Lamp Settings")
             {
                 new CheckBox(MenuDisplayMode.Both, "setting:enable_lamp", "LAMP ENABLED")

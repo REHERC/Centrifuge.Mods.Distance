@@ -43,6 +43,7 @@ namespace Solution.Task.PostBuild.Tasks
                         readme_file.Delete();
                     }
 
+                    readme_file.Directory.CreateIfDontExist();
                     File.WriteAllText(readme_file.FullName, readme);
 
                     Console.WriteLine($"Readme file created at \"{readme_file.FullName}\"");
