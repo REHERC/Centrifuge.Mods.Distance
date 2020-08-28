@@ -68,11 +68,13 @@ namespace Distance.DecorativeLamp
 
         public void Update()
         {
-            // Set properties
             ConfigurationLogic config = Mod.Instance.Config;
             
             lamp_.transform.localScale = Vector3.one * config.LampScale * 0.1f;
             light_.intensity = config.LightIntensity;
+            flare_.lensFlare_.brightness = config.FlareBrightness;
+            flare_.Update();
+
             light_.range = config.LightRange;
 
             if (Mod.Instance.Config.Spin)

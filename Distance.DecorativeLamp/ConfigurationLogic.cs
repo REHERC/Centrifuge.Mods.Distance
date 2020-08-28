@@ -42,6 +42,12 @@ namespace Distance.DecorativeLamp
             get => Get<int>("LightRange");
             set => Set("LightRange", value);
         }
+
+        public float FlareBrightness
+        {
+            get => Get<float>("FlareBrightness");
+            set => Set("FlareBrightness", value);
+        }
         #endregion
 
         internal Settings Config;
@@ -63,6 +69,7 @@ namespace Distance.DecorativeLamp
             Get("LampScale", 1.0f);
             Get("LightIntensity", 0.75f);
             Get("LightRange", 20);
+            Get("FlareBrightness", 1.0f);
 
             Save();
         }

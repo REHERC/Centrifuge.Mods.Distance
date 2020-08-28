@@ -8,6 +8,7 @@ using Reactor.API.Logging;
 using Reactor.API.Runtime.Patching;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace Distance.Heat
@@ -76,10 +77,24 @@ namespace Distance.Heat
 
             for (var i = 0; i < keys.Length; i++)
             {
-                ret.Add(keys[i], values[i]);
+                ret.Add(SplitCamelCase(keys[i]), values[i]);
             }
 
             return ret;
+        }
+
+        public string SplitCamelCase(string str)
+        {
+            // https://stackoverflow.com/a/5796793
+            return Regex.Replace(
+                Regex.Replace(
+                    str,
+                    @"(\P{Ll})(\P{Ll}\p{Ll})",
+                    "$1 $2"
+                ),
+                @"(\p{Ll})(\P{Ll})",
+                "$1 $2"
+            );
         }
     }
 }
