@@ -8,8 +8,16 @@ public static class DirectoryInfoExtensions
     {
         if (source.Exists)
         {
-            FileSystem.CopyDirectory(source.FullName, destination.FullName, overwrite);
             destination.CreateIfDontExist();
+            try
+            {
+                FileSystem.CopyDirectory(source.FullName, destination.FullName, overwrite);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"An error occured while copying the contents from \"{source.FullName}\" to \"{destination.FullName}\"");
+                Console.WriteLine(e);
+            }
         }
         else
         {
