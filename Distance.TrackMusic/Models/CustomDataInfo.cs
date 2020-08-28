@@ -31,7 +31,7 @@ namespace Distance.TrackMusic.Models
 
         public static void RegisterStatic(CustomDataInfo info)
         {
-            Debug.Log($"Registering {info.Type} {info.InnerType} {info.SubPrefix}");
+            Mod.Instance.Logger.Info($"Registering {info.Type} {info.InnerType} {info.SubPrefix}");
             
             if (!Infos.ContainsKey(info.Type))
             {

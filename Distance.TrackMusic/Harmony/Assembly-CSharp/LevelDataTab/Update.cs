@@ -25,7 +25,8 @@ namespace Distance.TrackMusic.Harmony
                     }
                     catch (Exception e)
                     {
-                        Debug.Log($"Failed to refresh LevelDataTab: {e}");
+                        Mod.Instance.Logger.Error($"Failed to refresh LevelDataTab: {e}");
+                        Mod.Instance.Logger.Exception(e);
                     }
                 }
             }

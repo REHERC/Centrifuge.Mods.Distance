@@ -13,7 +13,6 @@ namespace Distance.TrackMusic.Harmony
         {
             Mod mod = Mod.Instance;
 
-            Debug.Log($"SetState {goingIn}");
             try
             {
                 var previous = mod.Variables.CachedMusicZoneData.GetOrCreate(__instance, () => new MusicZoneData());
@@ -29,7 +28,8 @@ namespace Distance.TrackMusic.Harmony
             }
             catch (Exception e)
             {
-                Debug.Log($"SetState failed: {e}");
+                Mod.Instance.Logger.Error($"SetState failed: {e}");
+                Mod.Instance.Logger.Exception(e);
             }
         }
     }

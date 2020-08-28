@@ -80,7 +80,7 @@ namespace Distance.TrackMusic.Harmony
                                .SetButtons(MessageButtons.Ok)
                                .Show();
 
-                            UnityEngine.Debug.Log($"Failed to embed {newRef} because {e}");
+                            Mod.Instance.Logger.Error($"Failed to embed {newRef} because {e}");
                         }
                     }
                 }

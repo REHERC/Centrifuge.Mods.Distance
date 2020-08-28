@@ -71,7 +71,10 @@ namespace Distance.TrackMusic
             catch (Exception e)
             {
                 Events.StaticEvent<Events.Audio.MusicSegmentEnd.Data>.Unsubscribe(local_MusicSegmentEnd);
-                Debug.Log($"Failed to play track {trackName} because: {e}");
+                
+                Mod.Instance.Logger.Error($"Failed to play track {trackName} because: {e}");
+                Mod.Instance.Logger.Exception(e);
+
                 StopCustomMusic();
                 return false;
             }
@@ -80,7 +83,8 @@ namespace Distance.TrackMusic
             
             if (failed || AudioManager.CurrentAudioFile_ == null || AudioManager.CurrentAudioFile_.FileName != track.FileLocation)
             {
-                Debug.Log($"Failed to play track {trackName}");
+                Mod.Instance.Logger.Error($"Failed to play track {trackName}");
+
                 StopCustomMusic();
                 return false;
             }
@@ -212,7 +216,9 @@ namespace Distance.TrackMusic
             }
             catch (Exception e)
             {
-                Debug.Log($"Failed to read music state file {statePath} because {e}");
+                Mod.Instance.Logger.Error($"Failed to read music state file {statePath} because {e}");
+                Mod.Instance.Logger.Exception(e);
+
                 return null;
             }
 
@@ -231,7 +237,9 @@ namespace Distance.TrackMusic
                 }
                 catch (Exception e)
                 {
-                    Debug.Log($"Failed to write track {trackPath} (embed) because {e}");
+                    Mod.Instance.Logger.Error($"Failed to write track {trackPath} (embed) because {e}");
+                    Mod.Instance.Logger.Exception(e);
+
                     return null;
                 }
             }
@@ -248,13 +256,13 @@ namespace Distance.TrackMusic
                     if (stopwatch.ElapsedMilliseconds > mod_.Config.MaxMusicDownloadTimeMilli)
                     {
                         request.Abort();
-                        Debug.Log($"Failed to download {track.Name}: it took too long!");
+                        Mod.Instance.Logger.Warning($"Failed to download {track.Name}: it took too long!");
                         break;
                     }
                     else if (request.downloadedBytes >= (ulong)mod_.Config.MaxMusicDownloadSizeBytes)
                     {
                         request.Abort();
-                        Debug.Log($"Failed to download {track.Name}: it is too big!");
+                        Mod.Instance.Logger.Warning($"Failed to download {track.Name}: it is too big!");
                         break;
                     }
                 }
@@ -265,7 +273,7 @@ namespace Distance.TrackMusic
                 {
                     if (request.isError)
                     {
-                        Debug.Log($"Failed to download {track.Name}: Error {request.error}");
+                        Mod.Instance.Logger.Error($"Failed to download {track.Name}: Error {request.error}");
                     }
                     else
                     {
@@ -284,18 +292,19 @@ namespace Distance.TrackMusic
                     }
                     catch (Exception e)
                     {
-                        Debug.Log($"Failed to write track {trackPath} (download) because {e}");
+                        Mod.Instance.Logger.Error($"Failed to write track {trackPath} (download) because {e}");
+                        Mod.Instance.Logger.Exception(e);
                         return null;
                     }
                 }
                 else
                 {
-                    Debug.Log($"Failed to download {track.Name}: no data!");
+                    Mod.Instance.Logger.Error($"Failed to download {track.Name}: no data!");
                 }
             }
             else
             {
-                Debug.Log($"Impossible state when saving custom music track {track.Name}");
+                Mod.Instance.Logger.Warning($"Impossible state when saving custom music track {track.Name}");
             }
 
             try
@@ -304,7 +313,8 @@ namespace Distance.TrackMusic
             }
             catch (Exception e)
             {
-                Debug.Log($"Failed to write music state file {statePath} because {e}");
+                Mod.Instance.Logger.Error($"Failed to write music state file {statePath} because {e}");
+                Mod.Instance.Logger.Exception(e);
             }
 
             return trackPath;

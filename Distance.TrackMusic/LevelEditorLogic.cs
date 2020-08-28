@@ -40,8 +40,6 @@ namespace Distance.TrackMusic
 
         public void ResetLevelSettings(LevelSettings __instance)
         {
-            Debug.Log("Resetting music");
-
             foreach (var comp in __instance.gameObject.GetComponents<ZEventListener>())
             {
                 DestroyImmediate(comp); // required for when level clear and load happen on the same frame (all the time)

@@ -15,7 +15,7 @@ namespace Distance.TrackMusic.Harmony
 
                 soundPlayer.DownloadAllTracks();
                 
-                Debug.Log($"Trying to play {soundPlayer.GetMusicChoiceValue(G.Sys.GameManager_.LevelSettings_.gameObject, "Level")}");
+                Mod.Instance.Logger.Info($"Trying to play {soundPlayer.GetMusicChoiceValue(G.Sys.GameManager_.LevelSettings_.gameObject, "Level")}");
                 
                 soundPlayer.PlayTrack(soundPlayer.GetMusicChoiceValue(G.Sys.GameManager_.LevelSettings_.gameObject, "Level"), 2000f, true);
             }

@@ -56,7 +56,6 @@ namespace Distance.TrackMusic
 
         public void LateInitialize(IManager _)
         {
-            Logger.Warning("LateInitialize");
             PatchPostLoad(true);
         }
 
@@ -99,8 +98,6 @@ namespace Distance.TrackMusic
 
             var item = new StaticEvent<Events.Level.PostLoad.Data>.Subscriber(new StaticEvent<Events.Level.PostLoad.Data>.Delegate(data =>
             {
-                Debug.Log("Running PostLoad");
-
                 G.Sys.AudioManager_.OnEventPostLoad(data);
             }));
 
