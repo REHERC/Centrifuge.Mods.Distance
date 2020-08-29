@@ -1,4 +1,5 @@
-﻿using Reactor.API.Configuration;
+﻿using Distance.DecorativeLamp.Enums;
+using Reactor.API.Configuration;
 using System;
 using UnityEngine;
 
@@ -48,6 +49,12 @@ namespace Distance.DecorativeLamp
             get => Get<float>("FlareBrightness");
             set => Set("FlareBrightness", value);
         }
+
+        public LampModel MeshModel
+        {
+            get => (LampModel)Get<int>("MeshModel");
+            set => Set("MeshModel", (int)value);
+        }
         #endregion
 
         internal Settings Config;
@@ -70,6 +77,7 @@ namespace Distance.DecorativeLamp
             Get("LightIntensity", 0.75f);
             Get("LightRange", 20);
             Get("FlareBrightness", 1.0f);
+            Get("MeshModel", LampModel.EmpireLamp);
 
             Save();
         }

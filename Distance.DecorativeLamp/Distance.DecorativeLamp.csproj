@@ -89,6 +89,7 @@
     <Compile Include="DecorativeLampLogic.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Enums\LampModel.cs" />
+    <Compile Include="Events\DecorativeLamp\ChangeLampModel.cs" />
     <Compile Include="Harmony\Assembly-CSharp\CarVisuals\Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -2,6 +2,7 @@
 using Centrifuge.Distance.GUI.Controls;
 using Centrifuge.Distance.GUI.Data;
 using Distance.DecorativeLamp.Enums;
+using Events.DecorativeLamp;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
@@ -47,10 +48,13 @@ namespace Distance.DecorativeLamp
                     .WithDescription(string.Format("{0}: Enlighten your way through the Array.", "Visual".Colorize(Colors.yellowGreen))),
 
                 new ListBox<LampModel>(MenuDisplayMode.Both, "setting:lamp_model", "3D MODEL")
-                .WithEntries(MapEnumToListBox<LampModel>())
-                .WithGetter(() => LampModel.EmpireLamp)
-                .WithSetter(x => Mod.Instance.Logger.Info(x))
-                .WithDescription(string.Format("{0}: Select the lamp 3D mesh.", "Visual".Colorize(Colors.yellowGreen))),
+                    .WithEntries(MapEnumToListBox<LampModel>())
+                    .WithGetter(() => Config.MeshModel)
+                    .WithSetter(x => {
+                        Config.MeshModel = x;
+                        ChangeLampModel.Broadcast(new ChangeLampModel.Data(x));
+                    })
+                    .WithDescription(string.Format("{0}: Select the lamp 3D mesh.", "Visual".Colorize(Colors.yellowGreen))),
 
                 new CheckBox(MenuDisplayMode.Both, "setting:enable_spin", "SPINNING LAMP")
                     .WithGetter(() => Config.Spin)
