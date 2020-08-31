@@ -3,6 +3,7 @@ using Distance.NitronicHUD.Data;
 using HarmonyLib;
 using Reactor.API.Storage;
 using System;
+using System.Globalization;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
@@ -85,6 +86,8 @@ namespace Distance.NitronicHUD.Scripts
             UpdateTransforms();
             UpdateTimerText();
             UpdateHeatIndicators();
+            UpdateScoreLabel();
+            UpdateSpeedLabel();
         }
         #endregion
 
@@ -198,6 +201,92 @@ namespace Distance.NitronicHUD.Scripts
             GUtils.GetFormattedTime(result, time, 2, time > 3600);
 
             timer_.text = result.ToString();
+        }
+        #endregion
+
+        #region Score Logic
+        private void UpdateScoreLabel()
+        {
+            if (huds_.Length >= 2)
+            {
+                for (int x = 0; x <= 1; x++)
+                {
+                    VisualDisplayContent hud = huds_[x];
+
+                    if (hud.main && hud.score)
+                    {
+                        hud.score.text = GetScore().ToString(CultureInfo.GetCultureInfo("en-GB") ?? CultureInfo.InvariantCulture);
+                    }
+                }
+            }
+        }
+
+        private long GetScore()
+        {
+            if (G.Sys.GameManager_.IsModeStarted_)
+            {
+                return G.Sys.StatsManager_?.GetMatchStats(0).totalPoints_ ?? 0;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        #endregion
+
+        #region Speed Logic
+        private void UpdateSpeedLabel()
+        {
+            if (huds_.Length >= 2)
+            {
+                for (int x = 0; x <= 1; x++)
+                {
+                    VisualDisplayContent hud = huds_[x];
+
+                    if (hud.speed)
+                    {
+                        hud.speed.text = Mathf.RoundToInt(GetSpeedValue()).ToString();
+                    }
+
+                    if (hud.speedLabel)
+                    {
+                        hud.speedLabel.text = GetSpeedUnit();
+                    }
+                }
+            }
+        }
+
+        private float GetSpeedValue()
+        {
+            if (G.Sys.GameManager_.IsModeStarted_)
+            {
+                switch (Centrifuge.Distance.Game.Options.General.Units)
+                {
+                    case Units.Metric:
+                        return Vehicle.VelocityKPH;
+                    case Units.Imperial:
+                        return Vehicle.VelocityMPH;
+                    default:
+                        return 0;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        private string GetSpeedUnit()
+        {
+            switch (Centrifuge.Distance.Game.Options.General.Units)
+            {
+                case Units.Metric:
+                    return "KM/H";
+                case Units.Imperial:
+                    return "MPH";
+                default:
+                    return "ERR";
+            }
         }
         #endregion
         #endregion
