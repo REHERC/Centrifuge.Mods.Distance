@@ -8,11 +8,11 @@ using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
 using Reactor.API.Runtime.Patching;
-using System.Linq;
 using UnityEngine;
 
 namespace Distance.NitronicHUD
 {
+    // NOTE: Transfer strings into a static class
     [ModEntryPoint("com.github.reherc/Distance.NitronicHUD")]
     public class Mod : MonoBehaviour
     {
@@ -53,10 +53,10 @@ namespace Distance.NitronicHUD
         {
             MenuTree displayMenu = new MenuTree("menu.mod.nitronichud#interface", "Interface Options")
             {
-                /*new CheckBox(MenuDisplayMode.Both, "setting:display_countdown", "SHOW COUNTDOWN")
+                new CheckBox(MenuDisplayMode.Both, "setting:display_countdown", "SHOW COUNTDOWN")
                 .WithGetter(() => Config.DisplayCountdown)
                 .WithSetter(x => Config.DisplayCountdown = x)
-                .WithDescription("Displays the 3... 2... 1... RUSH countdown when playing a level."),*/
+                .WithDescription("Displays the 3... 2... 1... RUSH countdown when playing a level."),
 
                 new CheckBox(MenuDisplayMode.Both, "setting:display_overheat", "SHOW OVERHEAT METERS")
                 .WithGetter(() => Config.DisplayHeatMeters)
@@ -101,7 +101,46 @@ namespace Distance.NitronicHUD
                 .WithGetter(() => Config.TimerVerticalOffset)
                 .WithSetter(x => Config.TimerVerticalOffset = x)
                 .LimitedByRange(-100, 100)
-                .WithDescription("Set the vertical position of the timer.")
+                .WithDescription("Set the vertical position of the timer."),
+
+                // NOTE: Move to advanced submenu
+                
+                new FloatSlider(MenuDisplayMode.Both, "setting:heat_blink_start_amount", "HEAT BLINK START AMOUNT")
+                .WithDefaultValue(0.7f)
+                .LimitedByRange(0.0f, 1.0f)
+                .WithGetter(() => Config.HeatBlinkStartAmount)
+                .WithSetter(x => Config.HeatBlinkStartAmount = x)
+                .WithDescription("Set the heat treshold after which the hud starts to blink."),
+                
+                /*
+                new FloatSlider(MenuDisplayMode.Both, "setting:heat_blink_frequence", "HEAT BLINK FREQUENCE")
+                .WithDefaultValue(2.0f)
+                .LimitedByRange(0.0f, 10.0f)
+                .WithGetter(() => Config.HeatBlinkFrequence)
+                .WithSetter(x => Config.HeatBlinkFrequence = x)
+                .WithDescription("Set the hud blink rate (per second)."),
+                
+                new FloatSlider(MenuDisplayMode.Both, "setting:heat_blink_frequence_boost", "HEAT BLINK FREQUENCE BOOST")
+                .WithDefaultValue(1.15f)
+                .LimitedByRange(0.0f, 10.0f)
+                .WithGetter(() => Config.HeatBlinkFrequenceBoost)
+                .WithSetter(x => Config.HeatBlinkFrequenceBoost = x)
+                .WithDescription("Sets the blink rate boost.\nThe blink rate at 100% heat is the blink rate times this value (set this to 1 to keep the rate constant)."),
+                
+                new FloatSlider(MenuDisplayMode.Both, "setting:heat_blink_amount", "HEAT BLINK AMOUNT")
+                .WithDefaultValue(0.7f)
+                .LimitedByRange(0.0f, 1.0f)
+                .WithGetter(() => Config.HeatBlinkAmount)
+                .WithSetter(x => Config.HeatBlinkAmount = x)
+                .WithDescription("Sets the color intensity of the overheat blink animation (lower values means smaller color changes)."),
+
+                new FloatSlider(MenuDisplayMode.Both, "setting:heat_flame_amount", "HEAT FLAME AMOUNT")
+                .WithDefaultValue(0.5f)
+                .LimitedByRange(0.0f, 1.0f)
+                .WithGetter(() => Config.HeatFlameAmount)
+                .WithSetter(x => Config.HeatFlameAmount = x)
+                .WithDescription("Sets the color intensity of the overheat flame animation (lower values means smaller color changes)."),
+                */
             };
 
             MenuTree audioMenu = new MenuTree("menu.mod.nitronichud#audio", "Audio Options");

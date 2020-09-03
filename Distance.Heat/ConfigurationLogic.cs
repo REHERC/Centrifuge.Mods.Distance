@@ -8,7 +8,7 @@ namespace Distance.Heat
     public class ConfigurationLogic : MonoBehaviour
     {
         #region Properties
-        // TODO: Add trigger hotkey (see scenedumper for reference)erence)
+        // TODO: Add trigger hotkey (see scenedumper for reference)
         public string ToggleHotkey
         {
             get => Get<string>("ToggleHotkey");

@@ -63,6 +63,36 @@ namespace Distance.NitronicHUD
             get => Get<int>("TimerVerticalOffset");
             set => Set("TimerVerticalOffset", value);
         }
+
+        public float HeatBlinkStartAmount
+        {
+            get => Get<float>("HeatBlinkStartAmount");
+            set => Set("HeatBlinkStartAmount", value);
+        }
+
+        public float HeatBlinkFrequence
+        {
+            get => Get<float>("HeatBlinkFrequence");
+            set => Set("HeatBlinkFrequence", value);
+        }
+
+        public float HeatBlinkFrequenceBoost
+        {
+            get => Get<float>("HeatBlinkFrequenceBoost");
+            set => Set("HeatBlinkFrequenceBoost", value);
+        }
+
+        public float HeatBlinkAmount
+        {
+            get => Get<float>("HeatBlinkAmount");
+            set => Set("HeatBlinkAmount", value);
+        }
+
+        public float HeatFlameAmount
+        {
+            get => Get<float>("HeatFlameAmount");
+            set => Set("HeatFlameAmount", value);
+        }
         #endregion
         #endregion
         #endregion
@@ -91,6 +121,12 @@ namespace Distance.NitronicHUD
             Get("TimerScale", 1.0f);
             Get("TimerVerticalOffset", 0);
 
+            Get("HeatBlinkStartAmount", 0.7f);
+            Get("HeatBlinkFrequence", 2.0f);
+            Get("HeatBlinkFrequenceBoost", 1.15f);
+            Get("HeatBlinkAmount", 0.7f);
+            Get("HeatFlameAmount", 0.5f);
+            
             Save();
         }
 

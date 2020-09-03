@@ -4,10 +4,9 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".cs" #>
-// WARNING: (only applies for QuickSelect.cs)
+// This warning only applies for QuickSelect.cs
 // This file was automatically generated from the QuickSelect.tt text template,
 // Do not modify this file as it will be overwritten when you rebuild the project
-// NOTE: 
 // QuickSelect.cs should be excluded from version control
 #pragma warning disable IDE1006
 using Centrifuge.Distance.EditorTools.Attributes;

@@ -137,44 +137,46 @@ namespace Distance.NitronicHUD.Scripts
         #endregion
 
         #region Overheat Meter
-        // TODO: Add config for this
-        private const float HeatBlinkStartAmount = 0.7f;
-        private const float HeatBlinkFrequence = 2.0f;
-        private const float HeatBlinkFrequenceBoost = 1.15f;
-        private const float HeatBlinkAmount = 0.7f;
-        private const float HeatFlameAmount = 0.5f;
-        
         private void UpdateHeatIndicators()
         {
+            ConfigurationLogic config = Mod.Instance.Config;
             try
             {
                 float heat = Mathf.Clamp(Vehicle.HeatLevel, 0, 1);
-
-                foreach (VisualDisplayContent instance in huds_)
+                
+                if (huds_.Length >= 2)
                 {
-                    instance.heatHigh.fillAmount = heat;
-                    instance.heatLow.fillAmount = heat;
-
-                    float blink = 0;
-
-                    if (heat > HeatBlinkStartAmount)
+                    for (int x = 0; x <= 1; x++)
                     {
-                        blink = (heat - HeatBlinkStartAmount) / (1 - HeatBlinkStartAmount);
+                        VisualDisplayContent instance = huds_[x];
+
+                        if (!instance.main)
+                        {
+                            continue;
+                        }
+
+                        instance.heatHigh.fillAmount = heat;
+                        instance.heatLow.fillAmount = heat;
+
+                        float blink = 0;
+
+                        if (heat > config.HeatBlinkStartAmount)
+                        {
+                            blink = (heat - config.HeatBlinkStartAmount) / (1 - config.HeatBlinkStartAmount);
+                        }
+
+                        blink *= 0.5f * Mathf.Sin((float)Timex.ModeTime_ * (config.HeatBlinkFrequence - ((1 - heat) * heat * config.HeatBlinkFrequenceBoost)) * 3 * Mathf.PI) + 0.5f;
+                        instance.main.color = new Color(1, 1 - (blink * config.HeatBlinkAmount), 1 - (blink * config.HeatBlinkAmount));
+                        
+                        float flame = 0;
+                        
+                        if (heat > config.HeatFlameAmount)
+                        {
+                            flame = (heat - config.HeatFlameAmount) / (1 - config.HeatFlameAmount);
+                        }
+                        
+                        instance.flame.color = new Color(1, 1, 1, flame);
                     }
-
-                    blink *= 0.5f * Mathf.Sin((float)Timex.ModeTime_ * (HeatBlinkFrequence - ((1 - heat) * heat * HeatBlinkFrequenceBoost)) * 3 * Mathf.PI) + 0.5f;
-
-                    instance.main.color = new Color(1, 1 - (blink * HeatBlinkAmount), 1 - (blink * HeatBlinkAmount));
-
-
-                    float flame = 0;
-
-                    if (heat > HeatFlameAmount)
-                    {
-                        flame = (heat - HeatFlameAmount) / (1 - HeatFlameAmount);
-                    }
-
-                    instance.flame.color = new Color(1, 1, 1, flame);
                 }
             }
             catch (Exception ex)
