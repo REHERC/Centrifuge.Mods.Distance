@@ -51,6 +51,7 @@ namespace Distance.NitronicHUD
 
         public void CreateSettingsMenu()
         {
+            // TODO: Write menu docs in instructions.html
             MenuTree displayMenu = new MenuTree("menu.mod.nitronichud#interface", "Interface Options")
             {
                 new CheckBox(MenuDisplayMode.Both, "setting:display_countdown", "SHOW COUNTDOWN")
@@ -106,30 +107,29 @@ namespace Distance.NitronicHUD
                 // NOTE: Move to advanced submenu
                 
                 new FloatSlider(MenuDisplayMode.Both, "setting:heat_blink_start_amount", "HEAT BLINK START AMOUNT")
-                .WithDefaultValue(0.7f)
                 .LimitedByRange(0.0f, 1.0f)
+                .WithDefaultValue(0.7f)
                 .WithGetter(() => Config.HeatBlinkStartAmount)
                 .WithSetter(x => Config.HeatBlinkStartAmount = x)
                 .WithDescription("Set the heat treshold after which the hud starts to blink."),
                 
-                /*
                 new FloatSlider(MenuDisplayMode.Both, "setting:heat_blink_frequence", "HEAT BLINK FREQUENCE")
-                .WithDefaultValue(2.0f)
                 .LimitedByRange(0.0f, 10.0f)
+                .WithDefaultValue(2.0f)
                 .WithGetter(() => Config.HeatBlinkFrequence)
                 .WithSetter(x => Config.HeatBlinkFrequence = x)
                 .WithDescription("Set the hud blink rate (per second)."),
                 
                 new FloatSlider(MenuDisplayMode.Both, "setting:heat_blink_frequence_boost", "HEAT BLINK FREQUENCE BOOST")
-                .WithDefaultValue(1.15f)
                 .LimitedByRange(0.0f, 10.0f)
+                .WithDefaultValue(1.15f)
                 .WithGetter(() => Config.HeatBlinkFrequenceBoost)
                 .WithSetter(x => Config.HeatBlinkFrequenceBoost = x)
                 .WithDescription("Sets the blink rate boost.\nThe blink rate at 100% heat is the blink rate times this value (set this to 1 to keep the rate constant)."),
                 
                 new FloatSlider(MenuDisplayMode.Both, "setting:heat_blink_amount", "HEAT BLINK AMOUNT")
-                .WithDefaultValue(0.7f)
                 .LimitedByRange(0.0f, 1.0f)
+                .WithDefaultValue(0.7f)
                 .WithGetter(() => Config.HeatBlinkAmount)
                 .WithSetter(x => Config.HeatBlinkAmount = x)
                 .WithDescription("Sets the color intensity of the overheat blink animation (lower values means smaller color changes)."),
@@ -139,8 +139,7 @@ namespace Distance.NitronicHUD
                 .LimitedByRange(0.0f, 1.0f)
                 .WithGetter(() => Config.HeatFlameAmount)
                 .WithSetter(x => Config.HeatFlameAmount = x)
-                .WithDescription("Sets the color intensity of the overheat flame animation (lower values means smaller color changes)."),
-                */
+                .WithDescription("Sets the color intensity of the overheat flame animation (lower values means smaller color changes).")
             };
 
             MenuTree audioMenu = new MenuTree("menu.mod.nitronichud#audio", "Audio Options");
