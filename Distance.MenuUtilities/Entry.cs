@@ -41,15 +41,15 @@ namespace Distance.MenuUtilities
             // TODO: Update readme instructions
             MenuTree settingsMenu = new MenuTree("menu.mod.decorativelamp", "Decorative Lamp Settings")
             {
-                new CheckBox(MenuDisplayMode.Both, "setting:enable_delete_playlist", "LEVEL PLAYLIST REMOVE BUTTON")
+                new CheckBox(MenuDisplayMode.Both, "setting:enable_delete_playlist", "SHOW LEVEL PLAYLIST REMOVE BUTTON")
                     .WithGetter(() => Config.EnableDeletePlaylistButton)
                     .WithSetter((x) => Config.EnableDeletePlaylistButton = x)
-                    .WithDescription("Show a button to delete playlists in the level grid menu."),
+                    .WithDescription("Display a button to delete playlists in the level grid menu."),
 
-                new CheckBox(MenuDisplayMode.Both, "setting:enable_car_hex_input", "HEXADECIMAL CAR COLOR INPUT")
+                new CheckBox(MenuDisplayMode.Both, "setting:enable_car_hex_input", "SHOW HEXADECIMAL CAR COLOR INPUT")
                     .WithGetter(() => Config.EnableHexColorInput)
                     .WithSetter((x) => Config.EnableHexColorInput = x)
-                    .WithDescription("Show a button to modify directly the hex color value in the car customization menu."),
+                    .WithDescription("Display a button to modify directly the hex color value in the car customization menu."),
             };
 
             Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "MENU UTILITIES", "Settings for the Menu Utilities mod.");

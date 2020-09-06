@@ -1,6 +1,6 @@
 ﻿{
-  "FriendlyName": "Decorative Menu Utilities",
-  "Description": "Adds new buttons in default distance menus.",
+  "FriendlyName": "Menu Utilities",
+  "Description": "Extends the default distance menus with additional features.",
   "Author": "Reherc",
   "Contact": "Github: @REHERC",
   "ModuleFileName": "Distance.MenuUtilities.dll",

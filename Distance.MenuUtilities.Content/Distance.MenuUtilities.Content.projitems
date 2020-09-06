@@ -10,5 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Mod\mod.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Readme\instructions.html" />
   </ItemGroup>
 </Project>
