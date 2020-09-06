@@ -121,6 +121,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.CustomCar", "Dista
 		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.MenuUtilities", "Distance.MenuUtilities\Distance.MenuUtilities.csproj", "{E196A946-2ED4-4EC2-863B-77ED35E42D0F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.MenuUtilities.Content", "Distance.MenuUtilities.Content\Distance.MenuUtilities.Content.shproj", "{878494B6-CD3F-4D65-82E1-C250887FE8BA}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{02cd7385-b155-4974-843d-9d0dd6bbfbe5}*SharedItemsImports = 13
@@ -131,6 +135,7 @@ Global
 		Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.projitems*{57657ebc-1f29-4357-b4ef-45b2b22f5a3f}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
 		Distance.Heat.Content\Distance.Heat.Content.projitems*{7f00b47c-1cb4-4d7d-96ab-3cfd23b03ace}*SharedItemsImports = 13
+		Distance.MenuUtilities.Content\Distance.MenuUtilities.Content.projitems*{878494b6-cd3f-4d65-82e1-c250887fe8ba}*SharedItemsImports = 13
 		Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.projitems*{a26d9216-daea-4876-a182-70df4ff5997b}*SharedItemsImports = 13
 		Distance.DecorativeLamp.Content\Distance.DecorativeLamp.Content.projitems*{a7ee87a2-a395-4018-a8c0-b12b44005e52}*SharedItemsImports = 13
 		Distance.CustomCar.Content\Distance.CustomCar.Content.projitems*{b250cc3f-e2f1-40e6-8a89-5ad23d54c019}*SharedItemsImports = 13
@@ -202,6 +207,10 @@ Global
 		{502868DA-BA52-4E50-8163-F5AC29D75F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{502868DA-BA52-4E50-8163-F5AC29D75F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{502868DA-BA52-4E50-8163-F5AC29D75F7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E196A946-2ED4-4EC2-863B-77ED35E42D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E196A946-2ED4-4EC2-863B-77ED35E42D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E196A946-2ED4-4EC2-863B-77ED35E42D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E196A946-2ED4-4EC2-863B-77ED35E42D0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
