@@ -119,7 +119,7 @@ REM ===== COPY MOD FILES =====
 CALL :MAKEDIR "%25MOD%25"
 
 CALL :COPYDIR "%25INCLUDE%25\Mod" "%25MOD%25"
-CALL :COPY "%25BUILD%25Distance.heat.dll" "%25MOD%25"
+CALL :COPY "%25BUILD%25Distance.Heat.dll" "%25MOD%25"
 
 CALL :INCLUDEGSL Centrifuge.Distance
 
