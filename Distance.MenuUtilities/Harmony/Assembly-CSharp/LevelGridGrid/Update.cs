@@ -12,6 +12,11 @@ namespace Distance.MenuUtilities.Harmony
         [HarmonyPostfix]
         internal static void Postfix(LevelGridGrid __instance)
         {
+            if (!Mod.Instance.Config.EnableDeletePlaylistButton)
+            {
+                return;
+            }
+
             LevelPlaylist playlist = __instance.playlist_;
 
             LevelPlaylistCompoundData data = playlist.GetComponent<LevelPlaylistCompoundData>();
