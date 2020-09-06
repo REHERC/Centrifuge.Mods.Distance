@@ -41,7 +41,7 @@ namespace Distance.MenuUtilities
             // TODO: Update readme instructions
             MenuTree settingsMenu = new MenuTree("menu.mod.decorativelamp", "Decorative Lamp Settings")
             {
-                new CheckBox(MenuDisplayMode.Both, "setting:enable_delete_playlist", "DELETE  LEVEL PLAYLIST BUTTON")
+                new CheckBox(MenuDisplayMode.Both, "setting:enable_delete_playlist", "LEVEL PLAYLIST REMOVE BUTTON")
                     .WithGetter(() => Config.EnableDeletePlaylistButton)
                     .WithSetter((x) => Config.EnableDeletePlaylistButton = x)
                     .WithDescription("Show a button to delete playlists in the level grid menu."),
