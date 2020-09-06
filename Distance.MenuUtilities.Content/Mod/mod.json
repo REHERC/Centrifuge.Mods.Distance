@@ -1,0 +1,13 @@
+﻿{
+  "FriendlyName": "Decorative Menu Utilities",
+  "Description": "Adds new buttons in default distance menus.",
+  "Author": "Reherc",
+  "Contact": "Github: @REHERC",
+  "ModuleFileName": "Distance.MenuUtilities.dll",
+  "Priority": 10,
+  "SkipLoad": false,
+  "Dependencies": [],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ]
+}
