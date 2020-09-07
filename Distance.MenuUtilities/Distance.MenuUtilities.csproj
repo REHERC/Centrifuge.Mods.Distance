@@ -88,14 +88,20 @@
   <ItemGroup>
     <Compile Include="ConfigurationLogic.cs" />
     <Compile Include="Entry.cs" />
+    <Compile Include="Extensions\Assembly-CSharp\CustomizeCarColorsMenuLogic.cs" />
     <Compile Include="Extensions\Assembly-CSharp\LevelPlaylist.cs" />
     <Compile Include="Extensions\mscorlib\System\String.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\CustomizeCarColorsMenuLogic\Awake.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\CustomizeCarColorsMenuLogic\OnColorPickerPop.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\CustomizeCarColorsMenuLogic\PickColorForType.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\CustomizeCarColorsMenuLogic\SetButtonMessage.cs" />
     <Compile Include="Harmony\Assembly-CSharp\LevelGridGrid\PushGrid.cs" />
     <Compile Include="Harmony\Assembly-CSharp\LevelGridGrid\Update.cs" />
     <Compile Include="Harmony\Assembly-CSharp\LevelPlaylist\Load.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Constants.cs" />
     <Compile Include="Resources\Strings.cs" />
+    <Compile Include="Scripts\CustomizeMenuCompoundData.cs" />
     <Compile Include="Scripts\LevelPlaylistCompoundData.cs" />
   </ItemGroup>
   <ItemGroup>
