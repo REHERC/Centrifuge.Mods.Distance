@@ -39,7 +39,7 @@ namespace Distance.MenuUtilities
         public void CreateSettingsMenu()
         {
             // TODO: Update readme instructions
-            MenuTree settingsMenu = new MenuTree("menu.mod.me uutilities", "Decorative Lamp Settings")
+            MenuTree settingsMenu = new MenuTree("menu.mod.menuutilities", "Decorative Lamp Settings")
             {
                 new CheckBox(MenuDisplayMode.Both, "setting:enable_delete_playlist", "SHOW LEVEL PLAYLIST REMOVE BUTTON")
                     .WithGetter(() => Config.EnableDeletePlaylistButton)
