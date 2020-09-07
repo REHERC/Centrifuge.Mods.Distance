@@ -49,7 +49,7 @@ namespace Distance.MenuUtilities
                 new CheckBox(MenuDisplayMode.Both, "setting:enable_car_hex_input", "SHOW HEXADECIMAL CAR COLOR INPUT")
                     .WithGetter(() => Config.EnableHexColorInput)
                     .WithSetter((x) => Config.EnableHexColorInput = x)
-                    .WithDescription("Display a button to modify directly the hex color value in the car customization menu."),
+                    .WithDescription("Display a button to modify directly the hexadecimal color value in the car customization menu."),
             };
 
             Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "MENU UTILITIES", "Settings for the Menu Utilities mod.");
