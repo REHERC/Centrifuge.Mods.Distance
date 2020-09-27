@@ -1,7 +1,5 @@
 ﻿using Distance.TrackMusic.Models;
 using HarmonyLib;
-using System;
-using System.IO;
 
 namespace Distance.TrackMusic.Harmony
 {
@@ -26,7 +24,7 @@ namespace Distance.TrackMusic.Harmony
 
             visitor.Visit("eventName_", ref __instance.eventName_, false, null);
             visitor.Visit("delay_", ref __instance.delay_, false, null);
-            
+
             var isEditing = inspector.isEditing_;
 
             var data = mod.Variables.CachedMusicChoice.GetOrCreate(__instance, () => new MusicChoice());

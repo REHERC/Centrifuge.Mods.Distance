@@ -11,7 +11,8 @@ namespace Distance.EditorAdditions.Harmony
         {
             ConfigurationLogic Config = Mod.Instance.Config;
 
-            __instance.iconSizeSlider_.onChange.Add(new EventDelegate(() => {
+            __instance.iconSizeSlider_.onChange.Add(new EventDelegate(() =>
+            {
                 Config.EditorIconSize = __instance.IconSize_;
             }));
 
@@ -27,7 +28,7 @@ namespace Distance.EditorAdditions.Harmony
             __instance.iconSizeSlider_.value = Mathf.InverseLerp(32f, 256f, __instance.iconSize_);
             __instance.searchInput_ = __instance.GetComponentInChildren<UIExInput>();
             __instance.StartCoroutine(__instance.CreateIconsAfterAFrame());
-            
+
             return false;
         }
     }

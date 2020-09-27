@@ -13,7 +13,7 @@ namespace Distance.TrackMusic
         {
             mod_ = GetComponent<Mod>();
         }
-        
+
         public void Update()
         {
             mod_.Variables.CachedMusicTrack.Update();
@@ -63,7 +63,7 @@ namespace Distance.TrackMusic
             }
 
             Events.Audio.MusicSegmentEnd.Subscribe(local_MusicSegmentEnd);
-            
+
             try
             {
                 G.Sys.AudioManager_.PlayMP3(track.FileLocation, mod_.Variables.PlayingMusic ? 0f : fadeTimeMs);
@@ -71,7 +71,7 @@ namespace Distance.TrackMusic
             catch (Exception e)
             {
                 Events.StaticEvent<Events.Audio.MusicSegmentEnd.Data>.Unsubscribe(local_MusicSegmentEnd);
-                
+
                 Mod.Instance.Logger.Error($"Failed to play track {trackName} because: {e}");
                 Mod.Instance.Logger.Exception(e);
 
@@ -80,7 +80,7 @@ namespace Distance.TrackMusic
             }
 
             Events.Audio.MusicSegmentEnd.Unsubscribe(local_MusicSegmentEnd);
-            
+
             if (failed || AudioManager.CurrentAudioFile_ == null || AudioManager.CurrentAudioFile_.FileName != track.FileLocation)
             {
                 Mod.Instance.Logger.Error($"Failed to play track {trackName}");
@@ -115,14 +115,14 @@ namespace Distance.TrackMusic
         public string GetMusicChoiceValue(GameObject obj, string key)
         {
             var listener = obj.GetComponent<ZEventListener>();
-            
+
             if (listener == null || !listener.eventName_.StartsWith(CustomDataInfo.GetPrefix<MusicChoice>()))
             {
                 return null;
             }
 
             var choice = mod_.Variables.CachedMusicChoice.GetOrCreate(listener, () => MusicChoice.FromObject(listener));
-            
+
             if (choice == null)
             {
                 return null;

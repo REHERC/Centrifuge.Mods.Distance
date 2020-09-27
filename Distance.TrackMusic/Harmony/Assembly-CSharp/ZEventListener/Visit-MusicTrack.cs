@@ -28,11 +28,11 @@ namespace Distance.TrackMusic.Harmony
 
             visitor.Visit("eventName_", ref __instance.eventName_, false, null);
             visitor.Visit("delay_", ref __instance.delay_, false, null);
-            
+
             var isEditing = inspector.isEditing_;
-            
+
             var data = mod.Variables.CachedMusicTrack.GetOrCreate(__instance, () => new MusicTrack());
-            
+
             if (data.LastWrittenData != __instance.eventName_)
             {
                 data.ReadObject(__instance);
@@ -112,7 +112,7 @@ namespace Distance.TrackMusic.Harmony
             visitor.Visit("Name", ref data.Name, null);
             visitor.Visit("Type", ref data.FileType, null);
             visitor.Visit("Embed File", ref data.EmbedFile, mod.Variables.MusicTrackOptions);
-            
+
             visitor.VisitAction("Select File", () =>
             {
                 var dlgOpen = new System.Windows.Forms.OpenFileDialog

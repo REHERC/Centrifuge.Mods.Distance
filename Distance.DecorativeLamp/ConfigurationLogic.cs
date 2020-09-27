@@ -61,7 +61,7 @@ namespace Distance.DecorativeLamp
 
         public event Action<ConfigurationLogic> OnChanged;
 
-        private void Load() 
+        private void Load()
         {
             Config = new Settings("Config");
         }

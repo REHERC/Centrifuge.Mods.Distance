@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tools.External.Extensions
+﻿namespace Tools.External.Extensions
 {
     public static class ControlEx
     {
@@ -13,7 +7,7 @@ namespace Tools.External.Extensions
         {
             //Taxes: Remote Desktop Connection and painting
             //http://blogs.msdn.com/oldnewthing/archive/2006/01/03/508694.aspx
-            
+
             if (System.Windows.Forms.SystemInformation.TerminalServerSession)
                 return;
 

@@ -21,7 +21,7 @@ namespace Distance.EditorAdditions.Editor.Tools.QuickSelect
             try
             {
                 GameObject instance = EditorUtil.GetQuickMemory(QuickAccessIndex);
-                
+
                 if (instance)
                 {
                     EditorUtil.Inspect(instance);

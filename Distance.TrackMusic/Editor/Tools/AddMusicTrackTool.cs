@@ -9,7 +9,7 @@ namespace Distance.TrackMusic.Editor.Tools
     public class AddMusicTrackTool : InstantTool
     {
         public static ToolInfo info_ = new ToolInfo("Add Music Track", "", ToolCategory.Edit, ToolButtonState.Button, false);
-        
+
         public override ToolInfo Info_ => info_;
 
         public static void Register()

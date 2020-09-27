@@ -101,7 +101,7 @@ namespace Distance.NitronicHUD
 
         public event Action<ConfigurationLogic> OnChanged;
 
-        private void Load() 
+        private void Load()
         {
             Config = new Settings("Config");
         }
@@ -126,7 +126,7 @@ namespace Distance.NitronicHUD
             Get("HeatBlinkFrequenceBoost", 1.15f);
             Get("HeatBlinkAmount", 0.7f);
             Get("HeatFlameAmount", 0.5f);
-            
+
             Save();
         }
 

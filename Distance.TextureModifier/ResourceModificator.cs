@@ -110,7 +110,7 @@ namespace Distance.TextureModifier
 
         public void ReplaceMaterials(Material[] collection, Material replacement)
         {
-            for(int index = 0; index < collection.Length; index++)
+            for (int index = 0; index < collection.Length; index++)
             {
                 collection[index] = replacement;
             }

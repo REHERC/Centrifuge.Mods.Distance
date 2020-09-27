@@ -97,7 +97,8 @@ namespace Tools.External.Forms
 
                 tool.SetCancelToken(source);
 
-                factory.StartNew(() => {
+                factory.StartNew(() =>
+                {
                     try
                     {
 
@@ -123,7 +124,7 @@ namespace Tools.External.Forms
             {
                 Reset();
             }
-            
+
             SetToolStatus(true);
         }
 

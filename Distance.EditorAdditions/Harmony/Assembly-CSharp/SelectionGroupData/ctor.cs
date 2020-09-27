@@ -1,8 +1,6 @@
 ﻿using HarmonyLib;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace Distance.EditorAdditions.Harmony
@@ -15,7 +13,7 @@ namespace Distance.EditorAdditions.Harmony
         {
             ___position_ = Vector3.zero;
             ___rotation_ = activeObject ? activeObject.transform.rotation : Quaternion.identity;
-            
+
             int num = 0;
 
             foreach (GameObject selectedObject in selectedObjects)

@@ -17,7 +17,7 @@ namespace Distance.TrackMusic.Harmony
             {
                 visitor.VisitAction("Toggle Custom Music", levelEditor.ToggleCustomMusic, null);
                 visitor.VisitAction("Add Music Track", levelEditor.AddMusicTrack, null);
-                
+
                 if (!__instance.HasComponent<ZEventListener>())
                 {
                     visitor.VisitAction("Set Music Choice", levelEditor.AddMusicChoiceLevelSettings, null);

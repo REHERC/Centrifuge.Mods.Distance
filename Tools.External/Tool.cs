@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,11 +22,11 @@ namespace Tools.External
 
         internal void SetRunning(bool value)
         {
-            if(!running_)
+            if (!running_)
             {
                 canceled_ = false;
             }
-            
+
             running_ = value;
         }
 
@@ -40,9 +39,9 @@ namespace Tools.External
         {
             SetRunning(false);
 
-            foreach(var obj in disposeResources_)
+            foreach (var obj in disposeResources_)
             {
-                switch(obj)
+                switch (obj)
                 {
                     case Form frm:
                         frm.Hide();

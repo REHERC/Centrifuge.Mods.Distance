@@ -21,7 +21,7 @@ namespace Distance.Anolytics
         public Log Logger { get; set; }
 
         public ConfigurationLogic Config { get; set; }
-        
+
         public void Initialize(IManager manager)
         {
             Instance = this;

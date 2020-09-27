@@ -7,35 +7,39 @@ namespace CustomCar
     {
         private static readonly List<string> errors = new List<string>();
 
-        public static void add(string error)
+        public static void Add(string error)
         {
             errors.Add(error);
             Console.Out.WriteLine("Custom car - Error: " + error);
         }
 
-        public static List<string> get()
+        public static List<string> Get()
         {
             return errors;
         }
 
-        public static void clear()
+        public static void Clear()
         {
             errors.Clear();
         }
 
-        public static bool haveErrors()
+        public static bool HaveErrors()
         {
             return errors.Count > 0;
         }
 
-        public static void show()
+        public static void Show()
         {
             if (errors.Count == 0)
+            {
                 return;
+            }
 
-            var error = "Can't load the cars correctly:" + errors.Count + " error(s)\n";
-            for (var i = 0; i < errors.Count; i++)
+            string error = "Can't load the cars correctly:" + errors.Count + " error(s)\n";
+            for (int i = errors.Count - 1; i >= 0; i--)
+            {
                 error += errors[i] + "\n";
+            }
 
             G.Sys.MenuPanelManager_.ShowError(error, "Custom cars error");
         }

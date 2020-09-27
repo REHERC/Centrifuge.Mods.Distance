@@ -17,7 +17,8 @@ namespace Distance.EditorAdditions.Harmony
 
                 if (!ObjectTransform.IsRoot())
                 {
-                    visitor.VisitAction("Inspect Parent", () => {
+                    visitor.VisitAction("Inspect Parent", () =>
+                    {
                         var Editor = G.Sys.LevelEditor_;
                         var Selection = Editor.SelectedObjects_;
 

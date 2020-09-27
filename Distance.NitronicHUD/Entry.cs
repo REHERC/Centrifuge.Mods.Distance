@@ -147,7 +147,7 @@ namespace Distance.NitronicHUD
                 .NavigatesTo(advancedDisplayMenu)
                 .WithDescription("Configure advanced settings for the hud.")
             };
-            
+
             MenuTree audioMenu = new MenuTree("menu.mod.nitronichud#audio", "Audio Options");
 
             MenuTree settingsMenu = new MenuTree("menu.mod.nitronichud", "Nitronic HUD Settings");
@@ -167,7 +167,8 @@ namespace Distance.NitronicHUD
 
             settingsMenu.Add(
                 new ActionButton(MenuDisplayMode.MainMenu, "menu:interface", "PREVIEW SETTINGS".Colorize(Colors.gray))
-                .WhenClicked(() => {
+                .WhenClicked(() =>
+                {
                     MessageBox.Create("This feature isn't implemented yet but will be in a future release.", "ERROR")
                     .SetButtons(MessageButtons.Ok)
                     .Show();

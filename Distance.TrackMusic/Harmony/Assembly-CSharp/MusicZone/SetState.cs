@@ -1,7 +1,6 @@
 ﻿using Distance.TrackMusic.Models;
 using HarmonyLib;
 using System;
-using UnityEngine;
 
 namespace Distance.TrackMusic.Harmony
 {

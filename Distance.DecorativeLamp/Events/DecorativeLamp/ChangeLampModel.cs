@@ -7,7 +7,7 @@ namespace Events.DecorativeLamp
         public struct Data
         {
             public readonly LampModel model;
-            
+
             public Data(LampModel m)
             {
                 model = m;

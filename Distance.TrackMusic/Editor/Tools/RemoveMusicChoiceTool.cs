@@ -10,7 +10,7 @@ namespace Distance.TrackMusic.Editor.Tools
     public class RemoveMusicChoiceTool : InstantTool
     {
         public static ToolInfo info_ = new ToolInfo("Remove CustomMusic", "", ToolCategory.Others, ToolButtonState.Invisible, false);
-        
+
         public override ToolInfo Info_ => info_;
 
         public static void Register()

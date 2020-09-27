@@ -20,7 +20,7 @@ namespace Distance.TrackMusic.Models
         }
 
         public Dictionary<string, MusicChoiceEntry> Choices = new Dictionary<string, MusicChoiceEntry>();
-        
+
         [NonSerialized]
         public string LastWrittenData = null;
 
@@ -41,7 +41,7 @@ namespace Distance.TrackMusic.Models
         {
             var dict = new Dictionary<string, MusicChoiceEntry>();
             dict.AddRange(Choices.Select(entry => new KeyValuePair<string, MusicChoiceEntry>(entry.Key, new MusicChoiceEntry(entry.Value.Track))));
-            
+
             return new MusicChoice()
             {
                 Choices = dict,

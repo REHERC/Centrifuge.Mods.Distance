@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 namespace CustomCar
 {
@@ -80,7 +80,7 @@ namespace CustomCar
             var prefab = G.Sys.ProfileManager_.carInfos_[0].prefabs_.carPrefab_;
             if (prefab == null)
             {
-                ErrorList.add("Can't find the refractor base car prefab");
+                ErrorList.Add("Can't find the refractor base car prefab");
                 return;
             }
 
@@ -116,22 +116,22 @@ namespace CustomCar
 
             if (boostJet == null)
             {
-                ErrorList.add("No valid BoostJet found on Refractor");
+                ErrorList.Add("No valid BoostJet found on Refractor");
             }
 
             if (rotationJet == null)
             {
-                ErrorList.add("No valid RotationJet found on Refractor");
+                ErrorList.Add("No valid RotationJet found on Refractor");
             }
 
             if (wingJet == null)
             {
-                ErrorList.add("No valid WingJet found on Refractor");
+                ErrorList.Add("No valid WingJet found on Refractor");
             }
 
             if (wingTrail == null)
             {
-                ErrorList.add("No valid WingTrail found on Refractor");
+                ErrorList.Add("No valid WingTrail found on Refractor");
             }
         }
 
@@ -179,7 +179,7 @@ namespace CustomCar
 
             foreach (MaterialPropertyInfo mat in materialsNames.Where(mat => !materials.ContainsKey(mat.name)))
             {
-                ErrorList.add("Can't find the material: " + mat.name + " - shader: " + mat.shaderName);
+                ErrorList.Add("Can't find the material: " + mat.name + " - shader: " + mat.shaderName);
             }
 
             materials.Add("donotreplace", new MaterialInfos());

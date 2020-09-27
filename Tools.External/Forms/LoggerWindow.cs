@@ -1,6 +1,5 @@
-﻿using Tools.External.Extensions;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using Tools.External.Extensions;
 
 namespace Tools.External.Forms
 {

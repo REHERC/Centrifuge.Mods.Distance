@@ -22,10 +22,10 @@ namespace Distance.Heat
             CarStats = CarLogic ? CarLogic.CarStats_ : null;
         }
 
-        private static UILabel GetAndActivateWatermark()
+        internal static UILabel GetAndActivateWatermark()
         {
-            var anchorAlphaVersion = GameObject.Find("UI Root").transform.Find("Panel/Anchor : AlphaVersion");
-            var alphaVersion = anchorAlphaVersion.Find("AlphaVersion");
+            Transform anchorAlphaVersion = GameObject.Find("UI Root").transform.Find("Panel/Anchor : AlphaVersion");
+            Transform alphaVersion = anchorAlphaVersion.Find("AlphaVersion");
 
             anchorAlphaVersion.gameObject.SetActive(true);
             alphaVersion.gameObject.SetActive(true);

@@ -12,7 +12,7 @@ namespace Distance.EditorAdditions.Harmony
         {
             bool is_inspected = obj.Equals(__instance.targetObject_);
             bool is_object_root = obj.transform.IsRoot() || is_inspected;
-            
+
             if (is_object_root && (!ignoreList.ShouldBeIgnored(obj.transform) || is_inspected))
             {
                 __instance.CreateISerializableInspector(ComponentSerializeWrapper.Create(obj.transform, true), objectSupportsUndo);
@@ -22,7 +22,7 @@ namespace Distance.EditorAdditions.Harmony
 
             bool inspectChildren = group == null;
             bool can_inspect_mateirals = is_object_root && (group == null || group.inspectChildren_ != Group.InspectChildrenType.None);
-            
+
             if (group)
             {
                 __instance.CreateISerializableInspector(group, objectSupportsUndo);
@@ -34,7 +34,7 @@ namespace Distance.EditorAdditions.Harmony
             }
             List<ISerializable> serializableList = new List<ISerializable>();
             __instance.GetSerializables(serializableList, ignoreList, obj, inspectChildren);
-            
+
             foreach (ISerializable serializable in serializableList)
             {
                 __instance.CreateISerializableInspector(serializable, objectSupportsUndo);

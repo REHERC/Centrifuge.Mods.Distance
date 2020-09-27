@@ -12,7 +12,7 @@ namespace Distance.CustomDeathMessages
         public static Mod Instance { get; set; }
 
         public IManager Manager { get; set; }
-        
+
         public ConfigurationLogic Config { get; set; }
 
         public Log Logger { get; set; }

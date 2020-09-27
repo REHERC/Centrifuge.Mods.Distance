@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Distance.TrackMusic.Models
 {
@@ -16,7 +15,7 @@ namespace Distance.TrackMusic.Models
         public string Prefix => CustomDataPrefix + SubPrefix;
         public static Dictionary<Type, CustomDataInfo> Infos = new Dictionary<Type, CustomDataInfo>();
         public static Dictionary<Type, Dictionary<Type, CustomDataInfo>> DeepInfos = new Dictionary<Type, Dictionary<Type, CustomDataInfo>>();
-        
+
         public CustomDataInfo(Type type, Type innerType, string prefix)
         {
             Type = type;
@@ -32,7 +31,7 @@ namespace Distance.TrackMusic.Models
         public static void RegisterStatic(CustomDataInfo info)
         {
             Mod.Instance.Logger.Info($"Registering {info.Type} {info.InnerType} {info.SubPrefix}");
-            
+
             if (!Infos.ContainsKey(info.Type))
             {
                 Infos.Add(info.Type, info);

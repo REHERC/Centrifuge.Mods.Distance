@@ -1,4 +1,5 @@
-﻿using Centrifuge.Distance.Game;
+﻿#pragma warning disable IDE0052
+using Centrifuge.Distance.Game;
 using Centrifuge.Distance.GUI.Controls;
 using Centrifuge.Distance.GUI.Data;
 using Distance.Heat.Enums;

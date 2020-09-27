@@ -1,11 +1,11 @@
 ﻿#pragma warning disable IDE1006
-using Tools.External.Attributes;
-using Tools.External.Forms;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Tools.External.Attributes;
+using Tools.External.Forms;
 
 namespace Tools.External.Tools
 {
@@ -81,7 +81,7 @@ namespace Tools.External.Tools
                 state.SetStatus($"[{state.Progress}%] - Scanning...");
             }
 
-            
+
 
             output = OpenWindow<LoggerWindow>().Rename("Output");
 

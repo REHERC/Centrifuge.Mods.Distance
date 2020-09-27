@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using UnityEngine;
 
 namespace Distance.TrackMusic.Harmony
 {
@@ -14,9 +13,9 @@ namespace Distance.TrackMusic.Harmony
                 SoundPlayerLogic soundPlayer = Mod.Instance.SoundPlayer;
 
                 soundPlayer.DownloadAllTracks();
-                
+
                 Mod.Instance.Logger.Info($"Trying to play {soundPlayer.GetMusicChoiceValue(G.Sys.GameManager_.LevelSettings_.gameObject, "Level")}");
-                
+
                 soundPlayer.PlayTrack(soundPlayer.GetMusicChoiceValue(G.Sys.GameManager_.LevelSettings_.gameObject, "Level"), 2000f, true);
             }
         }

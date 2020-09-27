@@ -31,7 +31,7 @@ namespace Distance.TextureModifier
             ClearResources(ref textures);
             ClearResources(ref materials);
 
-            if (garbageCollect) 
+            if (garbageCollect)
             {
                 System.GC.Collect();
             }

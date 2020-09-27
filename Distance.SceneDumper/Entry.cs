@@ -88,12 +88,14 @@ namespace Distance.SceneDumper
 
         public void OnConfigChanged(ConfigurationLogic config)
         {
-            BindAction(ref _keybindDumperBasic, config.DumpSceneBasic, () => { 
+            BindAction(ref _keybindDumperBasic, config.DumpSceneBasic, () =>
+            {
                 Logger.Info("Performing basic dump...");
                 Dumper.DumpCurrentScene(false);
             });
 
-            BindAction(ref _keybindDumperDetailed, config.DumpSceneDetailed, () => { 
+            BindAction(ref _keybindDumperDetailed, config.DumpSceneDetailed, () =>
+            {
                 Logger.Info("Performing detailed dump...");
                 Dumper.DumpCurrentScene(true);
             });

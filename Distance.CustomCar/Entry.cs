@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#pragma warning disable IDE0052
 using Events.MainMenu;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
 using Reactor.API.Runtime.Patching;
 using Reactor.API.Storage;
+using System;
+using System.Collections.Generic;
 
 namespace CustomCar
 {
-    [ModEntryPoint(ModID)]
+    [ModEntryPoint("com.github.larnin/CustomCar")]
     public class Mod
     {
-        public const string ModID = "com.github.larnin/CustomCar";
+        private readonly List<Assets> _assets = new List<Assets>();
+        private readonly Log _log = LogManager.GetForCurrentAssembly();
 
-        private List<Assets> _assets = new List<Assets>();
-        private Log _log = LogManager.GetForCurrentAssembly();
-
-        public void Initialize(IManager manager)
-        {           
+        public void Initialize(IManager _)
+        {
             try
             {
                 RuntimePatcher.AutoPatch();
@@ -32,19 +31,21 @@ namespace CustomCar
             {
                 try
                 {
-                    var carInfos = new CarInfos();
+                    CarInfos carInfos = new CarInfos();
                     carInfos.CollectInfos();
-                    var builder = new CarBuilder();
+                    CarBuilder builder = new CarBuilder();
                     builder.CreateCars(carInfos);
                 }
                 catch (Exception e)
                 {
-                    ErrorList.add("An error occured while trying to load cars assets.");
+                    ErrorList.Add("An error occured while trying to load cars assets.");
                     _log.Exception(e);
                 }
-                
-                if (ErrorList.haveErrors())
-                    ErrorList.show();
+
+                if (ErrorList.HaveErrors())
+                {
+                    ErrorList.Show();
+                }
             });
         }
 

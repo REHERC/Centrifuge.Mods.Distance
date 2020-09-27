@@ -36,7 +36,7 @@ namespace Distance.NitronicHUD.Scripts
             if (!Bundle)
             {
                 Mod.Instance.Logger.Error($"The following assets file could not be loaded: countdown.assets");
-               
+
                 DestroyImmediate(this);
                 return;
             }
@@ -46,7 +46,7 @@ namespace Distance.NitronicHUD.Scripts
             if (!Prefab)
             {
                 Mod.Instance.Logger.Error($"The following asset from the countdown.assets could not be loaded: \"{AssetName}\"");
-                
+
                 DestroyImmediate(this);
                 return;
             }

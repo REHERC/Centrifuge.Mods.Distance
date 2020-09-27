@@ -24,7 +24,7 @@ namespace Distance.EditorAdditions
             get => Get<bool>("AdvancedMusicSelection");
             set => Set("AdvancedMusicSelection", value);
         }
-        
+
         public bool DisplayWorkshopLevels
         {
             get => Get<bool>("DisplayWorkshopLevels");
@@ -36,7 +36,7 @@ namespace Distance.EditorAdditions
 
         public event Action<ConfigurationLogic> OnChanged;
 
-        private void Load() 
+        private void Load()
         {
             Config = new Settings("Config");
         }

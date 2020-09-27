@@ -122,7 +122,7 @@ namespace Distance.TrackMusic.Models
             else if (!string.IsNullOrEmpty(DownloadUrl))
             {
                 var success = Uri.TryCreate(DownloadUrl, UriKind.Absolute, out Uri downloadUri);
-                
+
                 if (!success || !AllowedDownloadSchemes.Contains(downloadUri.Scheme))
                 {
                     Error = $"Bad URL: should be http:// or https://";

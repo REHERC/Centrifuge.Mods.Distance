@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Reactor.API;
+using Reactor.API.Storage;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Reactor.API;
-using Reactor.API.Storage;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -108,7 +108,7 @@ namespace CustomCar
 
                 if (car == null)
                 {
-                    ErrorList.add("Can't find a prefab in the asset bundle " + f);
+                    ErrorList.Add("Can't find a prefab in the asset bundle " + f);
                 }
                 else
                 {
@@ -153,13 +153,13 @@ namespace CustomCar
 
             if (wheelsToRemove.Count != 4)
             {
-                ErrorList.add("Found " + wheelsToRemove.Count + " wheels on base prefabs, expected 4");
+                ErrorList.Add("Found " + wheelsToRemove.Count + " wheels on base prefabs, expected 4");
             }
 
             Transform refractor = obj.transform.Find("Refractor");
             if (refractor == null)
             {
-                ErrorList.add("Can't find the Refractor object on the base car prefab");
+                ErrorList.Add("Can't find the Refractor object on the base car prefab");
                 return;
             }
 
@@ -185,7 +185,7 @@ namespace CustomCar
         {
             if (colorChanger == null)
             {
-                ErrorList.add("Can't find the ColorChanger component on the base car");
+                ErrorList.Add("Can't find the ColorChanger component on the base car");
                 return;
             }
 
@@ -221,7 +221,7 @@ namespace CustomCar
             {
                 if (!_infos.materials.TryGetValue(matNames[i], out MaterialInfos matInfo))
                 {
-                    ErrorList.add("Can't find the material " + matNames[i] + " on " + r.gameObject.FullName());
+                    ErrorList.Add("Can't find the material " + matNames[i] + " on " + r.gameObject.FullName());
                     continue;
                 }
 
@@ -281,13 +281,13 @@ namespace CustomCar
                 {
                     if (s.Length != 3)
                     {
-                        ErrorList.add(s[0] + " property on " + r.gameObject.FullName() + " must have 2 arguments");
+                        ErrorList.Add(s[0] + " property on " + r.gameObject.FullName() + " must have 2 arguments");
                         continue;
                     }
 
                     if (!int.TryParse(s[1], out int index))
                     {
-                        ErrorList.add("First argument of " + s[0] + " on " + r.gameObject.FullName() + " property must be a number");
+                        ErrorList.Add("First argument of " + s[0] + " on " + r.gameObject.FullName() + " property must be a number");
                         continue;
                     }
 
@@ -300,13 +300,13 @@ namespace CustomCar
                 {
                     if (s.Length != 5)
                     {
-                        ErrorList.add(s[0] + " property on " + r.gameObject.FullName() + " must have 4 arguments");
+                        ErrorList.Add(s[0] + " property on " + r.gameObject.FullName() + " must have 4 arguments");
                         continue;
                     }
 
                     if (!int.TryParse(s[1], out int index))
                     {
-                        ErrorList.add("First argument of " + s[0] + " on " + r.gameObject.FullName() + " property must be a number");
+                        ErrorList.Add("First argument of " + s[0] + " on " + r.gameObject.FullName() + " property must be a number");
                         continue;
                     }
 
@@ -330,7 +330,7 @@ namespace CustomCar
 
                     if (!found)
                     {
-                        ErrorList.add("The property " + s[2] + " on " + r.gameObject.FullName() + " is not valid");
+                        ErrorList.Add("The property " + s[2] + " on " + r.gameObject.FullName() + " is not valid");
                         continue;
                     }
 
@@ -436,7 +436,7 @@ namespace CustomCar
 
                 if (s.Length != 6)
                 {
-                    ErrorList.add(s[0] + " property on " + t.gameObject.FullName() + " must have 5 arguments");
+                    ErrorList.Add(s[0] + " property on " + t.gameObject.FullName() + " must have 5 arguments");
                     continue;
                 }
 
@@ -472,7 +472,7 @@ namespace CustomCar
         {
             name = name.ToLower();
 
-            switch(name)
+            switch (name)
             {
                 case "secondary":
                     return ColorChanger.ColorType.Secondary;
@@ -508,7 +508,7 @@ namespace CustomCar
         {
             if (visuals == null)
             {
-                ErrorList.add("Can't find the CarVisuals component on the base car");
+                ErrorList.Add("Can't find the CarVisuals component on the base car");
                 return;
             }
 
@@ -534,13 +534,13 @@ namespace CustomCar
             Mesh mesh = renderer.sharedMesh;
             if (mesh == null)
             {
-                ErrorList.add("The mesh on " + renderer.gameObject.FullName() + " is null");
+                ErrorList.Add("The mesh on " + renderer.gameObject.FullName() + " is null");
                 return;
             }
 
             if (!mesh.isReadable)
             {
-                ErrorList.add("Can't read the car mesh " + mesh.name + " on " + renderer.gameObject.FullName() + "You must allow reading on it's unity inspector !");
+                ErrorList.Add("Can't read the car mesh " + mesh.name + " on " + renderer.gameObject.FullName() + "You must allow reading on it's unity inspector !");
                 return;
             }
 
@@ -557,9 +557,9 @@ namespace CustomCar
 
             mesh.boneWeights = bones;
             Transform t = renderer.transform;
-            Matrix4x4[] bindPoses = new Matrix4x4[1] {t.worldToLocalMatrix * renderer.transform.localToWorldMatrix};
+            Matrix4x4[] bindPoses = new Matrix4x4[1] { t.worldToLocalMatrix * renderer.transform.localToWorldMatrix };
             mesh.bindposes = bindPoses;
-            renderer.bones = new Transform[1] {t};
+            renderer.bones = new Transform[1] { t };
         }
 
         private void PlaceJets(GameObject obj, List<JetFlame> boostJets, List<JetFlame> wingJets, List<JetFlame> rotationJets)
@@ -644,7 +644,7 @@ namespace CustomCar
                     case "right":
                         return new Vector3(0, -1, 1);
                 }
-                    
+
                 if (s.Length != 4)
                 {
                     continue;

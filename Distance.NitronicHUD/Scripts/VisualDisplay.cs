@@ -27,7 +27,7 @@ namespace Distance.NitronicHUD.Scripts
 
         private Text timer_;
         #endregion
-        
+
         #region Prefab Setup
         private void CreatePrefab(bool loadBundle = true)
         {
@@ -68,7 +68,7 @@ namespace Distance.NitronicHUD.Scripts
             timer_ = Prefab?.transform.Find("Time")?.GetComponent<Text>();
         }
         #endregion
-        
+
         #region Unity Calls
         public void Awake()
         {
@@ -143,7 +143,7 @@ namespace Distance.NitronicHUD.Scripts
             try
             {
                 float heat = Mathf.Clamp(Vehicle.HeatLevel, 0, 1);
-                
+
                 if (huds_.Length >= 2)
                 {
                     for (int x = 0; x <= 1; x++)
@@ -167,14 +167,14 @@ namespace Distance.NitronicHUD.Scripts
 
                         blink *= 0.5f * Mathf.Sin((float)Timex.ModeTime_ * (config.HeatBlinkFrequence - ((1 - heat) * heat * config.HeatBlinkFrequenceBoost)) * 3 * Mathf.PI) + 0.5f;
                         instance.main.color = new Color(1, 1 - (blink * config.HeatBlinkAmount), 1 - (blink * config.HeatBlinkAmount));
-                        
+
                         float flame = 0;
-                        
+
                         if (heat > config.HeatFlameAmount)
                         {
                             flame = (heat - config.HeatFlameAmount) / (1 - config.HeatFlameAmount);
                         }
-                        
+
                         instance.flame.color = new Color(1, 1, 1, flame);
                     }
                 }
@@ -185,12 +185,12 @@ namespace Distance.NitronicHUD.Scripts
             }
         }
         #endregion
-        
+
         #region Timer Logic
         private void UpdateTimerText()
         {
             GameMode gamemode = G.Sys.GameManager_.Mode_;
-            
+
             if (!gamemode || !timer_)
             {
                 return;
