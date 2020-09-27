@@ -20,7 +20,7 @@ namespace Distance.MenuUtilities.Harmony
 
             if (data && !playlist.IsResourcesPlaylist())
             {
-                G.Sys.MenuPanelManager_.SetBottomLeftActionButton(InternalResources.Constants.DELETE_PLAYLIST_INPUT, "DELETE PLAYLIST");
+                G.Sys.MenuPanelManager_.SetBottomLeftActionButton(InternalResources.Constants.INPUT_DELETE_PLAYLIST, "DELETE PLAYLIST");
             }
         }
     }

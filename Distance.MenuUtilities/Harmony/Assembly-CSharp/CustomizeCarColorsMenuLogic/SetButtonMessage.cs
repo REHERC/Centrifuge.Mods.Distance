@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using UnityEngine;
 
 namespace Distance.MenuUtilities.Harmony
 {
@@ -7,8 +6,9 @@ namespace Distance.MenuUtilities.Harmony
     internal class CustomizeCarColorsMenuLogic__SetButtonMessage
     {
         [HarmonyPostfix]
-        internal static void Postfix(CustomizeCarColorsMenuLogic __instance)
+        internal static void Postfix()
         {
+            /*
             GameObject bottomRightText = __instance.cancelButton_.gameObject.Parent();
 
             /*foreach (GameObject children in bottomRightText.GetChildren())

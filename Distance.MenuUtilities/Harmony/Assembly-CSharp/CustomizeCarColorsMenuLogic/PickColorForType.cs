@@ -16,7 +16,7 @@ namespace Distance.MenuUtilities.Harmony
                 data.ColorType = colorType;
 
                 __instance.SetThirdActionEnabled(true);
-                __instance.SetThirdAction("EDIT", InternalResources.Constants.EDIT_COLOR_INPUT, data.EditHexClick);
+                __instance.SetThirdAction("EDIT", InternalResources.Constants.INPUT_EDIT_COLOR, data.EditHexClick);
             }
         }
     }

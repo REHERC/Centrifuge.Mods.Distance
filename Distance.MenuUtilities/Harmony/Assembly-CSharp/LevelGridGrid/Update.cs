@@ -21,7 +21,7 @@ namespace Distance.MenuUtilities.Harmony
 
             LevelPlaylistCompoundData data = playlist.GetComponent<LevelPlaylistCompoundData>();
 
-            if (data && !playlist.IsResourcesPlaylist() && G.Sys.InputManager_.GetKeyUp(InternalResources.Constants.DELETE_PLAYLIST_INPUT))
+            if (data && !playlist.IsResourcesPlaylist() && G.Sys.InputManager_.GetKeyUp(InternalResources.Constants.INPUT_DELETE_PLAYLIST))
             {
                 MessageBox.Create($"Are you sure you want to remove [u]{playlist.Name_}[/u]?", "DELETE PLAYLIST")
                 .SetButtons(MessageButtons.YesNo)
