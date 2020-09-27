@@ -33,9 +33,9 @@ namespace CustomCar
                 try
                 {
                     var carInfos = new CarInfos();
-                    carInfos.collectInfos();
+                    carInfos.CollectInfos();
                     var builder = new CarBuilder();
-                    builder.createCars(carInfos);
+                    builder.CreateCars(carInfos);
                 }
                 catch (Exception e)
                 {

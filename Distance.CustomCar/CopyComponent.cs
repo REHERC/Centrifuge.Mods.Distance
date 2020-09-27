@@ -7,13 +7,19 @@ namespace CustomCar
     {
         public static T GetCopyOf<T>(this Component comp, T other) where T : Component
         {
-            var type = comp.GetType();
-            if (type != other.GetType()) return null; // type mis-match
-            var flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Default |
+            System.Type type = comp.GetType();
+            if (type != other.GetType())
+            {
+                return null; // type mis-match
+            }
+
+            BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Default |
                         BindingFlags.DeclaredOnly;
-            var pinfos = type.GetProperties(flags);
-            foreach (var pinfo in pinfos)
+            PropertyInfo[] pinfos = type.GetProperties(flags);
+            foreach (PropertyInfo pinfo in pinfos)
+            {
                 if (pinfo.CanWrite)
+                {
                     try
                     {
                         pinfo.SetValue(comp, pinfo.GetValue(other, null), null);
@@ -21,9 +27,15 @@ namespace CustomCar
                     catch
                     {
                     } // In case of NotImplementedException being thrown. For some reason specifying that exception didn't seem to catch it, so I didn't catch anything specific.
+                }
+            }
 
-            var finfos = type.GetFields(flags);
-            foreach (var finfo in finfos) finfo.SetValue(comp, finfo.GetValue(other));
+            FieldInfo[] finfos = type.GetFields(flags);
+            foreach (FieldInfo finfo in finfos)
+            {
+                finfo.SetValue(comp, finfo.GetValue(other));
+            }
+
             return comp as T;
         }
 
