@@ -79,7 +79,7 @@ namespace Distance.MenuUtilities.Scripts
 
         public void Update()
         {
-            if (Menu && Menu.currentMenuLayer_ == CustomizeCarColorsMenuLogic.MenuLayer.ColorPicker && G.Sys.InputManager_.GetKeyUp(InternalResources.Constants.INPUT_EDIT_COLOR))
+            if (Mod.Instance.Config.EnableHexColorInput && Menu && Menu.currentMenuLayer_ == CustomizeCarColorsMenuLogic.MenuLayer.ColorPicker && G.Sys.InputManager_.GetKeyUp(InternalResources.Constants.INPUT_EDIT_COLOR))
             {
                 OnButtonClick?.Invoke();
             }

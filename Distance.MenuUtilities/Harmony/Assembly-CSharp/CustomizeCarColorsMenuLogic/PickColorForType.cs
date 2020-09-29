@@ -11,7 +11,7 @@ namespace Distance.MenuUtilities.Harmony
         {
             CustomizeMenuCompoundData data = __instance.GetComponent<CustomizeMenuCompoundData>();
 
-            if (data)
+            if (data && Mod.Instance.Config.EnableHexColorInput)
             {
                 data.ColorType = colorType;
 
