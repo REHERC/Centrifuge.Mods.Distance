@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -12,22 +13,63 @@ namespace Distance.MenuUtilities.Scripts
 
         public ColorChanger.ColorType ColorType { get; internal set; }
 
+        public UISprite Underline { get; internal set; }
+
+        public bool IsEditing { get; internal set; }
+
+        private IEnumerator CloseInput()
+        {
+            InputManager im = G.Sys.InputManager_;
+
+            yield return new WaitUntil(() => !im.GetKeyUp(InternalResources.Constants.INPUT_EDIT_COLOR));
+
+            EnableMenu(true);
+
+            yield return new WaitUntil(() => Menu.currentMenuLayer_ != CustomizeCarColorsMenuLogic.MenuLayer.ColorPicker);
+            yield return new WaitForEndOfFrame();
+
+            Menu.pickingColorType_ = ColorType;
+
+            Menu.PickColorForType(ColorType);
+
+            Menu.currentMenuLayer_ = CustomizeCarColorsMenuLogic.MenuLayer.ColorPicker;
+            Menu.SetUnderlines();
+
+            Underline.gameObject.SetActive(true);
+            Underline.enabled = true;
+
+            yield break;
+        }
+
+        private void EnableMenu(bool value)
+        {
+            Menu.enabled = value;
+            Menu.gameObject.SetActive(value);
+            Menu.colorPickerPanel_.gameObject.SetActive(value);
+        }
+
         public void EditHexClick()
         {
-            void enableMenu(bool value)
+            ColorType = Menu.pickingColorType_;
+
+            IsEditing = true;
+
+            for (ColorChanger.ColorType color = ColorChanger.ColorType.Primary; color < ColorChanger.ColorType.Size_; color++)
             {
-                Menu.enabled = value;
-                //Menu.gameObject.SetActive(value);
-                Menu.colorPickerPanel_.gameObject.SetActive(value);
+                if (color == ColorType)
+                {
+                    Underline = Menu.colorTypeButtons_[(int)color].underline_;
+                    break;
+                }
             }
 
-            ColorChanger.ColorType colorType = Menu.pickingColorType_;
+            Mod.Instance.Logger.Warning($"Selected: {ColorType}");
 
-            enableMenu(false);
+            EnableMenu(false);
 
-            InputPromptPanel.Create(OnSubmit, () => { 
-                enableMenu(true);
-                //Menu.PickColorForType(colorType);
+            InputPromptPanel.Create(OnSubmit, () =>
+            {
+                Mod.Instance.StartCoroutine(CloseInput());
             }, "HEX COLOR", "");
         }
 

@@ -94,7 +94,7 @@
     <Compile Include="Harmony\Assembly-CSharp\CustomizeCarColorsMenuLogic\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\CustomizeCarColorsMenuLogic\OnColorPickerPop.cs" />
     <Compile Include="Harmony\Assembly-CSharp\CustomizeCarColorsMenuLogic\PickColorForType.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\CustomizeCarColorsMenuLogic\SetButtonMessage.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\CustomizeCarColorsMenuLogic\UpdateColorPickerInput.cs" />
     <Compile Include="Harmony\Assembly-CSharp\LevelGridGrid\PushGrid.cs" />
     <Compile Include="Harmony\Assembly-CSharp\LevelGridGrid\Update.cs" />
     <Compile Include="Harmony\Assembly-CSharp\LevelPlaylist\Load.cs" />
