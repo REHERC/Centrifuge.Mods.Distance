@@ -11,66 +11,45 @@ namespace Distance.MenuUtilities.Scripts
 
         public Action OnButtonClick { get; internal set; } = null;
 
-        public ColorChanger.ColorType ColorType { get; internal set; }
-
-        public UISprite Underline { get; internal set; }
-
         public bool IsEditing { get; internal set; }
+
+        public ColorChanger.ColorType ColorType { get; internal set; }
 
         private IEnumerator CloseInput()
         {
             InputManager im = G.Sys.InputManager_;
 
-            yield return new WaitUntil(() => !im.GetKeyUp(InternalResources.Constants.INPUT_EDIT_COLOR));
+            yield return new WaitUntil(() => im.GetKeyUp(InputAction.MenuConfirm) || im.GetKeyUp(InputAction.MenuCancel));
 
+            IsEditing = false;
             EnableMenu(true);
 
-            yield return new WaitUntil(() => Menu.currentMenuLayer_ != CustomizeCarColorsMenuLogic.MenuLayer.ColorPicker);
-            yield return new WaitForEndOfFrame();
-
-            Menu.pickingColorType_ = ColorType;
-
-            Menu.PickColorForType(ColorType);
-
-            Menu.currentMenuLayer_ = CustomizeCarColorsMenuLogic.MenuLayer.ColorPicker;
-            Menu.SetUnderlines();
-
-            Underline.gameObject.SetActive(true);
-            Underline.enabled = true;
-
-            yield break;
+            yield break;   
         }
 
-        private void EnableMenu(bool value)
+        private void EnableMenu(bool value, bool setMenuState = true)
         {
-            Menu.enabled = value;
+            if (setMenuState)
+            {
+                Menu.enabled = value;
+            }
+
             Menu.gameObject.SetActive(value);
             Menu.colorPickerPanel_.gameObject.SetActive(value);
         }
 
         public void EditHexClick()
         {
-            ColorType = Menu.pickingColorType_;
-
             IsEditing = true;
 
-            for (ColorChanger.ColorType color = ColorChanger.ColorType.Primary; color < ColorChanger.ColorType.Size_; color++)
-            {
-                if (color == ColorType)
-                {
-                    Underline = Menu.colorTypeButtons_[(int)color].underline_;
-                    break;
-                }
-            }
-
-            Mod.Instance.Logger.Warning($"Selected: {ColorType}");
-
             EnableMenu(false);
+
+            Color color = Menu.colorPicker_.Color_;
 
             InputPromptPanel.Create(OnSubmit, () =>
             {
                 Mod.Instance.StartCoroutine(CloseInput());
-            }, "HEX COLOR", "");
+            }, "HEX COLOR", $"#{ColorEx.ColorToHexUnity(color).ToUpper().Substring(0, 6)}");
         }
 
         private bool OnSubmit(out string error, string input)
@@ -79,7 +58,15 @@ namespace Distance.MenuUtilities.Scripts
             Match hexMatch = hexRegex.Match(input);
             if (hexMatch.Success)
             {
-                // TODO:Add logic
+                Menu.modifiedColorsOrCar_ = true;
+                Color color = hexMatch.Groups["color"].Captures[0].Value.ToColor();
+                ColorHSB colorHSB = color.ToColorHSB();
+
+                Menu.colorPicker_.Color_ = color;
+                Menu.colorPicker_.Position_ = new Vector2(colorHSB.s, colorHSB.b);
+                Menu.colorPicker_.hueSlider_.value = colorHSB.h;
+                Menu.colorPicker_.NewValuesSet(true, true);
+
                 error = "";
                 return true;
             }
