@@ -49,7 +49,7 @@ namespace Distance.MenuUtilities.Scripts
             InputPromptPanel.Create(OnSubmit, () =>
             {
                 Mod.Instance.StartCoroutine(CloseInput());
-            }, "HEX COLOR", $"#{ColorEx.ColorToHexUnity(color).ToUpper().Substring(0, 6)}");
+            }, "HEX COLOR", $"#{ColorEx.ColorToHexUnity(color).ToUpper()}");
         }
 
         private bool OnSubmit(out string error, string input)
