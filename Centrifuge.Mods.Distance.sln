@@ -126,6 +126,9 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.MenuUtilities.Content", "Distance.MenuUtilities.Content\Distance.MenuUtilities.Content.shproj", "{878494B6-CD3F-4D65-82E1-C250887FE8BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{62BC4F1F-FA19-49AE-8496-3288DB2BE095}"
+	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
