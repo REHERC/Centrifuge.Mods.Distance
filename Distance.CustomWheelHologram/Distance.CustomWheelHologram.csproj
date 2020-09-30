@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="ConfigurationLogic.cs" />
     <Compile Include="Entry.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\WheelPOV\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\WheelPOV\LateUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
