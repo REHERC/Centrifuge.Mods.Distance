@@ -35,7 +35,7 @@ namespace Distance.MenuUtilities
 
             Get("EnableDeletePlaylistButton", true);
             Get("EnableHexColorInput", true);
-
+            
             Save();
         }
 
