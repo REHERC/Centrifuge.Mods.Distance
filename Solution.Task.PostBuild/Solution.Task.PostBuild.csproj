@@ -99,7 +99,7 @@
   <PropertyGroup>
     <PostBuildEvent>CHDIR $(SolutionDir)
 PUSHD $(SolutionDir)
-$(TargetPath) "$(ConfigurationName)"
+"$(TargetPath)" "$(ConfigurationName)"
 POPD</PostBuildEvent>
   </PropertyGroup>
 </Project>
