@@ -1,0 +1,13 @@
+﻿{
+  "FriendlyName": "Halloween Seasonal Features",
+  "Description": "Adds features usually seen in the temporary halloween update.",
+  "Author": "Reherc",
+  "Contact": "Github: @REHERC",
+  "ModuleFileName": "Distance.HalloweenSeasonalFeatures.dll",
+  "Dependencies": [],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ],
+  "SkipLoad": false,
+  "Priority": 10
+}
