@@ -1,0 +1,13 @@
+﻿{
+  "FriendlyName": "No Editor Number Limits",
+  "Description": "Allows to use negative values where you shouldn't be able to.",
+  "Author": "Plasmawario",
+  "Contact": "Discord: Plasmawario#7852",
+  "ModuleFileName": "Distance.NoEditorNumberLimits.dll",
+  "Priority": 10,
+  "SkipLoad": false,
+  "Dependencies": [],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ]
+}
