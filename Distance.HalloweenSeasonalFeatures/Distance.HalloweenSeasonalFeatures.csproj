@@ -39,6 +39,9 @@
     <Reference Include="Assembly-CSharp, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Centrifuge.GameSupport.Distance.2.1.1\lib\net35\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\Distance.Assemblies\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
     <Reference Include="Centrifuge.Distance, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Centrifuge.GameSupport.Distance.2.1.1\lib\net35\Centrifuge.Distance.dll</HintPath>
     </Reference>
@@ -91,10 +94,13 @@
     <Compile Include="Harmony\Assembly-CSharp\CarLogic\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\CarScreenLogic\UpdateSpecialObjects.cs" />
     <Compile Include="Harmony\Assembly-CSharp\GenerateRandomPumpkins\CreatePumpkins.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\MainMenuLogic\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\SkeletonCorruptionLogic\Update.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\TrickSystem\PlayTrickAudio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Harmony\Assembly-CSharp\HalloweenAudioLogic\RandomGlitches.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
