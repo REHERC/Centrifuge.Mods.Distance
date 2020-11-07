@@ -147,6 +147,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.HalloweenSeasonalF
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.HalloweenSeasonalFeatures.Content", "Distance.HalloweenSeasonalFeatures.Content\Distance.HalloweenSeasonalFeatures.Content.shproj", "{0B6C17AD-B346-42AC-96CE-760EA993C5F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.ChristmasSeasonalFeatures", "Distance.ChristmasSeasonalFeatures\Distance.ChristmasSeasonalFeatures.csproj", "{6A3017EA-51DD-41DA-A0AF-8A9C0A7D40AC}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.ChristmasSeasonalFeatures.Content", "Distance.ChristmasSeasonalFeatures.Content\Distance.ChristmasSeasonalFeatures.Content.shproj", "{CCCA412E-616C-49D3-80A6-A0111B879118}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{02cd7385-b155-4974-843d-9d0dd6bbfbe5}*SharedItemsImports = 13
@@ -163,6 +167,7 @@ Global
 		Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.projitems*{a26d9216-daea-4876-a182-70df4ff5997b}*SharedItemsImports = 13
 		Distance.DecorativeLamp.Content\Distance.DecorativeLamp.Content.projitems*{a7ee87a2-a395-4018-a8c0-b12b44005e52}*SharedItemsImports = 13
 		Distance.CustomCar.Content\Distance.CustomCar.Content.projitems*{b250cc3f-e2f1-40e6-8a89-5ad23d54c019}*SharedItemsImports = 13
+		Distance.ChristmasSeasonalFeatures.Content\Distance.ChristmasSeasonalFeatures.Content.projitems*{ccca412e-616c-49d3-80a6-a0111b879118}*SharedItemsImports = 13
 		Distance.EditorAdditions.Content\Distance.EditorAdditions.Content.projitems*{e2e4ac75-d500-4d5d-a706-613a3df688e3}*SharedItemsImports = 13
 		Distance.SceneDumper.Content\Distance.SceneDumper.Content.projitems*{e84718c2-200c-415f-ad1d-0cc133c38e70}*SharedItemsImports = 13
 	EndGlobalSection
@@ -243,6 +248,10 @@ Global
 		{476DB7CE-46C9-4612-AFB6-BBFE24D0D283}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{476DB7CE-46C9-4612-AFB6-BBFE24D0D283}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{476DB7CE-46C9-4612-AFB6-BBFE24D0D283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A3017EA-51DD-41DA-A0AF-8A9C0A7D40AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A3017EA-51DD-41DA-A0AF-8A9C0A7D40AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A3017EA-51DD-41DA-A0AF-8A9C0A7D40AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A3017EA-51DD-41DA-A0AF-8A9C0A7D40AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
