@@ -35,12 +35,6 @@ namespace Distance.HalloweenSeasonalFeatures
             RuntimePatcher.AutoPatch();
             CreateSettingsMenu();
         }
-
-        internal void Update()
-        {
-            System.Console.Title = $"Current car name: {G.Sys?.ProfileManager_?.CurrentProfile_?.CarName_}";
-        }
-
         public void LateInitialize(IManager _)
         {
             GameObject GenerateRandomPumpkinsPrefab = Resource.GetResource<GameObject>("GenerateRandomPumpkins");
