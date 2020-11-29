@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>ccca412e-616c-49d3-80a6-a0111b879118</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Distance.ChristmasSeasonalFeatures.Content</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Wallpapers\loadingscreen-boosting-system.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Wallpapers\loadingscreen-flying-system.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Wallpapers\loadingscreen-jumping-system.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Wallpapers\loadingscreen-quantum-capsules.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Wallpapers\loadingscreen-quantum-lock-devices.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Wallpapers\loadingscreen-road-division-equipment.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Wallpapers\loadingscreen-road-smoothing-equipment.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\Wallpapers\loadingscreen-teleport-augmentation.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Mod\mod.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Readme\instructions.html" />
+  </ItemGroup>
+</Project>

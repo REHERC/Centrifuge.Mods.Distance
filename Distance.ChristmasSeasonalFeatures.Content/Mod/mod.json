@@ -1,0 +1,13 @@
+﻿{
+  "FriendlyName": "Christmas Seasonal Features",
+  "Description": "Adds features usually seen in the temporary christmas update.",
+  "Author": "Reherc",
+  "Contact": "Github: @REHERC",
+  "ModuleFileName": "Distance.ChristmasSeasonalFeatures.dll",
+  "Dependencies": [],
+  "RequiredGSLs": [
+    "com.github.reherc/Centrifuge.Distance"
+  ],
+  "SkipLoad": false,
+  "Priority": 10
+}
