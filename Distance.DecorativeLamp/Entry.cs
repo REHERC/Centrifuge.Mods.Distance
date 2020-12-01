@@ -87,7 +87,7 @@ namespace Distance.DecorativeLamp
                     .WithSetter((x) => Config.LightRange = x)
                     .LimitedByRange(0, 100)
                     .WithDefaultValue(20)
-                    .WithDescription(string.Format("{0}: Set the lamp brightness.", "Visual".Colorize(Colors.yellowGreen))),
+                    .WithDescription(string.Format("{0}: Set the lamp light distance.", "Visual".Colorize(Colors.yellowGreen))),
 
                 new IntegerSlider(MenuDisplayMode.Both, "setting:flare_brightness", "FLARE BRIGHTNESS")
                     .WithGetter(() => Mathf.RoundToInt(Config.LightRange * 10.0f))
