@@ -216,7 +216,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.CustomDeathMessages.Lin
 		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
 	EndProjectSection
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "App.Icons", "App.Icons\App.Icons.shproj", "{5A8F08F8-DEE7-412A-95A8-3DC81F72F50E}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "App.SharedResources", "App.SharedResources\App.SharedResources.shproj", "{5A8F08F8-DEE7-412A-95A8-3DC81F72F50E}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -227,10 +227,10 @@ Global
 		Distance.NoEditorNumberLimits.Content\Distance.NoEditorNumberLimits.Content.projitems*{12b05bfd-73ca-4b5c-a258-ef142c21066a}*SharedItemsImports = 13
 		Distance.Anolytics.Content\Distance.Anolytics.Content.projitems*{19f17209-4a5c-43e2-86dc-cce76dba5c23}*SharedItemsImports = 13
 		Distance.NitronicHUD.Content\Distance.NitronicHUD.Content.projitems*{1b79abb1-9caa-41f4-a88a-d84524e8f25a}*SharedItemsImports = 13
-		App.Icons\App.Icons.projitems*{23fb61ff-77b2-4088-9f17-3db7a93d5abc}*SharedItemsImports = 5
+		App.SharedResources\App.Icons.projitems*{23fb61ff-77b2-4088-9f17-3db7a93d5abc}*SharedItemsImports = 5
 		Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.projitems*{57657ebc-1f29-4357-b4ef-45b2b22f5a3f}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
-		App.Icons\App.Icons.projitems*{5a8f08f8-dee7-412a-95a8-3dc81f72f50e}*SharedItemsImports = 13
+		App.SharedResources\App.Icons.projitems*{5a8f08f8-dee7-412a-95a8-3dc81f72f50e}*SharedItemsImports = 13
 		Distance.Heat.Content\Distance.Heat.Content.projitems*{7f00b47c-1cb4-4d7d-96ab-3cfd23b03ace}*SharedItemsImports = 13
 		Distance.MenuUtilities.Content\Distance.MenuUtilities.Content.projitems*{878494b6-cd3f-4d65-82e1-c250887fe8ba}*SharedItemsImports = 13
 		Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.projitems*{a26d9216-daea-4876-a182-70df4ff5997b}*SharedItemsImports = 13

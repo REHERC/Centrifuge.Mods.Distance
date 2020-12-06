@@ -23,7 +23,7 @@ namespace App.CustomDeathMessages.Core.Commands
 		{
 			base.OnExecuted(e);
 
-			Application.Instance.Quit();
+			form_.Close();
 		}
 	}
 }

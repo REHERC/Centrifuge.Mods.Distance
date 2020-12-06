@@ -22,6 +22,8 @@ namespace App.CustomDeathMessages.Core.Commands
 		protected override void OnExecuted(EventArgs e)
 		{
 			base.OnExecuted(e);
+
+			form_.SaveFile(true);
 		}
 	}
 }

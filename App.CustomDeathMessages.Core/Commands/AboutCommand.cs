@@ -13,14 +13,13 @@ namespace App.CustomDeathMessages.Core.Commands
 			form_ = form;
 			MenuText = "&About";
 			ToolBarText = "About";
-			Image = Resources.GetIcon("System.Windows.Forms.help.ico");
 		}
 
 		protected override void OnExecuted(EventArgs e)
 		{
 			base.OnExecuted(e);
 
-			using var dialog = new Forms.AboutWindow();
+			using var dialog = new AboutWindow();
 			dialog.ShowModal(form_);
 		}
 	}

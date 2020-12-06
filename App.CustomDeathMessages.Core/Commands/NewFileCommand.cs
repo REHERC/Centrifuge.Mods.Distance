@@ -24,23 +24,12 @@ namespace App.CustomDeathMessages.Core.Commands
 		{
 			base.OnExecuted(e);
 
-			if (form_.Modified && MessageBox.Show(form_, "You have unsaved changes!\nIf you create a new file they will be discarded.\n\nDo you want to create a new file anyways ?", "New file", MessageBoxButtons.YesNo, MessageBoxType.Warning) != DialogResult.Yes)
+			if (form_.Modified && form_.ShowUnsavedDialog(title: "Create new file") == DialogResult.No)
 			{
 				return;
 			}
 
-			CreateNewDocument();
-		}
-
-		protected void CreateNewDocument()
-		{
-			form_.Data = new EditorData();
-			form_.FilePath = string.Empty;
-			
-			form_.View.Sections.SelectedIndex = 0;
-			form_.View.OnSectionChanged(form_.View, new EventArgs());
-
-			form_.Modified = false;
+			form_.NewFile();
 		}
 	}
 }

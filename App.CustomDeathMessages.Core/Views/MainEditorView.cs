@@ -10,6 +10,8 @@ namespace App.CustomDeathMessages.Core.Views
 	{
 		public event EventHandler<EventArgs> Modified;
 
+		private bool fireModifiedEvent = true;
+
 		public ListBox Sections { get; protected set; }
 
 		public TextArea TextField { get; protected set; }
@@ -51,8 +53,12 @@ namespace App.CustomDeathMessages.Core.Views
 
 		internal void OnSectionChanged(object sender, EventArgs e)
 		{
+			fireModifiedEvent = false;
+
 			string section = Sections.SelectedValue.ToString();
 			TextField.Text = string.Join('\n', Data[section]);
+
+			fireModifiedEvent = true;
 		}
 
 		internal void OnTextChanged(object sender, EventArgs e)
@@ -60,7 +66,10 @@ namespace App.CustomDeathMessages.Core.Views
 			string section = Sections.SelectedValue.ToString();
 			Data[section] = Regex.Split(TextField.Text, "\r\n|\r|\n");
 
-			Modified(this, new EventArgs());
+			if (fireModifiedEvent)
+			{
+				Modified(this, new EventArgs());
+			}
 		}
 	}
 }

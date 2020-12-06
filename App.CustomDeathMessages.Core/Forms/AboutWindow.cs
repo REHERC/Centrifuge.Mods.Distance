@@ -13,7 +13,7 @@ namespace App.CustomDeathMessages.Core.Forms
 		private void InitializeComponent()
 		{
 			Title = "About";
-			MinimumSize = new Size(386, 0);
+			MinimumSize = new Size(386, 100);
 			Resizable = false;
 
 			AppName = new Label()
@@ -52,6 +52,7 @@ namespace App.CustomDeathMessages.Core.Forms
 					AppRepository,
 					TableLayout.AutoSized(CloseButton, centered: true),
 				},
+				ClientSize = new Size(MinimumSize.Width, 96)
 			};
 
 			AbortButton = DefaultButton = CloseButton;

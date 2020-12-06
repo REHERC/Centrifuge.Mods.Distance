@@ -6,21 +6,25 @@ using System;
 
 namespace App.CustomDeathMessages.Core.Commands
 {
-	public class SettingsCommand : Command
+	public class FormattingHelp : Command
 	{
 		readonly MainWindow form_;
 		
-		public SettingsCommand(MainWindow form)
+		public FormattingHelp(MainWindow form)
 		{
 			form_ = form;
-			MenuText = "Settings";
-			ToolBarText = "Settings";
-			Image = Resources.GetIcon("System.ComponentModel.Design.DefaultComponent.ico");
+			MenuText = "&Formatting";
+			ToolBarText = "Formatting";
+			Image = Resources.GetIcon("System.Windows.Forms.help.ico");
+			Shortcut = Keys.F1;
 		}
 
 		protected override void OnExecuted(EventArgs e)
 		{
 			base.OnExecuted(e);
+
+			using var dialog = new FormattingHelpWindow();
+			dialog.ShowModal(form_);
 		}
 	}
 }
