@@ -67,6 +67,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.Anolytics.Content"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Task.PostBuild", "Solution.Task.PostBuild\Solution.Task.PostBuild.csproj", "{5C830F16-0EC2-4A38-8C17-CFFB8E55C847}"
 	ProjectSection(ProjectDependencies) = postProject
+		{98584710-E489-4CA3-A228-CA0DB7AF4C1E} = {98584710-E489-4CA3-A228-CA0DB7AF4C1E}
 		{0E1F111D-3A74-43C6-804E-C3D316624C64} = {0E1F111D-3A74-43C6-804E-C3D316624C64}
 		{C8FF4D2C-1255-4E90-A2CA-F5787B95E7C5} = {C8FF4D2C-1255-4E90-A2CA-F5787B95E7C5}
 		{7282013C-A962-4903-B580-A54D99AAF034} = {7282013C-A962-4903-B580-A54D99AAF034}
@@ -80,9 +81,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Task.PostBuild", "
 		{06A78A9A-7A66-431F-8023-36EAA5D0FBAF} = {06A78A9A-7A66-431F-8023-36EAA5D0FBAF}
 		{0AD5BDA8-85AB-4163-BA40-CF49F769BADF} = {0AD5BDA8-85AB-4163-BA40-CF49F769BADF}
 		{476DB7CE-46C9-4612-AFB6-BBFE24D0D283} = {476DB7CE-46C9-4612-AFB6-BBFE24D0D283}
+		{B646CFD4-AE3A-4796-B18F-8D6A27CBBE53} = {B646CFD4-AE3A-4796-B18F-8D6A27CBBE53}
 		{7FF8ABD9-D1F2-48EC-A249-B68457D27BC5} = {7FF8ABD9-D1F2-48EC-A249-B68457D27BC5}
 		{502868DA-BA52-4E50-8163-F5AC29D75F7D} = {502868DA-BA52-4E50-8163-F5AC29D75F7D}
 		{B21D17E3-F84D-491A-9609-9C6C004165DE} = {B21D17E3-F84D-491A-9609-9C6C004165DE}
+		{6A3017EA-51DD-41DA-A0AF-8A9C0A7D40AC} = {6A3017EA-51DD-41DA-A0AF-8A9C0A7D40AC}
+		{23FB61FF-77B2-4088-9F17-3DB7A93D5ABC} = {23FB61FF-77B2-4088-9F17-3DB7A93D5ABC}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.DecorativeLamp", "Distance.DecorativeLamp\Distance.DecorativeLamp.csproj", "{C8FF4D2C-1255-4E90-A2CA-F5787B95E7C5}"
@@ -134,7 +138,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{62BC4F1F-FA19-49AE-8496-3288DB2BE095}"
 	ProjectSection(SolutionItems) = preProject
 		build.cmd = build.cmd
-		build_dotnet.cmd = build_dotnet.cmd
+		publish.cmd = publish.cmd
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.NoEditorNumberLimits", "Distance.NoEditorNumberLimits\Distance.NoEditorNumberLimits.csproj", "{5C9E788B-C9B8-462D-A561-431EBA706C0F}"
@@ -149,6 +153,9 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.HalloweenSeasonalFeatures.Content", "Distance.HalloweenSeasonalFeatures.Content\Distance.HalloweenSeasonalFeatures.Content.shproj", "{0B6C17AD-B346-42AC-96CE-760EA993C5F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.ChristmasSeasonalFeatures", "Distance.ChristmasSeasonalFeatures\Distance.ChristmasSeasonalFeatures.csproj", "{6A3017EA-51DD-41DA-A0AF-8A9C0A7D40AC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.ChristmasSeasonalFeatures.Content", "Distance.ChristmasSeasonalFeatures.Content\Distance.ChristmasSeasonalFeatures.Content.shproj", "{CCCA412E-616C-49D3-80A6-A0111B879118}"
 EndProject
@@ -195,10 +202,21 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomDeathMessages", "CustomDeathMessages", "{BBB0D871-A85D-41AA-A40D-5964A0FAAFBC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.CustomDeathMessages.Core", "App.CustomDeathMessages.Core\App.CustomDeathMessages.Core.csproj", "{23FB61FF-77B2-4088-9F17-3DB7A93D5ABC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.CustomDeathMessages.Windows", "App.CustomDeathMessages.Windows\App.CustomDeathMessages.Windows.csproj", "{98584710-E489-4CA3-A228-CA0DB7AF4C1E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.CustomDeathMessages.Linux", "App.CustomDeathMessages.Linux\App.CustomDeathMessages.Linux.csproj", "{B646CFD4-AE3A-4796-B18F-8D6A27CBBE53}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "App.Icons", "App.Icons\App.Icons.shproj", "{5A8F08F8-DEE7-412A-95A8-3DC81F72F50E}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -209,8 +227,10 @@ Global
 		Distance.NoEditorNumberLimits.Content\Distance.NoEditorNumberLimits.Content.projitems*{12b05bfd-73ca-4b5c-a258-ef142c21066a}*SharedItemsImports = 13
 		Distance.Anolytics.Content\Distance.Anolytics.Content.projitems*{19f17209-4a5c-43e2-86dc-cce76dba5c23}*SharedItemsImports = 13
 		Distance.NitronicHUD.Content\Distance.NitronicHUD.Content.projitems*{1b79abb1-9caa-41f4-a88a-d84524e8f25a}*SharedItemsImports = 13
+		App.Icons\App.Icons.projitems*{23fb61ff-77b2-4088-9f17-3db7a93d5abc}*SharedItemsImports = 5
 		Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.projitems*{57657ebc-1f29-4357-b4ef-45b2b22f5a3f}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
+		App.Icons\App.Icons.projitems*{5a8f08f8-dee7-412a-95a8-3dc81f72f50e}*SharedItemsImports = 13
 		Distance.Heat.Content\Distance.Heat.Content.projitems*{7f00b47c-1cb4-4d7d-96ab-3cfd23b03ace}*SharedItemsImports = 13
 		Distance.MenuUtilities.Content\Distance.MenuUtilities.Content.projitems*{878494b6-cd3f-4d65-82e1-c250887fe8ba}*SharedItemsImports = 13
 		Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.projitems*{a26d9216-daea-4876-a182-70df4ff5997b}*SharedItemsImports = 13
@@ -465,6 +485,7 @@ Global
 		{23FB61FF-77B2-4088-9F17-3DB7A93D5ABC} = {BBB0D871-A85D-41AA-A40D-5964A0FAAFBC}
 		{98584710-E489-4CA3-A228-CA0DB7AF4C1E} = {BBB0D871-A85D-41AA-A40D-5964A0FAAFBC}
 		{B646CFD4-AE3A-4796-B18F-8D6A27CBBE53} = {BBB0D871-A85D-41AA-A40D-5964A0FAAFBC}
+		{5A8F08F8-DEE7-412A-95A8-3DC81F72F50E} = {1AB34F43-0922-4552-8750-6A29B046EB72}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C475AB02-6F97-4575-9527-2F31F5AF847C}

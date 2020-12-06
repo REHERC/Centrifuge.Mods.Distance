@@ -2,6 +2,8 @@
 using Eto;
 using Eto.Forms;
 using System;
+using System.Globalization;
+using System.Threading;
 
 namespace App.CustomDeathMessages.Windows
 {
@@ -10,7 +12,14 @@ namespace App.CustomDeathMessages.Windows
 		[STAThread]
 		static void Main()
 		{
-			new Application(Platforms.WinForms).Run(new MainForm());
+			CultureInfo english = new CultureInfo("en-US");
+			Thread.CurrentThread.CurrentCulture = english;
+			Thread.CurrentThread.CurrentUICulture = english;
+
+			CultureInfo.CurrentCulture = english;
+			CultureInfo.CurrentUICulture = english;
+
+			new Application(Platforms.WinForms).Run(new MainWindow());
 		}
 	}
 }

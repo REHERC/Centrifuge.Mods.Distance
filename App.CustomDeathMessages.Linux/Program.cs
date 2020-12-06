@@ -10,7 +10,7 @@ namespace App.CustomDeathMessages.Linux
 		[STAThread]
 		static void Main()
 		{
-			new Application(Platforms.Gtk).Run(new MainForm());
+			new Application(Platforms.Gtk).Run(new MainWindow());
 		}
 	}
 }

@@ -3,7 +3,7 @@ using Eto.Forms;
 
 namespace App.CustomDeathMessages.Core.Forms
 {
-	public class AboutDialog : Dialog
+	public class AboutWindow : Dialog
 	{
 		private Label AppName;
 		private Label AppAuthor;
@@ -57,7 +57,7 @@ namespace App.CustomDeathMessages.Core.Forms
 			AbortButton = DefaultButton = CloseButton;
 		}
 
-		public AboutDialog()
+		public AboutWindow()
 		{
 			InitializeComponent();
 		}

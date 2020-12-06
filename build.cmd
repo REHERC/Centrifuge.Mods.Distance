@@ -3,7 +3,7 @@ REM https://psycodedeveloper.wordpress.com/2019/07/02/locating-and-running-msbui
 
 PUSHD %~dp0
 
-build_dotnet.cmd
+CALL publish.cmd
 
 SET SOLUTION=%CD%\Centrifuge.Mods.Distance.sln
 
