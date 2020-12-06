@@ -21,7 +21,10 @@ namespace Solution.Task.PostBuild.Tasks
                 common.Name
             };
 
-            foreach (DirectoryInfo mod_directory in from x in build.GetDirectories() where build_exclusion.All(y => !string.Equals(x.Name, y, StringComparison.InvariantCultureIgnoreCase)) select x)
+            // Get only mod folders
+            DirectoryInfo[] directories = build.GetDirectories().Where(d => d.GetDirectories().Where(x => string.Equals(x.Name, "Centrifuge", StringComparison.InvariantCultureIgnoreCase)).Any()).ToArray();
+
+            foreach (DirectoryInfo mod_directory in from x in directories where build_exclusion.All(y => !string.Equals(x.Name, y, StringComparison.InvariantCultureIgnoreCase)) select x)
             {
                 Console.WriteLine($"Copying content to \"Build/{mod_directory.Name}\" ...");
 
