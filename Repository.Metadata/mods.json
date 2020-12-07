@@ -10,84 +10,111 @@
 	},
 	"mods": [
 		{
+			"id": "eu.vddcore/Distance.Anolytics",
 			"manifest": "Distance.Anolytics.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.Anolytics.png",
 			"release": "Distance.Anolytics.zip"
 		},
 		{
+			"id": "com.github.reherc/Distance.ChristmasSeasonalFeatures",
 			"manifest": "Distance.ChristmasSeasonalFeatures.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.ChristmasSeasonalFeatures.png",
 			"release": "Distance.Christmas.Seasonal.Features.zip"
 		},
 		{
+			"id": "com.github.larnin/CustomCar",
 			"manifest": "Distance.CustomCar.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.CustomCar.png",
 			"release": "Distance.Custom.Car.zip"
 		},
 		{
+			"id": "com.github.larnin/Distance.CustomDeathMessages",
 			"manifest": "Distance.CustomDeathMessages.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.CustomDeathMessages.png",
-			"release": "Distance.Custom.Death.Messages.zip"
+			"release": "Distance.Custom.Death.Messages.zip",
+			"tools": [
+				"com.github.reherc/Distance.CustomDeathMessages.Editor"
+			]
 		},
 		{
+			"id": "eu.vddcore/Distance.CustomWheelHologram",
 			"manifest": "Distance.CustomWheelHologram.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.CustomWheelHologram.png",
 			"release": "Distance.Custom.Wheel.Hologram.zip"
 		},
 		{
+			"id": "com.github.reherc/Distance.DecorativeLamp",
 			"manifest": "Distance.DecorativeLamp.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.DecorativeLamp.png",
 			"release": "Distance.Decorative.Lamp.zip"
 		},
 		{
+			"id": "com.github.reherc/Distance.EditorAdditions",
 			"manifest": "Distance.EditorAdditions.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.EditorAdditions.png",
 			"release": "Distance.Editor.Additions.zip"
 		},
 		{
+			"id": "com.github.reherc/Distance.HalloweenSeasonalFeatures",
 			"manifest": "Distance.HalloweenSeasonalFeatures.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.HalloweenSeasonalFeatures.png",
 			"release": "Distance.Halloween.Seasonal.Features.zip"
 		},
 		{
+			"id": "com.github.Seeker14491/Heat",
 			"manifest": "Distance.Heat.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.Heat.png",
 			"release": "Distance.Heat.zip"
 		},
 		{
+			"id": "com.github.reherc/Distance.MenuUtilities",
 			"manifest": "Distance.MenuUtilities.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.MenuUtilities.png",
 			"release": "Distance.Menu.Utilities.zip"
 		},
 		{
+			"id": "com.github.reherc/Distance.NitronicHUD",
 			"manifest": "Distance.NitronicHUD.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.NitronicHUD.png",
 			"release": "Distance.Nitronic.HUD.zip"
 		},
 		{
+			"id": "com.plasmawario/Distance.NoEditorNumberLimits",
 			"manifest": "Distance.NoEditorNumberLimits.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.NoEditorNumberLimits.png",
 			"release": "Distance.No.Editor.Number.Limits.zip"
 		},
 		{
+			"id": "eu.vddcore/NoServerLimit",
 			"manifest": "Distance.NoServerLimit.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.NoServerLimit.png",
 			"release": "Distance.No.Server.Limit.zip"
 		},
 		{
+			"id": "eu.vddcore/Distance.SceneDumper",
 			"manifest": "Distance.SceneDumper.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.SceneDumper.png",
 			"release": "Distance.Scene.Dumper.zip"
 		},
 		{
+			"id": "com.github.reherc/Distance.TextureModifier",
 			"manifest": "Distance.TextureModifier.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.TextureModifier.png",
 			"release": "Distance.Texture.Modifier.zip"
 		},
 		{
+			"id": "com.github.corecii/Distance.TrackMusic",
 			"manifest": "Distance.TrackMusic.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.TrackMusic.png",
 			"release": "Distance.Track.Music.zip"
+		}
+	],
+	"tools": [
+		{
+			"id": "com.github.reherc/Distance.CustomDeathMessages.Editor",
+			"manifest": "App.CustomDeathMessages.Core/tool.json",
+			"thumbnail": "Thumbnails/App.CustomDeathMessages.Editor.png",
+			"release": "Distance.Custom.Death.Messages.Editor.zip"
 		}
 	]
 }
