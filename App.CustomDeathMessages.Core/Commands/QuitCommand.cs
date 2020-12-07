@@ -15,7 +15,7 @@ namespace App.CustomDeathMessages.Core.Commands
 			form_ = form;
 			MenuText = "Quit";
 			ToolBarText = "Quit";
-			Image = Resources.GetIcon("System.Windows.Forms.BindingNavigator.Delete.ico");
+			Image = Resources.GetIcon("Delete.ico");
 			Shortcut = Application.Instance.CommonModifier | Keys.Q;
 		}
 

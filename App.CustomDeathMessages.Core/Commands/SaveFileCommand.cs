@@ -15,7 +15,7 @@ namespace App.CustomDeathMessages.Core.Commands
 			form_ = form;
 			MenuText = "&Save";
 			ToolBarText = "Save";
-			Image = Resources.GetIcon("System.Windows.Forms.save.ico");
+			Image = Resources.GetIcon("Save.ico");
 			Shortcut = Application.Instance.CommonModifier | Keys.S;
 		}
 

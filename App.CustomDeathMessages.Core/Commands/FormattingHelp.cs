@@ -15,7 +15,7 @@ namespace App.CustomDeathMessages.Core.Commands
 			form_ = form;
 			MenuText = "&Formatting";
 			ToolBarText = "Formatting";
-			Image = Resources.GetIcon("System.Windows.Forms.help.ico");
+			Image = Resources.GetIcon("Help.ico");
 			Shortcut = Keys.F1;
 		}
 

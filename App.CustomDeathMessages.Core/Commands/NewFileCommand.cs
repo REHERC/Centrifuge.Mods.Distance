@@ -1,6 +1,5 @@
 ﻿#pragma warning disable IDE0052
 
-using App.CustomDeathMessages.Core.Data;
 using App.CustomDeathMessages.Core.Forms;
 using Eto.Forms;
 using System;
@@ -16,7 +15,7 @@ namespace App.CustomDeathMessages.Core.Commands
 			form_ = form;
 			MenuText = "&New";
 			ToolBarText = "New";
-			Image = Resources.GetIcon("System.Windows.Forms.new.ico");
+			Image = Resources.GetIcon("New.ico");
 			Shortcut = Application.Instance.CommonModifier | Keys.N;
 		}
 

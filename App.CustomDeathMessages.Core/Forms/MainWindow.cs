@@ -56,7 +56,7 @@ namespace App.CustomDeathMessages.Core.Forms
 		private void InitializeComponent()
 		{
 			ClientSize = new Size(640, 480);
-			Icon = Resources.GetIcon("System.Windows.Forms.wfc.ico");
+			Icon = Resources.GetIcon("App.ico");
 
 			Menu = new MainMenu(this);
 			ToolBar = new MainToolbar(this);

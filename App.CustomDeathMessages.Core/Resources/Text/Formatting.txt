@@ -1,1 +1,26 @@
-﻿Formatting help will be added in the future.
+﻿========== FONT FORMATTING ==========
+You can change font properties using NGUI formatting codes
+
+General
+	[-]reset all formatting
+
+Appearance
+	[b]bold[/b]
+	[i]italic[/i]
+	[u]underline[/u]
+	[s]strikeout[/s]
+
+Position
+	[sup]supertext[/sup]
+	[sub]sub text[/sub]
+
+Color
+	[<hexadecimal code>]Tinted text[-]
+	[c][<hexadecimal code>]Colored text[-][/c]
+
+========== REPLACEMENT CODES ==========
+You can insert specific fields using the following codes
+
+	{0}	Player name (with color)
+	{1}	Current stunt multiplayer (defaults to 0 in other modes)
+	{2}	Player name (without color)

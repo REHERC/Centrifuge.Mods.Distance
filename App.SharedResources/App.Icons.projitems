@@ -9,19 +9,30 @@
     <Import_RootNamespace>App.Icons</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\System.ComponentModel.Design.DefaultComponent.ico" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\System.Windows.Forms.BindingNavigator.Delete.ico" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\System.Windows.Forms.help.ico" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\System.Windows.Forms.new.ico" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\System.Windows.Forms.open.ico" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\System.Windows.Forms.save.ico" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\System.Windows.Forms.wfc.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Resources\Icons\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Resources\" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Delete.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Help.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\New.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Open.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Wfc.ico" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Resources.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\App.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\LinkedFolder.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Modal.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Run.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Details.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Startup.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Package.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\ZipFIle.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\SaveAs.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Settings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Save.ico" />
   </ItemGroup>
 </Project>

@@ -3,7 +3,6 @@
 using App.CustomDeathMessages.Core.Forms;
 using Eto.Forms;
 using System;
-using System.IO;
 
 namespace App.CustomDeathMessages.Core.Commands
 {
@@ -16,7 +15,7 @@ namespace App.CustomDeathMessages.Core.Commands
 			form_ = form;
 			MenuText = "&Open";
 			ToolBarText = "Open";
-			Image = Resources.GetIcon("System.Windows.Forms.open.ico");
+			Image = Resources.GetIcon("Open.ico");
 			Shortcut = Application.Instance.CommonModifier | Keys.O;
 		}
 
