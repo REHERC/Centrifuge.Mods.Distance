@@ -17,6 +17,5 @@ namespace App.CustomDeathMessages.Core.Menus
 			Items.Add(new SaveFileCommand(form_));
 			Items.Add(new SaveAsFileCommand(form_));
 		}
-
 	}
 }
