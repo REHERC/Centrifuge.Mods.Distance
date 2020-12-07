@@ -59,6 +59,7 @@ namespace App.CustomDeathMessages.Core.Forms
 			Icon = Resources.GetIcon("System.Windows.Forms.wfc.ico");
 
 			Menu = new MainMenu(this);
+			ToolBar = new MainToolbar(this);
 
 			View = new MainEditorView();
 			Content = View;
