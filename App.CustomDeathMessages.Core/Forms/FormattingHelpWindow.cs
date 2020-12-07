@@ -7,7 +7,7 @@ namespace App.CustomDeathMessages.Core.Forms
 	{
 		private void InitializeComponent()
 		{
-			Title = "About";
+			Title = "Message Formatting Help";
 			ClientSize = new Size(386, 256);
 
 			Content = new TextArea()
