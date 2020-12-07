@@ -4,11 +4,11 @@ PUSHD %~dp0
 REM ===== COMPILE =====
 REM Custom Death Messages App
 PUSHD App.CustomDeathMessages.Windows
-dotnet publish -p:PublishProfile=win-x86 -o:publish\win-x86
-dotnet publish -p:PublishProfile=win-x64 -o:publish\win-x64
+dotnet publish -p:PublishProfile=Properties\PublishProfiles\win-x86.pubxml
+dotnet publish -p:PublishProfile=Properties\PublishProfiles\win-x64.pubxml
 POPD
 PUSHD App.CustomDeathMessages.Linux
-dotnet publish -p:PublishProfile=linux-x64 -o:publish\linux-x64
+dotnet publish -p:PublishProfile=Properties\PublishProfiles\linux-x64.pubxml
 POPD
 
 REM ===== BUNDLE =====
