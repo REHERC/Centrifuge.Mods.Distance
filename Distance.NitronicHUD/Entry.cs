@@ -12,7 +12,6 @@ using UnityEngine;
 
 namespace Distance.NitronicHUD
 {
-    // NOTE: Transfer strings into a static class
     [ModEntryPoint("com.github.reherc/Distance.NitronicHUD")]
     public class Mod : MonoBehaviour
     {
