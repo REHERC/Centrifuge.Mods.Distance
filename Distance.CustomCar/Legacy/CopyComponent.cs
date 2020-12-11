@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using UnityEngine;
 
-namespace CustomCar
+namespace CustomCar.Legacy
 {
     public static class CopyComponent
     {

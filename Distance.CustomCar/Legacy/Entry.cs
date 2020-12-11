@@ -8,7 +8,7 @@ using Reactor.API.Storage;
 using System;
 using System.Collections.Generic;
 
-namespace CustomCar
+namespace CustomCar.Legacy
 {
     [ModEntryPoint("com.github.larnin/CustomCar")]
     public class Mod

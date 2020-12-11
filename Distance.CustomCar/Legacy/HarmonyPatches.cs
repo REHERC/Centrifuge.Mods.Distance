@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using UnityEngine;
 
-namespace CustomCar
+namespace CustomCar.Legacy
 {
     internal static class CustomCarsPatchInfos
     {

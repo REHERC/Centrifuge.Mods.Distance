@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CustomCar
+namespace CustomCar.Legacy
 {
     public static class GameObjectEx
     {

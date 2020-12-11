@@ -8,7 +8,7 @@ using System.Reflection;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace CustomCar
+namespace CustomCar.Legacy
 {
     public class CarBuilder
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace CustomCar
+namespace CustomCar.Legacy
 {
     public class MaterialInfos
     {
