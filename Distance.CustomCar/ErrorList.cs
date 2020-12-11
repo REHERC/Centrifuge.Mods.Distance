@@ -15,7 +15,7 @@ namespace Distance.CustomCar
 		{
 			return string.Join("\n", ToArray());
 		}
-
+		
 		public void Show()
 		{
 			MessageBox.Create($"An error occured while loading the cars\n{ToString()}", "Custom car - Errors")
