@@ -28,7 +28,7 @@ namespace Distance.EditorAdditions.Harmony
                         }
                         else
                         {
-                            MessageBox.Create("You must select only 1 object to ust this tool.", "ERROR")
+                            MessageBox.Create("You must select only 1 object to use this tool.", "ERROR")
                             .SetButtons(MessageButtons.Ok)
                             .Show();
                         }
