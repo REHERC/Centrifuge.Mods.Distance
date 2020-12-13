@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace CustomCar.Legacy
 {
-    [ModEntryPoint("com.github.larnin/CustomCar")]
+    //[ModEntryPoint("com.github.larnin/CustomCar")]
     public class Mod
     {
         private readonly List<Assets> _assets = new List<Assets>();

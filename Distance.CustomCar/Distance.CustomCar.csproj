@@ -84,7 +84,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ErrorList.cs" />
+    <Compile Include="Data\CarFactory.cs" />
+    <Compile Include="Data\CarInfos.cs" />
+    <Compile Include="Data\Error.cs" />
+    <Compile Include="Data\MaterialInfos.cs" />
+    <Compile Include="Data\MaterialPropertyInfo.cs" />
+    <Compile Include="Data\CarPrefabDatabase.cs" />
+    <Compile Include="Entry.cs" />
+    <Compile Include="Data\ErrorList.cs" />
+    <Compile Include="Extensions\UnityEngine\UnityEngine\GameObject.cs" />
     <Compile Include="Legacy\CarBuilder.cs" />
     <Compile Include="Legacy\CarInfos.cs" />
     <Compile Include="Legacy\CopyComponent.cs" />
@@ -97,6 +105,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Harmony\Assembly-CSharp\GadgetWithAnimation\" />
+    <Folder Include="Harmony\Assembly-CSharp\Profile\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
