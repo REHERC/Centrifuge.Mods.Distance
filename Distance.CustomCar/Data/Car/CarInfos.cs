@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Distance.CustomCar.Data
+namespace Distance.CustomCar.Data.Car
 {
 	public class CarInfos
 	{

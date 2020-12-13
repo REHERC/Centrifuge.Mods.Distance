@@ -84,12 +84,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\CarFactory.cs" />
-    <Compile Include="Data\CarInfos.cs" />
+    <Compile Include="Data\Car\CarBuilder.cs" />
+    <Compile Include="Data\Car\CarData.cs" />
+    <Compile Include="Data\Car\CarFactory.cs" />
+    <Compile Include="Data\Car\CarInfos.cs" />
     <Compile Include="Data\Error.cs" />
     <Compile Include="Data\MaterialInfos.cs" />
+    <Compile Include="Data\MaterialProperty.cs" />
     <Compile Include="Data\MaterialPropertyInfo.cs" />
-    <Compile Include="Data\CarPrefabDatabase.cs" />
+    <Compile Include="Data\Car\CarPrefabDatabase.cs" />
+    <Compile Include="Data\PropertyType.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Data\ErrorList.cs" />
     <Compile Include="Extensions\UnityEngine\UnityEngine\GameObject.cs" />

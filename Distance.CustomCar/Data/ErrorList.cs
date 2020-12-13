@@ -23,7 +23,7 @@ namespace Distance.CustomCar.Data
 		public new void Add(Error val)
 		{
 			base.Add(val);
-			logger_.Error(val);
+			logger_.Error($"{val.message}\t({val.source})");
 		}
 
 		public override string ToString()
@@ -33,7 +33,7 @@ namespace Distance.CustomCar.Data
 		
 		public void Show()
 		{
-			MessageBox.Create($"An error occured while loading the cars\n{ToString()}", "Custom car - Errors")
+			MessageBox.Create($"An error occured while loading the cars\n{ToString()}", "Custom Car")
 			.SetButtons(MessageButtons.Ok)
 			.Show();
 		}

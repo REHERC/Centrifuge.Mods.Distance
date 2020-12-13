@@ -1,4 +1,5 @@
 ﻿using Distance.CustomCar.Data;
+using Distance.CustomCar.Data.Car;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;

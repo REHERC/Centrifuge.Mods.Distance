@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace Distance.CustomCar.Data
+namespace Distance.CustomCar.Data.Car
 {
 	public class CarPrefabDatabase : List<GameObject>
 	{

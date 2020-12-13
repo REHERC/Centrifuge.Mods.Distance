@@ -131,6 +131,7 @@ namespace CustomCar.Legacy
 
             RemoveOldCar(obj);
             GameObject newCar = AddNewCarOnPrefab(obj, car);
+            //return Object.Instantiate(car, obj.transform);
             SetCarDatas(obj, newCar);
             infos.car = obj;
 
