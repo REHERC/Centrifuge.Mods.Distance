@@ -4,7 +4,7 @@ using Reactor.API.Logging;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Distance.CustomCar.Data
+namespace Distance.CustomCar.Data.Error
 {
 	public class ErrorList : List<Error>
 	{

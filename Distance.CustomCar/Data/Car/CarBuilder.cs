@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Distance.CustomCar.Data.Materials;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Distance.CustomCar.Data.Car

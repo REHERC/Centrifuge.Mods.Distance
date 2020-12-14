@@ -1,4 +1,4 @@
-﻿namespace Distance.CustomCar.Data
+﻿namespace Distance.CustomCar.Data.Error
 {
 	public struct Error
 	{

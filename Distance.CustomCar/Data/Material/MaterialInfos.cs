@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Distance.CustomCar.Data
+namespace Distance.CustomCar.Data.Materials
 {
 	public class MaterialInfos
 	{
