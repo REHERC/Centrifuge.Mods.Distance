@@ -1,5 +1,6 @@
 ﻿using Distance.CustomCar.Data.Materials;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Distance.CustomCar.Data.Car
@@ -23,6 +24,7 @@ namespace Distance.CustomCar.Data.Car
 			}
 		}
 
+		#region Create Car
 		private CarData CreateCar(GameObject car)
 		{
 			GameObject carBase = Object.Instantiate(factory_.Infos.baseCar);
@@ -71,16 +73,19 @@ namespace Distance.CustomCar.Data.Car
 
 		private void AddCarComponents(GameObject carBase, GameObject carSkin)
 		{
-			AddColorChanger(carBase.GetComponent<ColorChanger>(), carSkin);
+			SetColorChanger(carBase.GetComponent<ColorChanger>(), carSkin);
+			SetCarVisuals(carBase.GetComponent<CarVisuals>(), carSkin);
 		}
 
-		private void AddColorChanger(ColorChanger colorChanger, GameObject carSkin)
+		#region Color Changer
+		private void SetColorChanger(ColorChanger colorChanger, GameObject carSkin)
 		{
 			if (colorChanger)
 			{
 				foreach (Renderer renderer in carSkin.GetComponentsInChildren<Renderer>())
 				{
 					ReplaceRendererMaterials(renderer);
+					SetMaterialColorChanger(colorChanger, renderer.transform);
 				}
 			}
 			else
@@ -236,7 +241,7 @@ namespace Distance.CustomCar.Data.Car
 				}
 			}
 		}
-		
+
 		private void CopyMaterialProperty(Material from, Material to, MaterialProperty property)
 		{
 			int fromID = property.fromID;
@@ -285,5 +290,200 @@ namespace Distance.CustomCar.Data.Car
 					break;
 			}
 		}
+
+		private void SetMaterialColorChanger(ColorChanger colorChanger, Transform transform)
+		{
+			Renderer renderer = transform.GetComponent<Renderer>();
+			if (!renderer)
+			{
+				return;
+			}
+
+			List<ColorChanger.UniformChanger> uniformChangers = new List<ColorChanger.UniformChanger>();
+
+			for (int childIndex = 0; childIndex < transform.childCount; childIndex++)
+			{
+				GameObject childObject = transform.GetChild(childIndex).gameObject;
+
+				string name = childObject.name.ToLower();
+				if (!name.StartsWith("#"))
+				{
+					continue;
+				}
+				name = name.Remove(0, 1); // Remove #
+
+				string[] argumentList = name.Split(';');
+
+				if (argumentList.Length == 0 || !argumentList[0].ToLower().Contains("color"))
+				{
+					continue;
+				}
+
+				if (argumentList.Length != 6)
+				{
+					factory_.Errors.Add($"{argumentList[0]} property on {transform.gameObject.FullName()} must have 5 arguments", "Custom assets prefabs");
+					continue;
+				}
+
+				ColorChanger.UniformChanger uniformChanger = new ColorChanger.UniformChanger();
+				int.TryParse(argumentList[1], out int materialIndex);
+				uniformChanger.materialIndex_ = materialIndex;
+				uniformChanger.colorType_ = GetColorType(argumentList[2]);
+				uniformChanger.name_ = GetUniform(argumentList[3]);
+				int.TryParse(argumentList[4], out int multiplier);
+				uniformChanger.mul_ = multiplier;
+				uniformChanger.alpha_ = string.Equals(argumentList[5], "true", System.StringComparison.InvariantCultureIgnoreCase);
+
+				uniformChangers.Add(uniformChanger);
+			}
+
+			if (!uniformChangers.Any())
+			{
+				return;
+			}
+
+			ColorChanger.RendererChanger rendererChanger = new ColorChanger.RendererChanger()
+			{
+				renderer_ = renderer,
+				uniformChangers_ = uniformChangers.ToArray()
+			};
+
+			List<ColorChanger.RendererChanger> rendererChangers = colorChanger.rendererChangers_.ToList();
+			rendererChangers.Add(rendererChanger);
+			colorChanger.rendererChangers_ = rendererChangers.ToArray();
+		}
+
+		private ColorChanger.ColorType GetColorType(string name)
+		{
+			switch (name.ToLower())
+			{
+				case "secondary":
+					return ColorChanger.ColorType.Secondary;
+				case "glow":
+					return ColorChanger.ColorType.Glow;
+				case "sparkle":
+					return ColorChanger.ColorType.Sparkle;
+				case "primary":
+				default:
+					return ColorChanger.ColorType.Primary;
+			}
+		}
+
+		private MaterialEx.SupportedUniform GetUniform(string name)
+		{
+			switch (name.ToLower())
+			{
+				case "color2":
+					return MaterialEx.SupportedUniform._Color2;
+				case "emitcolor":
+					return MaterialEx.SupportedUniform._EmitColor;
+				case "reflectcolor":
+					return MaterialEx.SupportedUniform._ReflectColor;
+				case "speccolor":
+					return MaterialEx.SupportedUniform._SpecColor;
+				case "color":
+				default:
+					return MaterialEx.SupportedUniform._Color;
+			}
+		}
+		#endregion
+
+		#region Car Visuals
+		private void SetCarVisuals(CarVisuals carVisuals, GameObject carSkin)
+		{
+			if (!carVisuals)
+			{
+				factory_.Errors.Add("Can't find the CarVisuals component on the base car", "Game assets");
+				return;
+			}
+
+			SkinnedMeshRenderer skinnedRenderer = carSkin.GetComponentInChildren<SkinnedMeshRenderer>();
+			MakeMeshSkinned(skinnedRenderer);
+			carVisuals.carBodyRenderer_ = skinnedRenderer;
+
+			List<JetFlame> boostJets = new List<JetFlame>();
+			List<JetFlame> wingJets = new List<JetFlame>();
+			List<JetFlame> rotationJets = new List<JetFlame>();
+
+			PlaceJets(carSkin, boostJets, wingJets, rotationJets);
+
+			carVisuals.boostJetFlames_ = boostJets.ToArray();
+			carVisuals.wingJetFlames_ = wingJets.ToArray();
+			carVisuals.rotationJetFlames_ = rotationJets.ToArray();
+			carVisuals.driverPosition_ = FindCarDriver(carSkin.transform);
+		}
+
+		private Transform FindCarDriver(Transform transform)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		private void MakeMeshSkinned(SkinnedMeshRenderer renderer)
+		{
+			Mesh mesh = renderer.sharedMesh;
+			if (!mesh)
+			{
+				factory_.Errors.Add($"The mesh on {renderer.gameObject.FullName()} is null", "Custom assets");
+				return;
+			}
+
+			if (!mesh.isReadable)
+			{
+				factory_.Errors.Add($"Can't read the car mesh {mesh.name} on {renderer.gameObject.FullName()} You must allow reading on it's unity inspector !", "Custom assets");
+				return;
+			}
+
+			if (mesh.vertices.Length == mesh.boneWeights.Length)
+			{
+				return;
+			}
+
+			BoneWeight[] bones = new BoneWeight[mesh.vertices.Length];
+			for (int boneIndex = 0; boneIndex < bones.Length; boneIndex++)
+			{
+				bones[boneIndex].weight0 = 1;
+			}
+
+			mesh.boneWeights = bones;
+			Transform transform = renderer.transform;
+
+			Matrix4x4[] bindPoses = new Matrix4x4[1] 
+			{ 
+				transform.worldToLocalMatrix * renderer.transform.localToWorldMatrix 
+			};
+
+			mesh.bindposes = bindPoses;
+			renderer.bones = new Transform[1] 
+			{ 
+				transform 
+			};
+		}
+
+		private void PlaceJets(GameObject carSkin, List<JetFlame> boostJets, List<JetFlame> wingJets, List<JetFlame> rotationJets)
+		{
+			int childCount = carSkin.transform.childCount;
+
+			for (int childIndex = 0; childIndex < childCount; childIndex++)
+			{
+				GameObject childObject = carSkin.transform.GetChild(childIndex).gameObject;
+				string name = childObject.name.ToLower();
+
+				// TODO: Implement (L576)
+				if (factory_.Infos.boostJet && name.Contains("boostjet"))
+				{
+					throw new System.NotImplementedException();
+				}
+				else if (factory_.Infos.wingJet && name.Contains("wingjet"))
+				{
+					throw new System.NotImplementedException();
+				}
+				else if (factory_.Infos.rotationJet && name.Contains("rotationjet"))
+				{
+					throw new System.NotImplementedException();
+				}
+			}
+		}
+		#endregion
+		#endregion
 	}
 }
