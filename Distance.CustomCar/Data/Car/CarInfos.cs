@@ -20,7 +20,7 @@ namespace Distance.CustomCar.Data.Car
 		public GameObject boostJet;
 		public GameObject rotationJet;
 		public GameObject wingJet;
-		public WingTrail wingTrail;
+		public GameObject wingTrail;
 		public CarColors defaultColors;
 
 		public bool CollectInformations()
@@ -63,6 +63,8 @@ namespace Distance.CustomCar.Data.Car
 						break;
 				}
 			}
+
+			wingTrail = baseCar.GetComponentInChildren<WingTrail>().gameObject;
 
 			bool allPrefabsValid = true;
 

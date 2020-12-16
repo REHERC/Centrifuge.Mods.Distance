@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+// TODO: move string litterals to constants class
+
 namespace Distance.CustomCar.Data.Car
 {
 	public class CarBuilder : List<CarData>
@@ -16,10 +18,9 @@ namespace Distance.CustomCar.Data.Car
 
 		public void CreateCars()
 		{
-			CarInfos infos = factory_.Infos;
-
 			foreach (GameObject carPrefab in factory_.Prefabs)
 			{
+				Mod.Instance.Logger.Warning($"Adding prefab {carPrefab.name}");
 				Add(CreateCar(carPrefab));
 			}
 		}
@@ -36,8 +37,61 @@ namespace Distance.CustomCar.Data.Car
 			GameObject carSkin = Object.Instantiate(car, carBase.transform);
 			AddCarComponents(carBase, carSkin);
 
+			CarColors colors = LoadDefaultColors(carSkin);
 			// return line is just to not get compile error
-			return new CarData(carBase, G.Sys.ProfileManager_.CarInfos_[0].colors_);
+
+			return new CarData(carBase, colors);
+		}
+
+		private CarColors LoadDefaultColors(GameObject carSkin)
+		{
+			CarColors colors = new CarColors();
+
+			for (int childIndex = 0; childIndex < carSkin.transform.childCount; childIndex++)
+			{
+				GameObject childObject = carSkin.transform.GetChild(childIndex).gameObject;
+				string name = childObject.name.ToLower();
+				if (name.Contains("defaultcolors"))
+				{
+					for (int colorIndex = 0; colorIndex < childObject.transform.childCount; colorIndex++)
+					{
+						GameObject colorObject = carSkin.transform.GetChild(colorIndex).gameObject;
+						string colorName = colorObject.name.ToLower();
+
+						if (!colorName.StartsWith("#"))
+						{
+							continue;
+						}
+						colorName = colorName.Remove(0, 1); // Remove #
+
+						string[] argumentList = colorName.Split(';');
+						if (argumentList.Length != 2)
+						{
+							continue;
+						}
+
+						Color color = ColorEx.HexToColor(argumentList[1], 0xFF);
+
+						switch (argumentList[0])
+						{
+							case "primary":
+								colors.primary_ = color;
+								break;
+							case "secondary":
+								colors.secondary_ = color;
+								break;
+							case "glow":
+								colors.glow_ = color;
+								break;
+							case "sparkle":
+								colors.sparkle_ = color;
+								break;
+						}
+					}
+				}
+			}
+
+			return colors;
 		}
 
 		private void RemoveDefaultCarObjects(GameObject carPrefab)
@@ -411,11 +465,73 @@ namespace Distance.CustomCar.Data.Car
 			carVisuals.wingJetFlames_ = wingJets.ToArray();
 			carVisuals.rotationJetFlames_ = rotationJets.ToArray();
 			carVisuals.driverPosition_ = FindCarDriver(carSkin.transform);
+
+			PlaceCarWheelVisuals(carVisuals, carSkin);
 		}
 
-		private Transform FindCarDriver(Transform transform)
+		private void PlaceCarWheelVisuals(CarVisuals carVisuals, GameObject carSkin)
 		{
-			throw new System.NotImplementedException();
+			for (int childIndex = 0; childIndex < carSkin.transform.childCount; childIndex++)
+			{
+				GameObject childObject = carSkin.transform.GetChild(childIndex).gameObject;
+				string name = childObject.name.ToLower();
+
+				if (name.Contains("wheel"))
+				{
+					CarWheelVisuals visuals = childObject.AddComponent<CarWheelVisuals>();
+					foreach (MeshRenderer renderer in childObject.GetComponentsInChildren<MeshRenderer>())
+					{
+						if (renderer.name.ToLower().Contains("tire"))
+						{
+							visuals.tire_ = renderer;
+							break;
+						}
+					}
+
+					SetWheelVisual(carVisuals, visuals, name);
+				}
+			}
+		}
+
+		private void SetWheelVisual(CarVisuals visuals, CarWheelVisuals wheel, string name)
+		{
+			if (name.Contains("front"))
+			{
+				if (name.Contains("left"))
+				{
+					visuals.wheelFL_ = wheel;
+				}
+				else if (name.Contains("right"))
+				{
+					visuals.wheelFR_ = wheel;
+				}
+			}
+			else if (name.Contains("back"))
+			{
+				if (name.Contains("left"))
+				{
+					visuals.wheelBL_ = wheel;
+				}
+				else if (name.Contains("right"))
+				{
+					visuals.wheelBR_ = wheel;
+				}
+			}
+		}
+
+		private Transform FindCarDriver(Transform parent)
+		{
+			foreach (Transform transform in parent.GetChildren())
+			{
+				if (transform.gameObject.name.ToLower().Contains("driverposition"))
+				{
+					return transform;
+				}
+
+				return FindCarDriver(transform);
+			}
+
+			return null;
 		}
 
 		private void MakeMeshSkinned(SkinnedMeshRenderer renderer)
@@ -468,20 +584,87 @@ namespace Distance.CustomCar.Data.Car
 				GameObject childObject = carSkin.transform.GetChild(childIndex).gameObject;
 				string name = childObject.name.ToLower();
 
-				// TODO: Implement (L576)
 				if (factory_.Infos.boostJet && name.Contains("boostjet"))
 				{
-					throw new System.NotImplementedException();
+					GameObject jet = Object.Instantiate(factory_.Infos.boostJet, childObject.transform);
+					jet.transform.localPosition = Vector3.zero;
+					jet.transform.localRotation = Quaternion.identity;
+					boostJets.Add(jet.GetComponentInChildren<JetFlame>());
 				}
 				else if (factory_.Infos.wingJet && name.Contains("wingjet"))
 				{
-					throw new System.NotImplementedException();
+					GameObject jet = Object.Instantiate(factory_.Infos.wingJet, childObject.transform);
+					jet.transform.localPosition = Vector3.zero;
+					jet.transform.localRotation = Quaternion.identity;
+					JetFlame flame = jet.GetComponentInChildren<JetFlame>();
+					flame.rotationAxis_ = GetJetRotationAxis(childObject.transform);
+					wingJets.Add(flame);
 				}
 				else if (factory_.Infos.rotationJet && name.Contains("rotationjet"))
 				{
-					throw new System.NotImplementedException();
+					GameObject jet = Object.Instantiate(factory_.Infos.rotationJet, childObject.transform);
+					jet.transform.localPosition = Vector3.zero;
+					jet.transform.localRotation = Quaternion.identity;
+					JetFlame flame = jet.GetComponentInChildren<JetFlame>();
+					flame.rotationAxis_ = GetJetRotationAxis(childObject.transform);
+					rotationJets.Add(jet.GetComponentInChildren<JetFlame>());
+				}
+				else if (factory_.Infos.wingTrail && name.Contains("wingtrail"))
+				{
+					GameObject trail = Object.Instantiate(factory_.Infos.wingTrail, childObject.transform);
+					trail.transform.localPosition = Vector3.zero;
+					trail.transform.localRotation = Quaternion.identity;
+				}
+				else
+				{
+					PlaceJets(childObject, boostJets, wingJets, rotationJets);
 				}
 			}
+		}
+
+		private Vector3 GetJetRotationAxis(Transform transform)
+		{
+			int childCount = transform.childCount;
+			for (int childIndex = 0; childIndex < childCount; childIndex++)
+			{
+				string name = transform.GetChild(childIndex).gameObject.name.ToLower();
+				if (!name.StartsWith("#"))
+				{
+					continue;
+				}
+				name = name.Remove(0, 1);
+
+				string[] argumentList = name.Split(';');
+				if (argumentList.Length == 0 || !argumentList[0].Contains("dir") || argumentList.Length < 2)
+				{
+					continue;
+				}
+				
+				switch (argumentList[1].ToLower())
+				{
+					case "front":
+						return new Vector3(-1, 0, 0);
+					case "back":
+						return new Vector3(1, 0, 0);
+					case "left":
+						return new Vector3(0, 1, -1);
+					case "right":
+						return new Vector3(0, -1, 1);
+				}
+
+				if (argumentList.Length < 4)
+				{
+					continue;
+				}
+
+				Vector3 direction = Vector3.zero;
+				float.TryParse(argumentList[1], out direction.x);
+				float.TryParse(argumentList[2], out direction.y);
+				float.TryParse(argumentList[3], out direction.z);
+				return direction;
+			}
+
+			return Vector3.zero;
 		}
 		#endregion
 		#endregion

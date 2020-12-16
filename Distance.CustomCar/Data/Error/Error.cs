@@ -13,7 +13,7 @@
 
 		public override string ToString()
 		{
-			return message;
+			return $"{message} \t({source})";
 		}
 
 		public static implicit operator string(Error error)

@@ -9,7 +9,7 @@ namespace CustomCar.Legacy
         public static int carCount = 0;
     }
 
-    [HarmonyPatch(typeof(Profile), "Awake")]
+    //[HarmonyPatch(typeof(Profile), "Awake")]
     internal class ProfileAwake
     {
         internal static void Postfix(Profile __instance)
@@ -43,7 +43,7 @@ namespace CustomCar.Legacy
         }
     }
 
-    [HarmonyPatch(typeof(Profile), "Save")]
+    //[HarmonyPatch(typeof(Profile), "Save")]
     internal class ProfileSave
     {
         internal static void Postfix()
@@ -53,7 +53,7 @@ namespace CustomCar.Legacy
     }
 
     //change additive to blend animation blendMode
-    [HarmonyPatch(typeof(GadgetWithAnimation), "SetAnimationStateValues")]
+    //[HarmonyPatch(typeof(GadgetWithAnimation), "SetAnimationStateValues")]
     internal class GadgetWithAnimationSetAnimationStateValues
     {
         internal static bool Prefix(GadgetWithAnimation __instance)

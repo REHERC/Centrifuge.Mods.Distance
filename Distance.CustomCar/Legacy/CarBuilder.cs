@@ -52,6 +52,7 @@ namespace CustomCar.Legacy
                     },
                     colors_ = carsInfos[index].colors
                 };
+
                 profileManager.carInfos_[i] = car;
                 unlocked.Add(car.name_, i);
                 knowCars.Add(car.name_, i);

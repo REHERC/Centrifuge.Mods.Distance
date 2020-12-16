@@ -15,12 +15,14 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>embedded</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -97,6 +100,9 @@
     <Compile Include="Entry.cs" />
     <Compile Include="Data\Error\ErrorList.cs" />
     <Compile Include="Extensions\UnityEngine\UnityEngine\GameObject.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\GadgetWithAnimation\SetAnimationStateValues.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Profile\Awake.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Profile\Save.cs" />
     <Compile Include="Legacy\CarBuilder.cs" />
     <Compile Include="Legacy\CarInfos.cs" />
     <Compile Include="Legacy\CopyComponent.cs" />
@@ -110,10 +116,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Harmony\Assembly-CSharp\GadgetWithAnimation\" />
-    <Folder Include="Harmony\Assembly-CSharp\Profile\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>SET MODNAME=Distance Custom Car

@@ -20,8 +20,11 @@ namespace Distance.CustomCar.Data.Car
 
 		public void LoadAll()
 		{
+			Mod.Instance.Logger.Warning($"Scanning {assetsDirectory_.FullName}...");
 			foreach (FileInfo file in assetsDirectory_.GetFiles())
 			{
+				Mod.Instance.Logger.Warning($"Found {file.FullName}...");
+
 				Assets assetsFile = Assets.FromUnsafePath(file.FullName);
 				AssetBundle bundle = assetsFile.Bundle as AssetBundle;
 

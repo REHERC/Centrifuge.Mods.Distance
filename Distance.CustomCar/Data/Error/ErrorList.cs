@@ -10,6 +10,8 @@ namespace Distance.CustomCar.Data.Error
 	{
 		readonly Log logger_;
 
+		public bool HasAny => Count > 0;
+
 		public ErrorList(Log logger)
 		{
 			logger_ = logger;
@@ -23,18 +25,27 @@ namespace Distance.CustomCar.Data.Error
 		public new void Add(Error val)
 		{
 			base.Add(val);
-			logger_.Error($"{val.message}\t({val.source})");
+			logger_.Error(val);
 		}
 
 		public override string ToString()
 		{
-			return string.Join("\n", this.Select(x => x.message).ToArray());
+			return string.Join("\n", this.Select(x => x.ToString()).ToArray());
 		}
-		
-		public void Show()
+
+		public void Show(bool clearAfter = false)
 		{
-			MessageBox.Create($"An error occured while loading the cars\n{ToString()}", "Custom Car")
+			MessageBox.Create($"An error occured while loading the cars\n{this}", "Custom Car")
 			.SetButtons(MessageButtons.Ok)
+			.OnConfirm(
+				() =>
+				{
+					if (clearAfter)
+					{
+						Clear();
+					}
+				}
+			)
 			.Show();
 		}
 	}
