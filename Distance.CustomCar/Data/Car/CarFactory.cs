@@ -8,6 +8,8 @@ namespace Distance.CustomCar.Data.Car
 	{
 		public ErrorList Errors { get; internal set; }
 
+		public CarAssetBundles Assets { get; internal set; }
+
 		public CarPrefabDatabase Prefabs { get; internal set; }
 
 		public CarInfos Infos { get; internal set; }
@@ -18,17 +20,24 @@ namespace Distance.CustomCar.Data.Car
 		{
 			Errors = errors;
 
-			Prefabs = new CarPrefabDatabase(Mod.Instance.GetLocalFolder(Defaults.PrivateAssetsDirectory), Errors);
+			Prefabs = new CarPrefabDatabase(this);
 			Infos = new CarInfos();
 			Builder = new CarBuilder(this);
 		}
 
 		public void MakeCars()
 		{
+			if (Assets.Count == 0)
+			{
+				Assets = new CarAssetBundles(Mod.Instance.GetLocalFolder(Defaults.PrivateAssetsDirectory));
+				Assets.LoadAll();
+			}
+
 			if (Infos.CollectInformations())
 			{
 				Prefabs.Clear();
 				Prefabs.LoadAll();
+
 				if (Prefabs.Count > 0)
 				{
 					Builder.Clear();
@@ -57,7 +66,6 @@ namespace Distance.CustomCar.Data.Car
 			}
 		}
 		
-		// Copp pastt
 		private void AddCarsToGame()
 		{
 			ProfileManager profileManager = G.Sys.ProfileManager_;

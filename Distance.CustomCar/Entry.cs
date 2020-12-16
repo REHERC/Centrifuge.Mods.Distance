@@ -62,11 +62,8 @@ namespace Distance.CustomCar
 		{
 			try
 			{
-				Console.WriteLine("DBG-1");
 				CarFactory.MakeCars();
-				Console.WriteLine("DBG-2");
 				CarFactory.RegisterAll();
-				Console.WriteLine("DBG-3");
 			}
 			catch (Exception error)
 			{
@@ -74,10 +71,7 @@ namespace Distance.CustomCar
 				Logger.Exception(error);
 			}
 
-			if (Errors.HasAny)
-			{
-				Errors.Show(true);
-			}
+			Errors.Show(true);
 		}
 	}
 }

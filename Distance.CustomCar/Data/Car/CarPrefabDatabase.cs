@@ -1,5 +1,4 @@
-﻿using Distance.CustomCar.Data.Error;
-using Reactor.API.Storage;
+﻿using Reactor.API.Storage;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,24 +8,19 @@ namespace Distance.CustomCar.Data.Car
 {
 	public class CarPrefabDatabase : List<GameObject>
 	{
-		private readonly DirectoryInfo assetsDirectory_;
-		private readonly ErrorList errors_;
+		private readonly CarFactory factory_;
 
-		public CarPrefabDatabase(DirectoryInfo assetsDirectory, ErrorList errors)
+		public CarPrefabDatabase(CarFactory factory)
 		{
-			assetsDirectory_ = assetsDirectory;
-			errors_ = errors;
+			factory_ = factory;
 		}
 
 		public void LoadAll()
 		{
-			Mod.Instance.Logger.Warning($"Scanning {assetsDirectory_.FullName}...");
-			foreach (FileInfo file in assetsDirectory_.GetFiles())
+			foreach (KeyValuePair<FileInfo, Assets> item in factory_.Assets)
 			{
-				Mod.Instance.Logger.Warning($"Found {file.FullName}...");
-
-				Assets assetsFile = Assets.FromUnsafePath(file.FullName);
-				AssetBundle bundle = assetsFile.Bundle as AssetBundle;
+				Assets assets = item.Value;
+				AssetBundle bundle = assets.Bundle as AssetBundle;
 
 				GameObject carPrefab = null;
 
@@ -41,7 +35,7 @@ namespace Distance.CustomCar.Data.Car
 
 				if (!carPrefab)
 				{
-					errors_.Add($"Can't find a prefab in the {file.Name} asset bundle", "Custom assets");
+					factory_.Errors.Add($"Can't find a prefab in the asset bundle", "Custom assets", item.Key.FullName);
 				}
 				else
 				{

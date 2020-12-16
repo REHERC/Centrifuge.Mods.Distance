@@ -17,9 +17,9 @@ namespace Distance.CustomCar.Data.Error
 			logger_ = logger;
 		}
 
-		public void Add(string message, string source = "")
+		public void Add(string message, string source = "", string file = "")
 		{
-			Add(new Error(message, source));
+			Add(new Error(message, source, file));
 		}
 
 		public new void Add(Error val)
@@ -35,18 +35,21 @@ namespace Distance.CustomCar.Data.Error
 
 		public void Show(bool clearAfter = false)
 		{
-			MessageBox.Create($"An error occured while loading the cars\n{this}", "Custom Car")
-			.SetButtons(MessageButtons.Ok)
-			.OnConfirm(
-				() =>
-				{
-					if (clearAfter)
+			if (HasAny)
+			{
+				MessageBox.Create($"An error occured while loading the cars\n{this}", "Custom Car")
+				.SetButtons(MessageButtons.Ok)
+				.OnConfirm(
+					() =>
 					{
-						Clear();
+						if (clearAfter)
+						{
+							Clear();
+						}
 					}
-				}
-			)
-			.Show();
+				)
+				.Show();
+			}
 		}
 	}
 }

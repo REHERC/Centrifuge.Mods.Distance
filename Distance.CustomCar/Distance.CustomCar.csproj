@@ -87,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Car\CarAssetBundles.cs" />
     <Compile Include="Data\Car\CarBuilder.cs" />
     <Compile Include="Data\Car\CarData.cs" />
     <Compile Include="Data\Car\CarFactory.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Harmony\Assembly-CSharp\GadgetWithAnimation\SetAnimationStateValues.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Profile\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Profile\Save.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Profile\SetColorsForAllCars.cs" />
     <Compile Include="Legacy\CarBuilder.cs" />
     <Compile Include="Legacy\CarInfos.cs" />
     <Compile Include="Legacy\CopyComponent.cs" />
