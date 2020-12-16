@@ -105,14 +105,6 @@
     <Compile Include="Harmony\Assembly-CSharp\Profile\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Profile\Save.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Profile\SetColorsForAllCars.cs" />
-    <Compile Include="Legacy\CarBuilder.cs" />
-    <Compile Include="Legacy\CarInfos.cs" />
-    <Compile Include="Legacy\CopyComponent.cs" />
-    <Compile Include="Legacy\ErrorList.cs" />
-    <Compile Include="Legacy\GameObjectEx.cs" />
-    <Compile Include="Legacy\HarmonyPatches.cs" />
-    <Compile Include="Legacy\Entry.cs" />
-    <Compile Include="Legacy\ModdedCarsColors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
