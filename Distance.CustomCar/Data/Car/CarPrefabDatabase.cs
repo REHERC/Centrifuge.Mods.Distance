@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Distance.CustomCar.Data.Car
 {
-	public class CarPrefabDatabase : Dictionary<string, GameObject>
+	public class CarPrefabDatabase : List<GameObject>
 	{
 		private readonly CarFactory factory_;
 
@@ -17,35 +17,29 @@ namespace Distance.CustomCar.Data.Car
 
 		public void LoadAll()
 		{
-			foreach (KeyValuePair<string, AssetBundle> item in factory_.Assets)
+			foreach (KeyValuePair<FileInfo, Assets> item in factory_.Assets)
 			{
-				try
+				Assets assets = item.Value;
+				AssetBundle bundle = assets.Bundle as AssetBundle;
+
+				GameObject carPrefab = null;
+
+				foreach (string assetName in bundle.GetAllAssetNames())
 				{
-					AssetBundle bundle = item.Value;
-
-					GameObject carPrefab = null;
-
-					foreach (string assetName in bundle.GetAllAssetNames())
+					if (assetName.EndsWith(".prefab", StringComparison.InvariantCultureIgnoreCase))
 					{
-						if (assetName.EndsWith(".prefab", StringComparison.InvariantCultureIgnoreCase))
-						{
-							carPrefab = bundle.LoadAsset<GameObject>(assetName);
-							break;
-						}
-					}
-
-					if (!carPrefab)
-					{
-						factory_.Errors.Add($"Can't find a prefab in the asset bundle", "Custom assets", item.Key);
-					}
-					else
-					{
-						Add(item.Key, carPrefab);
+						carPrefab = bundle.LoadAsset<GameObject>(assetName);
+						break;
 					}
 				}
-				catch (Exception ex)
+
+				if (!carPrefab)
 				{
-					factory_.Errors.Add($"Something went wrong when loading an assets file\n{ex.Message}", "Custom assets", item.Key);
+					factory_.Errors.Add($"Can't find a prefab in the asset bundle", "Custom assets", item.Key.FullName);
+				}
+				else
+				{
+					Add(carPrefab);
 				}
 			}
 		}

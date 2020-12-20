@@ -3,34 +3,20 @@ using UnityEngine;
 
 namespace Distance.CustomCar.Harmony
 {
-    [HarmonyPatch(typeof(GadgetWithAnimation), "SetAnimationStateValues")]
 	internal class GadgetWithAnimation__SetAnimationStateValues
 	{
 		[HarmonyPrefix]
         internal static bool Prefix(GadgetWithAnimation __instance)
         {
-            Mod.Instance.Logger.Error("GadgetWithAnimation__SetAnimationStateValues");
-
-            Animation animation = __instance.GetComponentInChildren<Animation>(true);
+            Animation animation = __instance.GetComponentInChildren<Animation>();
             if (animation)
             {
-                return PatchAnimations(animation, __instance.animationName_);
-            }
-
-            return false;
-        }
-
-        private static bool PatchAnimations(Animation animation, string name)
-		{
-            if (animation)
-			{
-                if (!ChangeBlendModeToBlend(animation.transform, name))
+                if (!ChangeBlendModeToBlend(animation.transform, __instance.animationName_))
                 {
                     return true;
                 }
 
-
-                AnimationState state = animation[name];
+                AnimationState state = animation[__instance.animationName_];
                 if (state)
                 {
                     state.layer = 3;

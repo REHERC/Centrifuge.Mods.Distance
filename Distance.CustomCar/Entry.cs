@@ -58,9 +58,6 @@ namespace Distance.CustomCar
 			Events.MainMenu.Initialized.Unsubscribe(OnMainMenuInitialized);
 		}
 
-
-		private bool displayError_ = true;
-
 		private void OnMainMenuInitialized(Events.MainMenu.Initialized.Data data)
 		{
 			try
@@ -74,11 +71,7 @@ namespace Distance.CustomCar
 				Logger.Exception(error);
 			}
 
-			if (displayError_)
-			{
-				displayError_ = false;
-				Errors.Show(true);
-			}
+			Errors.Show(true);
 		}
 	}
 }
