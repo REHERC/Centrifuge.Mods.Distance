@@ -15,13 +15,14 @@
     <Content Include="$(MSBuildThisFileDirectory)Mod\Tools\Tools.unitypackage" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\Disabled\Avenger" />
-    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\Commander" />
-    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\Disabled\Corruptor" />
-    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\Disabled\Intimidator" />
-    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\Disabled\Knight Cycle" />
+    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\Nitronic Rush\Avenger" />
+    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\Nitronic Rush\Commander" />
+    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\Backgrounds\Corruptor" />
+    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\Nitronic Rush\Intimidator" />
+    <None Include="$(MSBuildThisFileDirectory)Mod\Assets\Nitronic Rush\Knight Cycle" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Mod\Assets\Disabled\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Mod\Assets\Backgrounds\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Mod\Assets\Nitronic Rush\" />
   </ItemGroup>
 </Project>
