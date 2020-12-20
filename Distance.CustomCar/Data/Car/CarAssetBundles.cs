@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 namespace Distance.CustomCar.Data.Car
@@ -19,7 +20,7 @@ namespace Distance.CustomCar.Data.Car
 
 		public void LoadAll()
 		{
-			foreach (FileInfo file in assetsDirectory_.GetFiles("*", SearchOption.AllDirectories))
+			foreach (FileInfo file in assetsDirectory_.GetFiles("*", SearchOption.AllDirectories).OrderBy(x => x.Name))
 			{
 				LoadAssetsFile(file);
 			}
