@@ -7,6 +7,8 @@ namespace Distance.CustomCar.Data.Car
 {
 	public class CarInfos
 	{
+		//public const string UnityLoadException = "can't be loaded because another AssetBundle with the same files is already loaded";
+
 		public const string BoostJetObjectName = "BoostJetFlameCenter";
 		public const string RotationJetObjectName = "JetFlameBackLeft";
 		public const string WingJetObjectName = "WingJetFlameLeft1";
@@ -91,7 +93,6 @@ namespace Distance.CustomCar.Data.Car
 				Mod.Instance.Errors.Add("No valid WingTrail found on Spectrum", "Game assets");
 				allPrefabsValid = false;
 			}
-
 
 			return allPrefabsValid;
 		}
