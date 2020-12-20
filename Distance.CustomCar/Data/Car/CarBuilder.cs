@@ -18,10 +18,19 @@ namespace Distance.CustomCar.Data.Car
 
 		public void CreateCars()
 		{
-			foreach (GameObject carPrefab in factory_.Prefabs)
+			foreach (KeyValuePair<string, GameObject> carPrefab in factory_.Prefabs)
 			{
-				Mod.Instance.Logger.Warning($"Adding prefab {carPrefab.name}");
-				Add(CreateCar(carPrefab));
+				Mod.Instance.Logger.Warning($"Adding prefab {carPrefab.Value.name}");
+
+				try
+				{
+					CarData data = CreateCar(carPrefab.Value);
+					Add(data);
+				}
+				catch (System.Exception ex)
+				{
+					factory_.Errors.Add(ex.Message, "Custom assets builder", carPrefab.Key);
+				}
 			}
 		}
 
@@ -38,7 +47,11 @@ namespace Distance.CustomCar.Data.Car
 			AddCarComponents(carBase, carSkin);
 
 			CarColors colors = LoadDefaultColors(carSkin);
-			// return line is just to not get compile error
+
+			foreach (GadgetWithAnimation gadget in carBase.GetComponentsInChildren<GadgetWithAnimation>(true))
+			{
+				Harmony.GadgetWithAnimation__SetAnimationStateValues.Prefix(gadget);
+			}
 
 			return new CarData(carBase, colors);
 		}
