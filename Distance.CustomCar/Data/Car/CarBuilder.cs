@@ -1,6 +1,6 @@
 ﻿using Distance.CustomCar.Data.Materials;
-using Serializers;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -131,6 +131,7 @@ namespace Distance.CustomCar.Data.Car
 				try
 				{
 					CarData data = CreateCar(carPrefab.Value);
+					data.carPrefab.name = Path.GetFileNameWithoutExtension(carPrefab.Key);
 					Add(data);
 				}
 				catch (System.Exception ex)

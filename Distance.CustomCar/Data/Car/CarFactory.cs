@@ -56,7 +56,7 @@ namespace Distance.CustomCar.Data.Car
 			}
 
 			var infos = G.Sys.ProfileManager_.CarInfos_;
-			Mod.Instance.Logger.Warning($"{infos.Length} cars in total");
+			Mod.Instance.Logger.Info($"{infos.Length} cars in total");
 
 			foreach (var car in G.Sys.ProfileManager_.knownCars_)
 			{

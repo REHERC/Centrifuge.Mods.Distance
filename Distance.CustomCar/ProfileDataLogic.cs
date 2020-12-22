@@ -47,6 +47,7 @@ namespace Distance.CustomCar
 				glow_ = GetColor(vehicle, "glow", Colors.cyan),
 				sparkle_ = GetColor(vehicle, "sparkle", Colors.lightSlateGray)
 			};
+			SetCarColors(profileName, vehicleName, colors);
 			Save();
 			return colors;
 		}
@@ -71,6 +72,11 @@ namespace Distance.CustomCar
 			vehicle["secondary"] = ToSection(colors.secondary_);
 			vehicle["glow"] = ToSection(colors.glow_);
 			vehicle["sparkle"] = ToSection(colors.sparkle_);
+
+			Section profile = Profile(profileName);
+			profile[vehicleName] = vehicle;
+
+			Config[profileName] = profile;
 
 			Save();
 		}

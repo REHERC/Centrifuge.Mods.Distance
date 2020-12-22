@@ -84,7 +84,6 @@ namespace Distance.CustomCar
 			CarFactory.LoadAssets();
 		}
 
-
 		private bool displayError_ = true;
 
 		private void OnMainMenuInitialized(Events.MainMenu.Initialized.Data data)

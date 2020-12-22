@@ -28,7 +28,7 @@ namespace Distance.CustomCar.Data.Car
 
 		public void LoadAssetsFile(FileInfo file)
 		{
-			string fileName = file.FullName.Normalize().ToLower().Replace(Path.DirectorySeparatorChar, '/');
+			string fileName = file.FullName.Replace(Path.DirectorySeparatorChar, '/');
 			
 			if (!ContainsKey(fileName))
 			{
