@@ -9,8 +9,6 @@ namespace Distance.CustomCar.Harmony
 		[HarmonyPrefix]
         internal static bool Prefix(GadgetWithAnimation __instance)
         {
-            Mod.Instance.Logger.Error("GadgetWithAnimation__SetAnimationStateValues");
-
             Animation animation = __instance.GetComponentInChildren<Animation>(true);
             if (animation)
             {

@@ -1,6 +1,7 @@
 ﻿#pragma warning disable IDE0051
 
 using Distance.CustomCar.Data.Car;
+using Distance.CustomCar.Data.Colors;
 using Distance.CustomCar.Data.Error;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
@@ -18,6 +19,12 @@ namespace Distance.CustomCar
 	{
 		public static Mod Instance;
 
+		public static int DefaultCarCount { get; private set; }
+
+		public static int ModdedCarCount => Instance.CarFactory.Builder.Count;
+
+		public static int TotalCarCount => DefaultCarCount + ModdedCarCount;
+
 		public IManager Manager { get; set; }
 
 		public Log Logger { get; set; }
@@ -28,10 +35,18 @@ namespace Distance.CustomCar
 
 		public CarFactory CarFactory { get; set; }
 
+		public ProfileDataLogic ProfileData { get; set; }
+
+		public ProfileCarColors ProfileCarColors { get; set; }
+
+
 		public void Initialize(IManager manager)
 		{
 			Instance = this;
 			Manager = manager;
+
+			ProfileData = gameObject.AddComponent<ProfileDataLogic>();
+			ProfileCarColors = new ProfileCarColors(ProfileData);
 
 			Logger = LogManager.GetForCurrentAssembly();
 			Files = new FileSystem();
@@ -41,6 +56,12 @@ namespace Distance.CustomCar
 			CarFactory = new CarFactory(Errors);
 
 			RuntimePatcher.AutoPatch();
+		}
+
+
+		public void LateInitialize(IManager _)
+		{
+			DefaultCarCount = G.Sys.ProfileManager_.CarInfos_.Length;
 		}
 
 		public DirectoryInfo GetLocalFolder(string dir)
@@ -58,6 +79,11 @@ namespace Distance.CustomCar
 			Events.MainMenu.Initialized.Unsubscribe(OnMainMenuInitialized);
 		}
 
+		public void Load()
+		{
+			CarFactory.LoadAssets();
+		}
+
 
 		private bool displayError_ = true;
 
@@ -67,6 +93,8 @@ namespace Distance.CustomCar
 			{
 				CarFactory.MakeCars();
 				CarFactory.RegisterAll();
+
+				ProfileCarColors.LoadColors();
 			}
 			catch (Exception error)
 			{

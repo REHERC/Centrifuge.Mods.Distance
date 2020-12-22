@@ -92,6 +92,7 @@
     <Compile Include="Data\Car\CarData.cs" />
     <Compile Include="Data\Car\CarFactory.cs" />
     <Compile Include="Data\Car\CarInfos.cs" />
+    <Compile Include="Data\Colors\ProfileCarColors.cs" />
     <Compile Include="Data\Error\Error.cs" />
     <Compile Include="Data\Material\MaterialInfos.cs" />
     <Compile Include="Data\Material\MaterialProperty.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Harmony\Assembly-CSharp\Profile\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Profile\Save.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Profile\SetColorsForAllCars.cs" />
+    <Compile Include="ProfileDataLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,16 +1,14 @@
-﻿using Reactor.API.Storage;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 namespace Distance.CustomCar.Data.Car
 {
-	public class CarPrefabDatabase : Dictionary<string, GameObject>
+	public class AssetBundleDatabase : Dictionary<string, GameObject>
 	{
 		private readonly CarFactory factory_;
 
-		public CarPrefabDatabase(CarFactory factory)
+		public AssetBundleDatabase(CarFactory factory)
 		{
 			factory_ = factory;
 		}

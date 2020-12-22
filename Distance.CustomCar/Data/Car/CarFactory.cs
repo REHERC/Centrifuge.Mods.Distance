@@ -10,7 +10,7 @@ namespace Distance.CustomCar.Data.Car
 
 		public CarAssetBundles Assets { get; internal set; }
 
-		public CarPrefabDatabase Prefabs { get; internal set; }
+		public AssetBundleDatabase Bundles { get; internal set; }
 
 		public CarInfos Infos { get; internal set; }
 
@@ -21,31 +21,36 @@ namespace Distance.CustomCar.Data.Car
 			Errors = errors;
 
 			Assets = new CarAssetBundles(Mod.Instance.GetLocalFolder(Defaults.PrivateAssetsDirectory), this);
-			Prefabs = new CarPrefabDatabase(this);
+			Bundles = new AssetBundleDatabase(this);
 			Infos = new CarInfos();
 			Builder = new CarBuilder(this);
 		}
 
-		public void MakeCars()
+		public void LoadAssets()
 		{
 			Assets.LoadAll();
+		}
 
+		public void MakeCars()
+		{
 			if (Infos.CollectInformations())
 			{
-				Prefabs.Clear();
-				Prefabs.LoadAll();
+				Bundles.Clear();
+				Bundles.LoadAll();
 
-				if (Prefabs.Count > 0)
-				{
-					Builder.Clear();
-					Builder.CreateCars();
-				}
+				Builder.Clear();
+
+				#if USE_INTERNAL_ASSETS
+				Builder.CreateInternalCars();
+				#endif
+
+				Builder.CreateCars();
 			}
 		}
 
 		public void RegisterAll()
 		{
-			if (Prefabs.Count > 0)
+			if (Builder.Count > 0)
 			{
 				AddCarsToGame();
 			}
@@ -59,29 +64,25 @@ namespace Distance.CustomCar.Data.Car
 			}
 		}
 
-		private int defaultCarCount_ = int.MaxValue;
-
 		private void AddCarsToGame()
 		{
 			ProfileManager profileManager = G.Sys.ProfileManager_;
 			CarInfo[] oldCars = profileManager.carInfos_.ToArray();
 
-			defaultCarCount_ = System.Math.Min(defaultCarCount_, oldCars.Length);
-
-			profileManager.carInfos_ = new CarInfo[defaultCarCount_ + Prefabs.Count];
+			profileManager.carInfos_ = new CarInfo[Mod.DefaultCarCount + Builder.Count];
 
 			Dictionary<string, int> unlocked = profileManager.unlockedCars_;
 			Dictionary<string, int> knowCars = profileManager.knownCars_;
 
 			for (int carIndex = 0; carIndex < profileManager.carInfos_.Length; carIndex++)
 			{
-				if (carIndex < defaultCarCount_)
+				if (carIndex < Mod.DefaultCarCount)
 				{
 					profileManager.carInfos_[carIndex] = oldCars[carIndex];
 					continue;
 				}
 
-				int index = carIndex - defaultCarCount_;
+				int index = carIndex - Mod.DefaultCarCount;
 
 				CarInfo car = new CarInfo
 				{
@@ -98,7 +99,7 @@ namespace Distance.CustomCar.Data.Car
 				knowCars[car.name_] = carIndex;
 			}
 
-			CarColors[] carColors = new CarColors[oldCars.Length + Prefabs.Count];
+			CarColors[] carColors = new CarColors[oldCars.Length + Builder.Count];
 			for (int colorIndex = 0; colorIndex < carColors.Length; colorIndex++)
 			{
 				carColors[colorIndex] = G.Sys.ProfileManager_.carInfos_[colorIndex].colors_;

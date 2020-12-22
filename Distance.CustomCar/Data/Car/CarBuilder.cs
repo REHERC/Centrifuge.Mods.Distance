@@ -1,4 +1,5 @@
 ﻿using Distance.CustomCar.Data.Materials;
+using Serializers;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,11 +17,116 @@ namespace Distance.CustomCar.Data.Car
 			factory_ = factory;
 		}
 
+		#if USE_INTERNAL_ASSETS
+		#region Cars From Default Assets
+		public void CreateInternalCars()
+		{
+			try
+			{
+				void RemoveComponentRecursive<COMP>(GameObject obj) where COMP : Component
+				{
+					foreach (COMP component in obj.GetComponents<COMP>())
+					{
+						component.Destroy();
+					}
+
+					foreach (GameObject child in obj.GetChildren())
+					{
+						RemoveComponentRecursive<COMP>(child);
+					}
+				}
+
+				void LoadPrefab(string name, string prefabName, Vector3 scale)
+				{
+					GameObject prefab = Serializer.GetPrefabWithName(prefabName);
+					if (prefab)
+					{
+						GameObject carModel = GameObject.Instantiate(prefab);
+						if (carModel)
+						{
+							Object.DontDestroyOnLoad(carModel);
+							carModel.name = name;
+							carModel.transform.localScale = scale;
+
+							RemoveComponentRecursive<Rigidbody>(carModel);
+
+							CarData data = CreateInternalCar(carModel);
+							Add(data);
+						}
+					}
+				}
+
+				LoadPrefab("Archaic", "VirusSpiritWarpTeaser", Vector3.one * 0.003f);
+				LoadPrefab("Virus Node", "VirusNode_Static", Vector3.one * 0.5f);
+				LoadPrefab("Lamp", "EmpireLamp", Vector3.one * 0.1f);
+				LoadPrefab("Nitroni-Crush", "NitroniCrushVendingMachine", Vector3.one * 1f);
+				LoadPrefab("Nitroni-Crush (Red)", "NitroniCrushVendingMachine_Red", Vector3.one * 1f);
+				LoadPrefab("Building", "EmpireBuildingBlock003", Vector3.one * 0.25f);
+				LoadPrefab("Nitronic Poster", "NitronicPosterBrokenHorizontal", Vector3.one * 0.05f);
+				LoadPrefab("Nitroni-Crush Can", "NitroniCrushCan", Vector3.one * 0.75f);
+			}
+			catch (System.Exception ex)
+			{
+				factory_.Errors.Add($"Something went wrong when loading a prefab\n{ex.Message}", "Internal assets", "Internal asset");
+				Mod.Instance.Logger.Exception(ex);
+			}
+		}
+
+		private CarData CreateInternalCar(GameObject carSkin)
+		{
+			GameObject carBase = Object.Instantiate(factory_.Infos.baseCar);
+			Object.DontDestroyOnLoad(carBase);
+
+			foreach (Renderer renderer in carBase.GetComponentsInChildren<Renderer>(true))
+			{
+				renderer.enabled = false;
+			}
+
+			foreach (JetFlame flame in carBase.GetComponentsInChildren<JetFlame>(true))
+			{
+				flame.gameObject.transform.localScale = Vector3.zero;
+				flame.enabled = false;
+			}
+
+			CarVisuals visuals = carBase.GetComponent<CarVisuals>();
+			if (visuals)
+			{
+				visuals.driverPosition_ = null;
+				visuals.boostJetFlames_ = new JetFlame[0];
+				visuals.rotationJetFlames_ = new JetFlame[0];
+				visuals.wingJetFlames_ = new JetFlame[0];
+				visuals.gameObject.GetComponentsInChildren<WingTrailHelper>().ToList().ForEach(
+					(x) =>
+					{
+						x.wingParticles_.Destroy();
+						x.wingTrail_.Destroy();
+						x.Destroy();					
+					}
+				);
+
+			}
+			carBase.name = carSkin.name;
+			carBase.SetActive(false);
+
+			carSkin.transform.SetParent(carBase.transform);
+			foreach (GameObject skinObj in carSkin.GetChildren())
+			{
+				skinObj.transform.SetParent(carSkin.transform);
+			}
+
+			CarColors colors = G.Sys.ProfileManager_.CarInfos_[0].colors_;
+
+			return new CarData(carBase, colors);
+		}
+		#endregion
+		#endif
+
+		#region Cars From File Assets
 		public void CreateCars()
 		{
-			foreach (KeyValuePair<string, GameObject> carPrefab in factory_.Prefabs)
+			foreach (KeyValuePair<string, GameObject> carPrefab in factory_.Bundles)
 			{
-				Mod.Instance.Logger.Warning($"Adding prefab {carPrefab.Value.name}");
+				Mod.Instance.Logger.Info($"Adding prefab {carPrefab.Value.name}");
 
 				try
 				{
@@ -34,7 +140,7 @@ namespace Distance.CustomCar.Data.Car
 			}
 		}
 
-		#region Create Car
+#region Create Car
 		private CarData CreateCar(GameObject car)
 		{
 			GameObject carBase = Object.Instantiate(factory_.Infos.baseCar);
@@ -44,14 +150,22 @@ namespace Distance.CustomCar.Data.Car
 
 			RemoveDefaultCarObjects(carBase);
 			GameObject carSkin = Object.Instantiate(car, carBase.transform);
-			AddCarComponents(carBase, carSkin);
+
+			try
+			{
+				AddCarComponents(carBase, carSkin);
+				foreach (GadgetWithAnimation gadget in carBase.GetComponentsInChildren<GadgetWithAnimation>(true))
+				{
+					Harmony.GadgetWithAnimation__SetAnimationStateValues.Prefix(gadget);
+				}
+			}
+			catch (System.Exception ex)
+			{
+				factory_.Errors.Add(ex.Message, "Custom assets builder [components]", carBase.name);
+				Mod.Instance.Logger.Exception(ex);
+			}
 
 			CarColors colors = LoadDefaultColors(carSkin);
-
-			foreach (GadgetWithAnimation gadget in carBase.GetComponentsInChildren<GadgetWithAnimation>(true))
-			{
-				Harmony.GadgetWithAnimation__SetAnimationStateValues.Prefix(gadget);
-			}
 
 			return new CarData(carBase, colors);
 		}
@@ -140,11 +254,11 @@ namespace Distance.CustomCar.Data.Car
 
 		private void AddCarComponents(GameObject carBase, GameObject carSkin)
 		{
-			SetColorChanger(carBase.GetComponent<ColorChanger>(), carSkin);
-			SetCarVisuals(carBase.GetComponent<CarVisuals>(), carSkin);
+			SetCarVisuals(carBase.GetOrAddComponent<CarVisuals>(), carSkin);
+			SetColorChanger(carBase.GetOrAddComponent<ColorChanger>(), carSkin);
 		}
 
-		#region Color Changer
+#region Color Changer
 		private void SetColorChanger(ColorChanger colorChanger, GameObject carSkin)
 		{
 			if (colorChanger)
@@ -453,9 +567,9 @@ namespace Distance.CustomCar.Data.Car
 					return MaterialEx.SupportedUniform._Color;
 			}
 		}
-		#endregion
+#endregion
 
-		#region Car Visuals
+#region Car Visuals
 		private void SetCarVisuals(CarVisuals carVisuals, GameObject carSkin)
 		{
 			if (!carVisuals)
@@ -465,7 +579,11 @@ namespace Distance.CustomCar.Data.Car
 			}
 
 			SkinnedMeshRenderer skinnedRenderer = carSkin.GetComponentInChildren<SkinnedMeshRenderer>();
-			MakeMeshSkinned(skinnedRenderer);
+			if (skinnedRenderer)
+			{
+				MakeMeshSkinned(skinnedRenderer);
+			}
+
 			carVisuals.carBodyRenderer_ = skinnedRenderer;
 
 			List<JetFlame> boostJets = new List<JetFlame>();
@@ -679,7 +797,8 @@ namespace Distance.CustomCar.Data.Car
 
 			return Vector3.zero;
 		}
-		#endregion
-		#endregion
+#endregion
+#endregion
+#endregion
 	}
 }
