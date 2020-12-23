@@ -87,32 +87,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Car\CarAssetBundles.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Car\CarAssetBundles.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Car\CarBuilder.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Car\CarData.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Car\CarFactory.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Car\CarInfos.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Colors\ProfileCarColors.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Error\Error.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Material\MaterialInfos.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Material\MaterialProperty.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Material\MaterialPropertyInfo.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Car\CarPrefabDatabase.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Material\PropertyType.cs" />
+    <None Include="Deprecated and Broken Rework\Entry.cs" />
+    <None Include="Deprecated and Broken Rework\Data\Error\ErrorList.cs" />
+    <None Include="Deprecated and Broken Rework\Extensions\UnityEngine\UnityEngine\GameObject.cs" />
+    <None Include="Deprecated and Broken Rework\Harmony\Assembly-CSharp\GadgetWithAnimation\SetAnimationStateValues.cs" />
+    <None Include="Deprecated and Broken Rework\Harmony\Assembly-CSharp\Profile\Awake.cs" />
+    <None Include="Deprecated and Broken Rework\Harmony\Assembly-CSharp\Profile\Save.cs" />
+    <None Include="Deprecated and Broken Rework\Harmony\Assembly-CSharp\Profile\SetColorsForAllCars.cs" />
+    <None Include="Deprecated and Broken Rework\ProfileDataLogic.cs" />
     <Compile Include="Data\Car\CarBuilder.cs" />
-    <Compile Include="Data\Car\CarData.cs" />
-    <Compile Include="Data\Car\CarFactory.cs" />
     <Compile Include="Data\Car\CarInfos.cs" />
-    <Compile Include="Data\Colors\ProfileCarColors.cs" />
-    <Compile Include="Data\Error\Error.cs" />
-    <Compile Include="Data\Material\MaterialInfos.cs" />
-    <Compile Include="Data\Material\MaterialProperty.cs" />
-    <Compile Include="Data\Material\MaterialPropertyInfo.cs" />
-    <Compile Include="Data\Car\CarPrefabDatabase.cs" />
-    <Compile Include="Data\Material\PropertyType.cs" />
+    <Compile Include="Data\Car\CreateCarReturnInfos.cs" />
+    <Compile Include="Data\Materials\MaterialInfos.cs" />
+    <Compile Include="Data\Materials\MaterialPropertyExport.cs" />
+    <Compile Include="Data\Materials\MaterialPropertyInfo.cs" />
+    <Compile Include="Data\Materials\PropertyType.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="Data\Error\ErrorList.cs" />
+    <Compile Include="Data\Errors\ErrorList.cs" />
     <Compile Include="Extensions\UnityEngine\UnityEngine\GameObject.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\GadgetWithAnimation\SetAnimationStateValues.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\Profile\Awake.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\Profile\Save.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\Profile\SetColorsForAllCars.cs" />
-    <Compile Include="ProfileDataLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Harmony\Assembly-CSharp\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>SET MODNAME=Distance Custom Car

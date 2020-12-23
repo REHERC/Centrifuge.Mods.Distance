@@ -1,5 +1,4 @@
 ﻿using Distance.CustomCar.Data.Materials;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,121 +6,133 @@ namespace Distance.CustomCar.Data.Car
 {
 	public class CarInfos
 	{
-		//public const string UnityLoadException = "can't be loaded because another AssetBundle with the same files is already loaded";
+		public Dictionary<string, MaterialInfos> materials = new Dictionary<string, MaterialInfos>();
+		public GameObject boostJet = null;
+		public GameObject wingJet = null;
+		public GameObject rotationJet = null;
+		public GameObject wingTrail = null;
 
-		public const string BoostJetObjectName = "BoostJetFlameCenter";
-		public const string RotationJetObjectName = "JetFlameBackLeft";
-		public const string WingJetObjectName = "WingJetFlameLeft1";
-
-		public static ProfileManager ProfileManager => G.Sys.ProfileManager_;
-
-		public static CarInfo DefaultCar => ProfileManager.CarInfos_?[0];
-
-		public Dictionary<string, MaterialInfos> materials;
-		public GameObject baseCar;
-		public GameObject boostJet;
-		public GameObject rotationJet;
-		public GameObject wingJet;
-		public GameObject wingTrail;
+		public GameObject baseCar = null;
 		public CarColors defaultColors;
 
-		public bool CollectInformations()
+		public void CollectInfos()
 		{
-			return GetBaseCar() 
-				&& GetJetsAndTrails()
-				&& GetMaterials();
+			GetBaseCar();
+			GetJetsAndTrail();
+			GetMaterials();
 		}
 
-		private bool GetBaseCar()
+		private void GetBaseCar()
 		{
-			GameObject prefab = DefaultCar.prefabs_.carPrefab_;
-
-			if (!prefab)
+			var prefab = G.Sys.ProfileManager_.carInfos_[0].prefabs_.carPrefab_;
+			if (prefab == null)
 			{
-				Mod.Instance.Errors.Add("Can't find the Spectrum base car prefab", "Game assets");
-				return false;
+				Mod.Instance.Errors.Add("Can't find the refractor base car prefab");
+				return;
+			}
+			baseCar = prefab;
+			defaultColors = G.Sys.ProfileManager_.carInfos_[0].colors_;
+		}
+
+		private void GetJetsAndTrail()
+		{
+			if (baseCar == null)
+			{
+				return;
 			}
 
-			baseCar = prefab;
-			defaultColors = DefaultCar.colors_;
-
-			return true;
-		}
-
-		private bool GetJetsAndTrails()
-		{
-			foreach (JetFlame flame in baseCar.GetComponentsInChildren<JetFlame>())
+			foreach (var jet in baseCar.GetComponentsInChildren<JetFlame>())
 			{
-				switch (flame.name)
+				var name = jet.gameObject.name;
+				switch (name)
 				{
-					case BoostJetObjectName:
-						boostJet = flame.gameObject;
+					case "BoostJetFlameCenter":
+						boostJet = jet.gameObject;
 						break;
-					case RotationJetObjectName:
-						rotationJet = flame.gameObject;
+					case "JetFlameBackLeft":
+						rotationJet = jet.gameObject;
 						break;
-					case WingJetObjectName:
-						wingJet = flame.gameObject;
+
+					case "WingJetFlameLeft1":
+						wingJet = jet.gameObject;
 						break;
 				}
 			}
 
 			wingTrail = baseCar.GetComponentInChildren<WingTrail>().gameObject;
 
-			bool allPrefabsValid = true;
-
-			if (!boostJet)
+			if (boostJet == null)
 			{
-				Mod.Instance.Errors.Add("No valid BoostJet found on Spectrum", "Game assets");
-				allPrefabsValid = false;
+				Mod.Instance.Errors.Add("No valid BoostJet found on Refractor");
 			}
 
-			if (!rotationJet)
+			if (rotationJet == null)
 			{
-				Mod.Instance.Errors.Add("No valid RotationJet found on Spectrum", "Game assets");
-				allPrefabsValid = false;
+				Mod.Instance.Errors.Add("No valid RotationJet found on Refractor");
 			}
 
-			if (!wingJet)
+			if (wingJet == null)
 			{
-				Mod.Instance.Errors.Add("No valid WingJet found on Spectrum", "Game assets");
-				allPrefabsValid = false;
+				Mod.Instance.Errors.Add("No valid WingJet found on Refractor");
 			}
 
-			if (!wingTrail)
+			if (wingTrail == null)
 			{
-				Mod.Instance.Errors.Add("No valid WingTrail found on Spectrum", "Game assets");
-				allPrefabsValid = false;
+				Mod.Instance.Errors.Add("No valid WingTrail found on Refractor");
 			}
-
-			return allPrefabsValid;
 		}
-	
-		private bool GetMaterials()
+
+		private void GetMaterials()
 		{
-			materials = new Dictionary<string, MaterialInfos>();
-
-			foreach (CarInfo car in ProfileManager.CarInfos_)
+			List<MaterialPropertyInfo> materialsNames = new List<MaterialPropertyInfo>
 			{
-				GameObject prefab = car.prefabs_.carPrefab_;
+				new MaterialPropertyInfo("Custom/LaserCut/CarPaint", "carpaint", 5, -1, -1),
+				new MaterialPropertyInfo("Custom/LaserCut/CarWindow", "carwindow", -1, 218, 219),
+				new MaterialPropertyInfo("Custom/Reflective/Bump Glow LaserCut", "wheel", 5, 218, 255),
+				new MaterialPropertyInfo("Custom/LaserCut/CarPaintBump", "carpaintbump", 5, 218, -1),
+				new MaterialPropertyInfo("Custom/Reflective/Bump Glow Interceptor Special", "interceptor", 5, 218, 255),
+				new MaterialPropertyInfo("Custom/LaserCut/CarWindowTrans2Sided", "transparentglow", -1, 218, 219)
+			};
 
-				foreach (Renderer renderer in prefab.GetComponentsInChildren<Renderer>())
+			foreach (var c in G.Sys.ProfileManager_.carInfos_)
+			{
+				var prefab = c.prefabs_.carPrefab_;
+				foreach (var renderer in prefab.GetComponentsInChildren<Renderer>())
 				{
-					foreach (Material material in renderer.materials)
+					foreach (var mat in renderer.materials)
 					{
-						foreach (MaterialPropertyInfo properties in MaterialPropertyInfo.CommonCarMaterials)
+						foreach (var key in materialsNames)
 						{
-							if (!materials.ContainsKey(properties.materialName) && string.Equals(material.shader.name, properties.shaderName, StringComparison.InvariantCultureIgnoreCase))
+							if (materials.ContainsKey(key.name))
 							{
-								MaterialInfos materialInfos = new MaterialInfos(material, properties.diffuseID, properties.emitID, properties.normalID);
-								materials.Add(properties.materialName, materialInfos);
+								continue;
+							}
+
+							if (mat.shader.name == key.shaderName)
+							{
+								var materialInfos = new MaterialInfos
+								{
+									material = mat,
+									diffuseIndex = key.diffuseIndex,
+									normalIndex = key.normalIndex,
+									emitIndex = key.emitIndex
+								};
+								materials.Add(key.name, materialInfos);
 							}
 						}
 					}
 				}
 			}
 
-			return true;
+			foreach (var mat in materialsNames)
+			{
+				if (!materials.ContainsKey(mat.name))
+				{
+					Mod.Instance.Errors.Add("Can't find the material: " + mat.name + " - shader: " + mat.shaderName);
+				}
+			}
+
+			materials.Add("donotreplace", new MaterialInfos());
 		}
 	}
 }
