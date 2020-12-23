@@ -6,29 +6,29 @@ using UnityEngine;
 
 namespace Distance.NoEditorNumberLimits
 {
-    [ModEntryPoint("com.plasmawario/Distance.NoEditorNumberLimits")]
-    public class Mod : MonoBehaviour
-    {
-        public static Mod Instance;
+	[ModEntryPoint("com.plasmawario/Distance.NoEditorNumberLimits")]
+	public class Mod : MonoBehaviour
+	{
+		public static Mod Instance;
 
-        public IManager Manager { get; set; }
+		public IManager Manager { get; set; }
 
-        public Log Logger { get; set; }
+		public Log Logger { get; set; }
 
-        public void Initialize(IManager manager)
-        {
-            Instance = this;
-            Manager = manager;
+		public void Initialize(IManager manager)
+		{
+			Instance = this;
+			Manager = manager;
 
-            Logger = LogManager.GetForCurrentAssembly();
+			Logger = LogManager.GetForCurrentAssembly();
 
-            Logger.Info("NoEditorNumberLimits loaded");
-            Logger.Info(":atprtsd:");
-            Logger.Info("ps: i totally did this with no help");
-            Logger.Info("pps: i can confirm ;)");
-            Logger.Info("\t\t- Plasmawario, 2020");
+			Logger.Info("NoEditorNumberLimits loaded");
+			Logger.Info(":atprtsd:");
+			Logger.Info("ps: i totally did this with no help");
+			Logger.Info("pps: i can confirm ;)");
+			Logger.Info("\t\t- Plasmawario, 2020");
 
-            RuntimePatcher.AutoPatch();
-        }
-    }
+			RuntimePatcher.AutoPatch();
+		}
+	}
 }

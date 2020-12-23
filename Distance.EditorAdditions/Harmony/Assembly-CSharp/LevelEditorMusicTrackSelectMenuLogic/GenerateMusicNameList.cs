@@ -4,26 +4,26 @@ using UnityEngine;
 
 namespace Distance.EditorAdditions.Harmony
 {
-    [HarmonyPatch(typeof(LevelEditorMusicTrackSelectMenuLogic), "GenerateMusicNameList")]
-    internal class LevelEditorMusicTrackSelectMenuLogic__GenerateMusicNameList
-    {
-        [HarmonyPostfix]
-        internal static void Postfix(LevelEditorMusicTrackSelectMenuLogic __instance)
-        {
-            if (Mod.Instance.Config.AdvancedMusicSelection)
-            {
-                __instance.buttonList_.Clear();
-                List<AudioManager.MusicCue> music = G.Sys.AudioManager_.MusicCues_;
+	[HarmonyPatch(typeof(LevelEditorMusicTrackSelectMenuLogic), "GenerateMusicNameList")]
+	internal class LevelEditorMusicTrackSelectMenuLogic__GenerateMusicNameList
+	{
+		[HarmonyPostfix]
+		internal static void Postfix(LevelEditorMusicTrackSelectMenuLogic __instance)
+		{
+			if (Mod.Instance.Config.AdvancedMusicSelection)
+			{
+				__instance.buttonList_.Clear();
+				List<AudioManager.MusicCue> music = G.Sys.AudioManager_.MusicCues_;
 
-                if (!Mod.Instance.Config.AdvancedMusicSelection)
-                {
-                    music.RemoveAll(x => x.devEvent_);
-                }
+				if (!Mod.Instance.Config.AdvancedMusicSelection)
+				{
+					music.RemoveAll(x => x.devEvent_);
+				}
 
-                __instance.CreateButtons(music, Color.white);
+				__instance.CreateButtons(music, Color.white);
 
-                __instance.buttonList_.SortAndUpdateVisibleButtons();
-            }
-        }
-    }
+				__instance.buttonList_.SortAndUpdateVisibleButtons();
+			}
+		}
+	}
 }

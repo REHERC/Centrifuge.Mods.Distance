@@ -14,88 +14,88 @@ using UnityEngine;
 
 namespace Distance.Heat
 {
-    [ModEntryPoint("com.github.Seeker14491/Heat")]
-    public class Mod : MonoBehaviour
-    {
-        public static Mod Instance;
+	[ModEntryPoint("com.github.Seeker14491/Heat")]
+	public class Mod : MonoBehaviour
+	{
+		public static Mod Instance;
 
-        public IManager Manager { get; set; }
+		public IManager Manager { get; set; }
 
-        public Log Logger { get; set; }
+		public Log Logger { get; set; }
 
-        public ConfigurationLogic Config { get; private set; }
+		public ConfigurationLogic Config { get; private set; }
 
-        private GameStateLogic GameState_ { get; set; }
+		private GameStateLogic GameState_ { get; set; }
 
-        public void Initialize(IManager manager)
-        {
-            Instance = this;
-            Manager = manager;
-            Logger = LogManager.GetForCurrentAssembly();
-            Config = gameObject.AddComponent<ConfigurationLogic>();
+		public void Initialize(IManager manager)
+		{
+			Instance = this;
+			Manager = manager;
+			Logger = LogManager.GetForCurrentAssembly();
+			Config = gameObject.AddComponent<ConfigurationLogic>();
 
-            GameState_ = gameObject.AddComponent<GameStateLogic>();
+			GameState_ = gameObject.AddComponent<GameStateLogic>();
 
-            RuntimePatcher.AutoPatch();
+			RuntimePatcher.AutoPatch();
 
-            CreateSettingsMenu();
-        }
+			CreateSettingsMenu();
+		}
 
-        private void CreateSettingsMenu()
-        {
-            var settingsMenu = new MenuTree("menu.mod.heat", "Heat Display Settings")
-            {
-                new InputPrompt(MenuDisplayMode.Both, "setting:toggle_hotkey", "SET TOGGLE HOTKEY")
-                .WithTitle("SET TOGGLE HOTKEY")
-                .WithDefaultValue(() => Config.ToggleHotkey)
-                .WithSubmitAction(x => Config.ToggleHotkey = x),
+		private void CreateSettingsMenu()
+		{
+			var settingsMenu = new MenuTree("menu.mod.heat", "Heat Display Settings")
+			{
+				new InputPrompt(MenuDisplayMode.Both, "setting:toggle_hotkey", "SET TOGGLE HOTKEY")
+				.WithTitle("SET TOGGLE HOTKEY")
+				.WithDefaultValue(() => Config.ToggleHotkey)
+				.WithSubmitAction(x => Config.ToggleHotkey = x),
 
-                new ListBox<DisplayMode>(MenuDisplayMode.Both, "setting:display_mode", "DISPLAY MODE")
-                .WithEntries(MapEnumToListBox<DisplayMode>())
-                .WithGetter(() => Config.DisplayMode)
-                .WithSetter((x) => Config.DisplayMode = x),
+				new ListBox<DisplayMode>(MenuDisplayMode.Both, "setting:display_mode", "DISPLAY MODE")
+				.WithEntries(MapEnumToListBox<DisplayMode>())
+				.WithGetter(() => Config.DisplayMode)
+				.WithSetter((x) => Config.DisplayMode = x),
 
-                new ListBox<ActivationMode>(MenuDisplayMode.Both, "setting:activation_mode", "ACTIVATION MODE")
-                .WithEntries(MapEnumToListBox<ActivationMode>())
-                .WithGetter(() => Config.ActivationMode)
-                .WithSetter((x) => Config.ActivationMode = x),
+				new ListBox<ActivationMode>(MenuDisplayMode.Both, "setting:activation_mode", "ACTIVATION MODE")
+				.WithEntries(MapEnumToListBox<ActivationMode>())
+				.WithGetter(() => Config.ActivationMode)
+				.WithSetter((x) => Config.ActivationMode = x),
 
-                new FloatSlider(MenuDisplayMode.Both, "setting:warning_threshold", "WARNING THRESHOLD")
-                .LimitedByRange(0.0f, 1.0f)
-                .WithGetter(() => Config.WarningTreshold)
-                .WithSetter((x) => Config.WarningTreshold = x)
-            };
+				new FloatSlider(MenuDisplayMode.Both, "setting:warning_threshold", "WARNING THRESHOLD")
+				.LimitedByRange(0.0f, 1.0f)
+				.WithGetter(() => Config.WarningTreshold)
+				.WithSetter((x) => Config.WarningTreshold = x)
+			};
 
-            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "HEAT DISPLAY", "Configure the Heat mod.");
-        }
+			Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "HEAT DISPLAY", "Configure the Heat mod.");
+		}
 
-        private Dictionary<string, T> MapEnumToListBox<T>() where T : Enum
-        {
-            var ret = new Dictionary<string, T>();
+		private Dictionary<string, T> MapEnumToListBox<T>() where T : Enum
+		{
+			var ret = new Dictionary<string, T>();
 
-            var keys = Enum.GetNames(typeof(T));
-            var values = (T[])Enum.GetValues(typeof(T));
+			var keys = Enum.GetNames(typeof(T));
+			var values = (T[])Enum.GetValues(typeof(T));
 
-            for (var i = 0; i < keys.Length; i++)
-            {
-                ret.Add(SplitCamelCase(keys[i]), values[i]);
-            }
+			for (var i = 0; i < keys.Length; i++)
+			{
+				ret.Add(SplitCamelCase(keys[i]), values[i]);
+			}
 
-            return ret;
-        }
+			return ret;
+		}
 
-        public string SplitCamelCase(string str)
-        {
-            // https://stackoverflow.com/a/5796793
-            return Regex.Replace(
-                Regex.Replace(
-                    str,
-                    @"(\P{Ll})(\P{Ll}\p{Ll})",
-                    "$1 $2"
-                ),
-                @"(\p{Ll})(\P{Ll})",
-                "$1 $2"
-            );
-        }
-    }
+		public string SplitCamelCase(string str)
+		{
+			// https://stackoverflow.com/a/5796793
+			return Regex.Replace(
+				Regex.Replace(
+					str,
+					@"(\P{Ll})(\P{Ll}\p{Ll})",
+					"$1 $2"
+				),
+				@"(\p{Ll})(\P{Ll})",
+				"$1 $2"
+			);
+		}
+	}
 }

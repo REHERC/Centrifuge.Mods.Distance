@@ -9,7 +9,7 @@ namespace App.CustomDeathMessages.Core.Commands
 	public class FormattingHelp : Command
 	{
 		private readonly MainWindow form_;
-		
+
 		public FormattingHelp(MainWindow form)
 		{
 			form_ = form;

@@ -1,10 +1,10 @@
 ﻿namespace Distance.MenuUtilities
 {
-    public static partial class InternalResources
-    {
-        public static class Strings
-        {
+	public static partial class InternalResources
+	{
+		public static class Strings
+		{
 
-        }
-    }
+		}
+	}
 }

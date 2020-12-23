@@ -4,44 +4,44 @@ using UnityEngine;
 
 namespace Distance.HalloweenSeasonalFeatures
 {
-    public class ConfigurationLogic : MonoBehaviour
-    {
-        #region Properties
-        
-        #endregion
+	public class ConfigurationLogic : MonoBehaviour
+	{
+		#region Properties
 
-        internal Settings Config;
+		#endregion
 
-        public event Action<ConfigurationLogic> OnChanged;
+		internal Settings Config;
 
-        private void Load()
-        {
-            Config = new Settings("Config");
-        }
+		public event Action<ConfigurationLogic> OnChanged;
 
-        public void Awake()
-        {
-            Load();
+		private void Load()
+		{
+			Config = new Settings("Config");
+		}
+
+		public void Awake()
+		{
+			Load();
 
 
-            Save();
-        }
+			Save();
+		}
 
-        public T Get<T>(string key, T @default = default)
-        {
-            return Config.GetOrCreate(key, @default);
-        }
+		public T Get<T>(string key, T @default = default)
+		{
+			return Config.GetOrCreate(key, @default);
+		}
 
-        public void Set<T>(string key, T value)
-        {
-            Config[key] = value;
-            Save();
-        }
+		public void Set<T>(string key, T value)
+		{
+			Config[key] = value;
+			Save();
+		}
 
-        public void Save()
-        {
-            Config?.Save();
-            OnChanged?.Invoke(this);
-        }
-    }
+		public void Save()
+		{
+			Config?.Save();
+			OnChanged?.Invoke(this);
+		}
+	}
 }

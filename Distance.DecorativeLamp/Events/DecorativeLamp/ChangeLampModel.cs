@@ -2,16 +2,16 @@
 
 namespace Events.DecorativeLamp
 {
-    public class ChangeLampModel : StaticEvent<ChangeLampModel.Data>
-    {
-        public struct Data
-        {
-            public readonly LampModel model;
+	public class ChangeLampModel : StaticEvent<ChangeLampModel.Data>
+	{
+		public struct Data
+		{
+			public readonly LampModel model;
 
-            public Data(LampModel m)
-            {
-                model = m;
-            }
-        }
-    }
+			public Data(LampModel m)
+			{
+				model = m;
+			}
+		}
+	}
 }

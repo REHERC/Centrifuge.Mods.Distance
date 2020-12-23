@@ -6,27 +6,27 @@ using UnityEngine;
 
 namespace Distance.CustomDeathMessages
 {
-    [ModEntryPoint("com.github.larnin/Distance.CustomDeathMessages")]
-    public class Mod : MonoBehaviour
-    {
-        public static Mod Instance { get; set; }
+	[ModEntryPoint("com.github.larnin/Distance.CustomDeathMessages")]
+	public class Mod : MonoBehaviour
+	{
+		public static Mod Instance { get; set; }
 
-        public IManager Manager { get; set; }
+		public IManager Manager { get; set; }
 
-        public ConfigurationLogic Config { get; set; }
+		public ConfigurationLogic Config { get; set; }
 
-        public Log Logger { get; set; }
+		public Log Logger { get; set; }
 
-        public void Initialize(IManager manager)
-        {
-            Instance = this;
-            Manager = manager;
+		public void Initialize(IManager manager)
+		{
+			Instance = this;
+			Manager = manager;
 
-            Logger = LogManager.GetForCurrentAssembly();
+			Logger = LogManager.GetForCurrentAssembly();
 
-            Config = gameObject.AddComponent<ConfigurationLogic>();
+			Config = gameObject.AddComponent<ConfigurationLogic>();
 
-            RuntimePatcher.AutoPatch();
-        }
-    }
+			RuntimePatcher.AutoPatch();
+		}
+	}
 }

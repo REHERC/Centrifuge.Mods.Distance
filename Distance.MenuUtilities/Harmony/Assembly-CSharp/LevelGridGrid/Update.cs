@@ -6,45 +6,45 @@ using UnityEngine;
 
 namespace Distance.MenuUtilities.Harmony
 {
-    [HarmonyPatch(typeof(LevelGridGrid), "Update")]
-    internal class LevelGridGrid__UpdatePageButtons
-    {
-        [HarmonyPostfix]
-        internal static void Postfix(LevelGridGrid __instance)
-        {
-            if (!Mod.Instance.Config.EnableDeletePlaylistButton)
-            {
-                return;
-            }
+	[HarmonyPatch(typeof(LevelGridGrid), "Update")]
+	internal class LevelGridGrid__UpdatePageButtons
+	{
+		[HarmonyPostfix]
+		internal static void Postfix(LevelGridGrid __instance)
+		{
+			if (!Mod.Instance.Config.EnableDeletePlaylistButton)
+			{
+				return;
+			}
 
-            LevelPlaylist playlist = __instance.playlist_;
+			LevelPlaylist playlist = __instance.playlist_;
 
-            LevelPlaylistCompoundData data = playlist.GetComponent<LevelPlaylistCompoundData>();
+			LevelPlaylistCompoundData data = playlist.GetComponent<LevelPlaylistCompoundData>();
 
-            if (data && !playlist.IsResourcesPlaylist() && G.Sys.InputManager_.GetKeyUp(InternalResources.Constants.INPUT_DELETE_PLAYLIST))
-            {
-                MessageBox.Create($"Are you sure you want to remove [u]{playlist.Name_}[/u]?", "DELETE PLAYLIST")
-                .SetButtons(MessageButtons.YesNo)
-                .OnConfirm(() =>
-                {
-                    try
-                    {
-                        FileEx.Delete(data.FilePath);
-                        playlist.Destroy();
-                        Object.DestroyImmediate(data.gameObject);
-                    }
-                    catch (System.Exception e)
-                    {
-                        Mod.Instance.Logger.Exception(e);
-                    }
-                    finally
-                    {
-                        G.Sys.MenuPanelManager_.Pop();
-                        __instance.levelGridMenu_.CreateEntries();
-                    }
-                })
-                .Show();
-            }
-        }
-    }
+			if (data && !playlist.IsResourcesPlaylist() && G.Sys.InputManager_.GetKeyUp(InternalResources.Constants.INPUT_DELETE_PLAYLIST))
+			{
+				MessageBox.Create($"Are you sure you want to remove [u]{playlist.Name_}[/u]?", "DELETE PLAYLIST")
+				.SetButtons(MessageButtons.YesNo)
+				.OnConfirm(() =>
+				{
+					try
+					{
+						FileEx.Delete(data.FilePath);
+						playlist.Destroy();
+						Object.DestroyImmediate(data.gameObject);
+					}
+					catch (System.Exception e)
+					{
+						Mod.Instance.Logger.Exception(e);
+					}
+					finally
+					{
+						G.Sys.MenuPanelManager_.Pop();
+						__instance.levelGridMenu_.CreateEntries();
+					}
+				})
+				.Show();
+			}
+		}
+	}
 }

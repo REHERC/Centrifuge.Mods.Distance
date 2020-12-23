@@ -10,54 +10,54 @@ using UnityEngine;
 
 namespace Distance.NoServerLimit
 {
-    [ModEntryPoint("eu.vddcore/NoServerLimit")]
-    public class Mod : MonoBehaviour
-    {
-        public static Mod Instance;
+	[ModEntryPoint("eu.vddcore/NoServerLimit")]
+	public class Mod : MonoBehaviour
+	{
+		public static Mod Instance;
 
-        public IManager Manager { get; set; }
+		public IManager Manager { get; set; }
 
-        public Log Logger { get; set; }
+		public Log Logger { get; set; }
 
-        public ConfigurationLogic Config { get; private set; }
+		public ConfigurationLogic Config { get; private set; }
 
-        public void Initialize(IManager manager)
-        {
-            Instance = this;
-            Manager = manager;
+		public void Initialize(IManager manager)
+		{
+			Instance = this;
+			Manager = manager;
 
-            Logger = LogManager.GetForCurrentAssembly();
-            Config = gameObject.AddComponent<ConfigurationLogic>();
+			Logger = LogManager.GetForCurrentAssembly();
+			Config = gameObject.AddComponent<ConfigurationLogic>();
 
-            CreateSettingsMenu();
+			CreateSettingsMenu();
 
-            RuntimePatcher.AutoPatch();
+			RuntimePatcher.AutoPatch();
 
-            Logger.Info("No Server Limit: Hello, world!");
-        }
+			Logger.Info("No Server Limit: Hello, world!");
+		}
 
-        private void CreateSettingsMenu()
-        {
-            MenuTree settingsMenu = new MenuTree("menu.mod.noserverlimit", "No Server Limit Settings")
-            {
-                new InputPrompt(MenuDisplayMode.MainMenu, "setting:set_server_limit", "SET MAXIMUM SERVER SLOT COUNT")
-                    .WithDefaultValue(() => Config.MaxPlayerCount.ToString())
-                    .WithSubmitAction((x) => {
-                        if (int.TryParse(x, out int result))
-                        {
-                            Config.MaxPlayerCount = Math.Max(2, result);
-                        }
-                        else
-                        {
-                            Logger.Warning("Failed to parse user input. Setting defaults.");
-                            Config.MaxPlayerCount = 32;
-                        }
-                     })
-                    .WithTitle("ENTER SLOT COUNT")
-                    .WithDescription("Set the maximum supported slot count when hosting a multiplayer server.")
-            };
+		private void CreateSettingsMenu()
+		{
+			MenuTree settingsMenu = new MenuTree("menu.mod.noserverlimit", "No Server Limit Settings")
+			{
+				new InputPrompt(MenuDisplayMode.MainMenu, "setting:set_server_limit", "SET MAXIMUM SERVER SLOT COUNT")
+					.WithDefaultValue(() => Config.MaxPlayerCount.ToString())
+					.WithSubmitAction((x) => {
+						if (int.TryParse(x, out int result))
+						{
+							Config.MaxPlayerCount = Math.Max(2, result);
+						}
+						else
+						{
+							Logger.Warning("Failed to parse user input. Setting defaults.");
+							Config.MaxPlayerCount = 32;
+						}
+					 })
+					.WithTitle("ENTER SLOT COUNT")
+					.WithDescription("Set the maximum supported slot count when hosting a multiplayer server.")
+			};
 
-            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "NO SERVER LIMIT", "Settings for the No Server Limit mod.");
-        }
-    }
+			Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "NO SERVER LIMIT", "Settings for the No Server Limit mod.");
+		}
+	}
 }

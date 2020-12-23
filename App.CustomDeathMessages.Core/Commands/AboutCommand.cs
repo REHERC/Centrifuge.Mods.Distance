@@ -7,7 +7,7 @@ namespace App.CustomDeathMessages.Core.Commands
 	public class AboutCommand : Command
 	{
 		private readonly MainWindow form_;
-		
+
 		public AboutCommand(MainWindow form)
 		{
 			form_ = form;

@@ -5,25 +5,25 @@ using UnityEngine;
 
 namespace Distance.HalloweenSeasonalFeatures.Harmony
 {
-    [HarmonyPatch(typeof(HalloweenAudioLogic), "RandomGlitches")]
-    internal class HalloweenAudioLogic__RandomGlitches
-    {
-        [HarmonyPrefix]
-        internal static bool Prefix(ref IEnumerator __result, HalloweenAudioLogic __instance)
-        {
-            __result = Enumerator(__instance);
+	[HarmonyPatch(typeof(HalloweenAudioLogic), "RandomGlitches")]
+	internal class HalloweenAudioLogic__RandomGlitches
+	{
+		[HarmonyPrefix]
+		internal static bool Prefix(ref IEnumerator __result, HalloweenAudioLogic __instance)
+		{
+			__result = Enumerator(__instance);
 
-            return false;
-        }
+			return false;
+		}
 
-        internal static IEnumerator Enumerator(HalloweenAudioLogic __instance)
-        {
-            yield return __instance.StartCoroutine(PatchCoroutine(__instance));
-        }
+		internal static IEnumerator Enumerator(HalloweenAudioLogic __instance)
+		{
+			yield return __instance.StartCoroutine(PatchCoroutine(__instance));
+		}
 
-        internal static IEnumerator PatchCoroutine(HalloweenAudioLogic __instance)
-        {
-			for (;;)
+		internal static IEnumerator PatchCoroutine(HalloweenAudioLogic __instance)
+		{
+			for (; ; )
 			{
 				float randomShortTime = Random.Range(0.1f, 1.5f);
 				float randomLongTime = Random.Range(5f, 10f);
@@ -58,16 +58,16 @@ namespace Distance.HalloweenSeasonalFeatures.Harmony
 				}
 
 				AudioManager.PostEvent("Disable_Bypass_Darkness_Insane");
-				
+
 				StaticEvent<VirusSpiritShake.Data>.Broadcast(new VirusSpiritShake.Data(0.075f));
-				
+
 				if (__instance.pMan_ && __instance.pMan_.CurrentProfile_ && __instance.pMan_.CurrentProfile_.CarName_ == "Spectrum")
 				{
 					__instance.FlickerObjects(false, randomShortTime);
 				}
-				
+
 				yield return new WaitForSeconds(randomShortTime);
 			}
-        }
-    }
+		}
+	}
 }

@@ -5,18 +5,18 @@ using UnityEngine;
 
 public static class LevelPlaylistExtensions
 {
-    public static bool IsResourcesPlaylist(this LevelPlaylist playlist)
-    {
-        LevelPlaylistCompoundData data = playlist.gameObject.GetComponent<LevelPlaylistCompoundData>();
+	public static bool IsResourcesPlaylist(this LevelPlaylist playlist)
+	{
+		LevelPlaylistCompoundData data = playlist.gameObject.GetComponent<LevelPlaylistCompoundData>();
 
-        if (!data)
-        {
-            return true;
-        }
+		if (!data)
+		{
+			return true;
+		}
 
-        string path = new FileInfo(data.FilePath).FullName.UniformPathName();
-        string resourcesPath = new DirectoryInfo(Path.Combine(Application.dataPath, "Resources")).FullName.UniformPathName();
+		string path = new FileInfo(data.FilePath).FullName.UniformPathName();
+		string resourcesPath = new DirectoryInfo(Path.Combine(Application.dataPath, "Resources")).FullName.UniformPathName();
 
-        return path.StartsWith(resourcesPath, StringComparison.InvariantCultureIgnoreCase);
-    }
+		return path.StartsWith(resourcesPath, StringComparison.InvariantCultureIgnoreCase);
+	}
 }

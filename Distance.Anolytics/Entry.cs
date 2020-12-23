@@ -11,70 +11,70 @@ using UnityEngine;
 
 namespace Distance.Anolytics
 {
-    [ModEntryPoint("eu.vddcore/Distance.Anolytics")]
-    public class Mod : MonoBehaviour
-    {
-        public static Mod Instance;
+	[ModEntryPoint("eu.vddcore/Distance.Anolytics")]
+	public class Mod : MonoBehaviour
+	{
+		public static Mod Instance;
 
-        public IManager Manager { get; set; }
+		public IManager Manager { get; set; }
 
-        public Log Logger { get; set; }
+		public Log Logger { get; set; }
 
-        public ConfigurationLogic Config { get; set; }
+		public ConfigurationLogic Config { get; set; }
 
-        public void Initialize(IManager manager)
-        {
-            Instance = this;
-            Manager = manager;
+		public void Initialize(IManager manager)
+		{
+			Instance = this;
+			Manager = manager;
 
-            Logger = LogManager.GetForCurrentAssembly();
+			Logger = LogManager.GetForCurrentAssembly();
 
-            Config = gameObject.AddComponent<ConfigurationLogic>();
+			Config = gameObject.AddComponent<ConfigurationLogic>();
 
-            CreateSettingsMenu();
+			CreateSettingsMenu();
 
-            RuntimePatcher.AutoPatch();
-        }
+			RuntimePatcher.AutoPatch();
+		}
 
-        private void CreateSettingsMenu()
-        {
-            MenuTree settingsMenu = new MenuTree("menu.mod.anolytics", "Anolytics Settings")
-            {
-                new CheckBox(MenuDisplayMode.Both, "setting:shutdown_analytics", "DISABLE ANALYTICS")
-                .WithGetter(() => Config.ShutDownAnalytics)
-                .WithSetter((x) => Config.ShutDownAnalytics = x)
-                .WithDescription("Disables connection with Google analytics services.\n(Avoids requests to \"https://www.google-analytics.com/__utm.gif?\")"),
+		private void CreateSettingsMenu()
+		{
+			MenuTree settingsMenu = new MenuTree("menu.mod.anolytics", "Anolytics Settings")
+			{
+				new CheckBox(MenuDisplayMode.Both, "setting:shutdown_analytics", "DISABLE ANALYTICS")
+				.WithGetter(() => Config.ShutDownAnalytics)
+				.WithSetter((x) => Config.ShutDownAnalytics = x)
+				.WithDescription("Disables connection with Google analytics services.\n(Avoids requests to \"https://www.google-analytics.com/__utm.gif?\")"),
 
-                new CheckBox(MenuDisplayMode.Both, "setting:log_analytics", "LOG ANALYTICS ACTIVITY")
-                .WithGetter(() => Config.LogAnalytics)
-                .WithSetter((x) => Config.LogAnalytics = x)
-                .WithDescription("Outputs analytics events to the console."),
+				new CheckBox(MenuDisplayMode.Both, "setting:log_analytics", "LOG ANALYTICS ACTIVITY")
+				.WithGetter(() => Config.LogAnalytics)
+				.WithSetter((x) => Config.LogAnalytics = x)
+				.WithDescription("Outputs analytics events to the console."),
 
-                new CheckBox(MenuDisplayMode.Both, "setting:disable_playtest_logging", "DISABLE PLAYTESTING LOG FILE")
-                .WithGetter(() => Config.DisablePlaytestingDataLogging)
-                .WithSetter((x) => Config.DisablePlaytestingDataLogging = x)
-                .WithDescription("Blocks file write attempts to \"playtesting_data.txt\"."),
+				new CheckBox(MenuDisplayMode.Both, "setting:disable_playtest_logging", "DISABLE PLAYTESTING LOG FILE")
+				.WithGetter(() => Config.DisablePlaytestingDataLogging)
+				.WithSetter((x) => Config.DisablePlaytestingDataLogging = x)
+				.WithDescription("Blocks file write attempts to \"playtesting_data.txt\"."),
 
-                new ActionButton(MenuDisplayMode.Both, "setting:delete_playtest_log", "DELETE PLAYTEST LOG FILE")
-                .WhenClicked(() =>
-                {
-                    MessageBox.Create("Are you sure you want to delete \"playtesting_data.txt\" ?", "REMOVE FILE")
-                    .SetButtons(MessageButtons.YesNo)
-                    .OnConfirm(() =>
-                    {
-                        FileInfo file = new FileInfo(Path.Combine(Application.dataPath, "playtesting_data.txt"));
+				new ActionButton(MenuDisplayMode.Both, "setting:delete_playtest_log", "DELETE PLAYTEST LOG FILE")
+				.WhenClicked(() =>
+				{
+					MessageBox.Create("Are you sure you want to delete \"playtesting_data.txt\" ?", "REMOVE FILE")
+					.SetButtons(MessageButtons.YesNo)
+					.OnConfirm(() =>
+					{
+						FileInfo file = new FileInfo(Path.Combine(Application.dataPath, "playtesting_data.txt"));
 
-                        if (file.Exists)
-                        {
-                            file.Delete();
-                        }
-                    })
-                    .Show();
-                })
-                .WithDescription("Removes the playtesting log file from the disk.")
-            };
+						if (file.Exists)
+						{
+							file.Delete();
+						}
+					})
+					.Show();
+				})
+				.WithDescription("Removes the playtesting log file from the disk.")
+			};
 
-            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "ANOLYTICS", "Change settings of the Anolytics mod.");
-        }
-    }
+			Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "ANOLYTICS", "Change settings of the Anolytics mod.");
+		}
+	}
 }

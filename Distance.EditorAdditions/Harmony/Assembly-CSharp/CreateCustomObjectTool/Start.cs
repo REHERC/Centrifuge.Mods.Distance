@@ -3,19 +3,19 @@ using LevelEditorTools;
 
 namespace Distance.EditorAdditions.Harmony
 {
-    [HarmonyPatch(typeof(CreateCustomObjectTool), "Start")]
-    internal static class CreateCustomObjectTool__Start
-    {
-        internal static bool Prefix()
-        {
-            if (!EditorUtil.IsSelectionRoot())
-            {
-                EditorUtil.PrintToolInspectionStackError();
+	[HarmonyPatch(typeof(CreateCustomObjectTool), "Start")]
+	internal static class CreateCustomObjectTool__Start
+	{
+		internal static bool Prefix()
+		{
+			if (!EditorUtil.IsSelectionRoot())
+			{
+				EditorUtil.PrintToolInspectionStackError();
 
-                return false;
-            }
+				return false;
+			}
 
-            return true;
-        }
-    }
+			return true;
+		}
+	}
 }

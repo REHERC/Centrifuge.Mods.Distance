@@ -4,46 +4,46 @@ using UnityEngine;
 
 namespace Distance.EditorAdditions.Harmony
 {
-    [HarmonyPatch(typeof(Group), "Visit")]
-    internal class Group__Visit
-    {
-        [HarmonyPrefix]
-        internal static bool Prefix(Group __instance, IVisitor visitor)
-        {
-            if (!(visitor is Serializers.Serializer) && !(visitor is Serializers.Deserializer))
-            {
-                GameObject[] SubObjects = __instance.gameObject.GetChildren();
+	[HarmonyPatch(typeof(Group), "Visit")]
+	internal class Group__Visit
+	{
+		[HarmonyPrefix]
+		internal static bool Prefix(Group __instance, IVisitor visitor)
+		{
+			if (!(visitor is Serializers.Serializer) && !(visitor is Serializers.Deserializer))
+			{
+				GameObject[] SubObjects = __instance.gameObject.GetChildren();
 
-                if (!SubObjects.Any())
-                {
-                    visitor.VisualLabel("No child objects found!".Colorize(Color.white));
-                    return false;
-                }
+				if (!SubObjects.Any())
+				{
+					visitor.VisualLabel("No child objects found!".Colorize(Color.white));
+					return false;
+				}
 
-                if (SubObjects.Length > 0)
-                {
-                    visitor.VisualLabel("Group Hierarchy");
+				if (SubObjects.Length > 0)
+				{
+					visitor.VisualLabel("Group Hierarchy");
 
-                    int Index = 1;
+					int Index = 1;
 
-                    foreach (GameObject Children in SubObjects)
-                    {
-                        string Name = Children.name;
+					foreach (GameObject Children in SubObjects)
+					{
+						string Name = Children.name;
 
-                        if (Children.HasComponent<CustomName>())
-                        {
-                            CustomName CustomNameComponent = Children.GetComponent<CustomName>();
-                            Name = $"[b]{CustomNameComponent.CustomName_}[/b]".Colorize(Color.white);
-                        }
+						if (Children.HasComponent<CustomName>())
+						{
+							CustomName CustomNameComponent = Children.GetComponent<CustomName>();
+							Name = $"[b]{CustomNameComponent.CustomName_}[/b]".Colorize(Color.white);
+						}
 
-                        visitor.VisitAction($"Inspect {Name} (#{Index})", () => EditorUtil.Inspect(Children), null);
+						visitor.VisitAction($"Inspect {Name} (#{Index})", () => EditorUtil.Inspect(Children), null);
 
-                        ++Index;
-                    }
-                }
-            }
+						++Index;
+					}
+				}
+			}
 
-            return true;
-        }
-    }
+			return true;
+		}
+	}
 }

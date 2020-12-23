@@ -1,9 +1,9 @@
 ﻿namespace Distance.Heat.Enums
 {
-    public enum DisplayUnits
-    {
-        Automatic,
-        Kph,
-        Mph
-    }
+	public enum DisplayUnits
+	{
+		Automatic,
+		Kph,
+		Mph
+	}
 }

@@ -18,8 +18,8 @@ namespace App.CustomDeathMessages.Core.Forms
 		private const string Name = "Distance - Custom Death Messages Editor";
 
 		private string filePath_ = string.Empty;
-		public string FilePath 
-		{ 
+		public string FilePath
+		{
 			get
 			{
 				return filePath_;
@@ -32,8 +32,8 @@ namespace App.CustomDeathMessages.Core.Forms
 		}
 
 		private bool modified_ = false;
-		public bool Modified 
-		{ 
+		public bool Modified
+		{
 			get
 			{
 				return modified_;
@@ -172,7 +172,7 @@ namespace App.CustomDeathMessages.Core.Forms
 				{
 					FilePath = dialog.FileName;
 					file = new FileInfo(FilePath);
-					
+
 					SaveFile(file);
 				}
 			}

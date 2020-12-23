@@ -10,48 +10,48 @@ using UnityEngine;
 
 namespace Distance.HalloweenSeasonalFeatures
 {
-    [ModEntryPoint("com.github.reherc/Distance.HalloweenSeasonalFeatures")]
-    public class Mod : MonoBehaviour
-    {
-        public static Mod Instance;
+	[ModEntryPoint("com.github.reherc/Distance.HalloweenSeasonalFeatures")]
+	public class Mod : MonoBehaviour
+	{
+		public static Mod Instance;
 
-        public IManager Manager { get; set; }
+		public IManager Manager { get; set; }
 
-        public FileSystem Data { get; set; }
+		public FileSystem Data { get; set; }
 
-        public Log Logger { get; set; }
+		public Log Logger { get; set; }
 
-        public ConfigurationLogic Config { get; private set; }
+		public ConfigurationLogic Config { get; private set; }
 
-        public void Initialize(IManager manager)
-        {
-            Instance = this;
-            Manager = manager;
+		public void Initialize(IManager manager)
+		{
+			Instance = this;
+			Manager = manager;
 
-            Data = new FileSystem();
-            Logger = LogManager.GetForCurrentAssembly();
-            Config = gameObject.AddComponent<ConfigurationLogic>();
+			Data = new FileSystem();
+			Logger = LogManager.GetForCurrentAssembly();
+			Config = gameObject.AddComponent<ConfigurationLogic>();
 
-            RuntimePatcher.AutoPatch();
-            CreateSettingsMenu();
-        }
-        public void LateInitialize(IManager _)
-        {
-            GameObject GenerateRandomPumpkinsPrefab = Resource.GetResource<GameObject>("GenerateRandomPumpkins");
+			RuntimePatcher.AutoPatch();
+			CreateSettingsMenu();
+		}
+		public void LateInitialize(IManager _)
+		{
+			GameObject GenerateRandomPumpkinsPrefab = Resource.GetResource<GameObject>("GenerateRandomPumpkins");
 
-            GameObject GenerateRandomPumpkinsObject = Instantiate(GenerateRandomPumpkinsPrefab);
-            GenerateRandomPumpkinsObject.name = nameof(GenerateRandomPumpkins);
+			GameObject GenerateRandomPumpkinsObject = Instantiate(GenerateRandomPumpkinsPrefab);
+			GenerateRandomPumpkinsObject.name = nameof(GenerateRandomPumpkins);
 
-            DontDestroyOnLoad(GenerateRandomPumpkinsObject);
+			DontDestroyOnLoad(GenerateRandomPumpkinsObject);
 
-            GenerateRandomPumpkinsObject.GetComponent<GenerateRandomPumpkins>();
-        }
+			GenerateRandomPumpkinsObject.GetComponent<GenerateRandomPumpkins>();
+		}
 
-        public void CreateSettingsMenu()
-        {
-            MenuTree menu = new MenuTree("halloweenfeatures#main.menu", "HALLOWEEN FEATURES");
-            
-            Menus.AddNew(MenuDisplayMode.Both, menu, "Settings for the Halloween Seasonal Features mod");
-        }
-    }
+		public void CreateSettingsMenu()
+		{
+			MenuTree menu = new MenuTree("halloweenfeatures#main.menu", "HALLOWEEN FEATURES");
+
+			Menus.AddNew(MenuDisplayMode.Both, menu, "Settings for the Halloween Seasonal Features mod");
+		}
+	}
 }

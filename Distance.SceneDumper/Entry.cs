@@ -14,101 +14,101 @@ using UnityEngine;
 
 namespace Distance.SceneDumper
 {
-    [ModEntryPoint("eu.vddcore/Distance.SceneDumper")]
-    public class Mod : MonoBehaviour
-    {
-        public static Mod Instance;
+	[ModEntryPoint("eu.vddcore/Distance.SceneDumper")]
+	public class Mod : MonoBehaviour
+	{
+		public static Mod Instance;
 
-        public IManager Manager { get; set; }
+		public IManager Manager { get; set; }
 
-        public Log Logger { get; set; }
+		public Log Logger { get; set; }
 
-        public FileSystem FileSystem { get; set; }
+		public FileSystem FileSystem { get; set; }
 
-        public ConfigurationLogic Config { get; set; }
+		public ConfigurationLogic Config { get; set; }
 
-        public Dumper Dumper { get; set; }
+		public Dumper Dumper { get; set; }
 
-        public void Initialize(IManager manager)
-        {
-            Instance = this;
-            Manager = manager;
+		public void Initialize(IManager manager)
+		{
+			Instance = this;
+			Manager = manager;
 
-            Logger = LogManager.GetForCurrentAssembly();
-            FileSystem = new FileSystem();
+			Logger = LogManager.GetForCurrentAssembly();
+			FileSystem = new FileSystem();
 
-            Dumper = new Dumper(FileSystem);
+			Dumper = new Dumper(FileSystem);
 
-            Config = gameObject.AddComponent<ConfigurationLogic>();
-            Config.OnChanged += OnConfigChanged;
+			Config = gameObject.AddComponent<ConfigurationLogic>();
+			Config.OnChanged += OnConfigChanged;
 
-            CreateSettingsMenu();
+			CreateSettingsMenu();
 
-            OnConfigChanged(Config);
+			OnConfigChanged(Config);
 
-            RuntimePatcher.AutoPatch();
-        }
+			RuntimePatcher.AutoPatch();
+		}
 
-        private void CreateSettingsMenu()
-        {
-            MenuTree settingsMenu = new MenuTree("menu.mod.scenedumper", "Scene Dumper Settings")
-            {
-                new InputPrompt(MenuDisplayMode.Both, "setting:keybind_dumper_basic", "BASIC DUMP KEY BIND")
-                .WithDefaultValue(() => Config.DumpSceneBasic)
-                .WithSubmitAction((x) => Config.DumpSceneBasic = x)
-                .WithTitle("ENTER KEY BINDING")
-                .WithDescription("Set the keyboard shortcut used to make a basic dump."),
+		private void CreateSettingsMenu()
+		{
+			MenuTree settingsMenu = new MenuTree("menu.mod.scenedumper", "Scene Dumper Settings")
+			{
+				new InputPrompt(MenuDisplayMode.Both, "setting:keybind_dumper_basic", "BASIC DUMP KEY BIND")
+				.WithDefaultValue(() => Config.DumpSceneBasic)
+				.WithSubmitAction((x) => Config.DumpSceneBasic = x)
+				.WithTitle("ENTER KEY BINDING")
+				.WithDescription("Set the keyboard shortcut used to make a basic dump."),
 
-                new InputPrompt(MenuDisplayMode.Both, "setting:keybind_dumper_detailed", "DETAILED DUMP KEY BIND")
-                .WithDefaultValue(() => Config.DumpSceneDetailed)
-                .WithSubmitAction((x) => Config.DumpSceneDetailed = x)
-                .WithTitle("ENTER KEY BINDING")
-                .WithDescription("Set the keyboard shortcut used to make a detailed dump."),
+				new InputPrompt(MenuDisplayMode.Both, "setting:keybind_dumper_detailed", "DETAILED DUMP KEY BIND")
+				.WithDefaultValue(() => Config.DumpSceneDetailed)
+				.WithSubmitAction((x) => Config.DumpSceneDetailed = x)
+				.WithTitle("ENTER KEY BINDING")
+				.WithDescription("Set the keyboard shortcut used to make a detailed dump."),
 
-                new ActionButton(MenuDisplayMode.Both, "setting:open_dumps_folder", "OPEN DUMPS FOLDER")
-                .WhenClicked(() =>
-                {
-                    DirectoryInfo data = new DirectoryInfo(FileSystem.VirtualFileSystemRoot);
+				new ActionButton(MenuDisplayMode.Both, "setting:open_dumps_folder", "OPEN DUMPS FOLDER")
+				.WhenClicked(() =>
+				{
+					DirectoryInfo data = new DirectoryInfo(FileSystem.VirtualFileSystemRoot);
 
-                    if (!data.Exists)
-                    {
-                        data.Create();
-                    }
+					if (!data.Exists)
+					{
+						data.Create();
+					}
 
-                    Process.Start(new ProcessStartInfo(data.FullName));
-                })
-                .WithDescription("Opens the folder containing dump logs.")
-            };
+					Process.Start(new ProcessStartInfo(data.FullName));
+				})
+				.WithDescription("Opens the folder containing dump logs.")
+			};
 
-            Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "SCENE DUMPER", "Settings for the Scene Dumper mod.");
-        }
+			Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "SCENE DUMPER", "Settings for the Scene Dumper mod.");
+		}
 
-        private Hotkey _keybindDumperBasic = null;
-        private Hotkey _keybindDumperDetailed = null;
+		private Hotkey _keybindDumperBasic = null;
+		private Hotkey _keybindDumperDetailed = null;
 
-        public void OnConfigChanged(ConfigurationLogic config)
-        {
-            BindAction(ref _keybindDumperBasic, config.DumpSceneBasic, () =>
-            {
-                Logger.Info("Performing basic dump...");
-                Dumper.DumpCurrentScene(false);
-            });
+		public void OnConfigChanged(ConfigurationLogic config)
+		{
+			BindAction(ref _keybindDumperBasic, config.DumpSceneBasic, () =>
+			{
+				Logger.Info("Performing basic dump...");
+				Dumper.DumpCurrentScene(false);
+			});
 
-            BindAction(ref _keybindDumperDetailed, config.DumpSceneDetailed, () =>
-            {
-                Logger.Info("Performing detailed dump...");
-                Dumper.DumpCurrentScene(true);
-            });
-        }
+			BindAction(ref _keybindDumperDetailed, config.DumpSceneDetailed, () =>
+			{
+				Logger.Info("Performing detailed dump...");
+				Dumper.DumpCurrentScene(true);
+			});
+		}
 
-        public void BindAction(ref Hotkey unbind, string rebind, Action callback)
-        {
-            if (unbind != null)
-            {
-                Manager.Hotkeys.UnbindHotkey(unbind);
-            }
+		public void BindAction(ref Hotkey unbind, string rebind, Action callback)
+		{
+			if (unbind != null)
+			{
+				Manager.Hotkeys.UnbindHotkey(unbind);
+			}
 
-            unbind = Manager.Hotkeys.BindHotkey(rebind, callback, true);
-        }
-    }
+			unbind = Manager.Hotkeys.BindHotkey(rebind, callback, true);
+		}
+	}
 }

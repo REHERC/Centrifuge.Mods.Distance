@@ -2,14 +2,14 @@
 
 public static class StringExtensions
 {
-    public static string UniformPathName(this string source)
-    {
-        string result = source.ToLowerInvariant();
+	public static string UniformPathName(this string source)
+	{
+		string result = source.ToLowerInvariant();
 
-        result = result.Replace(Path.DirectorySeparatorChar, '/');
-        result = result.Replace(Path.AltDirectorySeparatorChar, '/');
-        result = result.Replace('\\', '/');
+		result = result.Replace(Path.DirectorySeparatorChar, '/');
+		result = result.Replace(Path.AltDirectorySeparatorChar, '/');
+		result = result.Replace('\\', '/');
 
-        return result;
-    }
+		return result;
+	}
 }

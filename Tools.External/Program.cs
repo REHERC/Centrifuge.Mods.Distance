@@ -3,24 +3,24 @@ using System.Windows.Forms;
 
 namespace Tools.External
 {
-    internal static class Program
-    {
-        internal static ToolManager ToolManager { get; set; }
+	internal static class Program
+	{
+		internal static ToolManager ToolManager { get; set; }
 
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        internal static void Main()
-        {
-            Control.CheckForIllegalCrossThreadCalls = false;
+		/// <summary>
+		/// The main entry point for the application.
+		/// </summary>
+		[STAThread]
+		internal static void Main()
+		{
+			Control.CheckForIllegalCrossThreadCalls = false;
 
-            ToolManager = new ToolManager();
-            ToolManager.LoadTools();
+			ToolManager = new ToolManager();
+			ToolManager.LoadTools();
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.MainWindow());
-        }
-    }
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+			Application.Run(new Forms.MainWindow());
+		}
+	}
 }

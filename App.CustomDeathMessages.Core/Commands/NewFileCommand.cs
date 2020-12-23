@@ -9,7 +9,7 @@ namespace App.CustomDeathMessages.Core.Commands
 	public class NewFileCommand : Command
 	{
 		private readonly MainWindow form_;
-		
+
 		public NewFileCommand(MainWindow form)
 		{
 			form_ = form;

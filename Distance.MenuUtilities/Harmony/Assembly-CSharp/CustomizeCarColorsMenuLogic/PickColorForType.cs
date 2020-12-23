@@ -3,21 +3,21 @@ using HarmonyLib;
 
 namespace Distance.MenuUtilities.Harmony
 {
-    [HarmonyPatch(typeof(CustomizeCarColorsMenuLogic), "PickColorForType")]
-    internal class CustomizeCarColorsMenuLogic__PickColorForType
-    {
-        [HarmonyPostfix]
-        internal static void Postfix(CustomizeCarColorsMenuLogic __instance, ColorChanger.ColorType colorType)
-        {
-            CustomizeMenuCompoundData data = __instance.GetComponent<CustomizeMenuCompoundData>();
+	[HarmonyPatch(typeof(CustomizeCarColorsMenuLogic), "PickColorForType")]
+	internal class CustomizeCarColorsMenuLogic__PickColorForType
+	{
+		[HarmonyPostfix]
+		internal static void Postfix(CustomizeCarColorsMenuLogic __instance, ColorChanger.ColorType colorType)
+		{
+			CustomizeMenuCompoundData data = __instance.GetComponent<CustomizeMenuCompoundData>();
 
-            if (data && Mod.Instance.Config.EnableHexColorInput)
-            {
-                data.ColorType = colorType;
+			if (data && Mod.Instance.Config.EnableHexColorInput)
+			{
+				data.ColorType = colorType;
 
-                __instance.SetThirdActionEnabled(true);
-                __instance.SetThirdAction("EDIT", InternalResources.Constants.INPUT_EDIT_COLOR, data.EditHexClick);
-            }
-        }
-    }
+				__instance.SetThirdActionEnabled(true);
+				__instance.SetThirdAction("EDIT", InternalResources.Constants.INPUT_EDIT_COLOR, data.EditHexClick);
+			}
+		}
+	}
 }

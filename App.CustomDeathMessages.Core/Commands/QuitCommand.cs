@@ -9,7 +9,7 @@ namespace App.CustomDeathMessages.Core.Commands
 	public class QuitCommand : Command
 	{
 		private readonly MainWindow form_;
-		
+
 		public QuitCommand(MainWindow form)
 		{
 			form_ = form;
