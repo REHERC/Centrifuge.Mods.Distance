@@ -3,6 +3,7 @@ using Centrifuge.Distance.Game;
 using Reactor.API.Logging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Distance.CustomCar.Data.Errors
 {
@@ -29,7 +30,7 @@ namespace Distance.CustomCar.Data.Errors
 
 		public void Show()
 		{
-			if (Count > 0)
+			if (this.Any())
 			{
 				string message = string.Join(Environment.NewLine, ToArray());
 

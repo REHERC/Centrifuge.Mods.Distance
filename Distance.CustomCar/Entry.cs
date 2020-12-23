@@ -1,4 +1,6 @@
-﻿using Distance.CustomCar.Data.Car;
+﻿#pragma warning disable IDE0051
+
+using Distance.CustomCar.Data.Car;
 using Distance.CustomCar.Data.Errors;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
@@ -56,6 +58,29 @@ namespace Distance.CustomCar
 
 			TotalCarCount = profileManager.CarInfos_.Length;
 			CarColors.LoadAll();
+
+			Errors.Show();
+		}
+
+		private void OnEnable()
+		{
+			Events.MainMenu.Initialized.Subscribe(OnMainMenuLoaded);
+		}
+
+		private void OnDisable()
+		{
+			Events.MainMenu.Initialized.Unsubscribe(OnMainMenuLoaded);
+		}
+
+		private bool displayErrors_ = true;
+
+		private void OnMainMenuLoaded(Events.MainMenu.Initialized.Data _)
+		{
+			if (displayErrors_)
+			{
+				Errors.Show();
+				displayErrors_ = false;
+			}
 		}
 	}
 }
