@@ -97,7 +97,9 @@ namespace Distance.TrackMusic.Util
 			var r = new Regex(@"^\d+", RegexOptions.None);
 			Match m = r.Match(s);
 			if (!m.Success)
+			{
 				return null;
+			}
 
 			if (!Int32.TryParse(m.Value, out int length))
 			{
