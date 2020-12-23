@@ -117,14 +117,17 @@
     <Compile Include="Entry.cs" />
     <Compile Include="Data\Errors\ErrorList.cs" />
     <Compile Include="Extensions\UnityEngine\UnityEngine\GameObject.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Profile\Awake.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Profile\Save.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\Profile\SetColorsForAllCars.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\GadgetWithAnimation\SetAnimationStateValues.cs" />
+    <Compile Include="ProfileCarColors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Harmony\Assembly-CSharp\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>SET MODNAME=Distance Custom Car

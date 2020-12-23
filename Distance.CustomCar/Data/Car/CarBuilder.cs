@@ -24,6 +24,7 @@ namespace Distance.CustomCar.Data.Car
 			{
 				try
 				{
+					Mod.Instance.Logger.Info($"Creating car prefab for {car.Key} ...");
 					CreateCarReturnInfos data = CreateCar(car.Value);
 					carsInfos.Add(data);
 				}
