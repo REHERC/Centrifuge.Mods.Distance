@@ -158,13 +158,13 @@ namespace Tools.External.Forms
             ForceLayout();
         }
 
-        void SetLayout(MdiLayout value)
+		private void SetLayout(MdiLayout value)
         {
             layout = value;
             ForceLayout();
         }
 
-        void ForceLayout()
+		private void ForceLayout()
         {
             //SetBorders();
             LayoutMdi(layout);

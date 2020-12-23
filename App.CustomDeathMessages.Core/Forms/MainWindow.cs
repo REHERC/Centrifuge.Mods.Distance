@@ -15,7 +15,7 @@ namespace App.CustomDeathMessages.Core.Forms
 {
 	public partial class MainWindow : Form
 	{
-		const string Name = "Distance - Custom Death Messages Editor";
+		private const string Name = "Distance - Custom Death Messages Editor";
 
 		private string filePath_ = string.Empty;
 		public string FilePath 
@@ -213,7 +213,7 @@ namespace App.CustomDeathMessages.Core.Forms
 			return MessageBox.Show(this, builder.ToString(), title, MessageBoxButtons.YesNo, MessageBoxType.Warning);
 		}
 
-		void ResetView()
+		private void ResetView()
 		{
 			View.Sections.SelectedIndex = 0;
 			View.OnSectionChanged(View, new EventArgs());

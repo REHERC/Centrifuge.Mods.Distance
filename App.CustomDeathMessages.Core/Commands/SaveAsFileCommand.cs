@@ -8,7 +8,7 @@ namespace App.CustomDeathMessages.Core.Commands
 {
 	public class SaveAsFileCommand : Command
 	{
-		readonly MainWindow form_;
+		private readonly MainWindow form_;
 		
 		public SaveAsFileCommand(MainWindow form)
 		{

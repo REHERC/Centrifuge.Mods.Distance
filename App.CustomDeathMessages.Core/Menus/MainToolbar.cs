@@ -6,7 +6,7 @@ namespace App.CustomDeathMessages.Core.Menus
 {
 	public class MainToolbar : ToolBar
 	{
-		readonly MainWindow form_;
+		private readonly MainWindow form_;
 
 		public MainToolbar(MainWindow form)
 		{

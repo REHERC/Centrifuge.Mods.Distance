@@ -22,14 +22,14 @@ namespace Tools.External.Tools
             "any"
         };
 
-        string nl => Environment.NewLine;
+		private string nl => Environment.NewLine;
 
-        string[] files;
-        LoggerWindow log;
-        LoggerWindow output;
-        List<string> properties;
-        Dictionary<string, List<string>> sorted;
-        int count;
+		private string[] files;
+		private LoggerWindow log;
+		private LoggerWindow output;
+		private List<string> properties;
+		private Dictionary<string, List<string>> sorted;
+		private int count;
 
         public override bool Prepare(StateProvider state)
         {

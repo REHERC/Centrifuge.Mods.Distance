@@ -7,10 +7,10 @@ using System.Threading;
 
 namespace App.CustomDeathMessages.Windows
 {
-	class Program
+	internal class Program
 	{
 		[STAThread]
-		static void Main()
+		private static void Main()
 		{
 			CultureInfo english = new CultureInfo("en-US");
 			Thread.CurrentThread.CurrentCulture = english;

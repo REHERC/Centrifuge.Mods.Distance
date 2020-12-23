@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Solution.Task.PostBuild
 {
-    static class Program
+	internal static class Program
     {
         internal static string configuration;
 

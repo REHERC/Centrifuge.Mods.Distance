@@ -5,10 +5,10 @@ using System;
 
 namespace App.CustomDeathMessages.Linux
 {
-	class Program
+	internal class Program
 	{
 		[STAThread]
-		static void Main()
+		private static void Main()
 		{
 			new Application(Platforms.Gtk).Run(new MainWindow());
 		}
