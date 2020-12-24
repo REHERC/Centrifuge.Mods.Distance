@@ -32,7 +32,7 @@ namespace Distance.CustomCar.Data.Errors
 		{
 			if (this.Any())
 			{
-				string message = string.Join(Environment.NewLine, ToArray());
+				string message = Count < 15 ? string.Join(Environment.NewLine, ToArray()) : "There were too many errors when loading custom cars to be displayed here, please check the logs in your mod installation directory.";
 
 				MessageBox.Create($"Can't load the cars correctly: {Count} error(s)\n{message}", "CUSTOM CARS - ERRORS")
 				.SetButtons(MessageButtons.Ok)

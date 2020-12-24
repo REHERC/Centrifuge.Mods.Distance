@@ -26,6 +26,10 @@ namespace Distance.CustomCar.Data.Car
 				{
 					Mod.Instance.Logger.Info($"Creating car prefab for {car.Key} ...");
 					CreateCarReturnInfos data = CreateCar(car.Value);
+
+					string fileName = Path.GetFileNameWithoutExtension(car.Key.Substring(0, car.Key.LastIndexOf('(') - 1));
+					data.car.name = fileName;
+
 					carsInfos.Add(data);
 				}
 				catch (Exception ex)
@@ -35,9 +39,16 @@ namespace Distance.CustomCar.Data.Car
 				}
 			}
 
+			RegisterCars(carsInfos);
+		}
+
+		private void RegisterCars(List<CreateCarReturnInfos> carsInfos)
+		{
+			Mod.Instance.Logger.Info($"Registering {carsInfos.Count} car(s)...");
+
 			ProfileManager profileManager = G.Sys.ProfileManager_;
 			CarInfo[] oldCars = profileManager.carInfos_.ToArray();
-			profileManager.carInfos_ = new CarInfo[oldCars.Length + cars.Count];
+			profileManager.carInfos_ = new CarInfo[oldCars.Length + carsInfos.Count];
 
 			ref Dictionary<string, int> unlocked = ref profileManager.unlockedCars_;
 			ref Dictionary<string, int> knowCars = ref profileManager.knownCars_;
@@ -50,34 +61,51 @@ namespace Distance.CustomCar.Data.Car
 					continue;
 				}
 
-				int index = carIndex - oldCars.Length;
+				int infoIndex = carIndex - oldCars.Length;
 
 				CarInfo car = new CarInfo
 				{
-					name_ = carsInfos[index].car.name,
+					name_ = carsInfos[infoIndex].car.name,
 					prefabs_ = new CarPrefabs
 					{
-						carPrefab_ = carsInfos[index].car
+						carPrefab_ = carsInfos[infoIndex].car
 					},
-					colors_ = carsInfos[index].colors
+					colors_ = carsInfos[infoIndex].colors
 				};
 
+				if (!knowCars.ContainsKey(car.name_) && !unlocked.ContainsKey(car.name_))
+				{
+					unlocked.Add(car.name_, carIndex);
+					knowCars.Add(car.name_, carIndex);
+				}
+				else
+				{
+					Mod.Instance.Errors.Add($"A car with the name {car.name_} is already registered, rename the car file if they're the same.");
+					Mod.Instance.Logger.Warning($"Generating unique name for car {car.name_}");
+
+					string uniqueID = $"#{Guid.NewGuid():B}";
+					Mod.Instance.Logger.Info($"Using GUID: {uniqueID}");
+
+					car.name_ = $"[FFFF00]![-] {car.name_} {uniqueID}";
+
+					unlocked.Add(car.name_, carIndex);
+					knowCars.Add(car.name_, carIndex);
+				}
+
 				profileManager.carInfos_[carIndex] = car;
-				unlocked.Add(car.name_, carIndex);
-				knowCars.Add(car.name_, carIndex);
 			}
 
-			CarColors[] carColors = new CarColors[oldCars.Length + cars.Count];
+			CarColors[] carColors = new CarColors[oldCars.Length + carsInfos.Count];
 			for (int colorIndex = 0; colorIndex < carColors.Length; colorIndex++)
 			{
 				carColors[colorIndex] = G.Sys.ProfileManager_.carInfos_[colorIndex].colors_;
 			}
-
 			for (int profileIndex = 0; profileIndex < profileManager.ProfileCount_; profileIndex++)
 			{
 				Profile profile = profileManager.GetProfile(profileIndex);
 
-				CarColors[] oldColorList = profile.carColorsList_; ;
+				CarColors[] oldColorList = profile.carColorsList_;
+
 				for (int oldColorIndex = 0; oldColorIndex < oldColorList.Length && oldColorIndex < carColors.Length; oldColorIndex++)
 				{
 					carColors[oldColorIndex] = oldColorList[oldColorIndex];
@@ -104,8 +132,14 @@ namespace Distance.CustomCar.Data.Car
 					foreach (string assetName in from name in bundle.GetAllAssetNames() where name.EndsWith(".prefab", StringComparison.InvariantCultureIgnoreCase) select name)
 					{
 						GameObject carPrefab = bundle.LoadAsset<GameObject>(assetName);
-						assetsList.Add($"{assetsFile.FullName} ({assetName})", carPrefab);
-						foundPrefabCount++;
+
+						string assetKey = $"{assetsFile.FullName} ({assetName})";
+
+						if (!assetsList.ContainsKey(assetKey))
+						{
+							assetsList.Add(assetKey, carPrefab);
+							foundPrefabCount++;
+						}
 					}
 
 					if (foundPrefabCount == 0)
