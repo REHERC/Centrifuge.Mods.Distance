@@ -39,7 +39,7 @@ namespace Distance.NitronicHUD
 			CreateSettingsMenu();
 		}
 
-		public void Load()
+		public void LateInitialize(IManager _)
 		{
 			Scripts = new MonoBehaviour[2]
 			{
