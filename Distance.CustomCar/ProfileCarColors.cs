@@ -24,12 +24,14 @@ namespace Distance.CustomCar
 
 		protected Section Profile(string profileName)
 		{
-			return Config.GetOrCreate(profileName, new Section());
+			Section profile = Config.GetOrCreate(profileName, new Section());
+			return profile;
 		}
 
 		protected Section Vehicle(string profileName, string vehicleName)
 		{
-			return Profile(profileName).GetOrCreate(vehicleName, new Section());
+			Section vehicle = Profile(profileName).GetOrCreate(vehicleName, new Section());
+			return vehicle;
 		}
 
 		protected CarColors GetCarColors(string profileName, string vehicleName)

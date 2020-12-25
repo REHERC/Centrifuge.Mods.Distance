@@ -106,8 +106,6 @@ namespace Distance.NitronicHUD.Scripts
 				return;
 			}
 
-			ConfigurationLogic config = Mod.Instance.Config;
-
 			float time = (float)Timex.ModeTime_;
 
 			// Make visible only in game mode
@@ -115,11 +113,10 @@ namespace Distance.NitronicHUD.Scripts
 			GameManager manager = G.Sys.GameManager_;
 			GameModeID mode = manager?.Mode_?.GameModeID_ ?? GameModeID.MainMenu;
 
-			bool menuOpen = G.Sys.MenuPanelManager_.panelStack_.Count > 0;
 			bool replay = G.Sys.ReplayManager_.IsReplayMode_;
 			bool loading = manager.BlackFade_.currentState_ != BlackFadeLogic.FadeState.Idle && !manager.IsLevelLoaded_;
 
-			if (!config.DisplayCountdown || menuOpen || mode == GameModeID.MainMenu || manager.IsLevelEditorMode_ || loading || replay)
+			if (mode == GameModeID.MainMenu || manager.IsLevelEditorMode_ || loading || replay)
 			{
 				time = -10;
 			}
