@@ -100,6 +100,7 @@
     <Compile Include="Harmony\Assembly-CSharp\ChangeLayerTool\OnSelectLayer.cs" />
     <Compile Include="Harmony\Assembly-CSharp\CreateCustomObjectTool\Start.cs" />
     <Compile Include="Harmony\Assembly-CSharp\DeleteTool\Run.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\GameManager\IsDevBuild_.cs" />
     <Compile Include="Harmony\Assembly-CSharp\GenerateTrackmogrifyLevelTool\Finish.cs" />
     <Compile Include="Harmony\Assembly-CSharp\GroupTool\Run.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Group\Visit.cs" />

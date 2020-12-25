@@ -19,7 +19,8 @@ namespace Distance.EditorAdditions.Harmony
 			__instance.iconSize_ = Config.EditorIconSize;
 
 			__instance.rootFileData_ = G.Sys.ResourceManager_.LevelPrefabFileInfosRoot_;
-			if (!Config.DevFolderEnabled)
+
+			if (!Config.DevFolderEnabled && !G.Sys.GameManager_.IsDevBuild_)
 			{
 				__instance.rootFileData_.RemoveAllChildInfos((LevelPrefabFileInfo x) => x.IsDirectory_ && x.Name_ == "Dev");
 			}

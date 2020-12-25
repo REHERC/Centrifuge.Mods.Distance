@@ -9,12 +9,12 @@ namespace Distance.EditorAdditions.Harmony
 		[HarmonyPostfix]
 		internal static void Postfix(LevelEditorLevelNameSelectMenuLogic __instance)
 		{
-			if (Mod.Instance.Config.DisplayWorkshopLevels)
+			if (Mod.Instance.Config.DisplayWorkshopLevels && !G.Sys.GameManager_.IsDevBuild_)
 			{
 				LevelSetsManager levelSets = G.Sys.LevelSets_;
 
-				__instance.CreateButtons(levelSets.LevelsLevelFilePaths_.ToList<string>(), Colors.YellowColors.gold, LevelEditorLevelNameSelectMenuLogic.LevelPathEntry.DisplayOption.RelativePath);
-				__instance.CreateButtons(levelSets.WorkshopLevelFilePaths_.ToList<string>(), GConstants.communityLevelColor_, LevelEditorLevelNameSelectMenuLogic.LevelPathEntry.DisplayOption.LevelName);
+				__instance.CreateButtons(levelSets.LevelsLevelFilePaths_.ToList(), Colors.YellowColors.gold, LevelEditorLevelNameSelectMenuLogic.LevelPathEntry.DisplayOption.RelativePath);
+				__instance.CreateButtons(levelSets.WorkshopLevelFilePaths_.ToList(), GConstants.communityLevelColor_, LevelEditorLevelNameSelectMenuLogic.LevelPathEntry.DisplayOption.LevelName);
 
 				__instance.buttonList_.SortAndUpdateVisibleButtons();
 			}

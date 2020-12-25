@@ -10,7 +10,7 @@ namespace Distance.EditorAdditions.Harmony
 		[HarmonyPostfix]
 		internal static void Postfix(LevelEditorMusicTrackSelectMenuLogic __instance)
 		{
-			if (Mod.Instance.Config.AdvancedMusicSelection)
+			if (Mod.Instance.Config.AdvancedMusicSelection && !G.Sys.GameManager_.IsDevBuild_)
 			{
 				__instance.buttonList_.Clear();
 				List<AudioManager.MusicCue> music = G.Sys.AudioManager_.MusicCues_;
@@ -21,7 +21,6 @@ namespace Distance.EditorAdditions.Harmony
 				}
 
 				__instance.CreateButtons(music, Color.white);
-
 				__instance.buttonList_.SortAndUpdateVisibleButtons();
 			}
 		}
