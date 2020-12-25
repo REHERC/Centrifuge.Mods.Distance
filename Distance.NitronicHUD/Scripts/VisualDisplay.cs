@@ -96,9 +96,12 @@ namespace Distance.NitronicHUD.Scripts
 		private void UpdateVisibility()
 		{
 			ConfigurationLogic config = Mod.Instance.Config;
+			bool menuOpen = G.Sys.MenuPanelManager_.panelStack_.Count > 0;
+			bool loading = true;
 
-			huds_.Do(x => x.rectTransform.gameObject.SetActive(config.DisplayHeatMeters || ForceDisplay));
-			timer_?.gameObject?.SetActive(config.DisplayTimer || ForceDisplay);
+
+			huds_.Do(x => x.rectTransform.gameObject.SetActive((!menuOpen && config.DisplayHeatMeters) || ForceDisplay));
+			timer_?.gameObject?.SetActive((!menuOpen && config.DisplayTimer) || ForceDisplay);
 		}
 		#endregion
 
@@ -189,7 +192,8 @@ namespace Distance.NitronicHUD.Scripts
 		#region Timer Logic
 		private void UpdateTimerText()
 		{
-			GameMode gamemode = G.Sys.GameManager_.Mode_;
+			GameManager gameManager = G.Sys.GameManager_;
+			GameMode gamemode = gameManager.Mode_;
 
 			if (!gamemode || !timer_)
 			{
@@ -200,7 +204,7 @@ namespace Distance.NitronicHUD.Scripts
 
 			StringBuilder result = new StringBuilder();
 
-			GUtils.GetFormattedTime(result, time, 2, time > 3600);
+			GUtils.GetFormattedTime(result, time, time >= 3600 ? 0 : 2, time > 3600);
 
 			timer_.text = result.ToString();
 		}

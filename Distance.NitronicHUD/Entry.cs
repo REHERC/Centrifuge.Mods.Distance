@@ -9,6 +9,7 @@ using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
 using Reactor.API.Runtime.Patching;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Distance.NitronicHUD
 {
@@ -46,6 +47,15 @@ namespace Distance.NitronicHUD
 				gameObject.AddComponent<VisualCountdown>(),
 				gameObject.AddComponent<VisualDisplay>()
 			};
+		}
+
+		public void Update()
+		{
+			try
+			{
+				System.Console.Title = $"State: {G.Sys.GameManager_?.IsLevelLoaded_} {G.Sys.GameManager_?.BlackFade_?.currentState_} {G.Sys.GameManager_?.levelLoader_.state_.success} {G.Sys.GameManager_?.levelLoader_.IsFinished_} {G.Sys.GameManager_?.Level_?.isLoading_} {SceneManager.GetActiveScene().name}";
+			}
+			catch (System.Exception) { }
 		}
 
 		public void CreateSettingsMenu()
