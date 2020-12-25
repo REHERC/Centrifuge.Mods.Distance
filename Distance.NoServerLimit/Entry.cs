@@ -23,6 +23,8 @@ namespace Distance.NoServerLimit
 
 		public void Initialize(IManager manager)
 		{
+			DontDestroyOnLoad(this);
+
 			Instance = this;
 			Manager = manager;
 

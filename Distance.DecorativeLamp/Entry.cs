@@ -27,6 +27,8 @@ namespace Distance.DecorativeLamp
 
 		public void Initialize(IManager manager)
 		{
+			DontDestroyOnLoad(this);
+
 			Instance = this;
 			Manager = manager;
 			Logger = LogManager.GetForCurrentAssembly();

@@ -24,6 +24,8 @@ namespace Distance.Anolytics
 
 		public void Initialize(IManager manager)
 		{
+			DontDestroyOnLoad(this);
+
 			Instance = this;
 			Manager = manager;
 

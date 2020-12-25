@@ -52,6 +52,8 @@ namespace Distance.CustomWheelHologram
 
 		public void Initialize(IManager manager)
 		{
+			DontDestroyOnLoad(this);
+
 			Instance = this;
 			Manager = manager;
 

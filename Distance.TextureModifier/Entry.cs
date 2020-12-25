@@ -31,6 +31,8 @@ namespace Distance.TextureModifier
 
 		public void Initialize(IManager manager)
 		{
+			DontDestroyOnLoad(this);
+
 			Instance = this;
 			Manager = manager;
 
