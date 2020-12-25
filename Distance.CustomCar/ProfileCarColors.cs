@@ -19,21 +19,18 @@ namespace Distance.CustomCar
 		protected void Awake()
 		{
 			Load();
-
 			Save();
 		}
 
 		protected Section Profile(string profileName)
 		{
 			Section profile = Config.GetOrCreate(profileName, new Section());
-			Save();
 			return profile;
 		}
 
 		protected Section Vehicle(string profileName, string vehicleName)
 		{
 			Section vehicle = Profile(profileName).GetOrCreate(vehicleName, new Section());
-			Save();
 			return vehicle;
 		}
 
@@ -43,12 +40,11 @@ namespace Distance.CustomCar
 			CarColors colors = new CarColors
 			{
 				primary_ = GetColor(vehicle, "primary", Colors.whiteSmoke),
-				secondary_ = GetColor(vehicle, "primary", Colors.darkGray),
+				secondary_ = GetColor(vehicle, "secondary", Colors.darkGray),
 				glow_ = GetColor(vehicle, "glow", Colors.cyan),
 				sparkle_ = GetColor(vehicle, "sparkle", Colors.lightSlateGray)
 			};
 			SetCarColors(profileName, vehicleName, colors);
-			Save();
 			return colors;
 		}
 
@@ -77,8 +73,6 @@ namespace Distance.CustomCar
 			profile[vehicleName] = vehicle;
 
 			Config[profileName] = profile;
-
-			Save();
 		}
 
 		protected Section ToSection(Color color)
@@ -90,7 +84,6 @@ namespace Distance.CustomCar
 				["b"] = color.b,
 				["a"] = color.a
 			};
-			Save();
 			return section;
 		}
 
@@ -148,6 +141,8 @@ namespace Distance.CustomCar
 					SetCarColors(currentProfile.FileName_, carInfo.name_, colors);
 				}
 			}
+
+			Save();
 		}
 	}
 }
