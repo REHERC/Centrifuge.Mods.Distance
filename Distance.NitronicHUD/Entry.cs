@@ -4,6 +4,7 @@ using Centrifuge.Distance.Game;
 using Centrifuge.Distance.GUI.Controls;
 using Centrifuge.Distance.GUI.Data;
 using Distance.NitronicHUD.Scripts;
+using Events.GUI;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
@@ -38,7 +39,17 @@ namespace Distance.NitronicHUD
 
 			RuntimePatcher.AutoPatch();
 
+			MenuOpened.Subscribe(OnGUIMenuOpened);
+
 			CreateSettingsMenu();
+		}
+
+		private void OnGUIMenuOpened(MenuOpened.Data data)
+		{
+			if (data.menu.Id != "menu.mod.nitronichud#interface")
+			{
+				VisualDisplay.ForceDisplay = false;
+			}
 		}
 
 		public void LateInitialize(IManager _)
@@ -146,7 +157,15 @@ namespace Distance.NitronicHUD
 
 				new SubMenu(MenuDisplayMode.Both, "menu:interface.advanced", "ADVANCED SETTINGS")
 				.NavigatesTo(advancedDisplayMenu)
-				.WithDescription("Configure advanced settings for the hud.")
+				.WithDescription("Configure advanced settings for the hud."),
+
+				new ActionButton(MenuDisplayMode.Both, "action:preview_hud", "PREVIEW HUD")
+				.WhenClicked(
+					() => 
+					{
+						VisualDisplay.ForceDisplay = !VisualDisplay.ForceDisplay;
+					})
+				.WithDescription("Show the hud to preview changes.")
 			};
 
 			MenuTree audioMenu = new MenuTree("menu.mod.nitronichud#audio", "Audio Options");
@@ -176,7 +195,8 @@ namespace Distance.NitronicHUD
 				})
 				.WithDescription("Start the animation sequence thet plays when a level starts to preview the settings."));
 
-			Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "NITRONIC HUD [1E90FF](BETA)[-]", "Settings for the Nitronic HUD mod.");
+			//Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "NITRONIC HUD [1E90FF](BETA)[-]", "Settings for the Nitronic HUD mod.");
+			Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "NITRONIC HUD [FFBF1E](RELEASE CANDIDATE)[-]", "Settings for the Nitronic HUD mod.");
 		}
 	}
 }

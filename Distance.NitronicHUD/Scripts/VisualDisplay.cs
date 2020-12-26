@@ -15,7 +15,7 @@ namespace Distance.NitronicHUD.Scripts
 		#region Properties and Fields
 		public const string AssetName = "assets/nr hud/nr_hud.prefab";
 
-		public bool ForceDisplay { get; set; } = false;
+		public static bool ForceDisplay { get; set; } = false;
 
 		public Assets Assets { get; internal set; }
 
