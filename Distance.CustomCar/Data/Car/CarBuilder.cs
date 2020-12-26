@@ -119,8 +119,22 @@ namespace Distance.CustomCar.Data.Car
 		{
 			Dictionary<string, GameObject> assetsList = new Dictionary<string, GameObject>();
 			DirectoryInfo assetsDirectory = GetLocalFolder(Defaults.PrivateAssetsDirectory);
+			DirectoryInfo globalCarsDirectory = new DirectoryInfo(Path.Combine(Resource.personalDistanceDirPath_, "CustomCars"));
 
-			foreach (FileInfo assetsFile in assetsDirectory.GetFiles("*", SearchOption.AllDirectories).OrderBy(x => x.Name))
+			if (!globalCarsDirectory.Exists)
+			{
+				try
+				{
+					globalCarsDirectory.Create();
+				}
+				catch (Exception ex)
+				{
+					Mod.Instance.Errors.Add($"Could not create the following folder: {globalCarsDirectory.FullName}");
+					Mod.Instance.Errors.Add(ex);
+				}
+			}
+
+			foreach (FileInfo assetsFile in ArrayEx.Concat(assetsDirectory.GetFiles("*", SearchOption.AllDirectories), globalCarsDirectory.GetFiles("*", SearchOption.AllDirectories)).OrderBy(x => x.Name))
 			{
 				try
 				{
@@ -196,7 +210,7 @@ namespace Distance.CustomCar.Data.Car
 
 			if (wheelsToRemove.Count != 4)
 			{
-				Mod.Instance.Errors.Add("Found " + wheelsToRemove.Count + " wheels on base prefabs, expected 4");
+				Mod.Instance.Errors.Add($"Found {wheelsToRemove.Count} wheels on base prefabs, expected 4");
 			}
 
 			Transform refractor = obj.transform.Find("Refractor");
@@ -265,7 +279,7 @@ namespace Distance.CustomCar.Data.Car
 			{
 				if (!infos_.materials.TryGetValue(materialNames[materialIndex], out MaterialInfos materialInfo))
 				{
-					Mod.Instance.Errors.Add("Can't find the material " + materialNames[materialIndex] + " on " + renderer.gameObject.FullName());
+					Mod.Instance.Errors.Add($"Can't find the material {materialNames[materialIndex]} on {renderer.gameObject.FullName()}");
 					continue;
 				}
 
@@ -475,7 +489,7 @@ namespace Distance.CustomCar.Data.Car
 
 				if (arguments.Length != 6)
 				{
-					Mod.Instance.Errors.Add(arguments[0] + " property on " + transform.gameObject.FullName() + " must have 5 arguments");
+					Mod.Instance.Errors.Add($"{arguments[0]} property on {transform.gameObject.FullName()} must have 5 arguments");
 					continue;
 				}
 

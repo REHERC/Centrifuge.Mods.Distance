@@ -11,6 +11,7 @@
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Mod\mod.json" />
     <Content Include="$(MSBuildThisFileDirectory)Readme\AUTHORS.md" />
+    <Content Include="$(MSBuildThisFileDirectory)Readme\instructions.html" />
     <Content Include="$(MSBuildThisFileDirectory)Readme\README.md" />
     <Content Include="$(MSBuildThisFileDirectory)Mod\Tools\Tools.unitypackage" />
   </ItemGroup>
