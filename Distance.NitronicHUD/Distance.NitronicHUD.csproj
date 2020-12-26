@@ -93,6 +93,7 @@
     <Compile Include="Data\VisualCountdownDigit.cs" />
     <Compile Include="Data\VisualDisplayContent.cs" />
     <Compile Include="Entry.cs" />
+    <Compile Include="Flags.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\VisualCountdown.cs" />
     <Compile Include="Scripts\VisualDisplay.cs" />

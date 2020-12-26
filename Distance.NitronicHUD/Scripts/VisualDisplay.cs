@@ -96,12 +96,9 @@ namespace Distance.NitronicHUD.Scripts
 		private void UpdateVisibility()
 		{
 			ConfigurationLogic config = Mod.Instance.Config;
-			bool menuOpen = G.Sys.MenuPanelManager_.panelStack_.Count > 0;
-			bool loading = true;
 
-
-			huds_.Do(x => x.rectTransform.gameObject.SetActive((!menuOpen && config.DisplayHeatMeters) || ForceDisplay));
-			timer_?.gameObject?.SetActive((!menuOpen && config.DisplayTimer) || ForceDisplay);
+			huds_.Do(x => x.rectTransform.gameObject.SetActive((Flags.CanDisplayHudElements && config.DisplayHeatMeters) || ForceDisplay));
+			timer_?.gameObject?.SetActive((Flags.CanDisplayHudElements && config.DisplayTimer) || ForceDisplay);
 		}
 		#endregion
 
