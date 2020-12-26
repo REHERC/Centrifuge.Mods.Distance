@@ -228,7 +228,7 @@ namespace Distance.NitronicHUD.Scripts
 		{
 			if (G.Sys.GameManager_.IsModeStarted_)
 			{
-				return G.Sys.StatsManager_?.GetMatchStats(0).totalPoints_ ?? 0;
+				return G.Sys.StatsManager_?.GetMatchStats(G.Sys.PlayerManager_?.current_.playerData_).totalPoints_ ?? 0;
 			}
 			else
 			{
