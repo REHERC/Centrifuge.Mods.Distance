@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Events.ClientToAllClients;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -56,7 +57,7 @@ namespace Distance.CustomDeathMessages
 
 			JArray values = Mod.Instance.Config.Get(type.ToString(), new JArray());
 
-			string[] entries = values.ToObject<string[]>();
+			string[] entries = values.ToObject<string[]>().Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
 			if (type == MessageType.None || !entries.Any())
 			{
@@ -68,7 +69,7 @@ namespace Distance.CustomDeathMessages
 
 		public static void Send(string message)
 		{
-			Events.ClientToAllClients.ChatMessage.Broadcast(new Events.ClientToAllClients.ChatMessage.Data(message));
+			ChatMessage.Broadcast(new ChatMessage.Data(message));
 		}
 	}
 }
