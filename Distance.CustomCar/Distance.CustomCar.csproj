@@ -87,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationLogic.cs" />
     <Compile Include="Data\Car\CarBuilder.cs" />
     <Compile Include="Data\Car\CarInfos.cs" />
     <Compile Include="Data\Car\CreateCarReturnInfos.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Entry.cs" />
     <Compile Include="Data\Errors\ErrorList.cs" />
     <Compile Include="Extensions\UnityEngine\UnityEngine\GameObject.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\CarAudio\OnCarHornEvent.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Profile\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Profile\Save.cs" />
     <Compile Include="Harmony\Assembly-CSharp\Profile\SetColorsForAllCars.cs" />

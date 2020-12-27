@@ -1,7 +1,11 @@
 ﻿#pragma warning disable IDE0051
 
+using Centrifuge.Distance.Game;
+using Centrifuge.Distance.GUI.Controls;
+using Centrifuge.Distance.GUI.Data;
 using Distance.CustomCar.Data.Car;
 using Distance.CustomCar.Data.Errors;
+using Events.MainMenu;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
@@ -31,6 +35,8 @@ namespace Distance.CustomCar
 
 		public ProfileCarColors CarColors { get; set; }
 
+		public ConfigurationLogic Config { get; set; }
+
 		public void Initialize(IManager manager)
 		{
 			DontDestroyOnLoad(this);
@@ -39,10 +45,12 @@ namespace Distance.CustomCar
 			Manager = manager;
 
 			Logger = LogManager.GetForCurrentAssembly();
-
+			Config = gameObject.AddComponent<ConfigurationLogic>();
 			Errors = new ErrorList(Logger);
 
 			CarColors = gameObject.AddComponent<ProfileCarColors>();
+
+			CreateSettingsMenu();
 
 			RuntimePatcher.AutoPatch();
 		}
@@ -66,23 +74,36 @@ namespace Distance.CustomCar
 
 		private void OnEnable()
 		{
-			Events.MainMenu.Initialized.Subscribe(OnMainMenuLoaded);
+			Initialized.Subscribe(OnMainMenuLoaded);
 		}
 
 		private void OnDisable()
 		{
-			Events.MainMenu.Initialized.Unsubscribe(OnMainMenuLoaded);
+			Initialized.Unsubscribe(OnMainMenuLoaded);
 		}
 
 		private bool displayErrors_ = true;
 
-		private void OnMainMenuLoaded(Events.MainMenu.Initialized.Data _)
+		private void OnMainMenuLoaded(Initialized.Data _)
 		{
 			if (displayErrors_)
 			{
 				Errors.Show();
 				displayErrors_ = false;
 			}
+		}
+
+		private void CreateSettingsMenu()
+		{
+			MenuTree settingsMenu = new MenuTree("menu.mod.customcar", "Custom Cars Settings")
+			{
+				new CheckBox(MenuDisplayMode.Both, "setting:use_trumpet_horn", "USE TRUMPET HORN")
+				.WithGetter(() => Config.UseTrumpetHorn)
+				.WithSetter((x) => Config.UseTrumpetHorn = x)
+				.WithDescription("Custom car models will use the encryptor horn (the \"doot\" trumpet).")
+			};
+
+			Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "CUSTOM CARS", "Settings for the Custom Cars mod.");
 		}
 	}
 }
