@@ -5,7 +5,7 @@ using Events.LevelEditor;
 using Events.RaceEnd;
 using System.Linq;
 
-namespace Distance.NitronicHUD
+namespace Distance.Heat
 {
 	public static class Flags
 	{
@@ -37,7 +37,7 @@ namespace Distance.NitronicHUD
 		{
 			get
 			{
-				return IsModeStarted && ! IsLoading && CurrentModeIsPlayable && !IsPaused && !IsMenuOpen && !IsReplayMode;
+				return IsModeStarted && !IsLoading && CurrentModeIsPlayable && !IsPaused && !IsMenuOpen && !IsReplayMode;
 			}
 		}
 

@@ -1,5 +1,4 @@
-﻿#pragma warning disable IDE0052
-using Centrifuge.Distance.Game;
+﻿using Centrifuge.Distance.Game;
 using Centrifuge.Distance.GUI.Controls;
 using Centrifuge.Distance.GUI.Data;
 using Distance.Heat.Enums;
@@ -25,18 +24,16 @@ namespace Distance.Heat
 
 		public ConfigurationLogic Config { get; private set; }
 
-		private GameStateLogic GameState_ { get; set; }
-
 		public void Initialize(IManager manager)
 		{
 			DontDestroyOnLoad(this);
-
 			Instance = this;
 			Manager = manager;
+
+			Flags.SubscribeEvents();
+
 			Logger = LogManager.GetForCurrentAssembly();
 			Config = gameObject.AddComponent<ConfigurationLogic>();
-
-			GameState_ = gameObject.AddComponent<GameStateLogic>();
 
 			RuntimePatcher.AutoPatch();
 
@@ -73,17 +70,17 @@ namespace Distance.Heat
 
 		private Dictionary<string, T> MapEnumToListBox<T>() where T : Enum
 		{
-			var ret = new Dictionary<string, T>();
+			var result = new Dictionary<string, T>();
 
 			var keys = Enum.GetNames(typeof(T));
 			var values = (T[])Enum.GetValues(typeof(T));
 
-			for (var i = 0; i < keys.Length; i++)
+			for (var index = 0; index < keys.Length; index++)
 			{
-				ret.Add(SplitCamelCase(keys[i]), values[i]);
+				result.Add(SplitCamelCase(keys[index]), values[index]);
 			}
 
-			return ret;
+			return result;
 		}
 
 		public string SplitCamelCase(string str)
