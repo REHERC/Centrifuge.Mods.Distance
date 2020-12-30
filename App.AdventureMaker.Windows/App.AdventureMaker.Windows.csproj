@@ -2,12 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <OutputType>WinExe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Eto.Forms" Version="2.5.8" />
-    <PackageReference Include="Eto.Platform.Gtk" Version="2.5.8" />
+    <PackageReference Include="Eto.Platform.Windows" Version="2.5.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.AdventureMaker.Core\App.AdventureMaker.Core.csproj" />
   </ItemGroup>
 
 </Project>
