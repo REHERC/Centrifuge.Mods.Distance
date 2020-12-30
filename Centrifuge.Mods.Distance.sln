@@ -218,7 +218,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.CustomDeathMessages.Lin
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "App.SharedResources", "App.SharedResources\App.SharedResources.shproj", "{5A8F08F8-DEE7-412A-95A8-3DC81F72F50E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common Dll", "Common Dll", "{E48EFDD5-0C0F-461E-A411-6EB459050E7E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common Code", "Common Code", "{E48EFDD5-0C0F-461E-A411-6EB459050E7E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AdventureMaker", "AdventureMaker", "{B9198DEA-AD30-4B4D-A630-85F667A9A258}"
 EndProject
@@ -230,13 +230,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.AdventureMaker", "
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.AdventureMaker.Content", "Distance.AdventureMaker.Content\Distance.AdventureMaker.Content.shproj", "{B6ECA462-EA0B-4BD3-8419-2A59F1DB34ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.AdventureMaker.Common", "Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.csproj", "{BF2B1251-F11E-4D8D-BF0A-6B4827475F01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.AdventureMaker.Core", "App.AdventureMaker.Core\App.AdventureMaker.Core.csproj", "{D008E276-12E7-40CB-911F-3F395582317A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.AdventureMaker.Core", "App.AdventureMaker.Core\App.AdventureMaker.Core.csproj", "{D008E276-12E7-40CB-911F-3F395582317A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.AdventureMaker.Linux", "App.AdventureMaker.Linux\App.AdventureMaker.Linux.csproj", "{65CAC900-69F3-4A16-9079-5CF1213CEB44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.AdventureMaker.Linux", "App.AdventureMaker.Linux\App.AdventureMaker.Linux.csproj", "{65CAC900-69F3-4A16-9079-5CF1213CEB44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.AdventureMaker.Windows", "App.AdventureMaker.Windows\App.AdventureMaker.Windows.csproj", "{AEE4B99D-C164-4495-AEE2-94CE4DBAAFDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.AdventureMaker.Windows", "App.AdventureMaker.Windows\App.AdventureMaker.Windows.csproj", "{AEE4B99D-C164-4495-AEE2-94CE4DBAAFDD}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.AdventureMaker.Common", "Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.shproj", "{0F2C2BE7-27A2-408A-841F-643B3549A55E}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -244,6 +244,7 @@ Global
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{06a78a9a-7a66-431f-8023-36eaa5d0fbaf}*SharedItemsImports = 4
 		Distance.TextureModifier.Content\Distance.TextureModifier.Content.projitems*{07d04eb9-6ab9-46cf-a3c3-a2e1d24fbeef}*SharedItemsImports = 13
 		Distance.HalloweenSeasonalFeatures.Content\Distance.HalloweenSeasonalFeatures.Content.projitems*{0b6c17ad-b346-42ac-96ce-760ea993c5f0}*SharedItemsImports = 13
+		Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.projitems*{0f2c2be7-27a2-408a-841f-643b3549a55e}*SharedItemsImports = 13
 		Distance.NoEditorNumberLimits.Content\Distance.NoEditorNumberLimits.Content.projitems*{12b05bfd-73ca-4b5c-a258-ef142c21066a}*SharedItemsImports = 13
 		Distance.Anolytics.Content\Distance.Anolytics.Content.projitems*{19f17209-4a5c-43e2-86dc-cce76dba5c23}*SharedItemsImports = 13
 		Distance.NitronicHUD.Content\Distance.NitronicHUD.Content.projitems*{1b79abb1-9caa-41f4-a88a-d84524e8f25a}*SharedItemsImports = 13
@@ -257,9 +258,11 @@ Global
 		Distance.DecorativeLamp.Content\Distance.DecorativeLamp.Content.projitems*{a7ee87a2-a395-4018-a8c0-b12b44005e52}*SharedItemsImports = 13
 		Repository.Metadata\Repository.Metadata.projitems*{af094e78-872d-4473-9c5f-063c6640f94e}*SharedItemsImports = 13
 		Distance.CustomCar.Content\Distance.CustomCar.Content.projitems*{b250cc3f-e2f1-40e6-8a89-5ad23d54c019}*SharedItemsImports = 13
+		Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.projitems*{b3f55581-78bd-4ba4-bb36-d80f3716dbe4}*SharedItemsImports = 4
 		Distance.AdventureMaker.Content\Distance.AdventureMaker.Content.projitems*{b6eca462-ea0b-4bd3-8419-2a59f1db34ed}*SharedItemsImports = 13
 		Distance.ChristmasSeasonalFeatures.Content\Distance.ChristmasSeasonalFeatures.Content.projitems*{ccca412e-616c-49d3-80a6-a0111b879118}*SharedItemsImports = 13
 		App.SharedResources\App.Icons.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
+		Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
 		Distance.EditorAdditions.Content\Distance.EditorAdditions.Content.projitems*{e2e4ac75-d500-4d5d-a706-613a3df688e3}*SharedItemsImports = 13
 		Distance.SceneDumper.Content\Distance.SceneDumper.Content.projitems*{e84718c2-200c-415f-ad1d-0cc133c38e70}*SharedItemsImports = 13
 	EndGlobalSection
@@ -454,14 +457,6 @@ Global
 		{B3F55581-78BD-4BA4-BB36-D80F3716DBE4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B3F55581-78BD-4BA4-BB36-D80F3716DBE4}.Release|x86.ActiveCfg = Release|Any CPU
 		{B3F55581-78BD-4BA4-BB36-D80F3716DBE4}.Release|x86.Build.0 = Release|Any CPU
-		{BF2B1251-F11E-4D8D-BF0A-6B4827475F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF2B1251-F11E-4D8D-BF0A-6B4827475F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF2B1251-F11E-4D8D-BF0A-6B4827475F01}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{BF2B1251-F11E-4D8D-BF0A-6B4827475F01}.Debug|x86.Build.0 = Debug|Any CPU
-		{BF2B1251-F11E-4D8D-BF0A-6B4827475F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF2B1251-F11E-4D8D-BF0A-6B4827475F01}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF2B1251-F11E-4D8D-BF0A-6B4827475F01}.Release|x86.ActiveCfg = Release|Any CPU
-		{BF2B1251-F11E-4D8D-BF0A-6B4827475F01}.Release|x86.Build.0 = Release|Any CPU
 		{D008E276-12E7-40CB-911F-3F395582317A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D008E276-12E7-40CB-911F-3F395582317A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D008E276-12E7-40CB-911F-3F395582317A}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -553,10 +548,10 @@ Global
 		{1B27F1C3-2FEC-4A3E-A0E1-CF94ADB73FC7} = {E48EFDD5-0C0F-461E-A411-6EB459050E7E}
 		{B3F55581-78BD-4BA4-BB36-D80F3716DBE4} = {DB43370E-FA3B-42BE-BF0C-7FE1544A7CDD}
 		{B6ECA462-EA0B-4BD3-8419-2A59F1DB34ED} = {DB43370E-FA3B-42BE-BF0C-7FE1544A7CDD}
-		{BF2B1251-F11E-4D8D-BF0A-6B4827475F01} = {1B27F1C3-2FEC-4A3E-A0E1-CF94ADB73FC7}
 		{D008E276-12E7-40CB-911F-3F395582317A} = {B9198DEA-AD30-4B4D-A630-85F667A9A258}
 		{65CAC900-69F3-4A16-9079-5CF1213CEB44} = {B9198DEA-AD30-4B4D-A630-85F667A9A258}
 		{AEE4B99D-C164-4495-AEE2-94CE4DBAAFDD} = {B9198DEA-AD30-4B4D-A630-85F667A9A258}
+		{0F2C2BE7-27A2-408A-841F-643B3549A55E} = {1B27F1C3-2FEC-4A3E-A0E1-CF94ADB73FC7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C475AB02-6F97-4575-9527-2F31F5AF847C}

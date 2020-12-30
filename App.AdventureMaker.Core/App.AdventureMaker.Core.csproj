@@ -8,10 +8,8 @@
     <PackageReference Include="Eto.Forms" Version="2.5.8" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.csproj" />
-  </ItemGroup>
-
   <Import Project="..\App.SharedResources\App.Icons.projitems" Label="Shared" />
+
+  <Import Project="..\Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.projitems" Label="Shared" />
 
 </Project>

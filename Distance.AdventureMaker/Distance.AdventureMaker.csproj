@@ -87,13 +87,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.csproj">
-      <Project>{bf2b1251-f11e-4d8d-bf0a-6b4827475f01}</Project>
-      <Name>Distance.AdventureMaker.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <Import Project="..\Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
