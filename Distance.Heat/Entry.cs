@@ -3,6 +3,7 @@ using Centrifuge.Distance.GUI.Controls;
 using Centrifuge.Distance.GUI.Data;
 using Distance.Heat.Enums;
 using Reactor.API.Attributes;
+using Reactor.API.Input;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
 using Reactor.API.Runtime.Patching;
@@ -35,9 +36,13 @@ namespace Distance.Heat
 			Logger = LogManager.GetForCurrentAssembly();
 			Config = gameObject.AddComponent<ConfigurationLogic>();
 
-			RuntimePatcher.AutoPatch();
+			Config.OnChanged += OnConfigChanged;
+
+			OnConfigChanged(Config);
 
 			CreateSettingsMenu();
+
+			RuntimePatcher.AutoPatch();
 		}
 
 		private void CreateSettingsMenu()
@@ -68,6 +73,7 @@ namespace Distance.Heat
 			Menus.AddNew(MenuDisplayMode.Both, settingsMenu, "HEAT DISPLAY", "Configure the Heat mod.");
 		}
 
+		#region Utilities
 		private Dictionary<string, T> MapEnumToListBox<T>() where T : Enum
 		{
 			var result = new Dictionary<string, T>();
@@ -75,7 +81,7 @@ namespace Distance.Heat
 			var keys = Enum.GetNames(typeof(T));
 			var values = (T[])Enum.GetValues(typeof(T));
 
-			for (var index = 0; index < keys.Length; index++)
+			for (int index = 0; index < keys.Length; index++)
 			{
 				result.Add(SplitCamelCase(keys[index]), values[index]);
 			}
@@ -83,7 +89,7 @@ namespace Distance.Heat
 			return result;
 		}
 
-		public string SplitCamelCase(string str)
+		private string SplitCamelCase(string str)
 		{
 			// https://stackoverflow.com/a/5796793
 			return Regex.Replace(
@@ -96,5 +102,80 @@ namespace Distance.Heat
 				"$1 $2"
 			);
 		}
+		#endregion
+
+		#region Data
+		public bool DisplayCondition => Config.ActivationMode == ActivationMode.Always ||
+			(Config.ActivationMode == ActivationMode.Warning && Vehicle.HeatLevel >= Config.WarningTreshold) ||
+			(Config.ActivationMode == ActivationMode.Toggle && Toggled);
+
+		public bool Toggled { get; set; }
+
+		public string Text => $"{GetHeatLevel()}\n{GetSpeed()}";
+
+		public string GetHeatLevel()
+		{
+			string percent = Mathf.RoundToInt(100 * Mathf.Clamp(Vehicle.HeatLevel, 0, 1)).ToString();
+            while (percent.Length< 3)
+			{
+                percent = $"0{percent}";
+			}
+
+			return $"{percent} %";
+		}
+
+		private string GetSpeed()
+		{
+			if (G.Sys.GameManager_.IsModeStarted_)
+			{
+				switch (Centrifuge.Distance.Game.Options.General.Units)
+				{
+					case Units.Metric:
+						return $"{Mathf.RoundToInt(Vehicle.VelocityKPH)} KM/H";
+					case Units.Imperial:
+						return $"{Mathf.RoundToInt(Vehicle.VelocityMPH)} MPH";
+					default:
+						return string.Empty;
+				}
+			}
+			else
+			{
+				return string.Empty;
+			}
+		}
+		#endregion
+
+		#region Settings Changed
+		public void OnConfigChanged(ConfigurationLogic config)
+		{
+			BindAction(ref _keybindToggle, config.ToggleHotkey, () =>
+			{
+				Toggled = !Toggled;
+
+				if (!Toggled)
+				{
+					foreach (TrickyTextLogic trickText in FindObjectsOfType<TrickyTextLogic>())
+					{
+						trickText.Clear();
+					}
+				}
+			});
+		}
+		#endregion
+
+		#region Key Bindings
+
+		private Hotkey _keybindToggle = null;
+
+		public void BindAction(ref Hotkey unbind, string rebind, Action callback)
+		{
+			if (unbind != null)
+			{
+				Manager.Hotkeys.UnbindHotkey(unbind);
+			}
+
+			unbind = Manager.Hotkeys.BindHotkey(rebind, callback, true);
+		}
+		#endregion
 	}
 }

@@ -1,5 +1,5 @@
 ﻿using Centrifuge.Distance;
-using Centrifuge.Distance.Game;
+using Distance.Heat.Enums;
 using System.Collections;
 using UnityEngine;
 
@@ -70,16 +70,7 @@ namespace Distance.Heat.Scripts
 
         internal void Update()
         {
-            Mathf.Clamp(Vehicle.HeatLevel, 0, 1);
-
-            string percent = Mathf.RoundToInt(100 * Mathf.Clamp(Vehicle.HeatLevel, 0, 1)).ToString();
-            while (percent.Length < 3)
-			{
-                percent = $"0{percent}";
-			}
-
-
-            label.text = $"{percent} %";
+            label.text = Mod.Instance.Text;
 
             Visible = CanDisplay;
         }
@@ -106,7 +97,7 @@ namespace Distance.Heat.Scripts
             }
         }
 
-        internal bool CanDisplay => Flags.CanDisplayHudElements;
+        internal bool CanDisplay => Mod.Instance.DisplayCondition && Flags.CanDisplayHudElements && Mod.Instance.Config.DisplayMode == DisplayMode.Watermark;
 
         internal void AdjustPosition()
         {
