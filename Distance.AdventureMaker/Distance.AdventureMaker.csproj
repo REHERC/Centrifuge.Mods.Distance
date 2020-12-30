@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -91,4 +93,54 @@
   </ItemGroup>
   <Import Project="..\Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>SET MODNAME=Distance Adventure Maker
+SET INCLUDE=$(SolutionDir)Distance.AdventureMaker.Content
+
+SET BUILD=$(ProjectDir)$(OutDir)
+SET PACKAGES=$(SolutionDir)Build\%25MODNAME%25\Centrifuge
+
+SET MOD=%25PACKAGES%25\Mods\%25MODNAME%25
+
+REM ===== COPY MOD FILES =====
+
+CALL :MAKEDIR "%25MOD%25"
+
+CALL :COPYDIR "%25INCLUDE%25\Mod" "%25MOD%25"
+CALL :COPY "%25BUILD%25Distance.AdventureMaker.dll" "%25MOD%25"
+
+CALL :INCLUDEGSL Centrifuge.Distance
+
+EXIT 0
+
+REM ===== BUILD SUBROUTINES  =====
+
+:MAKEDIR
+IF NOT EXIST %251 MKDIR %251
+GOTO :EOF
+
+:COPY
+ECHO NUL &gt; %252
+XCOPY /s /Y /v %251 %252
+GOTO :EOF
+
+:COPYDIR
+XCOPY /i /s /Y /v %251 %252
+GOTO :EOF
+
+:INCLUDEGSL
+CALL :MAKEDIR "%25PACKAGES%25\GameSupport"
+CALL :COPY "%25BUILD%25%251.dll" "%25PACKAGES%25\GameSupport"
+GOTO :EOF
+
+:INCLUDEDEPENDENCY
+CALL :MAKEDIR "%25MOD%25\Dependencies"
+CALL :COPY "%25BUILD%25%251.dll" "%25MOD%25\Dependencies"
+GOTO :EOF
+
+:INCLUDEDEPENDENCYRENAME
+CALL :MAKEDIR "%25MOD%25\Dependencies"
+CALL :COPY "%25BUILD%25%251.dll" "%25MOD%25\Dependencies\%252.dll"
+GOTO :EOF</PostBuildEvent>
+  </PropertyGroup>
 </Project>

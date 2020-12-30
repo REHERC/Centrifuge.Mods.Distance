@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>WinExe</OutputType>
+    <ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
