@@ -9,5 +9,6 @@
     <Import_RootNamespace>Distance.AdventureMaker.Content</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Mod\mod.json" />
   </ItemGroup>
 </Project>
