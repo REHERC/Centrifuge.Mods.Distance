@@ -12,4 +12,6 @@
     <ProjectReference Include="..\Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.csproj" />
   </ItemGroup>
 
+  <Import Project="..\App.SharedResources\App.Icons.projitems" Label="Shared" />
+
 </Project>
