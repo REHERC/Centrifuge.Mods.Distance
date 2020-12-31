@@ -1,4 +1,5 @@
-﻿using Eto;
+﻿using App.AdventureMaker.Core.Forms;
+using Eto;
 using Eto.Forms;
 using System;
 using System.Globalization;
@@ -18,7 +19,7 @@ namespace App.AdventureMaker.Windows
 			CultureInfo.CurrentCulture = english;
 			CultureInfo.CurrentUICulture = english;
 
-			//new Application(Platforms.WinForms).Run(new MainWindow());
+			new Application(Platforms.WinForms).Run(new MainWindow());
 		}
 	}
 }

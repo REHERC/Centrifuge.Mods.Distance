@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="publish\**" />
+    <EmbeddedResource Remove="publish\**" />
+    <None Remove="publish\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Eto.Forms" Version="2.5.8" />
     <PackageReference Include="Eto.Platform.Gtk" Version="2.5.8" />
   </ItemGroup>
