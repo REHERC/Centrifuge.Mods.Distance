@@ -1,6 +1,4 @@
-﻿#pragma warning disable IDE0052
-
-using App.CustomDeathMessages.Core.Forms;
+﻿using App.CustomDeathMessages.Core.Forms;
 using Eto.Forms;
 using System;
 
