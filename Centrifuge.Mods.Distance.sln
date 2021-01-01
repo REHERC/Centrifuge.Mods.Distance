@@ -159,11 +159,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.ChristmasSeasonalF
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.ChristmasSeasonalFeatures.Content", "Distance.ChristmasSeasonalFeatures.Content\Distance.ChristmasSeasonalFeatures.Content.shproj", "{CCCA412E-616C-49D3-80A6-A0111B879118}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distance.Mods", "Distance.Mods", "{0FC121F4-6F94-4C7D-A2B5-D92AC9CC91A6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distance Mods", "Distance Mods", "{0FC121F4-6F94-4C7D-A2B5-D92AC9CC91A6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution.Tasks", "Solution.Tasks", "{EA2993F1-0B88-4CF0-9672-9693917673DC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Tasks", "Solution Tasks", "{EA2993F1-0B88-4CF0-9672-9693917673DC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distance.Apps", "Distance.Apps", "{1AB34F43-0922-4552-8750-6A29B046EB72}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distance Apps", "Distance Apps", "{1AB34F43-0922-4552-8750-6A29B046EB72}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Anolytics", "Anolytics", "{E2A79B1C-F407-4B1D-8D8E-80BC5F58BBE2}"
 EndProject
