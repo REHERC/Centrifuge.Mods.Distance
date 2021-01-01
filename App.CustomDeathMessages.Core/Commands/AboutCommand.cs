@@ -19,7 +19,7 @@ namespace App.CustomDeathMessages.Core.Commands
 		{
 			base.OnExecuted(e);
 
-			using var dialog = new AboutWindow();
+			using AboutWindow dialog = new AboutWindow();
 			dialog.ShowModal(form_);
 		}
 	}
