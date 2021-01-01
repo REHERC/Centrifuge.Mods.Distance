@@ -6,7 +6,9 @@
   "ModuleFileName": "Distance.AdventureMaker.dll",
   "Priority": 10,
   "SkipLoad": false,
-  "Dependencies": [],
+    "Dependencies": [
+        "SharpCompress.dll"
+    ],
   "RequiredGSLs": [
     "com.github.reherc/Centrifuge.Distance"
   ]

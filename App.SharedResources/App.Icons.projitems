@@ -26,7 +26,7 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Details.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Startup.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Package.ico" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\ZipFIle.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\ZipFile.ico" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\SaveAs.ico" />

@@ -69,6 +69,9 @@
     <Reference Include="Reactor.API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Centrifuge.Mod.SDK.3.2.0\lib\net35\Reactor.API.dll</HintPath>
     </Reference>
+    <Reference Include="SharpCompress, Version=0.24.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCompress.0.24.0\lib\net35\SharpCompress.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -109,6 +112,7 @@ CALL :MAKEDIR "%25MOD%25"
 
 CALL :COPYDIR "%25INCLUDE%25\Mod" "%25MOD%25"
 CALL :COPY "%25BUILD%25Distance.AdventureMaker.dll" "%25MOD%25"
+CALL :INCLUDEDEPENDENCY SharpCompress
 
 CALL :INCLUDEGSL Centrifuge.Distance
 

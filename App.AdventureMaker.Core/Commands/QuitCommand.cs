@@ -1,15 +1,15 @@
 ﻿using Eto.Forms;
 
-namespace App.CustomDeathMessages.Core.Commands
+namespace App.AdventureMaker.Core.Commands
 {
-	public class RunGameCommand : Command
+	public class QuitCommand : Command
 	{
-		public RunGameCommand()
+		public QuitCommand()
 		{
-			MenuText = "&Run";
-			ToolBarText = "Run";
-			Image = Resources.GetIcon("Run.ico");
-			Shortcut = Application.Instance.CommonModifier | Keys.F5;
+			MenuText = "&Quit";
+			ToolBarText = "Quit";
+			Image = Resources.GetIcon("Delete.ico");
+			Shortcut = Application.Instance.CommonModifier | Keys.Q;
 		}
 	}
 }

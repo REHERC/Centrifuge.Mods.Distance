@@ -1,4 +1,6 @@
-﻿using Eto.Drawing;
+﻿using App.AdventureMaker.Core.Menus;
+using App.AdventureMaker.Core.Views;
+using Eto.Drawing;
 using Eto.Forms;
 
 namespace App.AdventureMaker.Core.Forms
@@ -12,6 +14,11 @@ namespace App.AdventureMaker.Core.Forms
 			ClientSize = new Size(640, 480);
 			Icon = Resources.GetIcon("App.ico");
 			Title = Name;
+
+			ToolBar = new MainToolbar();
+			Menu = new MainMenu();
+
+			Content = new MainView();
 		}
 
 		public MainWindow()
