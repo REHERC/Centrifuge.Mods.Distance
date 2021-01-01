@@ -10,6 +10,15 @@
 	},
 	"mods": [
 		{
+			"id": "eu.vddcore/Distance.AdventureMaker",
+			"manifest": "Distance.AdventureMaker.Content/Mod/mod.json",
+			"thumbnail": "Thumbnails/Distance.AdventureMaker.png",
+			"release": "Distance.Adventure.Maker.zip",
+			"tools": [
+				"com.github.reherc/Distance.AdventureMaker.Editor"
+			]
+		},
+		{
 			"id": "eu.vddcore/Distance.Anolytics",
 			"manifest": "Distance.Anolytics.Content/Mod/mod.json",
 			"thumbnail": "Thumbnails/Distance.Anolytics.png",
@@ -110,6 +119,12 @@
 		}
 	],
 	"tools": [
+		{
+			"id": "com.github.reherc/Distance.AdventureMaker.Editor",
+			"manifest": "App.AdventureMaker.Core/tool.json",
+			"thumbnail": "Thumbnails/App.AdventureMaker.Editor.png",
+			"release": "Distance.Adventure.Maker.Editor.zip"
+		},
 		{
 			"id": "com.github.reherc/Distance.CustomDeathMessages.Editor",
 			"manifest": "App.CustomDeathMessages.Core/tool.json",

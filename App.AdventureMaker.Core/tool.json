@@ -1,0 +1,16 @@
+﻿{
+	"FriendlyName": "Custom Campaign Editor",
+	"Description": "Create your own campaigns.",
+	"Author": "Reherc",
+	"Contact": "Github: @REHERC",
+	"SupportedPlatforms": [
+		{
+			"Identifier": "win-x86",
+			"Executable": "win-x86/App.AdventureMaker.Windows"
+		},
+		{
+			"Identifier": "linux-x64",
+			"Executable": "linux-x64/App.AdventureMaker.Linux"
+		}
+	]
+}

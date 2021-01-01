@@ -9,10 +9,6 @@
 			"Executable": "win-x86/App.CustomDeathMessages.Windows"
 		},
 		{
-			"Identifier": "win-x64",
-			"Executable": "win-x64/App.CustomDeathMessages.Windows"
-		},
-		{
 			"Identifier": "linux-x64",
 			"Executable": "linux-x64/App.CustomDeathMessages.Linux"
 		}
