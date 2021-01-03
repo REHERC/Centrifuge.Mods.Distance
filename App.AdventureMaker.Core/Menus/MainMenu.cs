@@ -1,11 +1,12 @@
 ﻿using App.AdventureMaker.Core.Commands;
+using App.AdventureMaker.Core.Forms;
 using Eto.Forms;
 
 namespace App.AdventureMaker.Core.Menus
 {
 	public class MainMenu : MenuBar
 	{
-		public MainMenu()
+		public MainMenu(MainWindow form)
 		{
 			ApplicationItems.Add(new NewFileCommand());
 			ApplicationItems.Add(new OpenFileCommand());
@@ -24,7 +25,7 @@ namespace App.AdventureMaker.Core.Menus
 			ApplicationItems.Add(new SeparatorMenuItem());
 			ApplicationItems.Add(new SettingsCommand());
 			ApplicationItems.Add(new SeparatorMenuItem());
-			ApplicationItems.Add(new QuitCommand());
+			ApplicationItems.Add(new QuitCommand(form));
 
 
 			HelpItems.Add(new AboutCommand());

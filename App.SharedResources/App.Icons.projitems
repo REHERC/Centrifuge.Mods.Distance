@@ -17,7 +17,7 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\App.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\CheckBlue.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\CheckGreen.ico" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\ClogeGray.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\CloseGray.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\CloseRed.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Details.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\DownBlue.ico" />

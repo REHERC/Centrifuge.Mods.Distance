@@ -1,5 +1,6 @@
 ﻿using Eto.Drawing;
 using System.IO;
+using System.Linq;
 
 public static class Resources
 {
@@ -9,9 +10,20 @@ public static class Resources
 	{
 		return typeof(Resources).Assembly.GetManifestResourceStream(name);
 	}
-	public static Icon GetIcon(string iconName)
+	public static Icon GetIcon(string iconName, int size = -1)
 	{
-		return Icon.FromResource($"{ResourcesRoot}.Resources.Icons.{iconName}");
+		Icon ico = Icon.FromResource($"{ResourcesRoot}.Resources.Icons.{iconName}");
+
+		if (size == -1)
+		{
+			return ico;
+		}
+		else
+		{
+			Bitmap bmp = (from frame in ico.Frames where Equals(frame.PixelSize, new Size(size, size)) select frame.Bitmap).FirstOrDefault();
+
+			return new Icon(1, bmp ?? ico.Frames.ToArray()[0].Bitmap);
+		}
 	}
 
 	public static Bitmap GetImage(string iconName)

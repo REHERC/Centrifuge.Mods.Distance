@@ -16,7 +16,7 @@ namespace App.AdventureMaker.Core.Forms
 			Title = Name;
 
 			ToolBar = new MainToolbar();
-			Menu = new MainMenu();
+			Menu = new MainMenu(this);
 
 			Content = new MainView();
 		}

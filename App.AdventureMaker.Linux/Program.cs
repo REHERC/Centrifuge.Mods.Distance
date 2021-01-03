@@ -22,7 +22,7 @@ namespace App.AdventureMaker.Linux
 
 			Styles.ApplyAll();
 
-			new Application(Platforms.WinForms).Run(new MainWindow());
+			new Application(Platforms.Gtk).Run(new MainWindow());
 		}
 	}
 }

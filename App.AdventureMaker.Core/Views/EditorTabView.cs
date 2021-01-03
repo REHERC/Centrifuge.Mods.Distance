@@ -7,16 +7,20 @@ namespace App.AdventureMaker.Core.Views
 	{
 		public EditorTabView()
 		{
-			AddPage("Overview", new OverviewPage());
+			AddPage("Overview", new OverviewPage(), scrollable: true);
+			AddPage("Level Sets", new LevelSetsPage(), scrollable: false);
 		}
 
-
-		protected int AddPage(string title, Control content)
+		protected int AddPage(string title, Control content, bool scrollable = false)
 		{
+
+			Panel host = scrollable ? new Scrollable() : new Panel();
+			host.Content = content;
+
 			Pages.Add(new TabPage()
 			{
 				Text = title,
-				Content = content
+				Content = host
 			});
 
 			return Pages.Count - 1;
