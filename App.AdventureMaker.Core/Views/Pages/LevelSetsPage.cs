@@ -5,6 +5,7 @@ namespace App.AdventureMaker.Core.Views.Pages
 {
 	public class LevelSetsPage : TableLayout
 	{
+		// TODO: Move level sets list from the left to a new class
 		public LevelSetsPage()
 		{
 			// BackgroundColor = Colors.SlateGray;
