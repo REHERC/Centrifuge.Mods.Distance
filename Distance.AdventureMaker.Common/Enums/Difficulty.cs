@@ -2,11 +2,13 @@
 {
 	public enum Difficulty : byte
 	{
+		None,
 		Casual,
 		Normal,
 		Advanced,
 		Expert,
 		Nightmare,
-		None
+		Traumatizing,
+		Impossible,
 	}
 }

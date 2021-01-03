@@ -7,6 +7,7 @@ namespace App.AdventureMaker.Core.Views.Pages
 	{
 		public OverviewPage()
 		{
+			
 			AddRow("Campaign title:", new TextBox());
 			AddRow("Description:", new TextBox());
 			AddRow("Author:", new TextBox());

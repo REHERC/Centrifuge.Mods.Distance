@@ -8,6 +8,7 @@ namespace App.AdventureMaker.Core.Views.Pages
 		{
 			TableRow row = new TableRow()
 			{
+				ScaleHeight = false,
 				Cells =
 				{
 					new TableCell(new Label()
