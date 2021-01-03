@@ -10,12 +10,10 @@ namespace App.AdventureMaker.Core.Menus
 			ApplicationItems.Add(new NewFileCommand());
 			ApplicationItems.Add(new OpenFileCommand());
 			ApplicationItems.Add(new SaveFileCommand());
-			ApplicationItems.Add(new SaveAsFileCommand());
 			ApplicationItems.Add(new SeparatorMenuItem());
-			ApplicationItems.Add(new RunGameCommand());
 			ApplicationItems.Add(new ButtonMenuItem()
 			{
-				Text = "Packaging",
+				Text = "&Import / Export",
 				Image = Resources.GetIcon("Package.ico"),
 				Items =
 				{
@@ -23,11 +21,25 @@ namespace App.AdventureMaker.Core.Menus
 					new ExportFileCommand()
 				}
 			});
+			ApplicationItems.Add(new SeparatorMenuItem());
 			ApplicationItems.Add(new SettingsCommand());
 			ApplicationItems.Add(new SeparatorMenuItem());
 			ApplicationItems.Add(new QuitCommand());
 
+
 			HelpItems.Add(new AboutCommand());
+
+
+			Items.Add(new ButtonMenuItem()
+			{
+				Text = "&Project",
+				Items =
+				{
+					new RunGameCommand(),
+					new CheckFilesCommand(),
+					new ProjectFolderCommand()
+				}
+			});
 		}
 	}
 }

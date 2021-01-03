@@ -6,8 +6,8 @@ namespace App.AdventureMaker.Core.Commands
 	{
 		public RunGameCommand()
 		{
-			MenuText = "&Run";
-			ToolBarText = "Run";
+			MenuText = "&Run Preview";
+			ToolBarText = "Run Preview";
 			Image = Resources.GetIcon("Run.ico");
 			Shortcut = Application.Instance.CommonModifier | Keys.F5;
 		}

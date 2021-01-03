@@ -8,7 +8,7 @@ namespace App.AdventureMaker.Core.Commands
 		{
 			MenuText = "&Export";
 			ToolBarText = "Export";
-			Image = Resources.GetIcon("ZipFile.ico");
+			Shortcut = Application.Instance.CommonModifier | Keys.Shift | Keys.E;
 		}
 	}
 }

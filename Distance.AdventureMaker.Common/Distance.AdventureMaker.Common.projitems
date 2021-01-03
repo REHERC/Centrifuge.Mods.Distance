@@ -9,5 +9,6 @@
     <Import_RootNamespace>Distance.AdventureMaker.Common</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\Difficulty.cs" />
   </ItemGroup>
 </Project>

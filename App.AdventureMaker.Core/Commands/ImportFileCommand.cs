@@ -8,7 +8,7 @@ namespace App.AdventureMaker.Core.Commands
 		{
 			MenuText = "&Import";
 			ToolBarText = "Import";
-			Image = Resources.GetIcon("LinkedFolder.ico");
+			Shortcut = Application.Instance.CommonModifier | Keys.Shift | Keys.I;
 		}
 	}
 }

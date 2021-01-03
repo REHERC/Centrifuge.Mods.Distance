@@ -8,7 +8,7 @@ namespace App.AdventureMaker.Core.Commands
 		{
 			MenuText = "&Quit";
 			ToolBarText = "Quit";
-			Image = Resources.GetIcon("Delete.ico");
+			Image = Resources.GetIcon("CloseRed.ico");
 			Shortcut = Application.Instance.CommonModifier | Keys.Q;
 		}
 	}
