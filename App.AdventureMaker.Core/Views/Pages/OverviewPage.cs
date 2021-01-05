@@ -1,4 +1,5 @@
-﻿using Distance.AdventureMaker.Common.Enums;
+﻿using App.AdventureMaker.Core.Controls;
+using Distance.AdventureMaker.Common.Enums;
 using Eto.Forms;
 using System;
 
@@ -26,7 +27,7 @@ namespace App.AdventureMaker.Core.Views.Pages
 			AddRow("Contact", contactBox);
 			AddRow("Difficulty rating", new EnumDropDown<Difficulty>());
 			AddRow("Development build", new CheckBox());
-			AddRow("Project unique ID", new Label() { Text = Guid.NewGuid().ToString() });
+			AddRow("Project unique ID", new GuidLabel() { Text = Guid.NewGuid().ToString() });
 			CompleteRows();
 		}
 	}
