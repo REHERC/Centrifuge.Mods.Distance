@@ -13,7 +13,17 @@ namespace App.AdventureMaker.Core.Views
 				TextAlignment = TextAlignment.Right
 			};
 
-			label.MouseDown += (sender, e) => content.Focus();
+			label.MouseDown += (sender, e) =>
+			{
+				content.Focus();
+				/*switch (content)
+				{
+					case CheckBox checkbox:
+						checkbox.Checked = !checkbox.Checked;
+						break;
+				}*/
+			};
+			
 
 			TableRow row = new TableRow()
 			{

@@ -8,12 +8,11 @@ namespace App.AdventureMaker.Core.Views
 		public EditorTabView()
 		{
 			AddPage("Overview", new OverviewPage(), scrollable: true);
-			AddPage("Level Sets", new LevelSetsPage(), scrollable: false);
+			AddPage("Level Sets", new LevelSetsPage(), scrollable: true);
 		}
 
 		protected int AddPage(string title, Control content, bool scrollable = false)
 		{
-
 			Panel host = scrollable ? new Scrollable() : new Panel();
 			host.Content = content;
 
