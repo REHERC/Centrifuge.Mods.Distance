@@ -10,5 +10,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Difficulty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factory\CampaignFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CampaignData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CampaignFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CampaignLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CampaignMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CampaignPlaylist.cs" />
   </ItemGroup>
 </Project>
