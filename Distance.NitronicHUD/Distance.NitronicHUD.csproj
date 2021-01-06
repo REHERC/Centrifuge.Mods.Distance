@@ -99,7 +99,6 @@
     <Compile Include="Scripts\VisualCountdown.cs" />
     <Compile Include="Scripts\VisualDisplay.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

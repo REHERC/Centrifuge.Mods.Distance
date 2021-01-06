@@ -258,11 +258,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Json", "Json", "{57C5ADB0-D
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Json.Common", "Json.Common\Json.Common.shproj", "{755CB009-36FB-47E4-91FA-3D9A378FA7E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game Support", "Game Support", "{4DA6AF01-8F55-48AF-8044-9C0C10E8F797}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Centrifuge Game Support", "Centrifuge Game Support", "{4DA6AF01-8F55-48AF-8044-9C0C10E8F797}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centrifuge.Distance", "Centrifuge.Distance\Centrifuge.GameSupport.Distance\Centrifuge.Distance.csproj", "{C0573B40-FE3F-4E65-BB05-CC143A10A700}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Centrifuge.Distance.Shared", "Centrifuge.Distance\Centrifuge.GameSupport.Distance.Shared\Centrifuge.Distance.Shared.shproj", "{E4AC586E-AD6D-43A8-A0CB-AA4D2D6FE578}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -293,7 +291,6 @@ Global
 		Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
 		Json.Common\Json.Common.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
 		Distance.EditorAdditions.Content\Distance.EditorAdditions.Content.projitems*{e2e4ac75-d500-4d5d-a706-613a3df688e3}*SharedItemsImports = 13
-		Centrifuge.Distance\Centrifuge.GameSupport.Distance.Shared\Centrifuge.Distance.Shared.projitems*{e4ac586e-ad6d-43a8-a0cb-aa4d2d6fe578}*SharedItemsImports = 13
 		Distance.SceneDumper.Content\Distance.SceneDumper.Content.projitems*{e84718c2-200c-415f-ad1d-0cc133c38e70}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -593,7 +590,6 @@ Global
 		{57C5ADB0-DA6A-4823-957E-4EA94F8385A9} = {E48EFDD5-0C0F-461E-A411-6EB459050E7E}
 		{755CB009-36FB-47E4-91FA-3D9A378FA7E8} = {57C5ADB0-DA6A-4823-957E-4EA94F8385A9}
 		{C0573B40-FE3F-4E65-BB05-CC143A10A700} = {4DA6AF01-8F55-48AF-8044-9C0C10E8F797}
-		{E4AC586E-AD6D-43A8-A0CB-AA4D2D6FE578} = {4DA6AF01-8F55-48AF-8044-9C0C10E8F797}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C475AB02-6F97-4575-9527-2F31F5AF847C}

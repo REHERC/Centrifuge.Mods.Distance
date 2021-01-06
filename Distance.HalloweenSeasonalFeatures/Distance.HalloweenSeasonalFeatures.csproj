@@ -101,9 +101,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Harmony\Assembly-CSharp\HalloweenAudioLogic\RandomGlitches.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>SET MODNAME=Distance Halloween Seasonal Features
