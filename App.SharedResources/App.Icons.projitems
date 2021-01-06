@@ -25,7 +25,6 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Event.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\FolderBottom.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\FolderCheck.ico" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\FolderClosed.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\FolderClosedGray.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\FolderOpened.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\FolderOpenedGray.ico" />
@@ -50,5 +49,8 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\UpGray.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Wfc.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\ZipFile.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Icons\FolderClosed.ico" />
   </ItemGroup>
 </Project>
