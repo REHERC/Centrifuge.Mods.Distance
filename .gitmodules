@@ -1,0 +1,3 @@
+[submodule "Centrifuge.Distance"]
+	path = Centrifuge.Distance
+	url = https://github.com/REHERC/Centrifuge.Distance.git
