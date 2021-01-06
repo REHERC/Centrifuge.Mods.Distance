@@ -28,7 +28,8 @@ namespace App.AdventureMaker.Core.Views.Pages
 			AddRow("Difficulty rating", new EnumDropDown<Difficulty>());
 			AddRow("Development build", new CheckBox());
 			AddRow("Project unique ID", new GuidLabel() { Text = Guid.NewGuid().ToString() });
-			CompleteRows();
+			
+			CompleteRows(DefaultSpacing);
 		}
 	}
 }
