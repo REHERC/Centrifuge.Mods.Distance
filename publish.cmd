@@ -1,46 +1,42 @@
 @ECHO OFF
 PUSHD %~dp0
+SETLOCAL EnableDelayedExpansion
 
-REM ===== COMPILE =====
-REM Adventure Maker App
-PUSHD App.AdventureMaker.Windows
-dotnet publish -p:PublishProfile=Properties\PublishProfiles\win-x86.pubxml -o:publish\win-x86
-POPD
-PUSHD App.AdventureMaker.Linux
-dotnet publish -p:PublishProfile=Properties\PublishProfiles\linux-x64.pubxml -o:publish\linux-x64
-POPD
-REM Custom Death Messages App
-PUSHD App.CustomDeathMessages.Windows
-dotnet publish -p:PublishProfile=Properties\PublishProfiles\win-x86.pubxml -o:publish\win-x86
-POPD
-PUSHD App.CustomDeathMessages.Linux
-dotnet publish -p:PublishProfile=Properties\PublishProfiles\linux-x64.pubxml -o:publish\linux-x64
-POPD
-
-REM ===== BUNDLE =====
 SET PACKAGES=%CD%\Build
-CALL :MAKEDIR %PACKAGES%
 
-REM Adventure Maker App
-SET APPNAME=Distance Adventure Maker - Editor
-SET TARGET=%PACKAGES%\%APPNAME%
+CALL :BUILD_APP "AdventureMaker" "Distance Adventure Maker - Editor"
+CALL :BUILD_APP "CustomDeathMessages" "Distance Custom Death Messages - Editor"
 
-CALL :MAKEDIR %PACKAGES%\%APPNAME%
-CALL :COPYDIR "%CD%\App.AdventureMaker.Windows\publish\win-x86" "%TARGET%\win-x86"
-CALL :COPYDIR "%CD%\App.AdventureMaker.Linux\publish\linux-x64" "%TARGET%\linux-x64"
-
-REM Custom Death Messages App
-SET APPNAME=Distance Custom Death Messages - Editor
-SET TARGET=%PACKAGES%\%APPNAME%
-
-CALL :MAKEDIR %PACKAGES%\%APPNAME%
-CALL :COPYDIR "%CD%\App.CustomDeathMessages.Windows\publish\win-x86" "%TARGET%\win-x86"
-CALL :COPYDIR "%CD%\App.CustomDeathMessages.Linux\publish\linux-x64" "%TARGET%\linux-x64"
-
-POPD
 GOTO :EOF
 
 REM ===== BUILD SUBROUTINES  =====
+
+:BUILD_APP
+SET PROJECT=%2
+SET PROJECT=%PROJECT:~1,-1%
+
+SET OUTPUT=%1
+SET OUTPUT=%OUTPUT:~1,-1%
+
+REM BUILD
+ECHO Building %PROJECT%...
+PUSHD "App.%OUTPUT%.Windows
+dotnet publish -p:PublishProfile=Properties\PublishProfiles\win-x86.pubxml -o:publish\win-x86
+POPD
+PUSHD "App.%OUTPUT%.Linux
+dotnet publish -p:PublishProfile=Properties\PublishProfiles\linux-x64.pubxml -o:publish\linux-x64
+POPD
+REM PACKAGING
+ECHO Packaging %PROJECT%...
+SET TARGET=%PACKAGES%\%PROJECT%
+ECHO Target: %TARGET%
+CALL :MAKEDIR %PACKAGES%\%APPNAME%
+CALL :COPYDIR "%CD%\App.%OUTPUT%.Windows\publish\win-x86" "%TARGET%\win-x86"
+CALL :COPYDIR "%CD%\App.%OUTPUT%.Linux\publish\linux-x64" "%TARGET%\linux-x64"
+
+GOTO :EOF
+
+REM =====  UTIL SUBROUTINES  =====
 
 :MAKEDIR
 IF NOT EXIST %1 MKDIR %1
