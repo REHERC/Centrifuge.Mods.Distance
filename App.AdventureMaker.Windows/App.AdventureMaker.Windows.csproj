@@ -18,12 +18,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Eto.Forms" Version="2.5.8" />
-    <PackageReference Include="Eto.Platform.Windows" Version="2.5.8" />
+    <PackageReference Include="Eto.Forms" Version="2.5.9" />
+    <PackageReference Include="Eto.Platform.Windows" Version="2.5.9" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\App.AdventureMaker.Core\App.AdventureMaker.Core.csproj" />
   </ItemGroup>
+
+  <Import Project="..\WindowsAppStyles.cs\WindowsAppStyles.cs.projitems" Label="Shared" />
 
 </Project>

@@ -13,11 +13,9 @@ namespace App.AdventureMaker.Core.Views.Pages
 			{
 				Cells =
 				{
-					new TableCell()
-					{
-						Control = new LevelSetsView()
-					},
-					new TableCell(new Label() { Text = "Levels are displayed here."})
+					new TableCell(new LevelSetsView()),
+					new TableCell(new LevelSetsPropertiesView()),
+					//new TableCell(new Label() { Text = "Levels are displayed here."})
 				}
 			};
 

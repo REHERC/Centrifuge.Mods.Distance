@@ -1,5 +1,4 @@
 ﻿using Eto.Forms;
-using System;
 
 namespace App.AdventureMaker.Core.Controls
 {
@@ -12,13 +11,8 @@ namespace App.AdventureMaker.Core.Controls
 		}
 
 		public TextBoxWithButton() : base(new TextBox())
-		{
+		{ 
 			Button.Text = "...";
-		}
-
-		protected override void OnButtonClicked()
-		{
-			Text = Guid.NewGuid().ToString();
 		}
 	}
 }

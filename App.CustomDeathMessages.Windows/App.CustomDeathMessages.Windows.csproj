@@ -26,4 +26,5 @@
   <ItemGroup>
     <ProjectReference Include="..\App.CustomDeathMessages.Core\App.CustomDeathMessages.Core.csproj" />
   </ItemGroup>
+  <Import Project="..\WindowsAppStyles.cs\WindowsAppStyles.cs.projitems" Label="Shared" />
 </Project>

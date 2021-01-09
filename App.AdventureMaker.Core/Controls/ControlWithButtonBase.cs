@@ -1,7 +1,10 @@
-﻿using Eto.Forms;
+﻿using Eto.Drawing;
+using Eto.Forms;
+using System;
 
 namespace App.AdventureMaker.Core.Controls
 {
+	// TODO: move to private inner class and make current class wrap around to set proper spacing (winforms only)
 	public class ControlWithButtonBase<T> : StackLayout where T : Control
 	{
 		protected T Control { get; private set; }
@@ -24,18 +27,34 @@ namespace App.AdventureMaker.Core.Controls
 		{
 			Style = "no-padding";
 
-			Control = control;
+			Padding = Padding.Empty;
 
+			Control = control;
+			
 			Button = new Button();
 			Button.Click += (sender, e) => OnButtonClicked();
 
 			Orientation = Orientation.Horizontal;
-			VerticalContentAlignment = VerticalAlignment.Center;
+			VerticalContentAlignment = VerticalAlignment.Top;
 
 			Items.Add(new StackLayoutItem(Control) { Expand = true });
 			Items.Add(new StackLayoutItem(Button) { Expand = false });
 
-			this.GotFocus += (sender, e) => Button.Focus();
+			Spacing = 0;
+		}
+
+		protected override void OnGotFocus(EventArgs e)
+		{
+			base.OnGotFocus(e);
+			Button.Focus();
+		}
+
+		protected override void OnShown(EventArgs e)
+		{
+			base.OnShown(e);
+
+			Height = Math.Max(Control.Height, Button.Height);
+			Button.Height = Math.Min(Button.Height, Control.Height);
 		}
 
 		protected virtual void OnButtonClicked() { }

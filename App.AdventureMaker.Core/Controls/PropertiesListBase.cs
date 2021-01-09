@@ -3,11 +3,11 @@ using Eto.Forms;
 
 namespace App.AdventureMaker.Core.Controls
 {
-	public abstract class PropertiesListBase : TableLayout
+	public class PropertiesListBase : TableLayout
 	{
 		protected static readonly Size DefaultSpacing = new Size(8, 8);
 
-		protected T AddRow<T>(string title, T content) where T : Control
+		public T AddRow<T>(string title, T content) where T : Control
 		{
 			Label label = new Label()
 			{
@@ -43,9 +43,9 @@ namespace App.AdventureMaker.Core.Controls
 			return content;
 		}
 
-		protected void CompleteRows() => CompleteRows(Size.Empty);
+		public void CompleteRows() => CompleteRows(Size.Empty);
 
-		protected void CompleteRows(Size spacing)
+		public void CompleteRows(Size spacing)
 		{
 			Spacing = spacing;
 			Rows.Add(new TableRow());

@@ -268,6 +268,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centrifuge.Distance", "Cent
 		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WindowsAppStyles", "WindowsAppStyles", "{BBF3720B-8B5B-4001-8DC6-738422BAF2FA}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "WindowsAppStyles", "WindowsAppStyles.cs\WindowsAppStyles.shproj", "{1FCA9BC2-9356-49E1-AAC1-66E37A6839E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RunHarmonyPatches", "RunHarmonyPatches", "{18A1E5D8-71B0-41DD-8B01-8743F351A49B}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RunHarmonyPatches", "RunHarmonyPatches\RunHarmonyPatches.shproj", "{4C854D11-2B63-4CB3-BFBF-4BCC37F4B35C}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{02cd7385-b155-4974-843d-9d0dd6bbfbe5}*SharedItemsImports = 13
@@ -278,15 +286,19 @@ Global
 		Distance.NoEditorNumberLimits.Content\Distance.NoEditorNumberLimits.Content.projitems*{12b05bfd-73ca-4b5c-a258-ef142c21066a}*SharedItemsImports = 13
 		Distance.Anolytics.Content\Distance.Anolytics.Content.projitems*{19f17209-4a5c-43e2-86dc-cce76dba5c23}*SharedItemsImports = 13
 		Distance.NitronicHUD.Content\Distance.NitronicHUD.Content.projitems*{1b79abb1-9caa-41f4-a88a-d84524e8f25a}*SharedItemsImports = 13
+		WindowsAppStyles.cs\WindowsAppStyles.cs.projitems*{1fca9bc2-9356-49e1-aac1-66e37a6839e7}*SharedItemsImports = 13
 		App.SharedResources\App.Icons.projitems*{23fb61ff-77b2-4088-9f17-3db7a93d5abc}*SharedItemsImports = 5
+		RunHarmonyPatches\RunHarmonyPatches.projitems*{4c854d11-2b63-4cb3-bfbf-4bcc37f4b35c}*SharedItemsImports = 13
 		Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.projitems*{57657ebc-1f29-4357-b4ef-45b2b22f5a3f}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
 		App.SharedResources\App.Icons.projitems*{5a8f08f8-dee7-412a-95a8-3dc81f72f50e}*SharedItemsImports = 13
 		Json.Common\Json.Common.projitems*{755cb009-36fb-47e4-91fa-3d9a378fa7e8}*SharedItemsImports = 13
 		Distance.Heat.Content\Distance.Heat.Content.projitems*{7f00b47c-1cb4-4d7d-96ab-3cfd23b03ace}*SharedItemsImports = 13
 		Distance.MenuUtilities.Content\Distance.MenuUtilities.Content.projitems*{878494b6-cd3f-4d65-82e1-c250887fe8ba}*SharedItemsImports = 13
+		WindowsAppStyles.cs\WindowsAppStyles.cs.projitems*{98584710-e489-4ca3-a228-ca0db7af4c1e}*SharedItemsImports = 5
 		Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.projitems*{a26d9216-daea-4876-a182-70df4ff5997b}*SharedItemsImports = 13
 		Distance.DecorativeLamp.Content\Distance.DecorativeLamp.Content.projitems*{a7ee87a2-a395-4018-a8c0-b12b44005e52}*SharedItemsImports = 13
+		WindowsAppStyles.cs\WindowsAppStyles.cs.projitems*{aee4b99d-c164-4495-aee2-94ce4dbaafdd}*SharedItemsImports = 5
 		Repository.Metadata\Repository.Metadata.projitems*{af094e78-872d-4473-9c5f-063c6640f94e}*SharedItemsImports = 13
 		Distance.CustomCar.Content\Distance.CustomCar.Content.projitems*{b250cc3f-e2f1-40e6-8a89-5ad23d54c019}*SharedItemsImports = 13
 		Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.projitems*{b3f55581-78bd-4ba4-bb36-d80f3716dbe4}*SharedItemsImports = 4
@@ -596,6 +608,10 @@ Global
 		{57C5ADB0-DA6A-4823-957E-4EA94F8385A9} = {E48EFDD5-0C0F-461E-A411-6EB459050E7E}
 		{755CB009-36FB-47E4-91FA-3D9A378FA7E8} = {57C5ADB0-DA6A-4823-957E-4EA94F8385A9}
 		{C0573B40-FE3F-4E65-BB05-CC143A10A700} = {4DA6AF01-8F55-48AF-8044-9C0C10E8F797}
+		{BBF3720B-8B5B-4001-8DC6-738422BAF2FA} = {E48EFDD5-0C0F-461E-A411-6EB459050E7E}
+		{1FCA9BC2-9356-49E1-AAC1-66E37A6839E7} = {BBF3720B-8B5B-4001-8DC6-738422BAF2FA}
+		{18A1E5D8-71B0-41DD-8B01-8743F351A49B} = {E48EFDD5-0C0F-461E-A411-6EB459050E7E}
+		{4C854D11-2B63-4CB3-BFBF-4BCC37F4B35C} = {18A1E5D8-71B0-41DD-8B01-8743F351A49B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C475AB02-6F97-4575-9527-2F31F5AF847C}
