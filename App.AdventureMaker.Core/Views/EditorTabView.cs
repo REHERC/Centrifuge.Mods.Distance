@@ -1,9 +1,9 @@
-﻿using App.AdventureMaker.Core.Views.Pages;
-using Eto.Forms;
+﻿using App.AdventureMaker.Core.Controls;
+using App.AdventureMaker.Core.Views.Pages;
 
 namespace App.AdventureMaker.Core.Views
 {
-	public class EditorTabView : TabControl
+	public class EditorTabView : ExtendedTabControl
 	{
 		public EditorTabView()
 		{
@@ -13,20 +13,6 @@ namespace App.AdventureMaker.Core.Views
 			AddPage("Editor Prefabs", null, scrollable: true);
 			AddPage("Audio Engine", null, scrollable: true);
 			AddPage("Resources", null, scrollable: true);
-		}
-
-		protected int AddPage(string title, Control content, bool scrollable = false)
-		{
-			Panel host = scrollable ? new Scrollable() : new Panel();
-			host.Content = content;
-
-			Pages.Add(new TabPage()
-			{
-				Text = title,
-				Content = host
-			});
-
-			return Pages.Count - 1;
 		}
 	}
 }

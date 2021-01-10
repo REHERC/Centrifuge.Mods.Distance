@@ -18,6 +18,9 @@ namespace Distance.AdventureMaker.Common.Models
 		[JsonProperty]
 		public string icon;
 
+		
+
+
 		[JsonProperty]
 		public List<CampaignLevel> levels;
 

@@ -1,4 +1,5 @@
 ﻿using App.AdventureMaker.Core.Controls;
+using Distance.AdventureMaker.Common.Enums;
 using Eto.Drawing;
 using Eto.Forms;
 
@@ -19,6 +20,9 @@ namespace App.AdventureMaker.Core.Views
 			properties.AddRow("Name", new TextBox());
 			properties.AddRow("Description", new TextBox());
 			properties.AddRow("Icon", new TextBoxWithButton());
+			properties.AddRow("Playlist locking", new EnumDropDown<PlaylistUnlock>());
+			properties.AddRow("Individual level locking", new EnumDropDown<LevelUnlock>());
+			properties.AddRow("Difficulty rating", new EnumDropDown<Difficulty>());
 
 			properties.CompleteRows(new Size(8, 8));
 

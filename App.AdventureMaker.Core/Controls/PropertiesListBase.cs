@@ -26,7 +26,6 @@ namespace App.AdventureMaker.Core.Controls
 						break;
 				}*/
 			};
-			
 
 			TableRow row = new TableRow()
 			{
@@ -35,7 +34,7 @@ namespace App.AdventureMaker.Core.Controls
 				{
 					new TableCell(label),
 					new TableCell(content)
-				}
+				},
 			};
 
 			Rows.Add(row);

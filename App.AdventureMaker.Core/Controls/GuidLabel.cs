@@ -14,7 +14,7 @@ namespace App.AdventureMaker.Core.Controls
 			set => Control.Text = value;
 		}
 
-		public GuidLabel() : base(new Label())
+		public GuidLabel() : base(new Label(), VerticalAlignment.Center)
 		{
 			Control.VerticalAlignment = VerticalAlignment.Center;
 			Button.Text = "Renew";

@@ -23,24 +23,26 @@ namespace App.AdventureMaker.Core.Controls
 			set => Button.Enabled = value;
 		}
 
-		public ControlWithButtonBase(T control)
+		public ControlWithButtonBase(T control, VerticalAlignment controlAlign = VerticalAlignment.Stretch)
 		{
 			Style = "no-padding";
 
 			Padding = Padding.Empty;
 
 			Control = control;
+
+			Control.Style = "with-button";
 			
 			Button = new Button();
 			Button.Click += (sender, e) => OnButtonClicked();
 
 			Orientation = Orientation.Horizontal;
-			VerticalContentAlignment = VerticalAlignment.Top;
+			VerticalContentAlignment = VerticalAlignment.Stretch;
 
-			Items.Add(new StackLayoutItem(Control) { Expand = true });
+			Items.Add(new StackLayoutItem(Control) { Expand = true, VerticalAlignment = controlAlign });
 			Items.Add(new StackLayoutItem(Button) { Expand = false });
 
-			Spacing = 0;
+			Spacing = 8;
 		}
 
 		protected override void OnGotFocus(EventArgs e)
