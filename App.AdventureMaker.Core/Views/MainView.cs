@@ -1,17 +1,24 @@
 ﻿using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
+using System;
 using System.IO;
 
 namespace App.AdventureMaker.Core.Views
 {
 	public class MainView : Panel, IEditor<CampaignFile>
 	{
-		private readonly EditorTabView editor;
+		#region Interface Events and Members
+		public event Action<IEditor<CampaignFile>> OnFileLoaded;
+
+		public event Action<IEditor<CampaignFile>> OnFileModified;
 
 		public FileInfo CurrentFile { get; set; } = null;
 
 		public bool Modified { get; set; }
+		#endregion
+
+		private readonly EditorTabView editor;
 
 		public MainView()
 		{
