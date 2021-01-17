@@ -1,13 +1,22 @@
-﻿namespace App.AdventureMaker.Core.Interfaces
+﻿using System;
+using System.IO;
+
+namespace App.AdventureMaker.Core.Interfaces
 {
-	public interface IEditor<DATA, ROOT>
+	public interface IEditor<DATA>
 	{
-		protected ROOT DataRoot { get; set; }
+		public event Action<IEditor<DATA>> OnFileLoaded;
+		
+		public event Action<IEditor<DATA>> OnFileModified;
 
-		protected DATA Data { get; set; }
+		public FileInfo CurrentFile { get; set; }
 
-		public void Save(ref DATA data);
+		public bool Modified { get; set; }
 
-		public void Load(DATA data);
+		public void SaveFile();
+
+		public void LoadFile(FileInfo file);
+
+		public void LoadFile(string file);
 	}
 }

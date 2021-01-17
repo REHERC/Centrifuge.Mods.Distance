@@ -11,6 +11,8 @@ namespace App.AdventureMaker.Core.Controls
 
 		protected Button Button { get; private set; }
 
+		public event Action ButtonClick;
+
 		public bool ControlEnabled
 		{
 			get => Control.Enabled;
@@ -34,7 +36,11 @@ namespace App.AdventureMaker.Core.Controls
 			Control.Style = "with-button";
 			
 			Button = new Button();
-			Button.Click += (sender, e) => OnButtonClicked();
+			Button.Click += (sender, e) =>
+			{
+				OnButtonClicked();
+				ButtonClick?.Invoke();
+			};
 
 			Orientation = Orientation.Horizontal;
 			VerticalContentAlignment = VerticalAlignment.Stretch;

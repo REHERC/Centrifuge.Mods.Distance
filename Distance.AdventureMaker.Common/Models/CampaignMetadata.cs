@@ -24,6 +24,6 @@ namespace Distance.AdventureMaker.Common.Models
 		public string contact;
 
 		[JsonProperty]
-		public bool dev;
+		public bool dev_build;
 	}
 }

@@ -24,7 +24,7 @@ namespace App.AdventureMaker.Core.Views
 			properties.AddRow("Individual level locking", new EnumDropDown<LevelUnlock>());
 			properties.AddRow("Difficulty rating", new EnumDropDown<Difficulty>());
 
-			properties.CompleteRows(new Size(8, 8));
+			properties.CompleteRows();
 
 			Items.Add(new StackLayoutItem(properties) { Expand = false });
 		}

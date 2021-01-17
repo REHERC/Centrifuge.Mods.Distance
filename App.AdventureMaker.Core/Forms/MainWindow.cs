@@ -9,16 +9,17 @@ namespace App.AdventureMaker.Core.Forms
 	{
 		private const string Name = "Distance - Campaign Editor";
 
+		private MainView mainView;
+
 		private void InitializeComponent()
 		{
 			ClientSize = new Size(640, 480);
 			Icon = Resources.GetIcon("App.ico");
 			Title = Name;
 
-			ToolBar = new MainToolbar();
-			Menu = new MainMenu(this);
-
-			Content = new MainView();
+			Content = mainView = new MainView();
+			ToolBar = new MainToolbar(mainView);
+			Menu = new MainMenu(this, mainView);
 		}
 
 		public MainWindow()

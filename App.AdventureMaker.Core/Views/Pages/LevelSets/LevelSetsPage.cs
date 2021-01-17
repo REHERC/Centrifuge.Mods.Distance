@@ -1,7 +1,7 @@
 ﻿using App.AdventureMaker.Core.Controls;
 using Eto.Forms;
 
-namespace App.AdventureMaker.Core.Views.Pages
+namespace App.AdventureMaker.Core.Views
 {
 	public class LevelSetsPage : TableLayout
 	{

@@ -42,7 +42,7 @@ namespace App.AdventureMaker.Core.Controls
 			return content;
 		}
 
-		public void CompleteRows() => CompleteRows(Size.Empty);
+		public void CompleteRows() => CompleteRows(DefaultSpacing);
 
 		public void CompleteRows(Size spacing)
 		{
