@@ -10,9 +10,9 @@ namespace App.AdventureMaker.Core.Views
 	{
 		private readonly List<ISaveLoad<CampaignFile>> pages = new List<ISaveLoad<CampaignFile>>();
 
-		public EditorTabView()
+		public EditorTabView(IEditor<CampaignFile> editor)
 		{
-			AddPage("Overview", new OverviewPage(), scrollable: true);
+			AddPage("Overview", new OverviewPage(editor), scrollable: true);
 			//AddPage("Level Sets", new LevelSetsPage(), scrollable: true);
 			//AddPage("Achievements", null, scrollable: true);
 			//AddPage("Editor Prefabs", null, scrollable: true);

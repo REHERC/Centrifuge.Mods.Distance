@@ -3,7 +3,6 @@ using App.AdventureMaker.Core.Interfaces;
 //using Distance.AdventureMaker.Common.Enums;
 using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
-using System;
 
 namespace App.AdventureMaker.Core.Views
 {
@@ -18,7 +17,7 @@ namespace App.AdventureMaker.Core.Views
 		public readonly CheckBox devBuildBox;
 		public readonly GuidLabel guidBox;
 
-		public OverviewPage()
+		public OverviewPage(IEditor<CampaignFile> editor)
 		{
 			AddRow("Campaign title", titleBox = new TextBox());
 			AddRow("Description", descriptionBox = new TextBox());
@@ -29,6 +28,13 @@ namespace App.AdventureMaker.Core.Views
 			AddRow("Project unique ID", guidBox = new GuidLabel() { Text = string.Empty });
 			
 			CompleteRows();
+
+			titleBox.TextChanged += (_, __) => editor.Modified = true;
+			descriptionBox.TextChanged += (_, __) => editor.Modified = true;
+			authorBox.TextChanged += (_, __) => editor.Modified = true;
+			contactBox.TextChanged += (_, __) => editor.Modified = true;
+			devBuildBox.CheckedChanged += (_, __) => editor.Modified = true;
+			guidBox.TextChanged += (_, __) => editor.Modified = true;
 		}
 
 		void ISaveLoad<CampaignFile>.SaveData(CampaignFile project)

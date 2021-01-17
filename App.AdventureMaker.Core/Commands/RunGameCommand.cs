@@ -10,6 +10,8 @@ namespace App.AdventureMaker.Core.Commands
 			ToolBarText = "Run Preview";
 			Image = Resources.GetIcon("Run.ico");
 			Shortcut = Application.Instance.CommonModifier | Keys.F5;
+
+			Enabled = false;
 		}
 	}
 }

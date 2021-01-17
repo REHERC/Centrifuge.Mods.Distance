@@ -10,6 +10,8 @@ namespace App.AdventureMaker.Core.Commands
 			ToolBarText = "Check Files";
 			Image = Resources.GetIcon("FolderCheck.ico");
 			Shortcut = Application.Instance.CommonModifier | Keys.F6;
+
+			Enabled = false;
 		}
 	}
 }

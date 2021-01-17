@@ -18,6 +18,13 @@ namespace App.AdventureMaker.Core.Commands
 			ToolBarText = "Open Project Folder";
 			Image = Resources.GetIcon("FolderOpened.ico");
 			Shortcut = Keys.F10;
+
+			Enabled = false;
+
+			editor.OnFileLoaded += (_) =>
+			{
+				Enabled = editor.CurrentFile != null;
+			};
 		}
 
 		protected override void OnExecuted(EventArgs e)

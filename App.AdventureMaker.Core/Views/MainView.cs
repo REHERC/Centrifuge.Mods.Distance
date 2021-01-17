@@ -15,14 +15,30 @@ namespace App.AdventureMaker.Core.Views
 
 		public FileInfo CurrentFile { get; set; } = null;
 
-		public bool Modified { get; set; }
+		private bool modified_;
+		public bool Modified
+		{
+			get => modified_;
+			set
+			{
+				modified_ = value;
+				OnFileModified?.Invoke(this);
+			}
+		}
 		#endregion
 
 		private readonly EditorTabView editor;
 
 		public MainView()
 		{
-			Content = editor = new EditorTabView();
+			Content = editor = new EditorTabView(this);
+
+			OnFileLoaded += (_) =>
+			{
+				editor.Enabled = CurrentFile != null;
+			};
+
+			LoadFile(null as FileInfo);
 		}
 
 		public void SaveFile()
@@ -41,14 +57,20 @@ namespace App.AdventureMaker.Core.Views
 
 		public void LoadFile(FileInfo file)
 		{
-			if (file.Exists)
+			if (file != null && file.Exists)
 			{
 				CurrentFile = file;
 				CampaignFile project = Json.Load<CampaignFile>(file);
 				editor.LoadData(project);
-
-				Modified = false;
 			}
+			else
+			{
+				CurrentFile = null;
+				editor.LoadData(new CampaignFile());
+			}
+
+			Modified = false;
+			OnFileLoaded?.Invoke(this);
 		}
 	}
 }

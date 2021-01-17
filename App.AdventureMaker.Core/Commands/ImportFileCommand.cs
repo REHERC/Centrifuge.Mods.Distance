@@ -9,6 +9,8 @@ namespace App.AdventureMaker.Core.Commands
 			MenuText = "&Import";
 			ToolBarText = "Import";
 			Shortcut = Application.Instance.CommonModifier | Keys.Shift | Keys.I;
+
+			Enabled = false;
 		}
 	}
 }

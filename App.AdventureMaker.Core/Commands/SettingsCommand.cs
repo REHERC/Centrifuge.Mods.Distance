@@ -9,6 +9,8 @@ namespace App.AdventureMaker.Core.Commands
 			MenuText = "&Settings";
 			ToolBarText = "Settings";
 			Image = Resources.GetIcon("Settings.ico");
+
+			Enabled = false;
 		}
 	}
 }

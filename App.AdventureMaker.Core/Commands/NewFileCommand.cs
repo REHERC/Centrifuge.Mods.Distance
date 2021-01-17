@@ -24,6 +24,11 @@ namespace App.AdventureMaker.Core.Commands
 
 		protected override void OnExecuted(EventArgs e)
 		{
+			if (editor.Modified && Messages.UnsavedChangesDialog(Constants.DIALOG_CAPTION_NEW_FILE) == DialogResult.No)
+			{
+				return;
+			}
+
 			ProjectCreateData data = new NewProjectWindow().ShowModal();
 			if (data != null)
 			{

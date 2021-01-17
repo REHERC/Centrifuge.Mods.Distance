@@ -9,6 +9,8 @@ namespace App.AdventureMaker.Core.Commands
 			MenuText = "&Export";
 			ToolBarText = "Export";
 			Shortcut = Application.Instance.CommonModifier | Keys.Shift | Keys.E;
+
+			Enabled = false;
 		}
 	}
 }

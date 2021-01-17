@@ -17,6 +17,13 @@ namespace App.AdventureMaker.Core.Commands
 			ToolBarText = "Save";
 			Image = Resources.GetIcon("Save.ico");
 			Shortcut = Application.Instance.CommonModifier | Keys.S;
+
+			Enabled = false;
+
+			editor.OnFileLoaded += (_) =>
+			{
+				Enabled = editor.CurrentFile != null;
+			};
 		}
 
 		protected override void OnExecuted(EventArgs e)
