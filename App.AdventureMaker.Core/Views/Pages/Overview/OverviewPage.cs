@@ -1,5 +1,6 @@
 ﻿using App.AdventureMaker.Core.Controls;
 using App.AdventureMaker.Core.Interfaces;
+using Distance.AdventureMaker.Common.Enums;
 //using Distance.AdventureMaker.Common.Enums;
 using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
@@ -14,7 +15,7 @@ namespace App.AdventureMaker.Core.Views
 		public readonly TextBox descriptionBox;
 		public readonly TextBox authorBox;
 		public readonly TextBox contactBox;
-		public readonly CheckBox devBuildBox;
+		public readonly EnumDropDown<DevelopmentStatus> devBuildBox;
 		public readonly GuidLabel guidBox;
 
 		public OverviewPage(IEditor<CampaignFile> editor)
@@ -24,7 +25,8 @@ namespace App.AdventureMaker.Core.Views
 			AddRow("Author", authorBox = new TextBox());
 			AddRow("Contact", contactBox = new TextBox());
 			//AddRow("Difficulty rating", new EnumDropDown<Difficulty>());
-			AddRow("Development build", devBuildBox = new CheckBox());
+			//AddRow("Development build", devBuildBox = new CheckBox());
+			AddRow("Development status", devBuildBox = new EnumDropDown<DevelopmentStatus>());
 			AddRow("Project unique ID", guidBox = new GuidLabel() { Text = string.Empty });
 			
 			CompleteRows();
@@ -33,7 +35,7 @@ namespace App.AdventureMaker.Core.Views
 			descriptionBox.TextChanged += (_, __) => editor.Modified = true;
 			authorBox.TextChanged += (_, __) => editor.Modified = true;
 			contactBox.TextChanged += (_, __) => editor.Modified = true;
-			devBuildBox.CheckedChanged += (_, __) => editor.Modified = true;
+			devBuildBox.SelectedValueChanged += (_, __) => editor.Modified = true;
 			guidBox.TextChanged += (_, __) => editor.Modified = true;
 		}
 
@@ -43,7 +45,7 @@ namespace App.AdventureMaker.Core.Views
 			project.metadata.description = descriptionBox.Text;
 			project.metadata.author = authorBox.Text;
 			project.metadata.contact = contactBox.Text;
-			project.metadata.dev_build = (bool)devBuildBox.Checked;
+			project.metadata.development_status = devBuildBox.SelectedValue;
 			project.metadata.guid = guidBox.Text;
 		}
 
@@ -53,7 +55,7 @@ namespace App.AdventureMaker.Core.Views
 			descriptionBox.Text = project.metadata.description;
 			authorBox.Text = project.metadata.author;
 			contactBox.Text = project.metadata.contact;
-			devBuildBox.Checked = project.metadata.dev_build;
+			devBuildBox.SelectedValue = project.metadata.development_status;
 			guidBox.Text = project.metadata.guid;
 		}
 	}

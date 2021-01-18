@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\LevelTransitionType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\LevelUnlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\PlaylistUnlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ReleaseStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ResourceType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Difficulty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factory\CampaignFile.cs" />

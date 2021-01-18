@@ -1,42 +1,73 @@
 ﻿using App.AdventureMaker.Core.Controls;
+using App.AdventureMaker.Core.Interfaces;
+using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
+using System;
 
 namespace App.AdventureMaker.Core.Views
 {
-	public class LevelSetsPage : TableLayout
+	public class LevelSetsPage : TableLayout, ISaveLoad<CampaignFile>
 	{
 		public readonly ExtendedTabControl tabs;
-		public readonly LevelSetsView levelSets;
-		public readonly LevelSetsPropertiesView levelSetProperties;
+		public readonly ReorderableListBox listBox;
+		public readonly LevelSetsPropertiesView properties;
+		private readonly IEditor<CampaignFile> editor;
 
-		// TODO: Move level sets list from the left to a new class
-		public LevelSetsPage()
+		public LevelSetsPage(IEditor<CampaignFile> editor_)
 		{
-			// BackgroundColor = Colors.SlateGray;
+			editor = editor_;
 
 			tabs = new ExtendedTabControl();
-			tabs.AddPage("Properties", levelSetProperties = new LevelSetsPropertiesView(), scrollable: true);
+			tabs.AddPage("Properties", properties = new LevelSetsPropertiesView(), scrollable: true);
 			tabs.AddPage("Levels", new Panel(), scrollable: true);
 
 			TableRow row = new TableRow()
 			{
 				Cells =
 				{
-					new TableCell(levelSets = new LevelSetsView()),
+					new TableCell(listBox = new ReorderableListBox()),
 					new TableCell(tabs),
-					//new TableCell(new Label() { Text = "Levels are displayed here."})
 				}
 			};
-
 			Rows.Add(row);
 
-			OnPlaylistSelected(-1);
-			levelSets.OnIndexChanged += OnPlaylistSelected;
+			listBox.SelectedKeyChanged += SelectPlaylist;
+			listBox.ItemsReordered += (_, __) => editor.Modified = true;
+
+			listBox.RemoveItem += RemovePlaylist;
 		}
 
-		private void OnPlaylistSelected(int index)
+		private void SelectPlaylist(object sender, EventArgs e)
 		{
-			tabs.Enabled = index != -1;
+			tabs.Enabled = listBox.SelectedIndex != -1;
+		}
+
+		private void RemovePlaylist(object sender, EventArgs e)
+		{
+			if (Messages.RemovePlaylist(listBox.SelectedValue as CampaignPlaylist) == DialogResult.Yes)
+			{
+				listBox.Items.RemoveAt(listBox.SelectedIndex);
+				editor.Modified = true;
+			}
+		}
+
+		public void LoadData(CampaignFile project)
+		{
+			listBox.Items.Clear();
+			listBox.UnselectItem();
+
+			foreach (CampaignPlaylist playlist in project.data.playlists)
+			{
+				listBox.Items.Add(playlist);
+			}
+		}
+
+		public void SaveData(CampaignFile project)
+		{
+			foreach (CampaignPlaylist playlist in listBox.Items)
+			{
+				project.data.playlists.Add(playlist);
+			}
 		}
 	}
 }

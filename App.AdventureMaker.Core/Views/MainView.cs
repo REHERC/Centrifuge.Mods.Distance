@@ -35,7 +35,7 @@ namespace App.AdventureMaker.Core.Views
 
 			OnFileLoaded += (_) =>
 			{
-				editor.Enabled = CurrentFile != null;
+				editor.Visible = CurrentFile != null;
 			};
 
 			LoadFile(null as FileInfo);

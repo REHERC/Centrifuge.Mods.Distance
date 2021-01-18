@@ -1,5 +1,6 @@
 ﻿#pragma warning disable CS0649
 
+using Distance.AdventureMaker.Common.Enums;
 using Newtonsoft.Json;
 using System;
 
@@ -24,6 +25,6 @@ namespace Distance.AdventureMaker.Common.Models
 		public string contact;
 
 		[JsonProperty]
-		public bool dev_build;
+		public DevelopmentStatus development_status;
 	}
 }

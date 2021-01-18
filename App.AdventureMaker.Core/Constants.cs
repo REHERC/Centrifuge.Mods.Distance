@@ -8,5 +8,8 @@
 		public const string DIALOG_MESSAGE_UNSAVED_CHANGES = "The currently opened file has unsaved changes!\nContinue without saving?";
 		public const string DIALOG_CAPTION_APP_CLOSE = "Close application";
 		public const string DIALOG_CAPTION_NEW_FILE = "New file";
+
+		public const string DIALOG_MESSAGE_REMOVE_PLAYLIST = "Are you sure you want to remove the following playlist: \"{0}\" ?";
+		public const string DIALOG_CAPTION_REMOVE_PLAYLIST = "Remove playlist";
 	}
 }

@@ -13,7 +13,7 @@ namespace App.AdventureMaker.Core.Views
 		public EditorTabView(IEditor<CampaignFile> editor)
 		{
 			AddPage("Overview", new OverviewPage(editor), scrollable: true);
-			//AddPage("Level Sets", new LevelSetsPage(), scrollable: true);
+			AddPage("Level Sets", new LevelSetsPage(editor), scrollable: true);
 			//AddPage("Achievements", null, scrollable: true);
 			//AddPage("Editor Prefabs", null, scrollable: true);
 			//AddPage("Audio Engine", null, scrollable: true);
