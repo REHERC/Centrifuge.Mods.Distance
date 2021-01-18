@@ -6,7 +6,7 @@
 	"SupportedPlatforms": [
 		{
 			"Identifier": "win-x86",
-			"Executable": "win-x86/App.CustomDeathMessages.Windows"
+			"Executable": "win-x86/App.CustomDeathMessages.Windows.exe"
 		},
 		{
 			"Identifier": "linux-x64",
