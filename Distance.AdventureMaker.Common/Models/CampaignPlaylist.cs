@@ -1,6 +1,7 @@
 ﻿#pragma warning disable CS0649
 
 #if APP
+using App.AdventureMaker.Core;
 using Eto.Forms;
 #endif
 using Newtonsoft.Json;
@@ -22,10 +23,13 @@ namespace Distance.AdventureMaker.Common.Models
 		public string name;
 
 		[JsonProperty]
-		public string descrtiption;
+		public string description;
 
 		[JsonProperty]
 		public string icon;
+
+		[JsonProperty]
+		public bool display_in_sprint;
 
 		[JsonProperty]
 		public List<CampaignLevel> levels;
@@ -39,7 +43,7 @@ namespace Distance.AdventureMaker.Common.Models
 		[JsonIgnore]
 		public string Text 
 		{ 
-			get => name; 
+			get => name?.Length > 0 ? name : Constants.PLAYLIST_NO_NAME; 
 			set => name = value; 
 		}
 

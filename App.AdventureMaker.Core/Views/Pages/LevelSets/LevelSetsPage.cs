@@ -8,9 +8,9 @@ namespace App.AdventureMaker.Core.Views
 {
 	public class LevelSetsPage : TableLayout, ISaveLoad<CampaignFile>
 	{
-		public readonly ExtendedTabControl tabs;
-		public readonly ReorderableListBox listBox;
-		public readonly LevelSetsPropertiesView properties;
+		private readonly ExtendedTabControl tabs;
+		private readonly ReorderableListBox listBox;
+		private readonly LevelSetsPropertiesView properties;
 		private readonly IEditor<CampaignFile> editor;
 
 		public LevelSetsPage(IEditor<CampaignFile> editor_)
@@ -18,7 +18,7 @@ namespace App.AdventureMaker.Core.Views
 			editor = editor_;
 
 			tabs = new ExtendedTabControl();
-			tabs.AddPage("Properties", properties = new LevelSetsPropertiesView(), scrollable: true);
+			tabs.AddPage("Properties", properties = new LevelSetsPropertiesView(editor), scrollable: true);
 			tabs.AddPage("Levels", new Panel(), scrollable: true);
 
 			TableRow row = new TableRow()
@@ -35,11 +35,23 @@ namespace App.AdventureMaker.Core.Views
 			listBox.ItemsReordered += (_, __) => editor.Modified = true;
 
 			listBox.RemoveItem += RemovePlaylist;
+			listBox.AddItem += AddPlaylist;
+
+			properties.OnModified += (playlist) =>
+			{
+				properties.SaveData(listBox.SelectedValue as CampaignPlaylist);
+
+				listBox.ListControl.UpdateBindings();
+				listBox.ListControl.Invalidate();
+
+				editor.Modified = true;
+			};
 		}
 
 		private void SelectPlaylist(object sender, EventArgs e)
 		{
 			tabs.Enabled = listBox.SelectedIndex != -1;
+			properties.LoadData(listBox.SelectedValue as CampaignPlaylist);
 		}
 
 		private void RemovePlaylist(object sender, EventArgs e)
@@ -49,6 +61,18 @@ namespace App.AdventureMaker.Core.Views
 				listBox.Items.RemoveAt(listBox.SelectedIndex);
 				editor.Modified = true;
 			}
+		}
+
+		private void AddPlaylist(object sender, EventArgs e)
+		{
+			// TODO: Implement
+			var playlist = new CampaignPlaylist()
+			{
+				guid = Guid.NewGuid().ToString()
+			};
+
+			listBox.Items.Add(playlist);
+			listBox.SelectedValue = playlist;
 		}
 
 		public void LoadData(CampaignFile project)

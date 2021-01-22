@@ -1,7 +1,6 @@
 ﻿using App.AdventureMaker.Core.Controls;
 using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Enums;
-//using Distance.AdventureMaker.Common.Enums;
 using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
 

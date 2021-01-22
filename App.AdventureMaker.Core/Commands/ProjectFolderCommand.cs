@@ -21,7 +21,7 @@ namespace App.AdventureMaker.Core.Commands
 
 			Enabled = false;
 
-			editor.OnFileLoaded += (_) =>
+			editor.OnLoaded += (_) =>
 			{
 				Enabled = editor.CurrentFile != null;
 			};

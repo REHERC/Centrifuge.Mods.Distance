@@ -5,9 +5,9 @@ namespace App.AdventureMaker.Core.Interfaces
 {
 	public interface IEditor<DATA>
 	{
-		public event Action<IEditor<DATA>> OnFileLoaded;
-		
-		public event Action<IEditor<DATA>> OnFileModified;
+		public event Action<IEditor<DATA>> OnLoaded;
+
+		public event Action<IEditor<DATA>> OnModified;
 
 		public FileInfo CurrentFile { get; set; }
 

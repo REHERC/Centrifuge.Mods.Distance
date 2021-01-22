@@ -9,9 +9,9 @@ namespace App.AdventureMaker.Core.Views
 	public class MainView : Panel, IEditor<CampaignFile>
 	{
 		#region Interface Events and Members
-		public event Action<IEditor<CampaignFile>> OnFileLoaded;
+		public event Action<IEditor<CampaignFile>> OnLoaded;
 
-		public event Action<IEditor<CampaignFile>> OnFileModified;
+		public event Action<IEditor<CampaignFile>> OnModified;
 
 		public FileInfo CurrentFile { get; set; } = null;
 
@@ -22,7 +22,7 @@ namespace App.AdventureMaker.Core.Views
 			set
 			{
 				modified_ = value;
-				OnFileModified?.Invoke(this);
+				OnModified?.Invoke(this);
 			}
 		}
 		#endregion
@@ -33,7 +33,7 @@ namespace App.AdventureMaker.Core.Views
 		{
 			Content = editor = new EditorTabView(this);
 
-			OnFileLoaded += (_) =>
+			OnLoaded += (_) =>
 			{
 				editor.Visible = CurrentFile != null;
 			};
@@ -70,7 +70,7 @@ namespace App.AdventureMaker.Core.Views
 			}
 
 			Modified = false;
-			OnFileLoaded?.Invoke(this);
+			OnLoaded?.Invoke(this);
 		}
 	}
 }

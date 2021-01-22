@@ -11,5 +11,7 @@
 
 		public const string DIALOG_MESSAGE_REMOVE_PLAYLIST = "Are you sure you want to remove the following playlist: \"{0}\" ?";
 		public const string DIALOG_CAPTION_REMOVE_PLAYLIST = "Remove playlist";
+
+		public const string PLAYLIST_NO_NAME = "(No playlist name)";
 	}
 }

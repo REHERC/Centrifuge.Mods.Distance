@@ -23,7 +23,7 @@ namespace App.AdventureMaker.Core.Forms
 			ToolBar = new MainToolbar(mainView);
 			Menu = new MainMenu(this, mainView);
 
-			mainView.OnFileModified += (editor) =>
+			mainView.OnModified += (editor) =>
 			{
 				UpdateTitle();
 			};
