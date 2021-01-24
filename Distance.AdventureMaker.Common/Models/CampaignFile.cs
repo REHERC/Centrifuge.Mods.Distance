@@ -8,7 +8,7 @@ namespace Distance.AdventureMaker.Common.Models
 	{
 		[JsonProperty]
 		public CampaignMetadata metadata;
-		
+
 		[JsonProperty]
 		public CampaignData data;
 
