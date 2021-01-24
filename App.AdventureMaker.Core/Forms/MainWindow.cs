@@ -1,7 +1,5 @@
-﻿using App.AdventureMaker.Core.Interfaces;
-using App.AdventureMaker.Core.Menus;
+﻿using App.AdventureMaker.Core.Menus;
 using App.AdventureMaker.Core.Views;
-using Distance.AdventureMaker.Common.Models;
 using Eto.Drawing;
 using Eto.Forms;
 using System.ComponentModel;
@@ -16,7 +14,9 @@ namespace App.AdventureMaker.Core.Forms
 
 		private void InitializeComponent()
 		{
-			ClientSize = new Size(640, 480);
+			ClientSize = new Size(720, 540);
+			MinimumSize = ClientSize;
+
 			Icon = Resources.GetIcon("App.ico");
 			
 			Content = mainView = new MainView();

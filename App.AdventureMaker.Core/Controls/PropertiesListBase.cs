@@ -19,12 +19,6 @@ namespace App.AdventureMaker.Core.Controls
 			label.MouseDown += (sender, e) =>
 			{
 				content.Focus();
-				/*switch (content)
-				{
-					case CheckBox checkbox:
-						checkbox.Checked = !checkbox.Checked;
-						break;
-				}*/
 			};
 
 			TableRow row = new TableRow()
@@ -40,6 +34,22 @@ namespace App.AdventureMaker.Core.Controls
 			Rows.Add(row);
 
 			return content;
+		}
+
+		public void Separator() => AddRow(string.Empty, Line());
+
+		private Panel Line()
+		{
+			return new Panel()
+			{
+				BackgroundColor = Colors.Transparent,
+				Padding = new Padding(0, 4),
+				Content = new Panel()
+				{
+					BackgroundColor = Colors.DarkGray,
+					Height = 1
+				}
+			};
 		}
 
 		public void CompleteRows() => CompleteRows(DefaultSpacing);

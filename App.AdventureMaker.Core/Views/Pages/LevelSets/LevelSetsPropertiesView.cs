@@ -1,6 +1,7 @@
 ﻿using App.AdventureMaker.Core.Controls;
 using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
+using Eto.Drawing;
 using Eto.Forms;
 using System;
 
@@ -19,6 +20,8 @@ namespace App.AdventureMaker.Core.Views
 		private readonly TextBox descriptionBox;
 		private readonly TextBoxWithButton iconBox;
 		private readonly GuidLabel guidBox;
+		private readonly BooleanSelector campaignDisplayBox;
+		private readonly BooleanSelector sprintDisplayBox;
 
 		public LevelSetsPropertiesView(IEditor<CampaignFile> editor_)
 		{
@@ -33,6 +36,14 @@ namespace App.AdventureMaker.Core.Views
 			properties.AddRow("Name", nameBox = new TextBox());
 			properties.AddRow("Description", descriptionBox = new TextBox());
 			properties.AddRow("Icon", iconBox = new TextBoxWithButton());
+
+			properties.Separator();
+
+			properties.AddRow("Campaign playlist", campaignDisplayBox = new BooleanSelector());
+			properties.AddRow("Sprint playlist", sprintDisplayBox = new BooleanSelector());
+
+			properties.Separator();
+
 			properties.AddRow("Unique ID", guidBox = new GuidLabel());
 			//properties.AddRow("Playlist locking", new EnumDropDown<PlaylistUnlock>());
 			//properties.AddRow("Individual level locking", new EnumDropDown<LevelUnlock>());
@@ -46,6 +57,7 @@ namespace App.AdventureMaker.Core.Views
 			descriptionBox.TextChanged += NotifyModified;
 			iconBox.TextChanged += NotifyModified;
 			guidBox.TextChanged += NotifyModified;
+			sprintDisplayBox.ValueChanged += NotifyModified;
 		}
 
 		private void NotifyModified(object sender, EventArgs e)
@@ -67,6 +79,8 @@ namespace App.AdventureMaker.Core.Views
 				descriptionBox.Text = playlist.description;
 				iconBox.Text = playlist.icon;
 				guidBox.Text = playlist.guid;
+				sprintDisplayBox.Value = playlist.display_in_sprint;
+				campaignDisplayBox.Value = playlist.display_in_campaign;
 
 				raiseEvents = true;
 			}
@@ -80,7 +94,8 @@ namespace App.AdventureMaker.Core.Views
 			playlist.description = descriptionBox.Text;
 			playlist.icon = iconBox.Text;
 			playlist.guid = guidBox.Text;
-
+			playlist.display_in_sprint = sprintDisplayBox.Value;
+			playlist.display_in_campaign = campaignDisplayBox.Value;
 			//raiseEvents = true;
 
 			//NotifyModified(null, null);

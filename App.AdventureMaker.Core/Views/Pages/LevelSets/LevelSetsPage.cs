@@ -65,14 +65,16 @@ namespace App.AdventureMaker.Core.Views
 
 		private void AddPlaylist(object sender, EventArgs e)
 		{
-			// TODO: Implement
 			var playlist = new CampaignPlaylist()
 			{
-				guid = Guid.NewGuid().ToString()
+				guid = Guid.NewGuid().ToString(),
+				display_in_campaign = true
 			};
 
 			listBox.Items.Add(playlist);
 			listBox.SelectedValue = playlist;
+
+			editor.Modified = true;
 		}
 
 		public void LoadData(CampaignFile project)

@@ -8,8 +8,6 @@ namespace App.AdventureMaker.Core.Views
 {
 	public class OverviewPage : PropertiesListBase, ISaveLoad<CampaignFile>
 	{
-		public string Value { get; set; }
-
 		public readonly TextBox titleBox;
 		public readonly TextBox descriptionBox;
 		public readonly TextBox authorBox;

@@ -21,7 +21,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\CampaignLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\CampaignMetadata.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\CampaignPlaylist.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\CampaignResource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Resources\CampaignResource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\UI\ProjectCreateData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Models\Resources\" />
   </ItemGroup>
 </Project>

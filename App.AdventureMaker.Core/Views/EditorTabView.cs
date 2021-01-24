@@ -17,7 +17,7 @@ namespace App.AdventureMaker.Core.Views
 			//AddPage("Achievements", null, scrollable: true);
 			//AddPage("Editor Prefabs", null, scrollable: true);
 			//AddPage("Audio Engine", null, scrollable: true);
-			//AddPage("Resources", null, scrollable: true);
+			AddPage("Resources", new ResourcesPage(editor), scrollable: true);
 		}
 
 		public new int AddPage(string title, Control content, bool scrollable = false)

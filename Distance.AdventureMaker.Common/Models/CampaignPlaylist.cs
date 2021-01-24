@@ -32,6 +32,9 @@ namespace Distance.AdventureMaker.Common.Models
 		public bool display_in_sprint;
 
 		[JsonProperty]
+		public bool display_in_campaign;
+
+		[JsonProperty]
 		public List<CampaignLevel> levels;
 
 		public CampaignPlaylist()
