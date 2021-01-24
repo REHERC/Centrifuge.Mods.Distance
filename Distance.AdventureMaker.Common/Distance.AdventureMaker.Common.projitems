@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ReleaseStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ResourceType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Difficulty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\StatusLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factory\CampaignFile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\CampaignData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\CampaignFile.cs" />
@@ -25,8 +26,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Resources\Level.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Resources\Texture.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\UI\ProjectCreateData.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Validation\" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validation\IValidator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validation\Validator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validation\ValidationItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validation\Validators\CampaignFileValidator.cs" />
   </ItemGroup>
 </Project>
