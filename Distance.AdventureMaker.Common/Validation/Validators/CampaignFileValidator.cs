@@ -1,25 +1,16 @@
 ﻿using Distance.AdventureMaker.Common.Enums;
 using Distance.AdventureMaker.Common.Models;
 using Distance.AdventureMaker.Common.Models.Resources;
-using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Distance.AdventureMaker.Common.Validation.Validators
 {
-	public class CampaignFileValidator
-		: Validator<CampaignFile>
-		, IValidator<CampaignMetadata>
-		, IValidator<CampaignData>
-		, IValidator<CampaignPlaylist>
-		, IValidator<CampaignLevel>
-		, IValidator<CampaignResource>
-		, IValidator<CampaignResource.Level>
-		, IValidator<CampaignResource.Texture>
+	public class CampaignFileValidator : Validator<CampaignFile>
 	{
 		#region Members / Properties and Constructor
 		public DirectoryInfo Directory { get; private set; }
-
-		private CampaignFile @base;
 
 		public CampaignFileValidator(DirectoryInfo dir)
 		{
@@ -27,62 +18,120 @@ namespace Distance.AdventureMaker.Common.Validation.Validators
 		}
 		#endregion
 
-		public override void Validate(CampaignFile item)
+		// A giant validation function... perhaps too big...
+		// TODO: Subdivide this piece of code... one day... i'll do that tommorow (:
+		public override void Validate(CampaignFile file)
 		{
-			@base = item;
-			
-			if (item.metadata is null)
+			ref CampaignMetadata @metadata = ref file.metadata;
+
+			if (@metadata is null)
 			{
-				Log(StatusLevel.ERR, "The metadata section was null when validating!");
+				Log(StatusLevel.ERR, "The metadata section was null when validating (metadata)");
 			}
 			else
 			{
-				Validate(item.metadata);
+				if (string.IsNullOrEmpty(@metadata.guid))
+				{
+					Log(StatusLevel.ERR, "The campaign identifier can't be null (metadata.guid)");
+				}
+
+				if (string.IsNullOrEmpty(@metadata.title))
+				{
+					Log(StatusLevel.ERR, "The campaign title can't be null (metadata.title)");
+				}
+
+				if (string.IsNullOrEmpty(@metadata.description))
+				{
+					Log(StatusLevel.WRN, "The campaign description is null (metadata.description)");
+				}
 			}
 
-			if (item.data is null)
+			ref CampaignData @data = ref file.data;
+
+			if (@data is null)
 			{
-				Log(StatusLevel.ERR, "The data section was null when validating!");
+				Log(StatusLevel.ERR, "The data section was null when validating (data)");
 			}
 			else
 			{
-				Validate(item.data);
+				ref List<CampaignPlaylist> @playlists = ref @data.playlists;
+				ref List<CampaignResource> @resources = ref @data.resources;
+
+				if (@playlists is null)
+				{
+					Log(StatusLevel.ERR, "The playlists section was null when validating (data.playlists[])");
+				}
+				else if (@playlists.Count == 0)
+				{
+					Log(StatusLevel.ERR, "The campaign doesn't have any playlist (data.playlists[])");
+				}
+				else
+				{
+					foreach (CampaignPlaylist @playlist in @playlists)
+					{
+						if (@playlist is null)
+						{
+							Log(StatusLevel.WRN, "The playlist item was null when validating (data.playlists[])");
+						}
+						else
+						{
+							if (string.IsNullOrEmpty(@playlist.guid))
+							{
+								Log(StatusLevel.ERR, "The playlist identifier can't be null (item.playlists[].guid)");
+							}
+
+							if (string.IsNullOrEmpty(@playlist.name))
+							{
+								Log(StatusLevel.ERR, "The playlist name can't be null (item.playlists[].name)");
+							}
+
+							ref List<CampaignLevel> @levels = ref @playlist.levels;
+
+							if (@levels is null)
+							{
+								Log(StatusLevel.ERR, $"The levels section was null when validating the playlist \"{@playlist.name}\" (item.playlists[].levels[]) !");
+							}
+							else if (@levels.Count == 0)
+							{
+								Log(StatusLevel.WRN, $"The \"{@playlist.name}\" playlist doesn't contain any level");
+							}
+							else
+							{
+								foreach (CampaignLevel @level in @levels)
+								{
+									if (@level is null)
+									{
+										Log(StatusLevel.ERR, "The level playlist item was null when validating (data.playlists[].levels[])");
+									}
+									else
+									{
+										if (string.IsNullOrEmpty(@level.resource_id))
+										{
+											Log(StatusLevel.ERR, "The level playlist item was null when validating (data.playlists[].levels[])");
+										}
+										else
+										{
+											if (string.IsNullOrEmpty(@level.resource_id))
+											{
+												Log(StatusLevel.ERR, "The associated level file is invalid (data.playlists[].levels[].resource_id)");
+											}
+											else
+											{
+												CampaignResource[] resources_search = resources.Where(res => Equals(res.guid, level.resource_id) && res.resource_type == ResourceType.Level).ToArray();
+
+												if (resources_search.Count() != 1)
+												{
+													Log(StatusLevel.ERR, "The level playlist item was null when validating (data.playlists[].levels[])");
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
 			}
-		}
-
-		public void Validate(CampaignMetadata data)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Validate(CampaignData data)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Validate(CampaignPlaylist data)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Validate(CampaignLevel data)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Validate(CampaignResource data)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Validate(CampaignResource.Level data)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Validate(CampaignResource.Texture data)
-		{
-			throw new NotImplementedException();
 		}
 	}
 }

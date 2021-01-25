@@ -11,7 +11,7 @@ namespace Distance.AdventureMaker.Common.Models
 		public string name;
 
 		[JsonProperty]
-		public string file;
+		public string resource_id;
 
 		#region Intro Title
 		[JsonProperty]
