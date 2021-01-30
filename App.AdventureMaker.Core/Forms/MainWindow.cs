@@ -2,6 +2,7 @@
 using App.AdventureMaker.Core.Views;
 using Eto.Drawing;
 using Eto.Forms;
+using System;
 using System.ComponentModel;
 
 namespace App.AdventureMaker.Core.Forms
@@ -47,6 +48,12 @@ namespace App.AdventureMaker.Core.Forms
 		public MainWindow()
 		{
 			InitializeComponent();
+		}
+
+		protected override void OnShown(EventArgs e)
+		{
+			base.OnShown(e);
+			Messages.PreviewMessage();
 		}
 
 		protected override void OnClosing(CancelEventArgs e)

@@ -11,10 +11,11 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 			public override ResourceType resource_type => ResourceType.Level;
 
 			[JsonProperty]
-			public string level;
-
-			[JsonProperty]
 			public string thumbnail;
+
+			#if APP
+			public override int dependencies_count => 1;
+			#endif
 		}
 	}
 }

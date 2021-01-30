@@ -10,8 +10,9 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 			[JsonProperty]
 			public override ResourceType resource_type => ResourceType.Texture;
 
-			[JsonProperty]
-			public string file;
+			#if APP
+			public override int dependencies_count => 0;
+			#endif
 		}
 	}
 }
