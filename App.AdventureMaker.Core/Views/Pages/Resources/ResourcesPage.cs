@@ -34,48 +34,49 @@ namespace App.AdventureMaker.Core.Views
 			Columns.Add(resourceTypeColumn = new GridColumn()
 			{
 				HeaderText = "Ressource Type",
-				Width = 100,
+				Width = 128,
 				DataCell = new TextBoxCell()
 				{
 					Binding = Binding.Property<CampaignResource, string>(res => $"{res.resource_type}"),
 				},
 				Editable = false,
-				Resizable = false
+				Resizable = true
 			});
 
 			Columns.Add(resourceIdColumn = new GridColumn()
 			{
 				HeaderText = "Unique ID",
-				Width = 240,
+				Width = 230,
 				DataCell = new TextBoxCell()
 				{
 					Binding = Binding.Property<CampaignResource, string>(res => $"{res.guid}"),
 				},
 				Editable = false,
-				Resizable = false
+				Resizable = true
 			});
 
 			Columns.Add(resourceFileColumn = new GridColumn()
 			{
 				HeaderText = "Main File",
+				Width = 250,
 				DataCell = new TextBoxCell()
 				{
 					Binding = Binding.Property<CampaignResource, string>(res => $"{res.file}"),
 				},
 				Editable = false,
-				Resizable = false
+				Resizable = true
 			});
 
 			Columns.Add(resourceDependenciesColumn = new GridColumn()
 			{
 				HeaderText = "Dependencies",
-				Width = 128,
+				Width = 120,
 				DataCell = new TextBoxCell()
 				{
 					Binding = Binding.Property<CampaignResource, string>(res => $"{(res.dependencies_count == 0 ? "none" : $"{res.dependencies_count} other resource(s)")}"),
 				},
 				Editable = false,
-				Resizable = false
+				Resizable = true
 			});
 		}
 
@@ -107,12 +108,12 @@ namespace App.AdventureMaker.Core.Views
 		{
 			base.OnSizeChanged(e);
 
-			resourceFileColumn.Width
+			/*resourceFileColumn.Width
 			= Size.Width 
 			- resourceTypeColumn.Width 
 			- resourceIdColumn.Width 
 			- resourceDependenciesColumn.Width 
-			- 4;
+			- 4;*/
 		}
 	}
 }
