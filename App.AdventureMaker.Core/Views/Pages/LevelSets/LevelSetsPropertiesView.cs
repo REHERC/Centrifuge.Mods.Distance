@@ -36,12 +36,12 @@ namespace App.AdventureMaker.Core.Views
 			properties.AddRow("Description", descriptionBox = new TextBox());
 			properties.AddRow("Icon", iconBox = new TextBoxWithButton());
 
-			properties.Separator();
+			//properties.Separator();
 
 			properties.AddRow("Campaign playlist", campaignDisplayBox = new BooleanSelector());
 			properties.AddRow("Sprint playlist", sprintDisplayBox = new BooleanSelector());
 
-			properties.Separator();
+			//properties.Separator();
 
 			properties.AddRow("Unique ID", guidBox = new GuidLabel());
 			//properties.AddRow("Playlist locking", new EnumDropDown<PlaylistUnlock>());
