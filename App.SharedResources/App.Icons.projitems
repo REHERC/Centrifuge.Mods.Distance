@@ -51,6 +51,9 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\ZipFile.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)Resources\Icons\FolderClosed.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\PencilFile.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\PencilBubble.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\FolderClosed.ico" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Pencil.ico" />
   </ItemGroup>
 </Project>

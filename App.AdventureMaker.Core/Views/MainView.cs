@@ -25,6 +25,21 @@ namespace App.AdventureMaker.Core.Views
 				OnModified?.Invoke(this);
 			}
 		}
+
+		public CampaignFile Data
+		{
+			get
+			{
+				CampaignFile data = new CampaignFile();
+				editor.SaveData(data);
+				return data;
+			}
+			set
+			{
+				editor.LoadData(value);
+				Modified = true;
+			}
+		}
 		#endregion
 
 		private readonly EditorTabView editor;

@@ -11,6 +11,8 @@ namespace App.AdventureMaker.Core.Interfaces
 
 		public FileInfo CurrentFile { get; set; }
 
+		public DATA Data { get; set; }
+
 		public bool Modified { get; set; }
 
 		public void SaveFile();
