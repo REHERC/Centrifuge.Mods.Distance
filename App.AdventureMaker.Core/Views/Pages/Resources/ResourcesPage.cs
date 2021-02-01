@@ -39,7 +39,7 @@ namespace App.AdventureMaker.Core.Views
 				Style = "no-padding",
 				Orientation = Orientation.Horizontal,
 				VerticalContentAlignment = VerticalAlignment.Stretch,
-				Height = 32,
+				//Height = 32,
 
 				Spacing = 4,
 
