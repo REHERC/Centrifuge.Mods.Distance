@@ -3,7 +3,7 @@ using Eto.Forms;
 
 namespace App.AdventureMaker.Core.Forms
 {
-	public class AboutWindow : Dialog
+	public class AboutWindow : Eto.Forms.Dialog
 	{
 		private Label AppName;
 		private Label AppAuthor;

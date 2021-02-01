@@ -1,10 +1,8 @@
 ﻿using App.AdventureMaker.Core.Controls;
 using Distance.AdventureMaker.Common.Models.UI;
-using Eto;
 using Eto.Drawing;
 using Eto.Forms;
 using System;
-using System.IO;
 
 namespace App.AdventureMaker.Core.Forms
 {
@@ -45,9 +43,17 @@ namespace App.AdventureMaker.Core.Forms
 
 						Items =
 						{
-							new StackLayoutItem(null) { Expand = true },
-							new StackLayoutItem(confirmButton = new Button() { Text = "OK" }) { Expand = false },
-							new StackLayoutItem(cancelButton = new Button() { Text = "Cancel" }) { Expand = false },
+							null,
+							(confirmButton = new Button(OnConfirm)
+							{ 
+								Text = "OK",
+								Image = Resources.GetIcon("CheckGreen.ico", 16)
+							}),
+							(cancelButton = new Button(OnCancel)
+							{ 
+								Text = "Cancel",
+								Image = Resources.GetIcon("CloseRed.ico", 16)
+							})
 						}
 					})
 					{
@@ -69,9 +75,6 @@ namespace App.AdventureMaker.Core.Forms
 
 			AbortButton = cancelButton;
 			DefaultButton = confirmButton;
-
-			confirmButton.Click += OnConfirm;
-			cancelButton.Click += OnCancel;
 
 			folderBox.ButtonClick += SelectFolder;
 		}

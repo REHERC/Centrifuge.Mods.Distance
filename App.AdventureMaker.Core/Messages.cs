@@ -22,7 +22,8 @@ namespace App.AdventureMaker.Core
 
 		public static DialogResult PreviewMessage()
 		{
-			return MessageBox.Show(Constants.DIALOG_MESSAGE_EDITOR_PREVIEW, Constants.DIALOG_CAPTION_EDITOR_PREVIEW, MessageBoxButtons.OK, MessageBoxType.Information);
+			//return MessageBox.Show(Constants.DIALOG_MESSAGE_EDITOR_PREVIEW, Constants.DIALOG_CAPTION_EDITOR_PREVIEW, MessageBoxButtons.OK, MessageBoxType.Information);
+			return DialogResult.Ok;
 		}
 	}
 }

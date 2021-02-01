@@ -1,4 +1,10 @@
-﻿namespace App.AdventureMaker.Core
+﻿using App.AdventureMaker.Core.Forms.Dialog;
+using Distance.AdventureMaker.Common.Enums;
+using Distance.AdventureMaker.Common.Models.Resources;
+using System;
+using System.Collections.Generic;
+
+namespace App.AdventureMaker.Core
 {
 	public static class Constants
 	{
@@ -16,7 +22,12 @@
 		public const string DIALOG_CAPTION_REMOVE_PLAYLIST = "Remove playlist";
 		public const string DIALOG_CAPTION_REMOVE_RESOURCE = "Remove resource";
 
-
 		public const string PLAYLIST_NO_NAME = "(No playlist name)";
+
+		public static readonly Dictionary<ResourceType, Func<CampaignResource, CampaignResource>> RESOURCE_DIALOGS = new Dictionary<ResourceType, Func<CampaignResource, CampaignResource>>()
+		{
+			{ ResourceType.Level, (data) => new LevelDialog(data as CampaignResource.Level).ShowModal() },
+			{ ResourceType.Texture, (data) => new TextureDialog(data as CampaignResource.Texture).ShowModal() }
+		};
 	}
 }

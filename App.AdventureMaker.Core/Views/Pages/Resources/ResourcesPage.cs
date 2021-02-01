@@ -1,4 +1,7 @@
-﻿using App.AdventureMaker.Core.Interfaces;
+﻿using App.AdventureMaker.Core.Controls.Cells;
+using App.AdventureMaker.Core.Forms;
+using App.AdventureMaker.Core.Forms.Dialog;
+using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
 using Distance.AdventureMaker.Common.Models.Resources;
 using Eto.Forms;
@@ -10,7 +13,7 @@ namespace App.AdventureMaker.Core.Views
 {
 	public class ResourcesPage : StackLayout, ISaveLoad<CampaignFile>
 	{
-		private readonly ObservableCollection<CampaignResource> collection;
+		private ObservableCollection<CampaignResource> collection;
 
 		private readonly IEditor<CampaignFile> editor;
 
@@ -22,8 +25,11 @@ namespace App.AdventureMaker.Core.Views
 
 		private readonly StackLayout actionsLayout;
 		private readonly Button addResourceButton;
+		private readonly ButtonMenuItem addResourceMenuButton;
 		private readonly Button editResourceButton;
+		private readonly ButtonMenuItem editResourceMenuButton;
 		private readonly Button removeResourceButton;
+		private readonly ButtonMenuItem removeResourceMenuButton;
 
 		public ResourcesPage(IEditor<CampaignFile> editor_)
 		{
@@ -39,8 +45,6 @@ namespace App.AdventureMaker.Core.Views
 				Style = "no-padding",
 				Orientation = Orientation.Horizontal,
 				VerticalContentAlignment = VerticalAlignment.Stretch,
-				//Height = 32,
-
 				Spacing = 4,
 
 				Items =
@@ -65,9 +69,31 @@ namespace App.AdventureMaker.Core.Views
 			}, false));
 
 			Items.Add(new StackLayoutItem(resourceGrid = new GridView()
-			{ 
+			{
 				DataStore = (collection = new ObservableCollection<CampaignResource>()),
 				GridLines = GridLines.Both,
+
+				ContextMenu = new ContextMenu()
+				{
+					Items =
+					{
+						(addResourceMenuButton = new ButtonMenuItem(OnAddResource)
+						{
+							Text = "Add new",
+							Image = Resources.GetIcon("AddGreen.ico")
+						}),
+						(editResourceMenuButton = new ButtonMenuItem(OnEditResource)
+						{
+							Text = "Edit",
+							Image = Resources.GetIcon("Pencil.ico")
+						}),
+						(removeResourceMenuButton = new ButtonMenuItem(OnRemoveResource)
+						{
+							Text = "Delete",
+							Image = Resources.GetIcon("CloseRed.ico")
+						})
+					}
+				},
 
 				Columns =
 				{
@@ -119,23 +145,52 @@ namespace App.AdventureMaker.Core.Views
 			}, true));
 
 			resourceGrid.SelectionChanged += OnSelectedResourceChanged;
+			resourceGrid.CellDoubleClick += OnEditResource;
 		}
 
 		#region Event Handlers
 		private void OnSelectedResourceChanged(object sender, EventArgs e)
 		{
 			int index = resourceGrid.SelectedRow;
-			editResourceButton.Enabled = removeResourceButton.Enabled = index >= 0;
+
+			editResourceButton.Enabled
+			= removeResourceButton.Enabled 
+			= editResourceMenuButton.Enabled
+			= removeResourceMenuButton.Enabled
+			= index >= 0;
 		}
 
 		private void OnAddResource(object sender, EventArgs e)
 		{
+			CampaignResource res = new AddResourceWindow().ShowModal();
 
+			if (!Equals(res, null))
+			{
+				res.guid = Guid.NewGuid().ToString();
+
+				collection.Add(res);
+
+				SortItems();
+				editor.Modified = true;
+			}
 		}
 
 		private void OnEditResource(object sender, EventArgs e)
 		{
+			int row = resourceGrid.SelectedRow;
 
+			CampaignResource res = collection[row];
+
+			CampaignResource edited = Constants.RESOURCE_DIALOGS[res.resource_type](res);
+
+			if (!Equals(edited, null))
+			{
+				collection[row] = edited;
+
+				SortItems();
+
+				editor.Modified = true;
+			}
 		}
 
 		private void OnRemoveResource(object sender, EventArgs e)
@@ -148,6 +203,26 @@ namespace App.AdventureMaker.Core.Views
 		#endregion
 
 		#region Action Methods
+		private void SortItems()
+		{
+			var modified = editor.Modified;
+
+			resourceGrid.SuspendLayout();
+
+			var items = collection.OrderBy(res => res.resource_type).ThenBy(res => res.file).ToArray();
+
+			collection.Clear();
+
+			foreach (var item in items)
+			{
+				collection.Add(item);
+			}
+
+			resourceGrid.ResumeLayout();
+
+			editor.Modified = modified;
+		}
+
 		private void DeleteCurrentResourceEntry()
 		{
 			collection.RemoveAt(resourceGrid.SelectedRow);
@@ -179,6 +254,8 @@ namespace App.AdventureMaker.Core.Views
 			{
 				collection.Add(res);
 			}
+
+			SortItems();
 
 			UpdateBindings();
 			Invalidate();
