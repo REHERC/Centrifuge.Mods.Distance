@@ -31,26 +31,35 @@ namespace App.AdventureMaker.Core.Views
 			get
 			{
 				CampaignFile data = new CampaignFile();
-				editor.SaveData(data);
+				editorView.SaveData(data);
 				return data;
 			}
 			set
 			{
-				editor.LoadData(value);
+				editorView.LoadData(value);
 				Modified = true;
 			}
 		}
 		#endregion
 
-		private readonly EditorTabView editor;
+		private readonly EditorTabView editorView;
+		private readonly EditorStartView startView;
 
 		public MainView()
 		{
-			Content = editor = new EditorTabView(this);
+			editorView = new EditorTabView(this);
+			startView = new EditorStartView(this);
 
 			OnLoaded += (_) =>
 			{
-				editor.Visible = CurrentFile != null;
+				if (CurrentFile != null)
+				{
+					Content = editorView;
+				}
+				else
+				{
+					Content = startView;
+				}
 			};
 
 			LoadFile(null as FileInfo);
@@ -61,7 +70,7 @@ namespace App.AdventureMaker.Core.Views
 			if (CurrentFile != null)
 			{
 				CampaignFile project = new CampaignFile();
-				editor.SaveData(project);
+				editorView.SaveData(project);
 				Json.Save(CurrentFile, project, true);
 
 				Modified = false;
@@ -76,12 +85,12 @@ namespace App.AdventureMaker.Core.Views
 			{
 				CurrentFile = file;
 				CampaignFile project = Json.Load<CampaignFile>(file);
-				editor.LoadData(project);
+				editorView.LoadData(project);
 			}
 			else
 			{
 				CurrentFile = null;
-				editor.LoadData(new CampaignFile());
+				editorView.LoadData(new CampaignFile());
 			}
 
 			Modified = false;

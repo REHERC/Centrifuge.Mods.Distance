@@ -56,4 +56,13 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\FolderClosed.ico" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Pencil.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Feedback.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Web.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Close.ico" />
+  </ItemGroup>
 </Project>

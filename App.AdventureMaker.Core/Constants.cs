@@ -8,6 +8,10 @@ namespace App.AdventureMaker.Core
 {
 	public static class Constants
 	{
+		public const string GITHUB_ISSUES_PAGE = "https://github.com/REHERC/Centrifuge.Mods.Distance/issues/new";
+		public const string GITHUB_WIKI = "https://github.com/REHERC/Centrifuge.Mods.Distance/wiki";
+		public const string DISCORD_DISTANCE = "https://discord.gg/distance";
+
 		public const string DIALOG_FILTER_PROJECT = "Json project files (project.json)|project.json";
 		public const string DIALOG_FILTER_ANY = "All files (*.*)|*.*";
 
@@ -19,6 +23,7 @@ namespace App.AdventureMaker.Core
 		public const string DIALOG_CAPTION_EDITOR_PREVIEW = "Campaign Editor - Preview";
 		public const string DIALOG_CAPTION_APP_CLOSE = "Close application";
 		public const string DIALOG_CAPTION_NEW_FILE = "New file";
+		public const string DIALOG_CAPTION_CLOSE_PROJECT = "Close project";
 		public const string DIALOG_CAPTION_REMOVE_PLAYLIST = "Remove playlist";
 		public const string DIALOG_CAPTION_REMOVE_RESOURCE = "Remove resource";
 

@@ -25,11 +25,16 @@ namespace App.AdventureMaker.Core.Menus
 				}
 			});
 			ApplicationItems.Add(new SeparatorMenuItem());
+			ApplicationItems.Add(new CloseProjectCommand(editor));
+			ApplicationItems.Add(new SeparatorMenuItem());
 			ApplicationItems.Add(new SettingsCommand());
 			ApplicationItems.Add(new SeparatorMenuItem());
 			ApplicationItems.Add(new QuitCommand(form));
 
 			HelpItems.Add(new AboutCommand());
+			HelpItems.Add(new TutorialsCommand());
+			HelpItems.Add(new SeparatorMenuItem());
+			HelpItems.Add(new FeedbackCommand());
 
 			Items.Add(new ButtonMenuItem()
 			{

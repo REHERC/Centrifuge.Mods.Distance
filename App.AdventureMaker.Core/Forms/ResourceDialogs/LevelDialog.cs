@@ -5,14 +5,20 @@ namespace App.AdventureMaker.Core.Forms.Dialog
 {
 	public class LevelDialog : ResourceDialogBase<CampaignResource.Level>
 	{
+		private TextBoxWithButton levelFile;
+		private TextBoxWithButton thumbnailFile;
+
 		public LevelDialog(CampaignResource.Level data) : base(data)
 		{
 		}
 
 		protected override void InitializeComponent()
 		{
-			properties.AddRow("Level file:", new TextBoxWithButton());
-			properties.AddRow("Thumbnail file:", new TextBoxWithButton());
+			properties.AddRow("Level file:", levelFile = new TextBoxWithButton() { Text = Data.file });
+			levelFile.TextChanged += (sender, e) => Data.file = levelFile.Text;
+
+			properties.AddRow("Thumbnail file:", thumbnailFile = new TextBoxWithButton() { Text = Data.thumbnail });
+			thumbnailFile.TextChanged += (sender, e) => Data.thumbnail = thumbnailFile.Text;
 		}
 	}
 }
