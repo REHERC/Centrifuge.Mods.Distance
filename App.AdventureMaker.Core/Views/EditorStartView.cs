@@ -1,16 +1,22 @@
 ﻿using App.AdventureMaker.Core.Commands;
+using App.AdventureMaker.Core.Interfaces;
+using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
 using System.Diagnostics;
+using System.IO;
 
 namespace App.AdventureMaker.Core.Views
 {
 	public class EditorStartView : StackLayout
 	{
-		private readonly ListBox recentItems;
+		private readonly IEditor<CampaignFile> editor;
+		private readonly StackLayout recent;
 		private readonly LinkButton discordLink;
 
 		public EditorStartView(MainView editor)
 		{
+			this.editor = editor;
+
 			Orientation = Orientation.Vertical;
 			HorizontalContentAlignment = HorizontalAlignment.Stretch;
 			Spacing = 4;
@@ -58,12 +64,15 @@ namespace App.AdventureMaker.Core.Views
 					}, false),
 					new StackLayoutItem(new GroupBox()
 					{
-						Text = "Recent files",
-						Content = (recentItems = new ListBox()
+						Text = "Recent projects",
+						Content = new Scrollable() { Content = (recent = new StackLayout()
 						{
-							Items = { "The recent items list is currently not implemented." },
-							Enabled = false
-						})
+							Orientation = Orientation.Vertical,
+							HorizontalContentAlignment = HorizontalAlignment.Stretch,
+							Spacing = 4,
+
+							Items = { "No recent items found." }
+						})}
 					}, true)
 				}
 			}, true));
@@ -106,6 +115,45 @@ namespace App.AdventureMaker.Core.Views
 					}
 				}.Start();
 			};
+			
+			RecentProjects.OnChanged += RecentFilesUpdated;
+			RecentFilesUpdated();
+
+			editor.OnLoaded += OnLoaded;
+		}
+
+		private void OnLoaded(IEditor<CampaignFile> editor)
+		{
+			if (editor.CurrentFile != null)
+			{
+				RecentProjects.Update(editor.CurrentFile);
+			}
+		}
+
+		private void RecentFilesUpdated()
+		{
+			recent.Items.Clear();
+
+			foreach (FileInfo file in RecentProjects.Get())
+			{
+				string projectTitle = "<Could not read campaign title>";
+
+				try
+				{
+					projectTitle = Json.Load<CampaignFile>(file).metadata.title;
+				}
+				finally
+				{
+					LinkButton button;
+					recent.Items.Add(button = new LinkButton() { Text = $"{projectTitle} ({file.Directory.FullName})" });
+
+					button.Click += (sender, e) =>
+					{
+						RecentProjects.Update(file);
+						editor.LoadFile(file);
+					};
+				}
+			}
 		}
 	}
 }
