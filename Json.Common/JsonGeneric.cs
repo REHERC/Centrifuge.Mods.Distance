@@ -11,6 +11,18 @@ public static class Json<TYPE> where TYPE : new()
 	public static TYPE Load(FileInfo file)
 		=> Json.Load<TYPE>(file);
 
+	public static TYPE Load(FileInfo file, TYPE @default)
+		=> Json.Load(file, @default);
+
 	public static TYPE Load(string file)
 		=> Json.Load<TYPE>(file);
+	
+	public static TYPE Load(string file, TYPE @default)
+		=> Json.Load(file, @default);
+
+	public static TYPE GetOrCreate(string file, TYPE @default)
+		=> Json.GetOrCreate(file, @default);
+
+	public static TYPE GetOrCreate(FileInfo file, TYPE @default)
+		=> Json.GetOrCreate(file, @default);
 }

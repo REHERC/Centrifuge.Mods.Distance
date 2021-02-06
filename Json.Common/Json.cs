@@ -47,24 +47,46 @@ public static class Json
 	public static TYPE Load<TYPE>(string file) where TYPE : new()
 		=> Load<TYPE>(new FileInfo(file));
 
+	public static TYPE Load<TYPE>(string file, TYPE @default) where TYPE : new()
+		=> Load(new FileInfo(file), @default);
+
 	public static TYPE Load<TYPE>(FileInfo file) where TYPE : new()
+		=> Load(file, new TYPE());
+
+	public static TYPE Load<TYPE>(FileInfo file, TYPE @default) where TYPE : new()
 	{
-
-		if (file.Exists)
-		{
-			TYPE result = new TYPE();
-
-			using (StreamReader streamReader = new StreamReader(file.FullName))
+		//if (file.Exists)
+		//{
+			try
 			{
-				result = JsonConvert.DeserializeObject<TYPE>(streamReader.ReadToEnd());
+				using (StreamReader streamReader = new StreamReader(file.FullName))
+				{
+					return JsonConvert.DeserializeObject<TYPE>(streamReader.ReadToEnd());
+				}
 			}
+			catch (Exception)
+			{
+				return @default;
+			}
+		//}
+		//else
+		//{
+		//	throw new FileNotFoundException("The file does not exist", file.FullName);
+		//}
+	}
+	#endregion
+	#region Get or Create
+	public static TYPE GetOrCreate<TYPE>(string file, TYPE @default) where TYPE : new()
+		=> GetOrCreate(new FileInfo(file), @default);
 
-			return result;
-		}
-		else
+	public static TYPE GetOrCreate<TYPE>(FileInfo file, TYPE @default) where TYPE : new()
+	{
+		if (!file.Exists)
 		{
-			throw new FileNotFoundException("The file does not exist", file.FullName);
+			Save(file, @default);
 		}
+
+		return Load<TYPE>(file);
 	}
 	#endregion
 }
