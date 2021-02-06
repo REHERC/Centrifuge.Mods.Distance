@@ -5,10 +5,6 @@ namespace App.AdventureMaker.Core.Forms
 {
 	public class AboutWindow : Eto.Forms.Dialog
 	{
-		private Label AppName;
-		private Label AppAuthor;
-		private Label AppRepository;
-		private Button CloseButton;
 
 		private void InitializeComponent()
 		{
@@ -16,46 +12,61 @@ namespace App.AdventureMaker.Core.Forms
 			MinimumSize = new Size(386, 100);
 			Resizable = false;
 
-			AppName = new Label()
+			Content = new StackLayout()
 			{
-				Text = "Campaign Editor",
-				Font = new Font(FontFamilies.Sans, 16),
-				TextAlignment = TextAlignment.Center
-			};
+				Orientation = Orientation.Vertical,
+				HorizontalContentAlignment = HorizontalAlignment.Center,
+				Spacing = 20,
+				Padding = new Padding(24),
 
-			AppAuthor = new Label()
-			{
-				Text = "by Reherc",
-				TextAlignment = TextAlignment.Center
-			};
-
-			AppRepository = new Label()
-			{
-				Text = "Contribute at: github.com/reherc/centrifuge.mods.distance",
-				TextAlignment = TextAlignment.Center
-			};
-
-			CloseButton = new Button()
-			{
-				Text = "Close"
-			};
-			CloseButton.Click += (sender, e) => Close();
-
-			Content = new TableLayout()
-			{
-				Padding = new Padding(20),
-				Spacing = new Size(15, 15),
-				Rows =
+				//Spacing = new Size(15, 15),
+				Items =
 				{
-					AppName,
-					AppAuthor,
-					AppRepository,
-					TableLayout.AutoSized(CloseButton, centered: true),
+					new ImageView()
+					{
+						Width = 128,
+						Height = 128,
+						Image = Resources.GetIcon("Toolbox.ico")
+					},
+					new Label()
+					{
+						Text = "Campaign Editor by Reherc",
+						Font = new Font(FontFamilies.Sans, 16),
+						TextAlignment = TextAlignment.Center
+					},
+					/*new Label()
+					{
+						Text = "by Reherc",
+						TextAlignment = TextAlignment.Center
+					},*/
+					new Label()
+					{
+						Text = "Community-made content making tool for Distance",
+						TextAlignment = TextAlignment.Center
+					},
+					//new StackLayout()
+					//{
+					//	Orientation = Orientation.Vertical,
+					//	HorizontalContentAlignment = HorizontalAlignment.Center,
+
+					//	Items = 
+					//	{
+							(AbortButton = new Button()
+							{
+								Text = "Close"
+							})
+					//	}
+					//}
+
+					//TableLayout.AutoSized(, centered: true),
 				},
 				ClientSize = new Size(MinimumSize.Width, 96)
+
+				// github.com/reherc/centrifuge.mods.distance
 			};
 
-			AbortButton = DefaultButton = CloseButton;
+			AbortButton.Click += (sender, e) => Close();
+			DefaultButton = AbortButton;
 		}
 
 		public AboutWindow()
