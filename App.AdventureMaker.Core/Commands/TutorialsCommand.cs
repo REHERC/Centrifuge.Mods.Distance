@@ -1,6 +1,4 @@
-﻿using App.AdventureMaker.Core.Interfaces;
-using Distance.AdventureMaker.Common.Models;
-using Eto.Forms;
+﻿using Eto.Forms;
 using System;
 using System.Diagnostics;
 
@@ -8,8 +6,6 @@ namespace App.AdventureMaker.Core.Commands
 {
 	public class TutorialsCommand : Command
 	{
-		private readonly IEditor<CampaignFile> editor;
-
 		public TutorialsCommand()
 		{
 			MenuText = "&Online wiki";

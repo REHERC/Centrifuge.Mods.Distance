@@ -34,6 +34,8 @@ namespace App.AdventureMaker.Core.Commands
 				return;
 			}
 
+			RecentProjects.Update(editor.CurrentFile);
+
 			editor.LoadFile(null as FileInfo);
 		}
 	}
