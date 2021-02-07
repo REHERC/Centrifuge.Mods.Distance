@@ -67,11 +67,12 @@ namespace App.AdventureMaker.Core.Views
 						Text = "Recent projects",
 						Content = new Scrollable() { Content = (recent = new StackLayout()
 						{
+							Style = "no-padding",
 							Orientation = Orientation.Vertical,
 							HorizontalContentAlignment = HorizontalAlignment.Stretch,
-							Spacing = 4,
+							Spacing = 2,
 
-							Items = { "No recent items found." }
+							Items = { "No recent items found." },
 						})}
 					}, true)
 				}
@@ -145,13 +146,53 @@ namespace App.AdventureMaker.Core.Views
 				finally
 				{
 					LinkButton button;
-					recent.Items.Add(button = new LinkButton() { Text = $"{projectTitle} ({file.Directory.FullName})" });
+
+					recent.Items.Add(new StackLayout()
+					{
+						//Style = "no-padding",
+						Orientation = Orientation.Vertical,
+						HorizontalContentAlignment = HorizontalAlignment.Stretch,
+						Spacing = 0,
+
+						Items =
+						{
+							(button = new LinkButton()
+							{ 
+								Text = $"{projectTitle} ({file.Directory.FullName})"
+							})
+						},
+
+						ContextMenu = new ContextMenu()
+						{
+							Items =
+							{
+								(new ButtonMenuItem((sender, e) => 
+								{ 
+									RecentProjects.Remove(file);
+								})
+								{
+									Text = "Remove",
+									Image = Resources.GetIcon("CloseRed.ico")
+								}),
+								(new ButtonMenuItem((sender, e) =>
+								{
+									RecentProjects.Clear();
+								})
+								{
+									Text = "Clear all",
+									Image = Resources.GetIcon("CloseGray.ico")
+								})
+							}
+						}
+					});
 
 					button.Click += (sender, e) =>
 					{
 						RecentProjects.Update(file);
 						editor.LoadFile(file);
 					};
+
+
 				}
 			}
 		}

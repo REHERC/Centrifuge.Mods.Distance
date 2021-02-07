@@ -66,9 +66,6 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Close.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Resources\Bitmaps\" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\Toolbox.ico" />
   </ItemGroup>
 </Project>

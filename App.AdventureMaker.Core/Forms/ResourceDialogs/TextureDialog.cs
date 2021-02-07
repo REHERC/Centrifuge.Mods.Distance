@@ -1,7 +1,7 @@
 ﻿using App.AdventureMaker.Core.Controls;
 using Distance.AdventureMaker.Common.Models.Resources;
 
-namespace App.AdventureMaker.Core.Forms.Dialog
+namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 {
 	public class TextureDialog : ResourceDialogBase<CampaignResource.Texture>
 	{

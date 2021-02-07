@@ -9,10 +9,10 @@ using System.IO;
 public static class Json
 {
 	#region Save
-	public static void Save<TYPE>(string file, TYPE data, bool overwrite = false)
+	public static void Save<TYPE>(string file, TYPE data, bool overwrite = true)
 		=> Save(new FileInfo(file), data, overwrite);
 
-	public static void Save<TYPE>(FileInfo file, TYPE data, bool overwrite = false)
+	public static void Save<TYPE>(FileInfo file, TYPE data, bool overwrite = true)
 	{
 		if (file.Exists)
 		{
@@ -55,8 +55,8 @@ public static class Json
 
 	public static TYPE Load<TYPE>(FileInfo file, TYPE @default) where TYPE : new()
 	{
-		//if (file.Exists)
-		//{
+		if (file.Exists)
+		{
 			try
 			{
 				using (StreamReader streamReader = new StreamReader(file.FullName))
@@ -68,7 +68,9 @@ public static class Json
 			{
 				return @default;
 			}
-		//}
+		}
+
+		return @default;
 		//else
 		//{
 		//	throw new FileNotFoundException("The file does not exist", file.FullName);

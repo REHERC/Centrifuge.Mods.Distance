@@ -2,10 +2,10 @@
 
 public static class Json<TYPE> where TYPE : new()
 {
-	public static void Save(FileInfo file, TYPE data, bool overwrite)
+	public static void Save(FileInfo file, TYPE data, bool overwrite = true)
 		=> Json.Save(file, data, overwrite);
 
-	public static void Save(string file, TYPE data, bool overwrite)
+	public static void Save(string file, TYPE data, bool overwrite = true)
 		=> Json.Save(file, data, overwrite);
 
 	public static TYPE Load(FileInfo file)

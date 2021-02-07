@@ -1,10 +1,8 @@
-﻿using App.AdventureMaker.Core.Forms.Dialog;
-using Distance.AdventureMaker.Common.Enums;
+﻿using Distance.AdventureMaker.Common.Enums;
 using Distance.AdventureMaker.Common.Models.Resources;
 using Eto.Drawing;
 using Eto.Forms;
 using System;
-using System.Collections.Generic;
 
 namespace App.AdventureMaker.Core.Forms
 {

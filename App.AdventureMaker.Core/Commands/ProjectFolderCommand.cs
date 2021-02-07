@@ -3,6 +3,7 @@ using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
 using System;
 using System.Diagnostics;
+using static Utils;
 
 namespace App.AdventureMaker.Core.Commands
 {
@@ -31,13 +32,7 @@ namespace App.AdventureMaker.Core.Commands
 		{
 			if (editor.CurrentFile != null)
 			{
-				new Process()
-				{
-					StartInfo = new ProcessStartInfo(editor.CurrentFile.Directory.FullName)
-					{
-						UseShellExecute = true
-					}
-				}.Start();
+				ShellOpen(editor.CurrentFile.Directory.FullName);
 			}
 		}
 	}

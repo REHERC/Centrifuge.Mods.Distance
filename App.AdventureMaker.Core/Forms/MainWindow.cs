@@ -29,7 +29,7 @@ namespace App.AdventureMaker.Core.Forms
 				UpdateTitle();
 			};
 
-			WindowState = WindowState.Maximized;
+			//WindowState = WindowState.Maximized;
 
 			UpdateTitle();
 		}

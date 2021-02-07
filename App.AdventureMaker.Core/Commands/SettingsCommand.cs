@@ -1,4 +1,6 @@
-﻿using Eto.Forms;
+﻿using App.AdventureMaker.Core.Forms;
+using Eto.Forms;
+using System;
 
 namespace App.AdventureMaker.Core.Commands
 {
@@ -9,8 +11,11 @@ namespace App.AdventureMaker.Core.Commands
 			MenuText = "&Settings";
 			ToolBarText = "Settings";
 			Image = Resources.GetIcon("Settings.ico");
+		}
 
-			Enabled = false;
+		protected override void OnExecuted(EventArgs e)
+		{
+			new SettingsWindow().ShowModal();
 		}
 	}
 }

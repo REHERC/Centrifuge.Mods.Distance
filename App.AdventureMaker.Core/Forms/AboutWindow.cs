@@ -41,7 +41,7 @@ namespace App.AdventureMaker.Core.Forms
 					},*/
 					new Label()
 					{
-						Text = "Community-made content making tool for Distance",
+						Text = "Community content making tool for Distance",
 						TextAlignment = TextAlignment.Center
 					},
 					//new StackLayout()

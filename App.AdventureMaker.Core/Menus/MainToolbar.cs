@@ -13,7 +13,7 @@ namespace App.AdventureMaker.Core.Menus
 			Items.Add(new OpenFileCommand(editor));
 			Items.Add(new SaveFileCommand(editor));
 			Items.Add(new SeparatorToolItem());
-			Items.Add(new RunGameCommand());
+			Items.Add(new RunGameCommand(editor));
 		}
 	}
 }

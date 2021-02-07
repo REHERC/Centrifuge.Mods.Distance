@@ -2,7 +2,7 @@
 using Eto.Forms;
 using System;
 
-namespace App.AdventureMaker.Core.Forms.Dialog
+namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 {
 	public abstract class ResourceDialogBase<T> : Dialog<T> where T : class, new()
 	{

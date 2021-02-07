@@ -1,6 +1,6 @@
 ﻿using Eto.Forms;
 using System;
-using System.Diagnostics;
+using static Utils;
 
 namespace App.AdventureMaker.Core.Commands
 {
@@ -18,13 +18,7 @@ namespace App.AdventureMaker.Core.Commands
 
 		protected override void OnExecuted(EventArgs e)
 		{
-			new Process()
-			{
-				StartInfo = new ProcessStartInfo(Constants.GITHUB_WIKI)
-				{
-					UseShellExecute = true
-				}
-			}.Start();
+			ShellOpen(Constants.GITHUB_WIKI);
 		}
 	}
 }

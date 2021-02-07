@@ -54,13 +54,25 @@ namespace App.AdventureMaker.Core
 			broadcastEvents_ = false;
 			if (Equals(file, null) || !file.Exists) return;
 
-			if (FileList.Contains(file))
-			{
-				FileList.Remove(file);
-			}
+			Remove(file);
 
 			broadcastEvents_ = true;
 			FileList.Insert(0, file);
+		}
+
+		public static void Remove(FileInfo file)
+		{
+			var itemsToRemove = FileList.Where(item => String.Equals(item.FullName, file.FullName, StringComparison.InvariantCultureIgnoreCase)).ToArray();
+
+			foreach (var item in itemsToRemove)
+			{
+				FileList.Remove(item);
+			}
+		}
+
+		public static void Clear()
+		{
+			FileList.Clear();
 		}
 
 		private static void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

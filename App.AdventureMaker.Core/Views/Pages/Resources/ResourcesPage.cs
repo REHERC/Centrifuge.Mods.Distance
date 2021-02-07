@@ -1,6 +1,4 @@
-﻿using App.AdventureMaker.Core.Controls.Cells;
-using App.AdventureMaker.Core.Forms;
-using App.AdventureMaker.Core.Forms.Dialog;
+﻿using App.AdventureMaker.Core.Forms;
 using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
 using Distance.AdventureMaker.Common.Models.Resources;
