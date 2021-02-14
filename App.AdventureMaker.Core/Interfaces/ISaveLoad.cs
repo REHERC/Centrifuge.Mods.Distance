@@ -4,6 +4,6 @@
 	{
 		public void SaveData(DATA project);
 
-		public void LoadData(DATA project);
+		public void LoadData(DATA project, bool resetUI);
 	}
 }

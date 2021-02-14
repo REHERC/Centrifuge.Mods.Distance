@@ -241,7 +241,7 @@ namespace App.AdventureMaker.Core.Views
 			project.data.resources = collection.ToList();
 		}
 
-		void ISaveLoad<CampaignFile>.LoadData(CampaignFile project)
+		void ISaveLoad<CampaignFile>.LoadData(CampaignFile project, bool resetUI)
 		{
 			resourceGrid.UnselectAll();
 			resourceGrid.SelectedRow = -1;

@@ -191,8 +191,6 @@ namespace App.AdventureMaker.Core.Views
 						RecentProjects.Update(file);
 						editor.LoadFile(file);
 					};
-
-
 				}
 			}
 		}

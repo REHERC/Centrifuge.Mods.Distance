@@ -51,7 +51,7 @@ namespace App.AdventureMaker.Core.Views
 		private void SelectPlaylist(object sender, EventArgs e)
 		{
 			tabs.Enabled = listBox.SelectedIndex != -1;
-			properties.LoadData(listBox.SelectedValue as CampaignPlaylist);
+			properties.LoadData(listBox.SelectedValue as CampaignPlaylist, true);
 		}
 
 		private void RemovePlaylist(object sender, EventArgs e)
@@ -77,8 +77,16 @@ namespace App.AdventureMaker.Core.Views
 			editor.Modified = true;
 		}
 
-		public void LoadData(CampaignFile project)
+		public void LoadData(CampaignFile project, bool resetUI)
 		{
+			if (!resetUI)
+			{
+				listBox.SuspendLayout();
+				properties.SuspendLayout();
+			}
+
+			int row = listBox.SelectedIndex;
+
 			listBox.Items.Clear();
 			listBox.UnselectItem();
 
@@ -86,6 +94,15 @@ namespace App.AdventureMaker.Core.Views
 			{
 				listBox.Items.Add(playlist);
 			}
+
+			if (!resetUI)
+			{
+				listBox.SelectedIndex = row;
+				SelectPlaylist(listBox, new EventArgs());
+
+				listBox.ResumeLayout();
+				properties.ResumeLayout();
+			}	
 		}
 
 		public void SaveData(CampaignFile project)

@@ -1,4 +1,5 @@
 ﻿using App.AdventureMaker.Core.Controls;
+using Eto.Drawing;
 using Eto.Forms;
 using System;
 
@@ -17,7 +18,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 		{
 			Data = data.CloneObject() ?? new T();
 
-			MinimumSize = new Eto.Drawing.Size(640, 0);
+			MinimumSize = new Size(640, 0);
 
 			Content = (stackLayout = new StackLayout()
 			{

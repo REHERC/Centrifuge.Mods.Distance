@@ -33,7 +33,7 @@ namespace App.AdventureMaker.Core.Commands
 			if (data != null)
 			{
 				Project.CreateProject(data);
-				editor.LoadFile(Path.Combine(data.path, "project.json"));
+				editor.LoadFile(Path.Combine(data.path, "project.json"), true);
 			}
 		}
 	}

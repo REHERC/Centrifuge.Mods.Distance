@@ -1,8 +1,10 @@
 ﻿using App.AdventureMaker.Core.Controls;
 using App.AdventureMaker.Core.Interfaces;
+using Distance.AdventureMaker.Common.Enums;
 using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
 using System;
+using System.Linq;
 
 namespace App.AdventureMaker.Core.Views
 {
@@ -17,7 +19,7 @@ namespace App.AdventureMaker.Core.Views
 
 		private readonly TextBox nameBox;
 		private readonly TextBox descriptionBox;
-		private readonly TextBoxWithButton iconBox;
+		private readonly ResourceSelector iconBox;
 		private readonly GuidLabel guidBox;
 		private readonly BooleanSelector campaignDisplayBox;
 		private readonly BooleanSelector sprintDisplayBox;
@@ -34,7 +36,7 @@ namespace App.AdventureMaker.Core.Views
 
 			properties.AddRow("Name", nameBox = new TextBox());
 			properties.AddRow("Description", descriptionBox = new TextBox());
-			properties.AddRow("Icon", iconBox = new TextBoxWithButton());
+			properties.AddRow("Icon", iconBox = new ResourceSelector(editor, ResourceType.Texture));
 
 			properties.AddRow("Campaign playlist", campaignDisplayBox = new BooleanSelector());
 			properties.AddRow("Sprint playlist", sprintDisplayBox = new BooleanSelector());
@@ -50,9 +52,10 @@ namespace App.AdventureMaker.Core.Views
 
 			nameBox.TextChanged += NotifyModified;
 			descriptionBox.TextChanged += NotifyModified;
-			iconBox.TextChanged += NotifyModified;
+			iconBox.ResourceSelected += NotifyModified;
 			guidBox.TextChanged += NotifyModified;
 			sprintDisplayBox.ValueChanged += NotifyModified;
+			campaignDisplayBox.ValueChanged += NotifyModified;
 		}
 
 		private void NotifyModified(object sender, EventArgs e)
@@ -64,7 +67,7 @@ namespace App.AdventureMaker.Core.Views
 			OnModified?.Invoke(playlist);
 		}
 
-		public void LoadData(CampaignPlaylist playlist)
+		public void LoadData(CampaignPlaylist playlist, bool resetUI)
 		{
 			if (playlist != null)
 			{
@@ -72,7 +75,10 @@ namespace App.AdventureMaker.Core.Views
 
 				nameBox.Text = playlist.name;
 				descriptionBox.Text = playlist.description;
-				iconBox.Text = playlist.icon;
+
+				var resourceQuery = editor.Document.data.resources.Where(res => Equals(res.guid, playlist.icon));
+				iconBox.Resource = resourceQuery.Any() ? resourceQuery.First() : null;
+				
 				guidBox.Text = playlist.guid;
 				sprintDisplayBox.Value = playlist.display_in_sprint;
 				campaignDisplayBox.Value = playlist.display_in_campaign;
@@ -87,7 +93,7 @@ namespace App.AdventureMaker.Core.Views
 
 			playlist.name = nameBox.Text;
 			playlist.description = descriptionBox.Text;
-			playlist.icon = iconBox.Text;
+			playlist.icon = iconBox.Resource?.guid;
 			playlist.guid = guidBox.Text;
 			playlist.display_in_sprint = sprintDisplayBox.Value;
 			playlist.display_in_campaign = campaignDisplayBox.Value;

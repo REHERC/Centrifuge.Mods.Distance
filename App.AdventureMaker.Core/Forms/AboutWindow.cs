@@ -3,13 +3,13 @@ using Eto.Forms;
 
 namespace App.AdventureMaker.Core.Forms
 {
-	public class AboutWindow : Eto.Forms.Dialog
+	public class AboutWindow : Dialog
 	{
 
 		private void InitializeComponent()
 		{
 			Title = "About";
-			MinimumSize = new Size(386, 100);
+			MinimumSize = new Size(512, 100);
 			Resizable = false;
 
 			Content = new StackLayout()
@@ -30,7 +30,7 @@ namespace App.AdventureMaker.Core.Forms
 					},
 					new Label()
 					{
-						Text = "Campaign Editor by Reherc",
+						Text = "Distance Campaign Editor by Reherc",
 						Font = new Font(FontFamilies.Sans, 16),
 						TextAlignment = TextAlignment.Center
 					},

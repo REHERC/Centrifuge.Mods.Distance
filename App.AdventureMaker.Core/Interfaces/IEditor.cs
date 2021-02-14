@@ -11,14 +11,14 @@ namespace App.AdventureMaker.Core.Interfaces
 
 		public FileInfo CurrentFile { get; set; }
 
-		public DATA Data { get; set; }
+		public DATA Document { get; set; }
 
 		public bool Modified { get; set; }
 
 		public void SaveFile();
 
-		public void LoadFile(FileInfo file);
+		public void LoadFile(FileInfo file, bool resetUI = true);
 
-		public void LoadFile(string file);
+		public void LoadFile(string file, bool resetUI = true);
 	}
 }

@@ -26,7 +26,7 @@ namespace App.AdventureMaker.Core.Views
 			}
 		}
 
-		public CampaignFile Data
+		public CampaignFile Document
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace App.AdventureMaker.Core.Views
 			}
 			set
 			{
-				editorView.LoadData(value);
+				editorView.LoadData(value, false);
 				Modified = true;
 			}
 		}
@@ -77,20 +77,20 @@ namespace App.AdventureMaker.Core.Views
 			}
 		}
 
-		public void LoadFile(string file) => LoadFile(new FileInfo(file));
+		public void LoadFile(string file, bool resetUI = true) => LoadFile(new FileInfo(file), resetUI);
 
-		public void LoadFile(FileInfo file)
+		public void LoadFile(FileInfo file, bool resetUI = true)
 		{
 			if (file != null && file.Exists)
 			{
 				CurrentFile = file;
 				CampaignFile project = Json.Load<CampaignFile>(file);
-				editorView.LoadData(project);
+				editorView.LoadData(project, resetUI);
 			}
 			else
 			{
 				CurrentFile = null;
-				editorView.LoadData(new CampaignFile());
+				editorView.LoadData(new CampaignFile(), resetUI);
 			}
 
 			Modified = false;

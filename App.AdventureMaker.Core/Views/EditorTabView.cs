@@ -41,9 +41,9 @@ namespace App.AdventureMaker.Core.Views
 			return base.AddPage(title, content, scrollable);
 		}
 
-		public void LoadData(CampaignFile project)
+		public void LoadData(CampaignFile project, bool resetUI)
 		{
-			pages.ForEach(page => page.LoadData(project));
+			pages.ForEach(page => page.LoadData(project, resetUI));
 		}
 
 		public void SaveData(CampaignFile project)

@@ -46,7 +46,7 @@ namespace App.AdventureMaker.Core.Views
 			project.metadata.guid = guidBox.Text;
 		}
 
-		void ISaveLoad<CampaignFile>.LoadData(CampaignFile project)
+		void ISaveLoad<CampaignFile>.LoadData(CampaignFile project, bool resetUI)
 		{
 			titleBox.Text = project.metadata.title;
 			descriptionBox.Text = project.metadata.description;
