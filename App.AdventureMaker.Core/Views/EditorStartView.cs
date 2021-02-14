@@ -70,7 +70,7 @@ namespace App.AdventureMaker.Core.Views
 							Style = "no-padding",
 							Orientation = Orientation.Vertical,
 							HorizontalContentAlignment = HorizontalAlignment.Stretch,
-							Spacing = 2,
+							Spacing = 0,
 
 							Items = { "No recent items found." },
 						})}
@@ -145,18 +145,18 @@ namespace App.AdventureMaker.Core.Views
 				}
 				finally
 				{
-					LinkButton button;
+					Button button;
 
 					recent.Items.Add(new StackLayout()
 					{
-						//Style = "no-padding",
+						Style = "no-padding",
 						Orientation = Orientation.Vertical,
 						HorizontalContentAlignment = HorizontalAlignment.Stretch,
-						Spacing = 0,
+						Spacing = 2,
 
 						Items =
 						{
-							(button = new LinkButton()
+							(button = new Button()
 							{ 
 								Text = $"{projectTitle} ({file.Directory.FullName})"
 							})
