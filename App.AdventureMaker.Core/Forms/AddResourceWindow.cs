@@ -11,7 +11,7 @@ namespace App.AdventureMaker.Core.Forms
 		private readonly EnumDropDown<ResourceType> dropDown;
 		public AddResourceWindow()
 		{
-			MinimumSize = new Size(400, 0);
+			Size = MinimumSize = new Size(400, 250);
 
 			Content = new StackLayout()
 			{

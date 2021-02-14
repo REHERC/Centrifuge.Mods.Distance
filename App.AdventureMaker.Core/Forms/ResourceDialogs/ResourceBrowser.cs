@@ -25,7 +25,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 			this.editor = editor;
 			this.type = type;
 
-			MinimumSize = new Size(650, 300);
+			Size = MinimumSize = new Size(650, 300);
 
 			Title = $"Select a {type.ToString().ToLower()}";
 

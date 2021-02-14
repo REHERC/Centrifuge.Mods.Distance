@@ -18,7 +18,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 		{
 			Data = data.CloneObject() ?? new T();
 
-			MinimumSize = new Size(640, 0);
+			Size = MinimumSize = new Size(360, 180);
 
 			Content = (stackLayout = new StackLayout()
 			{
