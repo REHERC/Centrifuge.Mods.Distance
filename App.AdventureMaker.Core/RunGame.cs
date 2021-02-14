@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using static Utils;
+using static System.String;
+using Eto;
 
 namespace App.AdventureMaker.Core
 {
@@ -16,10 +18,11 @@ namespace App.AdventureMaker.Core
 			{
 				case 0:
 					string url = $"{Constants.DISTANCE_STEAM_PROTOCOL_HANDLER_URL}{Uri.EscapeUriString(ArgumentList(editor))}";
+
 					ShellOpen(url);
 					break;
 				case 1:
-					if (String.IsNullOrWhiteSpace(AppSettings.Instance.GameExe))
+					if (IsNullOrWhiteSpace(AppSettings.Instance.GameExe))
 					{
 						if (Messages.GameExeNotSet() == Eto.Forms.DialogResult.Yes)
 						{
@@ -53,7 +56,7 @@ namespace App.AdventureMaker.Core
 			AddCommand(arguments, "-windowed");
 			AddCommand(arguments, "-campaign", editor.CurrentFile.FullName);
 
-			return string.Join(' ', arguments.ToArray());
+			return Join(' ', arguments.ToArray());
 		}
 
 		private static void AddCommand(List<string> args, string command, params string[] parameters)
@@ -69,10 +72,26 @@ namespace App.AdventureMaker.Core
 
 		private static void AddStrings(List<string> args, params string[] values)
 		{
+			char delim = StringDelimiter();
+
 			foreach (string param in values)
 			{
-				args.Add($"\"{param.Replace("\"", "\\\"")}\"");
+				args.Add($"{delim}{param}{delim}");
 			}
+		}
+
+		private static char StringDelimiter()
+		{
+			if (EtoEnvironment.Platform.IsLinux)
+			{
+				return '\'';
+			}
+			else if (EtoEnvironment.Platform.IsWindows)
+			{
+				return '"';
+			}
+
+			return '\0';
 		}
 	}
 }
