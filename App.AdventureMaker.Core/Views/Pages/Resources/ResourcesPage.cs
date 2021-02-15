@@ -17,7 +17,7 @@ namespace App.AdventureMaker.Core.Views
 
 		private readonly GridView resourceGrid;
 		private readonly GridColumn resourceTypeColumn;
-		private readonly GridColumn resourceIdColumn;
+		//private readonly GridColumn resourceIdColumn;
 		private readonly GridColumn resourceFileColumn;
 		private readonly GridColumn resourceDependenciesColumn;
 
@@ -106,7 +106,7 @@ namespace App.AdventureMaker.Core.Views
 						Editable = false,
 						Resizable = true
 					}),
-					(resourceIdColumn = new GridColumn()
+					/*(resourceIdColumn = new GridColumn()
 					{
 						HeaderText = "Unique ID",
 						Width = 230,
@@ -116,7 +116,7 @@ namespace App.AdventureMaker.Core.Views
 						},
 						Editable = false,
 						Resizable = true
-					}),
+					}),*/
 					(resourceFileColumn = new GridColumn()
 					{
 						HeaderText = "Main File",

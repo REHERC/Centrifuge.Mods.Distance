@@ -54,7 +54,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 									Binding = Binding.Property<CampaignResource, string>(res => $"{res.file}")
 								}
 							},
-							new GridColumn()
+							/*new GridColumn()
 							{
 								HeaderText = "Guid",
 								Editable = false,
@@ -64,7 +64,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 								{
 									Binding = Binding.Property<CampaignResource, string>(res => $"{res.guid}")
 								}
-							}
+							}*/
 						}
 					}, true),
 					new StackLayoutItem(new StackLayout()
