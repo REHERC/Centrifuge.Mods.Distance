@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Text.Json.Serialization;
 
 namespace App.AdventureMaker.Core
 {
@@ -8,13 +7,12 @@ namespace App.AdventureMaker.Core
 		public const string SETTINGS_FILE_NAME = "settings.json";
 
 		#region Static
-		[Newtonsoft.Json.JsonIgnore]
+		[JsonIgnore]
 		public static AppSettings Instance { get; set; }
 
 		static AppSettings()
 		{
 			Instance = Json.GetOrCreate(SETTINGS_FILE_NAME, new AppSettings());
-		
 		}
 
 		public static void Save()
@@ -24,11 +22,19 @@ namespace App.AdventureMaker.Core
 		#endregion
 
 		#region Instance
+		#region Preview Mode Settings
 		[JsonProperty("preview_mode")]
 		public int PreviewMode { get; set; } = 0;
 
 		[JsonProperty("game_executable")]
 		public string GameExe { get; set; } = string.Empty;
+
+		[JsonProperty("enable_rcon")]
+		public bool EnableRcon { get; set; } = false;
+
+		[JsonProperty("rcon_port")]
+		public int RconPort { get; set; } = 5000;
+		#endregion
 		#endregion
 	}
 }

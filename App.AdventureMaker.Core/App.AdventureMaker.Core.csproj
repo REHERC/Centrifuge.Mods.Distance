@@ -21,8 +21,8 @@
 
   <Import Project="..\App.SharedResources\App.Icons.projitems" Label="Shared" />
 
-  <Import Project="..\Distance.AdventureMaker.Common\Distance.AdventureMaker.Common.projitems" Label="Shared" />
+  <Import Project="..\Common.Distance.AdventureMaker\Common.Distance.AdventureMaker.projitems" Label="Shared" />
 
-  <Import Project="..\Json.Common\Json.Common.projitems" Label="Shared" />
+  <Import Project="..\Common.Json\Common.Json.projitems" Label="Shared" />
 
 </Project>
