@@ -170,7 +170,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game Modifications", "Game 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Tasks", "Solution Tasks", "{EA2993F1-0B88-4CF0-9672-9693917673DC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applicationa", "Applicationa", "{1AB34F43-0922-4552-8750-6A29B046EB72}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{1AB34F43-0922-4552-8750-6A29B046EB72}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Anolytics", "Anolytics", "{E2A79B1C-F407-4B1D-8D8E-80BC5F58BBE2}"
 EndProject
@@ -253,7 +253,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.AdventureMaker.Windows"
 		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Centrifuge Game Support", "Centrifuge Game Support", "{4DA6AF01-8F55-48AF-8044-9C0C10E8F797}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game Support Library", "Game Support Library", "{4DA6AF01-8F55-48AF-8044-9C0C10E8F797}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centrifuge.Distance", "Centrifuge.Distance\Centrifuge.GameSupport.Distance\Centrifuge.Distance.csproj", "{C0573B40-FE3F-4E65-BB05-CC143A10A700}"
 	ProjectSection(ProjectDependencies) = postProject
