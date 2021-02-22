@@ -19,8 +19,6 @@ namespace App.CustomDeathMessages.Windows
 			CultureInfo.CurrentCulture = english;
 			CultureInfo.CurrentUICulture = english;
 
-			PlatformStyles.ApplyAll();
-
 			new Application(Platforms.WinForms).Run(new MainWindow());
 		}
 	}
