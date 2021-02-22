@@ -26,6 +26,4 @@
     <ProjectReference Include="..\App.AdventureMaker.Core\App.AdventureMaker.Core.csproj" />
   </ItemGroup>
 
-  <Import Project="..\WindowsAppStyles.cs\WindowsAppStyles.cs.projitems" Label="Shared" />
-
 </Project>

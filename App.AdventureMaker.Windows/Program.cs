@@ -21,7 +21,6 @@ namespace App.AdventureMaker.Windows
 			CultureInfo.CurrentUICulture = english;
 
 			Styles.ApplyAll();
-			PlatformStyles.ApplyAll();
 
 			new Application(Platforms.WinForms).Run(new MainWindow());
 		}
