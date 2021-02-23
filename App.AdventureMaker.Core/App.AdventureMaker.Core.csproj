@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <PackageReference Include="Eto.Forms" Version="2.5.10" />
+    <PackageReference Include="HarmonyX" Version="2.3.2" />
     <PackageReference Include="JsonSubTypes" Version="1.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="SharpCompress" Version="0.27.1" />
@@ -31,5 +32,9 @@
   <Import Project="..\Common.Distance.AdventureMaker\Common.Distance.AdventureMaker.projitems" Label="Shared" />
 
   <Import Project="..\Common.Json\Common.Json.projitems" Label="Shared" />
+
+  <Import Project="..\Common.SharpCompress\Common.SharpCompress.projitems" Label="Shared" />
+
+  <Import Project="..\Common.Harmony\Common.Harmony.projitems" Label="Shared" />
 
 </Project>

@@ -260,7 +260,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centrifuge.Distance", "Cent
 		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{C6C7A7A2-BAE8-4C15-9BC6-61BAB6A42006}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries Helpers and Patches", "Libraries Helpers and Patches", "{C6C7A7A2-BAE8-4C15-9BC6-61BAB6A42006}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modifications and Applications", "Modifications and Applications", "{23D64D48-DA47-4121-9E52-978C85687AC5}"
 EndProject
@@ -269,6 +269,8 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Common.Json", "Common.Json\Common.Json.shproj", "{755CB009-36FB-47E4-91FA-3D9A378FA7E8}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Common.Distance.AdventureMaker", "Common.Distance.AdventureMaker\Common.Distance.AdventureMaker.shproj", "{0F2C2BE7-27A2-408A-841F-643B3549A55E}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Common.SharpCompress", "Common.SharpCompress\Common.SharpCompress.shproj", "{27ADDC41-184A-417C-ABD0-13264475C380}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -281,6 +283,7 @@ Global
 		Distance.Anolytics.Content\Distance.Anolytics.Content.projitems*{19f17209-4a5c-43e2-86dc-cce76dba5c23}*SharedItemsImports = 13
 		Distance.NitronicHUD.Content\Distance.NitronicHUD.Content.projitems*{1b79abb1-9caa-41f4-a88a-d84524e8f25a}*SharedItemsImports = 13
 		App.SharedResources\App.Icons.projitems*{23fb61ff-77b2-4088-9f17-3db7a93d5abc}*SharedItemsImports = 5
+		Common.SharpCompress\Common.SharpCompress.projitems*{27addc41-184a-417c-abd0-13264475c380}*SharedItemsImports = 13
 		Common.Harmony\Common.Harmony.projitems*{4c854d11-2b63-4cb3-bfbf-4bcc37f4b35c}*SharedItemsImports = 13
 		Distance.CustomDeathMessages.Content\Distance.CustomDeathMessages.Content.projitems*{57657ebc-1f29-4357-b4ef-45b2b22f5a3f}*SharedItemsImports = 13
 		Distance.TrackMusic.Content\Distance.TrackMusic.Content.projitems*{58bfee58-73a0-4451-9da7-0fb51f1c53ea}*SharedItemsImports = 13
@@ -294,11 +297,14 @@ Global
 		Distance.CustomCar.Content\Distance.CustomCar.Content.projitems*{b250cc3f-e2f1-40e6-8a89-5ad23d54c019}*SharedItemsImports = 13
 		Common.Distance.AdventureMaker\Common.Distance.AdventureMaker.projitems*{b3f55581-78bd-4ba4-bb36-d80f3716dbe4}*SharedItemsImports = 4
 		Common.Json\Common.Json.projitems*{b3f55581-78bd-4ba4-bb36-d80f3716dbe4}*SharedItemsImports = 4
+		Common.SharpCompress\Common.SharpCompress.projitems*{b3f55581-78bd-4ba4-bb36-d80f3716dbe4}*SharedItemsImports = 4
 		Distance.AdventureMaker.Content\Distance.AdventureMaker.Content.projitems*{b6eca462-ea0b-4bd3-8419-2a59f1db34ed}*SharedItemsImports = 13
 		Distance.ChristmasSeasonalFeatures.Content\Distance.ChristmasSeasonalFeatures.Content.projitems*{ccca412e-616c-49d3-80a6-a0111b879118}*SharedItemsImports = 13
 		App.SharedResources\App.Icons.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
 		Common.Distance.AdventureMaker\Common.Distance.AdventureMaker.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
+		Common.Harmony\Common.Harmony.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
 		Common.Json\Common.Json.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
+		Common.SharpCompress\Common.SharpCompress.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
 		Distance.EditorAdditions.Content\Distance.EditorAdditions.Content.projitems*{e2e4ac75-d500-4d5d-a706-613a3df688e3}*SharedItemsImports = 13
 		Distance.SceneDumper.Content\Distance.SceneDumper.Content.projitems*{e84718c2-200c-415f-ad1d-0cc133c38e70}*SharedItemsImports = 13
 	EndGlobalSection
@@ -600,6 +606,7 @@ Global
 		{4C854D11-2B63-4CB3-BFBF-4BCC37F4B35C} = {C6C7A7A2-BAE8-4C15-9BC6-61BAB6A42006}
 		{755CB009-36FB-47E4-91FA-3D9A378FA7E8} = {C6C7A7A2-BAE8-4C15-9BC6-61BAB6A42006}
 		{0F2C2BE7-27A2-408A-841F-643B3549A55E} = {23D64D48-DA47-4121-9E52-978C85687AC5}
+		{27ADDC41-184A-417C-ABD0-13264475C380} = {C6C7A7A2-BAE8-4C15-9BC6-61BAB6A42006}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C475AB02-6F97-4575-9527-2F31F5AF847C}

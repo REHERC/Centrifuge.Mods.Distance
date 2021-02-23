@@ -108,6 +108,7 @@
   </ItemGroup>
   <Import Project="..\Common.Distance.AdventureMaker\Common.Distance.AdventureMaker.projitems" Label="Shared" />
   <Import Project="..\Common.Json\Common.Json.projitems" Label="Shared" />
+  <Import Project="..\Common.SharpCompress\Common.SharpCompress.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>SET MODNAME=Distance Adventure Maker
