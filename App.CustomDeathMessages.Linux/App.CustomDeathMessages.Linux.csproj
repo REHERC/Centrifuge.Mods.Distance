@@ -4,6 +4,10 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
+    <Authors>Nico (larnin), Reherc</Authors>
+    <RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
+    <NeutralLanguage>English</NeutralLanguage>
+    <Product>Configuration editor for the Custom Death Messages mod for Distance</Product>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

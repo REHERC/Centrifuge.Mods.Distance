@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>WinExe</OutputType>
     <ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
+    <Authors>Reherc</Authors>
+    <Product>Campaign Editor for Distance</Product>
+    <NeutralLanguage>English</NeutralLanguage>
+    <RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
