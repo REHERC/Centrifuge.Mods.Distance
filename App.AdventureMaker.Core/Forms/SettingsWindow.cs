@@ -7,10 +7,14 @@ namespace App.AdventureMaker.Core.Forms
 {
 	public class SettingsWindow : Dialog
 	{
+		public const int TCP_PORT_MAX_NUMBER = 65535;
+
 		private readonly TabControl tabs;
 
 		private readonly RadioButtonList previewModeRunMethod;
 		private readonly TextBoxWithButton previewModeRunExecutable;
+		private readonly CheckBox previewModeEnableRemoteConsole;
+		private readonly NumericStepper previewModeRemoteConsolePort;
 
 		#region Constructors
 		public SettingsWindow()
@@ -77,16 +81,26 @@ namespace App.AdventureMaker.Core.Forms
 						{
 							(previewModeRunMethod = new RadioButtonList()
 							{
+								Style = "no-padding",
 								Orientation = Orientation.Vertical,
+								Spacing = new Size(0, 2),
 								Items =
 								{
 									"Use steam:// links (if you own the game on steam)",
 									"Open game executable (for drm-free distance players)",
 								}
 							}),
-							(previewModeRunExecutable = new TextBoxWithButton()
+							(previewModeRunExecutable = new TextBoxWithButton()),
+							(previewModeEnableRemoteConsole = new CheckBox()
 							{
-
+								Text = "Intercept log messages from the game (set TCP port below)",
+							}),
+							(previewModeRemoteConsolePort = new NumericStepper()
+							{
+								DecimalPlaces = 0,
+								MinValue = 0,
+								MaxValue = TCP_PORT_MAX_NUMBER,
+								Enabled = AppSettings.Instance.EnableRcon
 							})
 						}
 					}
@@ -114,6 +128,11 @@ namespace App.AdventureMaker.Core.Forms
 			{
 				previewModeRunExecutable.Enabled = previewModeRunMethod.SelectedIndex == 1;
 			};
+
+			previewModeEnableRemoteConsole.CheckedChanged += (sender, e) =>
+			{
+				previewModeRemoteConsolePort.Enabled = previewModeEnableRemoteConsole.Checked == true;
+			};
 		}
 
 		public SettingsWindow(int pageIndex) : this()
@@ -127,12 +146,16 @@ namespace App.AdventureMaker.Core.Forms
 		{
 			previewModeRunMethod.SelectedIndex = AppSettings.Instance.PreviewMode;
 			previewModeRunExecutable.Text = AppSettings.Instance.GameExe;
+			previewModeEnableRemoteConsole.Checked = AppSettings.Instance.EnableRcon;
+			previewModeRemoteConsolePort.Value = AppSettings.Instance.RconPort;
 		}
 
 		private void SaveSettings()
 		{
 			AppSettings.Instance.PreviewMode = previewModeRunMethod.SelectedIndex;
 			AppSettings.Instance.GameExe = previewModeRunExecutable.Text;
+			AppSettings.Instance.EnableRcon = previewModeEnableRemoteConsole.Checked == true;
+			AppSettings.Instance.RconPort = (int)previewModeRemoteConsolePort.Value;
 
 			AppSettings.Save();
 		}

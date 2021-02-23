@@ -22,14 +22,14 @@ namespace Distance.AdventureMaker
 		{
 			var parser = new FluentCommandLineParser<ApplicationArguments>();
 
-			parser  /// /preview
+			parser  /// /preview-campaign
 			.Setup(obj => obj.IsPreviewMode)
 			.As(CLARG_FLG_PREVIEW_MODE)
 			.SetDefault(false);
 
-			parser  /// /campaign:"{file path}"
+			parser  /// /project:"{file path}"
 			.Setup(obj => obj.CampaignFile)
-			.As(CLARG_VAL_CAMPAIGN_FILE)
+			.As(CLARG_VAL_CAMPAIGN_PROJECT_FILE)
 			.SetDefault(string.Empty);
 
 			parser  /// /rcon:{number}

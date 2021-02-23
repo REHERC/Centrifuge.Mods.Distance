@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 public static partial class Constants
 {
-	public const string DISTANCE_STEAM_PROTOCOL_HANDLER_URL = "https://rungameid/233610//";
+	public const string DISTANCE_STEAM_PROTOCOL_HANDLER_URL = "steam://rungameid/233610//";
 
-	public const string GITHUB_ISSUES_PAGE = "https://github.com/REHERC/Centrifuge.Mods.Distance/issues/new";
+	public const string GITHUB_ISSUES_PAGE = "https://github.com/REHERC/Centrifuge.Mods.Distance/issues";
 	public const string GITHUB_WIKI = "https://github.com/REHERC/Centrifuge.Mods.Distance/wiki";
 	public const string DISCORD_DISTANCE = "https://discord.gg/distance";
 
