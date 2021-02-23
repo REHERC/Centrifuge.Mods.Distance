@@ -9,6 +9,7 @@
     <Import_RootNamespace>Distance.AdventureMaker.Common</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\LevelTransitionType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\LevelUnlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\PlaylistUnlock.cs" />

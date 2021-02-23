@@ -1,12 +1,14 @@
 ﻿{
   "FriendlyName": "Adventure Maker",
-  "Description": "Play community made campaigns for Distance.",
+  "Description": "Play community-made campaigns for Distance.",
   "Author": "Reherc",
   "Contact": "Github: @REHERC",
   "ModuleFileName": "Distance.AdventureMaker.dll",
   "Priority": 10,
   "SkipLoad": false,
     "Dependencies": [
+        "FluentCommandLineParser.dll",
+        "JsonSubTypes.dll",
         "SharpCompress.dll"
     ],
   "RequiredGSLs": [

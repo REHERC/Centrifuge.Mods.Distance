@@ -92,6 +92,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationArguments.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -123,6 +124,8 @@ CALL :MAKEDIR "%25MOD%25"
 
 CALL :COPYDIR "%25INCLUDE%25\Mod" "%25MOD%25"
 CALL :COPY "%25BUILD%25Distance.AdventureMaker.dll" "%25MOD%25"
+CALL :INCLUDEDEPENDENCY FluentCommandLineParser
+CALL :INCLUDEDEPENDENCY JsonSubTypes
 CALL :INCLUDEDEPENDENCY SharpCompress
 
 CALL :INCLUDEGSL Centrifuge.Distance
