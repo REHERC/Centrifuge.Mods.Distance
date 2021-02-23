@@ -55,6 +55,12 @@ namespace App.AdventureMaker.Core.Forms
 		protected override void OnShown(EventArgs e)
 		{
 			base.OnShown(e);
+
+			if (AppSettings.Instance.OpenLastProject && RecentProjects.Get().Length > 0)
+			{
+				mainView.LoadFile(RecentProjects.Get()[0]);
+			}
+
 			Messages.PreviewMessage();
 		}
 

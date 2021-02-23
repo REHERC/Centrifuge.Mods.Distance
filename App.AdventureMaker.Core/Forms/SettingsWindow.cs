@@ -11,6 +11,7 @@ namespace App.AdventureMaker.Core.Forms
 
 		private readonly TabControl tabs;
 
+		private readonly CheckBox generalOpenLastProject;
 		private readonly RadioButtonList previewModeRunMethod;
 		private readonly TextBoxWithButton previewModeRunExecutable;
 		private readonly CheckBox previewModeEnableRemoteConsole;
@@ -66,9 +67,10 @@ namespace App.AdventureMaker.Core.Forms
 			#endregion
 
 			#region Tab Initialization
+			#region General
 			tabs.Pages.Add(new TabPage()
 			{
-				Text = "Campaign Preview Mode",
+				Text = "General",
 				Content = new Scrollable()
 				{
 					Content = new StackLayout()
@@ -79,6 +81,30 @@ namespace App.AdventureMaker.Core.Forms
 
 						Items =
 						{
+							(generalOpenLastProject = new CheckBox()
+							{
+								Text = "Open most recent project on startup"
+							})
+						}
+					}
+				}
+			});
+			#endregion
+			#region Campaign Preview Mode
+			tabs.Pages.Add(new TabPage()
+			{
+				Text = "In-game campaign preview",
+				Content = new Scrollable()
+				{
+					Content = new StackLayout()
+					{
+						Orientation = Orientation.Vertical,
+						HorizontalContentAlignment = HorizontalAlignment.Stretch,
+						Spacing = 4,
+
+						Items =
+						{
+							"Select the method that will be used to run the game:",
 							(previewModeRunMethod = new RadioButtonList()
 							{
 								Style = "no-padding",
@@ -106,6 +132,7 @@ namespace App.AdventureMaker.Core.Forms
 					}
 				}
 			});
+			#endregion
 			#endregion
 
 			previewModeRunExecutable.ButtonClick += () =>
@@ -144,6 +171,8 @@ namespace App.AdventureMaker.Core.Forms
 		#region Save / Load
 		private void LoadSettings()
 		{
+			generalOpenLastProject.Checked = AppSettings.Instance.OpenLastProject;
+
 			previewModeRunMethod.SelectedIndex = AppSettings.Instance.PreviewModeRunMethod;
 			previewModeRunExecutable.Text = AppSettings.Instance.GameExe;
 			previewModeEnableRemoteConsole.Checked = AppSettings.Instance.EnableRcon;
@@ -152,6 +181,8 @@ namespace App.AdventureMaker.Core.Forms
 
 		private void SaveSettings()
 		{
+			AppSettings.Instance.OpenLastProject = generalOpenLastProject.Checked == true;
+
 			AppSettings.Instance.PreviewModeRunMethod = previewModeRunMethod.SelectedIndex;
 			AppSettings.Instance.GameExe = previewModeRunExecutable.Text;
 			AppSettings.Instance.EnableRcon = previewModeEnableRemoteConsole.Checked == true;
