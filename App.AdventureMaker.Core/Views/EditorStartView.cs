@@ -55,6 +55,11 @@ namespace App.AdventureMaker.Core.Views
 								},
 								new Button()
 								{
+									Text = "Import campaign package",
+									Enabled = false
+								},
+								new Button()
+								{
 									Command = new TutorialsCommand(),
 									Text = "Online wiki",
 								},

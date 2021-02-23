@@ -144,7 +144,7 @@ namespace App.AdventureMaker.Core.Forms
 		#region Save / Load
 		private void LoadSettings()
 		{
-			previewModeRunMethod.SelectedIndex = AppSettings.Instance.PreviewMode;
+			previewModeRunMethod.SelectedIndex = AppSettings.Instance.PreviewModeRunMethod;
 			previewModeRunExecutable.Text = AppSettings.Instance.GameExe;
 			previewModeEnableRemoteConsole.Checked = AppSettings.Instance.EnableRcon;
 			previewModeRemoteConsolePort.Value = AppSettings.Instance.RconPort;
@@ -152,7 +152,7 @@ namespace App.AdventureMaker.Core.Forms
 
 		private void SaveSettings()
 		{
-			AppSettings.Instance.PreviewMode = previewModeRunMethod.SelectedIndex;
+			AppSettings.Instance.PreviewModeRunMethod = previewModeRunMethod.SelectedIndex;
 			AppSettings.Instance.GameExe = previewModeRunExecutable.Text;
 			AppSettings.Instance.EnableRcon = previewModeEnableRemoteConsole.Checked == true;
 			AppSettings.Instance.RconPort = (int)previewModeRemoteConsolePort.Value;

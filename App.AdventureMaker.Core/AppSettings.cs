@@ -22,9 +22,13 @@ namespace App.AdventureMaker.Core
 		#endregion
 
 		#region Instance
+		#region General
+		[JsonProperty("open_last_project_on_startup")]
+		public bool OpenLastProject { get; set; } = false;
+		#endregion
 		#region Preview Mode Settings
-		[JsonProperty("preview_mode")]
-		public int PreviewMode { get; set; } = 0;
+		[JsonProperty("preview_mode_run_method")]
+		public int PreviewModeRunMethod { get; set; } = 0;
 
 		[JsonProperty("game_executable")]
 		public string GameExe { get; set; } = string.Empty;

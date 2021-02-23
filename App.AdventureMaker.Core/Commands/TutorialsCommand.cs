@@ -11,7 +11,7 @@ namespace App.AdventureMaker.Core.Commands
 			MenuText = "&Online wiki";
 			ToolBarText = "Online wiki";
 			Image = Resources.GetIcon("Web.ico");
-			Shortcut = Keys.F4;
+			Shortcut = Application.Instance.CommonModifier | Keys.F4;
 
 			Enabled = false;
 		}

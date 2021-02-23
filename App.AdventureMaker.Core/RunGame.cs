@@ -16,7 +16,7 @@ namespace App.AdventureMaker.Core
 	{
 		public static void Run(IEditor<CampaignFile> editor)
 		{
-			switch (AppSettings.Instance.PreviewMode)
+			switch (AppSettings.Instance.PreviewModeRunMethod)
 			{
 				case 0:
 					string url = $"{Constants.DISTANCE_STEAM_PROTOCOL_HANDLER_URL}{Uri.EscapeUriString(ArgumentList(editor)).Replace("/", "%2F")}";

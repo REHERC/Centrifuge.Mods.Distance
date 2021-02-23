@@ -13,7 +13,7 @@ namespace App.AdventureMaker.Core.Menus
 			ApplicationItems.Add(new NewFileCommand(editor));
 			ApplicationItems.Add(new OpenFileCommand(editor));
 			ApplicationItems.Add(new SaveFileCommand(editor));
-			ApplicationItems.Add(new SeparatorMenuItem());
+			//ApplicationItems.Add(new SeparatorMenuItem());
 			ApplicationItems.Add(new ButtonMenuItem()
 			{
 				Text = "&Import / Export",
@@ -28,13 +28,13 @@ namespace App.AdventureMaker.Core.Menus
 			ApplicationItems.Add(new CloseProjectCommand(editor));
 			ApplicationItems.Add(new SeparatorMenuItem());
 			ApplicationItems.Add(new SettingsCommand());
-			ApplicationItems.Add(new SeparatorMenuItem());
+			//ApplicationItems.Add(new SeparatorMenuItem());
 			ApplicationItems.Add(new QuitCommand(form));
 
-			HelpItems.Add(new AboutCommand());
+			HelpItems.Add(new FeedbackCommand());
 			HelpItems.Add(new TutorialsCommand());
 			HelpItems.Add(new SeparatorMenuItem());
-			HelpItems.Add(new FeedbackCommand());
+			HelpItems.Add(new AboutCommand());
 
 			Items.Add(new ButtonMenuItem()
 			{
