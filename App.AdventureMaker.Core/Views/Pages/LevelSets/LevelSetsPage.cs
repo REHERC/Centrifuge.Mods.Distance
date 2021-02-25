@@ -11,6 +11,7 @@ namespace App.AdventureMaker.Core.Views
 		private readonly ExtendedTabControl tabs;
 		private readonly ReorderableListBox listBox;
 		private readonly LevelSetsPropertiesView properties;
+		private readonly LevelSetsPlaylistView levels;
 		private readonly IEditor<CampaignFile> editor;
 
 		public LevelSetsPage(IEditor<CampaignFile> editor_)
@@ -19,7 +20,7 @@ namespace App.AdventureMaker.Core.Views
 
 			tabs = new ExtendedTabControl();
 			tabs.AddPage("Properties", properties = new LevelSetsPropertiesView(editor), scrollable: true);
-			tabs.AddPage("Levels", new Panel(), scrollable: true);
+			tabs.AddPage("Levels", levels = new LevelSetsPlaylistView(), scrollable: true);
 
 			TableRow row = new TableRow()
 			{

@@ -16,25 +16,25 @@ namespace Distance.AdventureMaker.Common.Models
 		: IListItem
 	#endif
 	{
-		[JsonProperty]
+		[JsonProperty("guid")]
 		public string guid;
 
-		[JsonProperty]
+		[JsonProperty("name")]
 		public string name;
 
-		[JsonProperty]
+		[JsonProperty("description")]
 		public string description;
 
-		[JsonProperty]
+		[JsonProperty("icon")]
 		public string icon;
 
-		[JsonProperty]
+		[JsonProperty("display_in_sprint")]
 		public bool display_in_sprint;
 
-		[JsonProperty]
+		[JsonProperty("display_in_campaign")]
 		public bool display_in_campaign;
 
-		[JsonProperty]
+		[JsonProperty("levels")]
 		public List<CampaignLevel> levels;
 
 		public CampaignPlaylist()

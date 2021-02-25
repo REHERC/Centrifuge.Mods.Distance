@@ -9,22 +9,22 @@ namespace Distance.AdventureMaker.Common.Models
 	[Serializable]
 	public partial class CampaignMetadata
 	{
-		[JsonProperty]
+		[JsonProperty("guid")]
 		public string guid;
 
-		[JsonProperty]
+		[JsonProperty("title")]
 		public string title;
 
-		[JsonProperty]
+		[JsonProperty("description")]
 		public string description;
 
-		[JsonProperty]
+		[JsonProperty("author")]
 		public string author;
 
-		[JsonProperty]
+		[JsonProperty("contact")]
 		public string contact;
 
-		[JsonProperty]
+		[JsonProperty("development_status")]
 		public DevelopmentStatus development_status;
 	}
 }

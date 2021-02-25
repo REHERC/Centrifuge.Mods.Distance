@@ -12,6 +12,7 @@ namespace App.AdventureMaker.Core.Forms
 		private readonly TabControl tabs;
 
 		private readonly CheckBox generalOpenLastProject;
+		private readonly Label previewModeInfoLabel;
 		private readonly RadioButtonList previewModeRunMethod;
 		private readonly TextBoxWithButton previewModeRunExecutable;
 		private readonly CheckBox previewModeEnableRemoteConsole;
@@ -104,6 +105,11 @@ namespace App.AdventureMaker.Core.Forms
 
 						Items =
 						{
+							(previewModeInfoLabel = new Label()
+							{
+								Text = "NOTE: The preview mode requires the AdventureMaker mod to be installed.",
+								TextColor = Colors.Blue
+							}),
 							"Select the method that will be used to run the game:",
 							(previewModeRunMethod = new RadioButtonList()
 							{
@@ -119,7 +125,7 @@ namespace App.AdventureMaker.Core.Forms
 							(previewModeRunExecutable = new TextBoxWithButton()),
 							(previewModeEnableRemoteConsole = new CheckBox()
 							{
-								Text = "Intercept log messages from the game (set TCP port below)",
+								Text = "Intercept log messages from the game (set TCP communication port below)",
 							}),
 							(previewModeRemoteConsolePort = new NumericStepper()
 							{
@@ -160,6 +166,8 @@ namespace App.AdventureMaker.Core.Forms
 			{
 				previewModeRemoteConsolePort.Enabled = previewModeEnableRemoteConsole.Checked == true;
 			};
+
+			previewModeInfoLabel.Font = new Font(previewModeInfoLabel.Font.Family, previewModeInfoLabel.Font.Size, FontStyle.Bold);
 		}
 
 		public SettingsWindow(int pageIndex) : this()

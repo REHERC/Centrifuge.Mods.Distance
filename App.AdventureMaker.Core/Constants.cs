@@ -12,8 +12,21 @@ public static partial class Constants
 	public const string GITHUB_WIKI = "https://github.com/REHERC/Centrifuge.Mods.Distance/wiki";
 	public const string DISCORD_DISTANCE = "https://discord.gg/distance";
 
+	// File filters
+	public const string DIALOG_FILTER_ANY = "All files|";
+
+	// Tool-specific filters
 	public const string DIALOG_FILTER_PROJECT = "Json project files (project.json)|project.json";
-	public const string DIALOG_FILTER_ANY = "All files (*.*)|*.*";
+
+	// Image filters
+	public const string DIALOG_FILTER_PNG = "Portable Network Graphics (*.png)|*.png";
+	public const string DIALOG_FILTER_JPG = "Joint Photographic Experts Group (*.jpeg;*.jpg;*.jpe;*.jif;*.jfif;*.jfi)|*.jpeg;*.jpg;*.jpe;*.jif;*.jfif;*.jfi";
+	public const string DIALOG_FILTER_TGA = "Truevision Advanced Raster Graphics Adapter (*.tga)|*.tga";
+	public const string DIALOG_FILTER_TIF = "Tag Image File Format (*.tif;*.tiff)|*.tif;*.tiff";
+	public const string DIALOG_FILTER_BMP = "Bitmap (*.bmp)|*.bmp";
+	
+	// Game-specific filters
+	public const string DIALOG_FILTER_BYTES = "Distance Serialized Binary File (*.bytes)|*.bytes";
 
 	public const string DIALOG_MESSAGE_EDITOR_PREVIEW = "This software is currently still work in progress!\nPlease only use it for testing purposes and feedback as many breaking changes may occur in the future.";
 	public const string DIALOG_MESSAGE_UNSAVED_CHANGES = "The currently opened file has unsaved changes!\nContinue without saving?";
@@ -33,6 +46,12 @@ public static partial class Constants
 	public const string DIALOG_CAPTION_START_PREVIEW = "Preview mode";
 
 	public const string PLAYLIST_NO_NAME = "(No playlist name)";
+
+	public const int THUMBNAIL_WIDTH = 640;
+	public const int THUMBNAIL_HEIGHT = 360;
+	public const int THUMBNAIL_WIDTH_SMALL = THUMBNAIL_WIDTH / 4;
+	public const int THUMBNAIL_HEIGHT_SMALL = THUMBNAIL_HEIGHT / 4;
+	public const double THUMBNAIL_RATIO = THUMBNAIL_WIDTH / THUMBNAIL_HEIGHT;
 
 	public static readonly Dictionary<ResourceType, Func<CampaignResource, CampaignResource>> RESOURCE_DIALOGS = new Dictionary<ResourceType, Func<CampaignResource, CampaignResource>>()
 	{

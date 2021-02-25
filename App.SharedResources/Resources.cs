@@ -10,6 +10,7 @@ public static class Resources
 	{
 		return typeof(Resources).Assembly.GetManifestResourceStream(name);
 	}
+
 	public static Icon GetIcon(string iconName, int size = -1)
 	{
 		Icon ico = Icon.FromResource($"{ResourcesRoot}.Resources.Icons.{iconName}");
@@ -26,9 +27,9 @@ public static class Resources
 		}
 	}
 
-	public static Bitmap GetImage(string iconName)
+	public static Bitmap GetImage(string imageName)
 	{
-		return Bitmap.FromResource($"{ResourcesRoot}.Resources.Bitmaps.{iconName}");
+		return Bitmap.FromResource($"{ResourcesRoot}.Resources.Images.{imageName}");
 	}
 
 	public static string GetText(string name)

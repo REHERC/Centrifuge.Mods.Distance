@@ -7,31 +7,31 @@ namespace Distance.AdventureMaker.Common.Models
 	[Serializable]
 	public class CampaignLevel
 	{
-		[JsonProperty]
+		[JsonProperty("name")]
 		public string name;
 
-		[JsonProperty]
+		[JsonProperty("resource_id")]
 		public string resource_id;
 
 		#region Intro Title
-		[JsonProperty]
+		[JsonProperty("transition")]
 		public LevelTransitionType transition;
 
-		[JsonProperty]
+		[JsonProperty("title")]
 		public string title;
 
-		[JsonProperty]
+		[JsonProperty("title_small")]
 		public string title_small;
 		#endregion
 
 		#region Loading Screen
-		[JsonProperty]
+		[JsonProperty("loading_background")]
 		public string loading_background;
 
-		[JsonProperty]
+		[JsonProperty("override_loading_text")]
 		public bool override_loading_text;
 
-		[JsonProperty]
+		[JsonProperty("loading_text")]
 		public string loading_text;
 		#endregion
 

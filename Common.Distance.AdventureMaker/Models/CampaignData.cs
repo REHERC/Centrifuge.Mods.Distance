@@ -8,10 +8,10 @@ namespace Distance.AdventureMaker.Common.Models
 	[Serializable]
 	public class CampaignData
 	{
-		[JsonProperty]
+		[JsonProperty("playlists")]
 		public List<CampaignPlaylist> playlists;
 		
-		[JsonProperty]
+		[JsonProperty("resources")]
 		public List<CampaignResource> resources;
 
 		public CampaignData()

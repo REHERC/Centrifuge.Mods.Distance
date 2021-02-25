@@ -6,10 +6,10 @@ namespace Distance.AdventureMaker.Common.Models
 	[Serializable]
 	public partial class CampaignFile
 	{
-		[JsonProperty]
+		[JsonProperty("metadata")]
 		public CampaignMetadata metadata;
 
-		[JsonProperty]
+		[JsonProperty("data")]
 		public CampaignData data;
 
 		public CampaignFile()

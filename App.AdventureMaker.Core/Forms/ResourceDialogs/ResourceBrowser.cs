@@ -39,7 +39,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 				{
 					new StackLayoutItem(resourcePicker = new GridView()
 					{
-						GridLines = GridLines.Horizontal,
+						GridLines = GridLines.Both,
 
 						Columns =
 						{

@@ -9,27 +9,28 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 {
 	[Serializable]
 	[JsonConverter(typeof(JsonSubtypes), "resource_type")]
-	[JsonSubtypes.KnownSubType(typeof(CampaignResource.Texture), ResourceType.Texture)]
-	[JsonSubtypes.KnownSubType(typeof(CampaignResource.Level), ResourceType.Level)]
+	[JsonSubtypes.KnownSubType(typeof(Texture), ResourceType.Texture)]
+	[JsonSubtypes.KnownSubType(typeof(Level), ResourceType.Level)]
 	public abstract partial class CampaignResource
 	{
-		public CampaignResource()
-		{
-			guid = Guid.NewGuid().ToString();
-		}
 
-		[JsonProperty]
+		[JsonProperty("guid")]
 		public string guid;
 
-		[JsonProperty]
+		[JsonProperty("file")]
 		public string file;
 
-		[JsonProperty]
+		[JsonProperty("resource_type")]
 		public virtual ResourceType resource_type { get; }
 
 		#if APP
 		[JsonIgnore]
 		public abstract int dependencies_count { get; }
 		#endif
+
+		public CampaignResource()
+		{
+			guid = Guid.NewGuid().ToString();
+		}
 	}
 }

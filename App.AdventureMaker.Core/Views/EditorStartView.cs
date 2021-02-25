@@ -1,6 +1,7 @@
 ﻿using App.AdventureMaker.Core.Commands;
 using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
+using Eto.Drawing;
 using Eto.Forms;
 using System.Diagnostics;
 using System.IO;
@@ -63,7 +64,16 @@ namespace App.AdventureMaker.Core.Views
 									Command = new TutorialsCommand(),
 									Text = "Online wiki",
 								},
-								null
+								null,
+								#if PREVIEW
+								TableLayout.AutoSized(new Label()
+								{
+									Text = "Campaign editor preview version",
+									Font = new Font(SystemFont.Bold),
+									TextColor = Colors.Red
+								}, new Padding(8), centered: true)
+								
+								#endif
 							}
 						}
 					}, false),
