@@ -9,8 +9,6 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 	{
 		protected T Data { get; set; }
 
-		private readonly Button okButton;
-		private readonly Button cancelButton;
 		private readonly StackLayout stackLayout;
 		protected readonly PropertiesListBase properties;
 
@@ -41,12 +39,12 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 						Items =
 						{
 							null,
-							(okButton = new Button(Confirm)
+							(DefaultButton = new Button(Confirm)
 							{
 								Text = "OK",
 								Image = Resources.GetIcon("CheckGreen.ico", 16)
 							}),
-							(cancelButton = new Button(Cancel)
+							(AbortButton = new Button(Cancel)
 							{
 								Text = "Cancel",
 								Image = Resources.GetIcon("CloseRed.ico", 16)
@@ -58,9 +56,6 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 			});
 
 			Title = string.Format("{0} {1}", Equals(data, null) ? "Add new" : "Edit", typeof(T).Name.ToLower());
-
-			DefaultButton = okButton;
-			AbortButton = cancelButton;
 
 			InitializeComponent();
 

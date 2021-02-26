@@ -15,7 +15,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 		private readonly IEditor<CampaignFile> editor;
 		private readonly ResourceType type;
 		
-		private readonly GridView resourcePicker;
+		private readonly GridView<CampaignResource> resourcePicker;
 		private readonly Button importResource;
 
 		private List<CampaignResource> resourceList;
@@ -37,7 +37,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 
 				Items =
 				{
-					new StackLayoutItem(resourcePicker = new GridView()
+					new StackLayoutItem(resourcePicker = new GridView<CampaignResource>()
 					{
 						GridLines = GridLines.Both,
 

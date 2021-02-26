@@ -9,7 +9,11 @@ namespace App.AdventureMaker.Core.Forms
 {
 	public class MainWindow : Form
 	{
+#if PREVIEW
+		private const string Name = "Distance - Campaign Editor Preview";
+#else
 		private const string Name = "Distance - Campaign Editor";
+#endif
 
 		private MainView mainView;
 
@@ -61,7 +65,7 @@ namespace App.AdventureMaker.Core.Forms
 				mainView.LoadFile(RecentProjects.Get()[0]);
 			}
 
-			Messages.PreviewMessage();
+			//Messages.PreviewMessage();
 		}
 
 		protected override void OnClosing(CancelEventArgs e)

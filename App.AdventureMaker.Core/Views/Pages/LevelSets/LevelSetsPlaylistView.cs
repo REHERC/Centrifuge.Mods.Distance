@@ -1,16 +1,22 @@
 ﻿using App.AdventureMaker.Core.Controls;
+using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
 using Eto.Drawing;
 using Eto.Forms;
+using System.Collections.Generic;
 using static Constants;
 
 namespace App.AdventureMaker.Core.Views
 {
-	public class LevelSetsPlaylistView : StackLayout
+	public class LevelSetsPlaylistView : StackLayout, ISaveLoad<CampaignPlaylist>
 	{
+		private readonly IEditor<CampaignFile> editor;
+		private readonly GridView<CampaignLevel> levelList;
 
-		public LevelSetsPlaylistView()
+		public LevelSetsPlaylistView(IEditor<CampaignFile> editor)
 		{
+			this.editor = editor;
+
 			Orientation = Orientation.Vertical;
 			HorizontalContentAlignment = HorizontalAlignment.Stretch;
 			Spacing = 0;
@@ -33,28 +39,32 @@ namespace App.AdventureMaker.Core.Views
 					new Button()
 					{
 						Style = "icon",
-						Image = Resources.GetIcon("Pencil.ico", 16)
+						Image = Resources.GetIcon("Pencil.ico", 16),
+						Enabled = false
 					},
 					new Button()
 					{
 						Style = "icon",
-						Image = Resources.GetIcon("CloseRed.ico", 16)
+						Image = Resources.GetIcon("CloseRed.ico", 16),
+						Enabled = false
 					},
 					new Button()
 					{
 						Style = "icon",
-						Image = Resources.GetIcon("UpBlue.ico", 16)
+						Image = Resources.GetIcon("UpBlue.ico", 16),
+						Enabled = false
 					},
 					new Button()
 					{
 						Style = "icon",
-						Image = Resources.GetIcon("DownBlue.ico", 16)
+						Image = Resources.GetIcon("DownBlue.ico", 16),
+						Enabled = false
 					},
 					null
 				}
 			}, false));
 
-			Items.Add(new StackLayoutItem(new GridView()
+			Items.Add(new StackLayoutItem(levelList = new GridView<CampaignLevel>()
 			{
 				GridLines = GridLines.Both,
 
@@ -66,22 +76,24 @@ namespace App.AdventureMaker.Core.Views
 						Editable = false,
 						Sortable = false,
 						Resizable = true,
+						Width = 200,
 
 						DataCell = new TextBoxCell()
 						{
-							Binding = Binding.Property<CampaignLevel, string>(lvl => lvl.name)
+							Binding = Binding.Property<CampaignLevel, string>(lvl => $"{lvl.name}")
 						}
 					},
 					new GridColumn()
 					{
-						HeaderText = "Intro title",
+						HeaderText = "Title",
 						Editable = false,
 						Sortable = false,
 						Resizable = true,
+						Width = 200,
 
 						DataCell = new TextBoxCell()
 						{
-							Binding = Binding.Property<CampaignLevel, string>(lvl => lvl.title)
+							Binding = Binding.Property<CampaignLevel, string>(lvl => $"{lvl.title}")
 						}
 					}
 				}
@@ -135,6 +147,25 @@ namespace App.AdventureMaker.Core.Views
 					}, true)
 				}
 			}, false));
+
+			levelList.DataStore = new List<CampaignLevel>()
+			{
+				new CampaignLevel()
+				{
+					name = "Level 1",
+					title = "AZERTY"
+				}
+			};
+		}
+
+		public void LoadData(CampaignPlaylist project, bool resetUI = true)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public void SaveData(CampaignPlaylist project)
+		{
+			throw new System.NotImplementedException();
 		}
 	}
 }

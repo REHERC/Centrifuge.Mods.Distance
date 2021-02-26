@@ -15,7 +15,7 @@ namespace App.AdventureMaker.Core.Views
 
 		private readonly IEditor<CampaignFile> editor;
 
-		private readonly GridView resourceGrid;
+		private readonly GridView<CampaignResource> resourceGrid;
 		private readonly GridColumn resourceTypeColumn;
 		//private readonly GridColumn resourceIdColumn;
 		private readonly GridColumn resourceFileColumn;
@@ -66,7 +66,7 @@ namespace App.AdventureMaker.Core.Views
 				}
 			}, false));
 
-			Items.Add(new StackLayoutItem(resourceGrid = new GridView()
+			Items.Add(new StackLayoutItem(resourceGrid = new GridView<CampaignResource>()
 			{
 				DataStore = (collection = new ObservableCollection<CampaignResource>()),
 				GridLines = GridLines.Both,

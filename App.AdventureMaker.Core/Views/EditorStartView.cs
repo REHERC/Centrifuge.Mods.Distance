@@ -68,7 +68,8 @@ namespace App.AdventureMaker.Core.Views
 								#if PREVIEW
 								TableLayout.AutoSized(new Label()
 								{
-									Text = "Campaign editor preview version",
+									Text = "Campaign editor preview version,\nuse only for feedback purposes",
+									TextAlignment = TextAlignment.Center,
 									Font = new Font(SystemFont.Bold),
 									TextColor = Colors.Red
 								}, new Padding(8), centered: true)

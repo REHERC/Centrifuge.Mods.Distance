@@ -14,13 +14,13 @@ namespace App.AdventureMaker.Core.Views
 		private readonly LevelSetsPlaylistView levels;
 		private readonly IEditor<CampaignFile> editor;
 
-		public LevelSetsPage(IEditor<CampaignFile> editor_)
+		public LevelSetsPage(IEditor<CampaignFile> editor)
 		{
-			editor = editor_;
+			this.editor = editor;
 
 			tabs = new ExtendedTabControl();
-			tabs.AddPage("Properties", properties = new LevelSetsPropertiesView(editor), scrollable: true);
-			tabs.AddPage("Levels", levels = new LevelSetsPlaylistView(), scrollable: true);
+			tabs.AddPage("Properties", properties = new LevelSetsPropertiesView(this.editor), scrollable: true);
+			tabs.AddPage("Levels", levels = new LevelSetsPlaylistView(editor), scrollable: true);
 
 			TableRow row = new TableRow()
 			{
@@ -33,7 +33,7 @@ namespace App.AdventureMaker.Core.Views
 			Rows.Add(row);
 
 			listBox.SelectedKeyChanged += SelectPlaylist;
-			listBox.ItemsReordered += (_, __) => editor.Modified = true;
+			listBox.ItemsReordered += (_, __) => this.editor.Modified = true;
 
 			listBox.RemoveItem += RemovePlaylist;
 			listBox.AddItem += AddPlaylist;
@@ -45,7 +45,7 @@ namespace App.AdventureMaker.Core.Views
 				listBox.ListControl.UpdateBindings();
 				listBox.ListControl.Invalidate();
 
-				editor.Modified = true;
+				this.editor.Modified = true;
 			};
 		}
 
