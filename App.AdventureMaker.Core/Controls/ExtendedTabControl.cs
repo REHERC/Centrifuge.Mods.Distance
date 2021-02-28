@@ -9,7 +9,9 @@ namespace App.AdventureMaker.Core.Controls
 			Panel host = scrollable ? new Scrollable() : new Panel();
 			host.Content = content;
 
-			Pages.Add(new TabPage()
+			TabPage page;
+
+			Pages.Add(page = new TabPage()
 			{
 				Text = title,
 				Content = host

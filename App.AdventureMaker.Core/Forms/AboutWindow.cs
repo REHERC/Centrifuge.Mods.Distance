@@ -14,8 +14,7 @@ namespace App.AdventureMaker.Core.Forms
 
 			Content = new StackLayout()
 			{
-				Orientation = Orientation.Vertical,
-				HorizontalContentAlignment = HorizontalAlignment.Center,
+				Style = "vertical",
 				Spacing = 20,
 				Padding = new Padding(24),
 

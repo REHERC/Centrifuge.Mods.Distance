@@ -33,16 +33,12 @@ namespace App.AdventureMaker.Core.Views
 		{
 			editor = editor_;
 
-			Style = "no-padding";
-			Orientation = Orientation.Vertical;
-			HorizontalContentAlignment = HorizontalAlignment.Stretch;
+			Style = "no-padding vertical";
 			Spacing = 4;
 
 			Items.Add(new StackLayoutItem(actionsLayout = new StackLayout()
 			{
-				Style = "no-padding",
-				Orientation = Orientation.Horizontal,
-				VerticalContentAlignment = VerticalAlignment.Stretch,
+				Style = "no-padding horizontal",
 				Spacing = 4,
 
 				Items =

@@ -105,6 +105,7 @@ namespace App.AdventureMaker.Core.Controls
 							Image = Resources.GetIcon("CloseRed.ico"),
 							Text = "Remove"
 						}),
+						new SeparatorMenuItem(),
 						(moveUpMenuButton = new ButtonMenuItem(OnMoveUpItem)
 						{
 							Image = Resources.GetIcon("UpBlue.ico"),

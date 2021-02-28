@@ -15,25 +15,23 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 		protected ResourceDialogBase(T data)
 		{
 			Data = data.CloneObject() ?? new T();
-
 			Size = MinimumSize = new Size(360, 180);
+			Resizable = false;
 
 			Content = (stackLayout = new StackLayout()
 			{
-				Orientation = Orientation.Vertical,
-				HorizontalContentAlignment = HorizontalAlignment.Stretch,
+				Style = "vertical",
 				Spacing = 16,
 
 				Items =
 				{
 					new StackLayoutItem(new Scrollable()
 					{
-						Content = (properties = new PropertiesListBase())
+						Content = properties = new PropertiesListBase()
 					}, true),
 					new StackLayoutItem(new StackLayout()
 					{
-						Orientation = Orientation.Horizontal,
-						VerticalContentAlignment = VerticalAlignment.Stretch,
+						Style = "horizontal",
 						Spacing = 4,
 
 						Items =

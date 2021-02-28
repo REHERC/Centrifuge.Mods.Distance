@@ -19,7 +19,20 @@ namespace App.AdventureMaker.Core
 				item.Size = size;
 				item.Width = size.Width;
 			});
+
 			Style.Add<Panel>("no-padding", item => item.Padding = Padding.Empty);
+
+			Style.Add<StackLayout>("vertical", item =>
+			{
+				item.Orientation = Orientation.Vertical;
+				item.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+			});
+
+			Style.Add<StackLayout>("horizontal", item =>
+			{
+				item.Orientation = Orientation.Horizontal;
+				item.VerticalContentAlignment = VerticalAlignment.Stretch;
+			});
 		}
 	}
 }

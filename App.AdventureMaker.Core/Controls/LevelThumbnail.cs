@@ -12,7 +12,7 @@ namespace App.AdventureMaker.Core.Controls
 			set
 			{
 				image_ = value;
-				Update(Bounds);
+				Invalidate();
 			}
 		}
 
@@ -23,7 +23,7 @@ namespace App.AdventureMaker.Core.Controls
 			set
 			{
 				gradientDelta_ = value;
-				Update(Bounds);
+				Invalidate();
 			}
 		}
 

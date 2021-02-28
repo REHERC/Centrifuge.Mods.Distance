@@ -27,7 +27,7 @@ namespace App.AdventureMaker.Core.Controls
 
 		public ControlWithButtonBase(T control, VerticalAlignment controlAlign = VerticalAlignment.Stretch)
 		{
-			Style = "no-padding";
+			Style = "no-padding horizontal";
 
 			Padding = Padding.Empty;
 
@@ -41,9 +41,6 @@ namespace App.AdventureMaker.Core.Controls
 				OnButtonClicked();
 				ButtonClick?.Invoke();
 			};
-
-			Orientation = Orientation.Horizontal;
-			VerticalContentAlignment = VerticalAlignment.Stretch;
 
 			Items.Add(new StackLayoutItem(Control) { Expand = true, VerticalAlignment = controlAlign });
 			Items.Add(new StackLayoutItem(Button) { Expand = false });

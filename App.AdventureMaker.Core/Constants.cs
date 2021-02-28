@@ -32,6 +32,7 @@ public static partial class Constants
 	public const string DIALOG_MESSAGE_UNSAVED_CHANGES = "The currently opened file has unsaved changes!\nContinue without saving?";
 	public const string DIALOG_MESSAGE_UNSAVED_CHANGES_CONTINUE = "You must save your changes before you continue!\nDo you want to save now?";
 	public const string DIALOG_MESSAGE_REMOVE_PLAYLIST = "Are you sure you want to remove the following playlist: \"{0}\" ?";
+	public const string DIALOG_MESSAGE_REMOVE_LEVEL = "Do you want to remove \"{0}\" from this playlist?";
 	public const string DIALOG_MESSAGE_REMOVE_RESOURCE = "Are you sure you want to remove this resource ?\nObjects requiring this resource will need to be updated manually !";
 	public const string DIALOG_MESSAGE_MISSING_GAME_EXE = "Could not locate the game executable when starting preview mode!\nPlease locate it in the settings (File > Settings).";
 	public const string DIALOG_MESSAGE_ERROR_GAME_EXE = "An error occured when attempting to run the game!\n\nMake sure the following conditions are met:\n- The executable exists\n- The file is marked as executable (linux)\n- You have the adequate user permissions\n- You have enough system resources available\n\nTo set the game path, open the settings (File > Settings)";
@@ -42,6 +43,7 @@ public static partial class Constants
 	public const string DIALOG_CAPTION_NEW_FILE = "New file";
 	public const string DIALOG_CAPTION_CLOSE_PROJECT = "Close project";
 	public const string DIALOG_CAPTION_REMOVE_PLAYLIST = "Remove playlist";
+	public const string DIALOG_CAPTION_REMOVE_LEVEL = "Remove level";
 	public const string DIALOG_CAPTION_REMOVE_RESOURCE = "Remove resource";
 	public const string DIALOG_CAPTION_START_PREVIEW = "Preview mode";
 

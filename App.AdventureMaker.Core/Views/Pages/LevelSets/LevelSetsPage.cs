@@ -19,8 +19,9 @@ namespace App.AdventureMaker.Core.Views
 			this.editor = editor;
 
 			tabs = new ExtendedTabControl();
+
 			tabs.AddPage("Properties", properties = new LevelSetsPropertiesView(this.editor), scrollable: true);
-			tabs.AddPage("Levels", levels = new LevelSetsPlaylistView(editor), scrollable: true);
+			tabs.AddPage("Levels", levels = new LevelSetsPlaylistView(editor), scrollable: false);
 
 			TableRow row = new TableRow()
 			{
@@ -30,6 +31,7 @@ namespace App.AdventureMaker.Core.Views
 					new TableCell(tabs),
 				}
 			};
+
 			Rows.Add(row);
 
 			listBox.SelectedKeyChanged += SelectPlaylist;
@@ -38,21 +40,40 @@ namespace App.AdventureMaker.Core.Views
 			listBox.RemoveItem += RemovePlaylist;
 			listBox.AddItem += AddPlaylist;
 
-			properties.OnModified += (playlist) =>
+			properties.OnModified += PropertiesModified;
+
+			levels.OnModified += PlaylistLevelsModified;
+		}
+
+		private void PropertiesModified(CampaignPlaylist playlist)
+		{
+			properties.SaveData(listBox.SelectedValue as CampaignPlaylist);
+
+			listBox.ListControl.UpdateBindings();
+			listBox.ListControl.Invalidate();
+
+			editor.Modified = true;
+		}
+
+		private void PlaylistLevelsModified(object sender, EventArgs e)
+		{
+			CampaignPlaylist playlist = listBox.SelectedValue as CampaignPlaylist;
+
+			if (!Equals(playlist, null))
 			{
-				properties.SaveData(listBox.SelectedValue as CampaignPlaylist);
+				levels.SaveData(playlist);
+			}
 
-				listBox.ListControl.UpdateBindings();
-				listBox.ListControl.Invalidate();
-
-				this.editor.Modified = true;
-			};
+			editor.Modified = true;
 		}
 
 		private void SelectPlaylist(object sender, EventArgs e)
 		{
 			tabs.Enabled = listBox.SelectedIndex != -1;
-			properties.LoadData(listBox.SelectedValue as CampaignPlaylist, true);
+
+			CampaignPlaylist playlist = listBox.SelectedValue as CampaignPlaylist;
+			properties.LoadData(playlist, true);
+			levels.LoadData(playlist);
 		}
 
 		private void RemovePlaylist(object sender, EventArgs e)

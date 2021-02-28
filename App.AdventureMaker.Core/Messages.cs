@@ -15,6 +15,11 @@ namespace App.AdventureMaker.Core
 			return MessageBox.Show(string.Format(Constants.DIALOG_MESSAGE_REMOVE_PLAYLIST, playlist.name), Constants.DIALOG_CAPTION_REMOVE_PLAYLIST, MessageBoxButtons.YesNo, MessageBoxType.Question);
 		}
 
+		public static DialogResult RemoveLevel(CampaignLevel level)
+		{
+			return MessageBox.Show(string.Format(Constants.DIALOG_MESSAGE_REMOVE_LEVEL, level.name), Constants.DIALOG_CAPTION_REMOVE_LEVEL, MessageBoxButtons.YesNo, MessageBoxType.Question);
+		}
+
 		public static DialogResult RemoveResource()
 		{
 			return MessageBox.Show(Constants.DIALOG_MESSAGE_REMOVE_RESOURCE, Constants.DIALOG_CAPTION_REMOVE_RESOURCE, MessageBoxButtons.YesNo, MessageBoxType.Question);

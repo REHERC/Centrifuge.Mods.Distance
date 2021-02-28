@@ -29,9 +29,7 @@ namespace App.AdventureMaker.Core.Forms
 
 			Content = new StackLayout()
 			{
-				Orientation = Orientation.Vertical,
-				HorizontalContentAlignment = HorizontalAlignment.Stretch,
-				Spacing = 8,
+				Style = "vertical",
 				Items =
 				{
 					new StackLayoutItem(tabs = new TabControl())
@@ -40,8 +38,7 @@ namespace App.AdventureMaker.Core.Forms
 					},
 					new StackLayoutItem(new StackLayout()
 					{
-						Orientation = Orientation.Horizontal,
-						VerticalContentAlignment = VerticalAlignment.Stretch,
+						Style = "horizontal",
 						Spacing = 8,
 						Padding = new Padding(0, 8, 0, 0),
 
@@ -76,8 +73,7 @@ namespace App.AdventureMaker.Core.Forms
 				{
 					Content = new StackLayout()
 					{
-						Orientation = Orientation.Vertical,
-						HorizontalContentAlignment = HorizontalAlignment.Stretch,
+						Style = "vertical",
 						Spacing = 4,
 
 						Items =
@@ -99,15 +95,14 @@ namespace App.AdventureMaker.Core.Forms
 				{
 					Content = new StackLayout()
 					{
-						Orientation = Orientation.Vertical,
-						HorizontalContentAlignment = HorizontalAlignment.Stretch,
+						Style = "vertical",
 						Spacing = 4,
 
 						Items =
 						{
 							(previewModeInfoLabel = new Label()
 							{
-								Text = "NOTE: The preview mode requires the AdventureMaker mod to be installed.",
+								Text = "The preview mode requires the AdventureMaker mod to be installed.",
 								TextColor = Colors.Blue
 							}),
 							"Select the method that will be used to run the game:",

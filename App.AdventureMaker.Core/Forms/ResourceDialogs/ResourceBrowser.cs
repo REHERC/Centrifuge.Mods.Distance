@@ -31,8 +31,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 
 			Content = new StackLayout()
 			{
-				Orientation = Orientation.Vertical,
-				HorizontalContentAlignment = HorizontalAlignment.Stretch,
+				Style = "vertical",
 				Spacing = 4,
 
 				Items =
@@ -69,8 +68,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 					}, true),
 					new StackLayoutItem(new StackLayout()
 					{
-						Orientation = Orientation.Horizontal,
-						VerticalContentAlignment = VerticalAlignment.Stretch,
+						Style = "horizontal",
 						Spacing = 4,
 
 						Items =

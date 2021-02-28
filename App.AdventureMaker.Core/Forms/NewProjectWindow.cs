@@ -22,11 +22,11 @@ namespace App.AdventureMaker.Core.Forms
 			Title = "New project";
 			Padding = new Padding(8);
 			MinimumSize = new Size(512, 160);
+			Resizable = false;
 
 			Content = new StackLayout()
 			{
-				Orientation = Orientation.Vertical,
-				HorizontalContentAlignment = HorizontalAlignment.Stretch,
+				Style = "vertical",
 				Spacing = 8,
 				Items =
 				{
@@ -36,8 +36,7 @@ namespace App.AdventureMaker.Core.Forms
 					},
 					new StackLayoutItem(new StackLayout()
 					{
-						Orientation = Orientation.Horizontal,
-						VerticalContentAlignment = VerticalAlignment.Stretch,
+						Style = "horizontal",
 						Spacing = 8,
 						Padding = new Padding(0, 8, 0, 0),
 

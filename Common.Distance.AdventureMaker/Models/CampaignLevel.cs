@@ -7,6 +7,9 @@ namespace Distance.AdventureMaker.Common.Models
 	[Serializable]
 	public class CampaignLevel
 	{
+		[JsonProperty("guid")]
+		public string guid;
+
 		[JsonProperty("name")]
 		public string name;
 

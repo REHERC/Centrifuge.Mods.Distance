@@ -18,14 +18,12 @@ namespace App.AdventureMaker.Core.Views
 		{
 			this.editor = editor;
 
-			Orientation = Orientation.Vertical;
-			HorizontalContentAlignment = HorizontalAlignment.Stretch;
+			Style = "vertical";
 			Spacing = 4;
 
 			Items.Add(new StackLayoutItem(new StackLayout()
 			{
-				Orientation = Orientation.Horizontal,
-				VerticalContentAlignment = VerticalAlignment.Stretch,
+				Style = "horizontal",
 				Spacing = 4,
 
 				Items =
@@ -37,9 +35,7 @@ namespace App.AdventureMaker.Core.Views
 
 						Content = new StackLayout()
 						{
-							Style = "no-padding",
-							Orientation = Orientation.Vertical,
-							HorizontalContentAlignment = HorizontalAlignment.Stretch,
+							Style = "no-padding vertical",
 							Spacing = 2,
 
 							Items =
@@ -68,7 +64,7 @@ namespace App.AdventureMaker.Core.Views
 								#if PREVIEW
 								TableLayout.AutoSized(new Label()
 								{
-									Text = "Campaign editor preview version,\nuse only for feedback purposes",
+									Text = "Campaign editor preview version,\nuse for feedback purposes only!",
 									TextAlignment = TextAlignment.Center,
 									Font = new Font(SystemFont.Bold),
 									TextColor = Colors.Red
@@ -83,9 +79,7 @@ namespace App.AdventureMaker.Core.Views
 						Text = "Recent projects",
 						Content = new Scrollable() { Content = (recent = new StackLayout()
 						{
-							Style = "no-padding",
-							Orientation = Orientation.Vertical,
-							HorizontalContentAlignment = HorizontalAlignment.Stretch,
+							Style = "no-padding vertical",
 							Spacing = 0,
 
 							Items = { "No recent items found." },
@@ -96,7 +90,7 @@ namespace App.AdventureMaker.Core.Views
 
 			Items.Add(new StackLayoutItem(new StackLayout()
 			{
-				Orientation = Orientation.Horizontal,
+				Style = "horizontal",
 				VerticalContentAlignment = VerticalAlignment.Bottom,
 				Spacing = 4,
 
@@ -165,9 +159,7 @@ namespace App.AdventureMaker.Core.Views
 
 					recent.Items.Add(new StackLayout()
 					{
-						Style = "no-padding",
-						Orientation = Orientation.Vertical,
-						HorizontalContentAlignment = HorizontalAlignment.Stretch,
+						Style = "no-padding vertical",
 						Spacing = 2,
 
 						Items =

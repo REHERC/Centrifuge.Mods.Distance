@@ -19,8 +19,8 @@ namespace App.AdventureMaker.Core.Forms
 
 		private void InitializeComponent()
 		{
-			ClientSize = new Size(720, 540);
-			MinimumSize = ClientSize;
+			Size = new Size(880, 660);
+			//MinimumSize = Size;
 
 			Icon = Resources.GetIcon("App.ico");
 			

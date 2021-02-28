@@ -12,11 +12,11 @@ namespace App.AdventureMaker.Core.Forms
 		public AddResourceWindow()
 		{
 			Size = MinimumSize = new Size(400, 250);
+			Resizable = false;
 
 			Content = new StackLayout()
 			{
-				Orientation = Orientation.Vertical,
-				HorizontalContentAlignment = HorizontalAlignment.Stretch,
+				Style = "vertical",
 				Spacing = 8,
 
 				Items =
@@ -28,8 +28,7 @@ namespace App.AdventureMaker.Core.Forms
 					}, true),
 					new StackLayoutItem(new StackLayout()
 					{
-						Orientation = Orientation.Horizontal,
-						VerticalContentAlignment = VerticalAlignment.Stretch,
+						Style = "horizontal",
 						Spacing = 8,
 
 						Items =
