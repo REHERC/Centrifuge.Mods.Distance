@@ -2,7 +2,6 @@
 	"repository": {
 		"name": "Centrifuge Mods for Distance",
 		"github": "reherc/centrifuge.mods.distance"
-
 	},
 	"centrifuge": {
 		"version": "3.2.1",
