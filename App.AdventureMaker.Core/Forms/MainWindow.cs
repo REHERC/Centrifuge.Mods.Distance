@@ -9,11 +9,7 @@ namespace App.AdventureMaker.Core.Forms
 {
 	public class MainWindow : Form
 	{
-#if PREVIEW
-		private const string Name = "Distance - Campaign Editor Preview";
-#else
 		private const string Name = "Distance - Campaign Editor";
-#endif
 
 		private MainView mainView;
 

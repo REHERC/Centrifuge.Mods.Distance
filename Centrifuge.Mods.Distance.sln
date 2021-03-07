@@ -274,6 +274,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Common.SharpCompress", "Com
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Centrifuge.Distance.Shared", "Centrifuge.Distance\Centrifuge.GameSupport.Distance.Shared\Centrifuge.Distance.Shared.shproj", "{E4AC586E-AD6D-43A8-A0CB-AA4D2D6FE578}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wiki", "Wiki", "{B278157B-15FE-472F-A7DC-79C8217A0F3B}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{02cd7385-b155-4974-843d-9d0dd6bbfbe5}*SharedItemsImports = 13

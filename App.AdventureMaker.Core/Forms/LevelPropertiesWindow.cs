@@ -1,6 +1,4 @@
-﻿#pragma warning disable
-
-using Distance.AdventureMaker.Common.Models;
+﻿using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
 using Eto.Drawing;
 using System;
@@ -10,7 +8,7 @@ namespace App.AdventureMaker.Core.Forms
 {
 	public class LevelPropertiesWindow : Dialog<CampaignLevel>
 	{
-		private CampaignLevel Data { get; set; }
+		private CampaignLevel Data { get; }
 
 		private readonly ExtendedTabControl tabs;
 		private readonly DynamicLayout generalProperties;
@@ -75,16 +73,12 @@ namespace App.AdventureMaker.Core.Forms
 				CheckBox dynGPenabled;
 				generalProperties.AddSeparateRow($"Enable group #{groupID}", dynGPenabled = new CheckBox());
 
-				dynGPenabled.CheckedChanged += (sender, e) =>
-				{
-					dynGP.GroupBox.Enabled = dynGPenabled.Checked == true;
-				};
+				dynGPenabled.CheckedChanged += (sender, e) => dynGP.GroupBox.Enabled = dynGPenabled.Checked == true;
 
 				dynGP = generalProperties.BeginGroup($"Group #{groupID}");
 				for (int propID = 1; propID < 10; ++propID)
 				{
 					generalProperties.AddRow($"Property {groupID}.{propID}", new TextBox());
-
 				}
 				generalProperties.EndGroup();
 			}
