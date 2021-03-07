@@ -1,5 +1,4 @@
 ﻿#pragma warning disable RCS1110
-using System.Linq;
 
 public static class Window
 {
