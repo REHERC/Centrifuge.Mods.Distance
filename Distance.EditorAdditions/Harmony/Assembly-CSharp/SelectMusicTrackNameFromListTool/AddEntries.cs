@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Distance.EditorAdditions.Harmony
 {
 	[HarmonyPatch(typeof(SelectMusicTrackNameFromListTool), "AddEntries")]
-	internal class SelectMusicTrackNameFromListTool__AddEntries
+	internal static class SelectMusicTrackNameFromListTool__AddEntries
 	{
 		[HarmonyPrefix]
 		internal static bool Prefix(ref Dictionary<string, string> entryList)

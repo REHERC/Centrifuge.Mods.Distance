@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace App.CustomDeathMessages.Windows
 {
-	internal class Program
+	internal static class Program
 	{
 		[STAThread]
 		private static void Main()

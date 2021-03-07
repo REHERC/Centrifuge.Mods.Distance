@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿#pragma warning disable RCS1110
+using System.IO;
 
 public static class StringExtensions
 {

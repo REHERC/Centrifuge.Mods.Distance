@@ -1,4 +1,5 @@
-﻿using Eto.Drawing;
+﻿#pragma warning disable RCS1110
+using Eto.Drawing;
 using System.IO;
 using System.Linq;
 

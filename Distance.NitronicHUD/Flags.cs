@@ -19,7 +19,7 @@ namespace Distance.NitronicHUD
 
 		public static bool IsReplayMode => G.Sys.ReplayManager_.IsReplayMode_;
 
-		public static GameModeID[] NonPlayModeIDS { get; private set; }
+		public static GameModeID[] NonPlayModeIDS { get; }
 
 		public static bool CurrentModeIsPlayable => !NonPlayModeIDS.Contains(G.Sys.GameManager_.ModeID_);
 

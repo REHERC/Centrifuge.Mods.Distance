@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Distance.EditorAdditions.Harmony
 {
 	[HarmonyPatch(typeof(TransformWrapper), "Visit")]
-	internal class TransformWrapper__Visit
+	internal static class TransformWrapper__Visit
 	{
 		[HarmonyPrefix]
 		internal static void Prefix(TransformWrapper __instance, IVisitor visitor)

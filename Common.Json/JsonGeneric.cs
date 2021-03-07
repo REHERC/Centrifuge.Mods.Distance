@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿#pragma warning disable RCS1110
+using System.IO;
 
 public static class Json<TYPE> where TYPE : new()
 {
@@ -16,7 +17,7 @@ public static class Json<TYPE> where TYPE : new()
 
 	public static TYPE Load(string file)
 		=> Json.Load<TYPE>(file);
-	
+
 	public static TYPE Load(string file, TYPE @default)
 		=> Json.Load(file, @default);
 

@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Distance.CustomCar.Harmony
 {
-    [HarmonyPatch(typeof(GadgetWithAnimation), "SetAnimationStateValues")]
-	internal class GadgetWithAnimation__SetAnimationStateValues
+	[HarmonyPatch(typeof(GadgetWithAnimation), "SetAnimationStateValues")]
+	internal static class GadgetWithAnimation__SetAnimationStateValues
 	{
 		[HarmonyPrefix]
         internal static bool Prefix(GadgetWithAnimation __instance)
@@ -26,9 +26,7 @@ namespace Distance.CustomCar.Harmony
                 {
                     return true;
                 }
-
-
-                AnimationState state = animation[name];
+				AnimationState state = animation[name];
                 if (state)
                 {
                     state.layer = 3;

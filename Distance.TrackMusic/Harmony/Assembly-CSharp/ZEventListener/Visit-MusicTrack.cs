@@ -53,7 +53,7 @@ namespace Distance.TrackMusic.Harmony
 				if (data.EmbedFile != old.EmbedFile)
 				{
 					var newRef = data.EmbedFile;
-					if (newRef == "")
+					if (newRef?.Length == 0)
 					{
 						data.Embedded = new byte[0];
 						anyChanges = true;

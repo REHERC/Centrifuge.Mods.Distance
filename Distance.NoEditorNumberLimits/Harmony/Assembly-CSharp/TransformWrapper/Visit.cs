@@ -32,7 +32,7 @@ namespace Distance.NoEditorNumberLimits.Harmony
 				{
 					var next = instr.Skip(index).Take(Match.Length).Select((x) => x.opcode);
 
-					if (Enumerable.SequenceEqual<OpCode>(next, Match))
+					if (next.SequenceEqual(Match))
 					{
 						for (int i = 0; i < Match.Length; i++)
 						{
@@ -40,7 +40,6 @@ namespace Distance.NoEditorNumberLimits.Harmony
 						}
 
 						index += Match.Length - 1;
-						continue;
 					}
 				}
 			}

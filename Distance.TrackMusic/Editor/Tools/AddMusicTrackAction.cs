@@ -24,14 +24,9 @@ namespace Distance.TrackMusic.Editor.Tools
 
 			track.WriteObject(component);
 
-			gameObject.ForEachILevelEditorListener(delegate (ILevelEditorListener listener)
-			{
-				listener.LevelEditorStart(true);
-			});
+			gameObject.ForEachILevelEditorListener((ILevelEditorListener listener) => listener.LevelEditorStart(true));
 
-			MonoBehaviour[] components = gameObject.GetComponents<MonoBehaviour>();
-
-			foreach (MonoBehaviour monoBehaviour in components)
+			foreach (MonoBehaviour monoBehaviour in gameObject.GetComponents<MonoBehaviour>())
 			{
 				monoBehaviour.enabled = false;
 			}

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿#pragma warning disable RCS1110
+using System.Diagnostics;
 
 public static class Utils
 {

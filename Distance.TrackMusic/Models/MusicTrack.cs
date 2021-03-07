@@ -35,31 +35,31 @@ namespace Distance.TrackMusic.Models
 
 		public string Name = "Unknown";
 		public string FileType = ".mp3";
-		public string DownloadUrl = "";
-		public string Version = "";
+		public string DownloadUrl;
+		public string Version;
 
-		[NonSerialized()]
+		[NonSerialized]
 		public byte[] Embedded = new byte[0];
 
-		[NonSerialized()]
-		public string EmbedFile = null;
+		[NonSerialized]
+		public string EmbedFile;
 
-		[NonSerialized()]
-		public string FileLocation = null;
+		[NonSerialized]
+		public string FileLocation;
 
-		[NonSerialized()]
-		public bool Attempted = false;
+		[NonSerialized]
+		public bool Attempted;
 
-		[NonSerialized()]
-		public string LastEmbeddedFile = null;
+		[NonSerialized]
+		public string LastEmbeddedFile;
 
-		[NonSerialized()]
-		public string LastWrittenData = null;
+		[NonSerialized]
+		public string LastWrittenData;
 
-		[NonSerialized()]
-		public MusicTrack LastWritten = null;
+		[NonSerialized]
+		public MusicTrack LastWritten;
 
-		public string FileName => Regex.Replace(Name, @"[^A-Za-z0-9]", "");
+		public string FileName => Regex.Replace(Name, "[^A-Za-z0-9]", "");
 
 		public override bool ReadDataString(string data)
 		{
@@ -113,7 +113,7 @@ namespace Distance.TrackMusic.Models
 
 			if (string.IsNullOrEmpty(FileName))
 			{
-				Error = $"FileName is empty (Name must have 1 character in A-Za-z0-9)";
+				Error = "FileName is empty (Name must have 1 character in A-Za-z0-9)";
 			}
 			else if (!AllowedExtensions.Contains(FileType))
 			{
@@ -125,7 +125,7 @@ namespace Distance.TrackMusic.Models
 
 				if (!success || !AllowedDownloadSchemes.Contains(downloadUri.Scheme))
 				{
-					Error = $"Bad URL: should be http:// or https://";
+					Error = "Bad URL: should be http:// or https://";
 				}
 			}
 			else if (string.IsNullOrEmpty(DownloadUrl) && Embedded.Length == 0)

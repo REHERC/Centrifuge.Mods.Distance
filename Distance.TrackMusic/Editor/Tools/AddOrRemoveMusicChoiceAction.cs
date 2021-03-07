@@ -1,4 +1,5 @@
-﻿using Distance.TrackMusic.Models;
+﻿#pragma warning disable RCS1079
+using Distance.TrackMusic.Models;
 using Events.LevelEditor;
 using LevelEditorActions;
 using System;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace Distance.TrackMusic.Editor.Tools
 {
-	public class AddOrRemoveMusicChoiceAction : SimplerAction
+	public abstract class AddOrRemoveMusicChoiceAction : SimplerAction
 	{
 		public override string Description_ => throw new NotImplementedException();
 
@@ -17,7 +18,7 @@ namespace Distance.TrackMusic.Editor.Tools
 		private readonly bool isAdd;
 		private readonly byte[] componentBytes;
 
-		public AddOrRemoveMusicChoiceAction(GameObject gameObject, ZEventListener comp)
+		protected AddOrRemoveMusicChoiceAction(GameObject gameObject, ZEventListener comp)
 		{
 			ReferenceMap referenceMap_ = G.Sys.LevelEditor_.ReferenceMap_;
 			originalHandle = referenceMap_.GetHandleOrNull(gameObject);
@@ -92,7 +93,6 @@ namespace Distance.TrackMusic.Editor.Tools
 
 			ObjectHadComponentAddedOrRemoved.Broadcast(new ObjectHadComponentAddedOrRemoved.Data(gameObject));
 
-
 			if (!gameObject.HasComponent<LevelSettings>())
 			{
 				editor.SelectObject(gameObject);
@@ -109,5 +109,4 @@ namespace Distance.TrackMusic.Editor.Tools
 			AddOrRemove(originalHandle, ref newHandle, isAdd);
 		}
 	}
-
 }

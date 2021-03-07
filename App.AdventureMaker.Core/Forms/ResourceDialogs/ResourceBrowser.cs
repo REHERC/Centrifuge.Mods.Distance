@@ -14,7 +14,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 	{
 		private readonly IEditor<CampaignFile> editor;
 		private readonly ResourceType type;
-		
+
 		private readonly GridView<CampaignResource> resourcePicker;
 		private readonly Button importResource;
 
@@ -139,7 +139,6 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 				editor.Document = project;
 
 				UpdateDataStore();
-
 			}
 		}
 	}

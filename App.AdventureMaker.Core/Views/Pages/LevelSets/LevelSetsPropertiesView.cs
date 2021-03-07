@@ -77,8 +77,8 @@ namespace App.AdventureMaker.Core.Views
 				descriptionBox.Text = playlist.description;
 
 				var resourceQuery = editor.Document.data.resources.Where(res => Equals(res.guid, playlist.icon));
-				iconBox.Resource = resourceQuery.Any() ? resourceQuery.First() : null;
-				
+				iconBox.Resource = resourceQuery.FirstOrDefault();
+
 				guidBox.Text = playlist.guid;
 				sprintDisplayBox.Value = playlist.display_in_sprint;
 				campaignDisplayBox.Value = playlist.display_in_campaign;

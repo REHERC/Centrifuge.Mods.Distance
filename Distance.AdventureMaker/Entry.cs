@@ -27,7 +27,7 @@ namespace Distance.AdventureMaker
 			Manager = manager;
 			Logger = LogManager.GetForCurrentAssembly();
 			StartParameters = ApplicationArguments.Parse();
-			
+
 			RuntimePatcher.AutoPatch();
 
 			Initialized.Subscribe(OnMainMenuInitialized);

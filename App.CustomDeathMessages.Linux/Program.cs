@@ -5,7 +5,7 @@ using System;
 
 namespace App.CustomDeathMessages.Linux
 {
-	internal class Program
+	internal static class Program
 	{
 		[STAThread]
 		private static void Main()

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Distance.EditorAdditions.Harmony
 {
 	[HarmonyPatch(typeof(ResourceManager), "SetupPrefabFileDatas")]
-	internal class ResourceManger__SetupPrefabFileDatas
+	internal static class ResourceManger__SetupPrefabFileDatas
 	{
 		[HarmonyPrefix]
 		public static bool Prefix(ResourceManager __instance)

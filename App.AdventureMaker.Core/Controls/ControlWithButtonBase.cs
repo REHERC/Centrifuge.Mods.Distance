@@ -7,9 +7,9 @@ namespace App.AdventureMaker.Core.Controls
 	// TODO: move to private inner class and make current class wrap around to set proper spacing (winforms only)
 	public class ControlWithButtonBase<T> : StackLayout where T : Control
 	{
-		protected T Control { get; private set; }
+		protected T Control { get; }
 
-		protected Button Button { get; private set; }
+		protected Button Button { get; }
 
 		public event Action ButtonClick;
 
@@ -34,7 +34,7 @@ namespace App.AdventureMaker.Core.Controls
 			Control = control;
 
 			Control.Style = "with-button";
-			
+
 			Button = new Button();
 			Button.Click += (sender, e) =>
 			{

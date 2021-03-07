@@ -2,7 +2,7 @@
 
 namespace App.AdventureMaker.Core.Interfaces
 {
-	public interface IModifiedNotifier<DATA> 
+	public interface IModifiedNotifier<DATA>
 	{
 		public event Action<DATA> OnModified;
 	}

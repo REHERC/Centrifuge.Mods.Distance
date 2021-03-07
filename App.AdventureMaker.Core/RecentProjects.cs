@@ -14,7 +14,7 @@ namespace App.AdventureMaker.Core
 
 		public static event Action OnChanged;
 
-		private static ObservableCollection<FileInfo> FileList { get; set; }
+		private static ObservableCollection<FileInfo> FileList { get; }
 
 		private static bool broadcastEvents_ = true;
 		#endregion

@@ -8,7 +8,7 @@ namespace Tools.External
 {
 	public class ToolManager
 	{
-		public List<Tool> Tools { get; private set; }
+		public List<Tool> Tools { get; }
 
 		public ToolManager()
 		{

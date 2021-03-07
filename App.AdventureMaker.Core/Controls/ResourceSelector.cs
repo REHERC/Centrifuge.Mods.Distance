@@ -21,14 +21,14 @@ namespace App.AdventureMaker.Core.Controls
 			get
 			{
 				var items = editor.Document.data.resources.Where(res => Equals(res.guid, resource_) && Equals(res.resource_type, type));
-				return items.Any() ? items.First() : null;
+				return items.FirstOrDefault();
 			}
 			set
 			{
 				resource_ = value?.guid;
 				Control.Text = value is null ? "<no element selected>" : value.file;
 
-				ResourceSelected?.Invoke(this, new EventArgs());
+				ResourceSelected?.Invoke(this, EventArgs.Empty);
 			}
 		}
 

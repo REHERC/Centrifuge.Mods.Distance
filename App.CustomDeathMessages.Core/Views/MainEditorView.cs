@@ -68,7 +68,7 @@ namespace App.CustomDeathMessages.Core.Views
 
 			if (fireModifiedEvent)
 			{
-				Modified(this, new EventArgs());
+				Modified(this, EventArgs.Empty);
 			}
 		}
 	}

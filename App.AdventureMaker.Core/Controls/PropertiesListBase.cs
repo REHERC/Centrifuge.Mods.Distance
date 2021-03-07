@@ -16,10 +16,7 @@ namespace App.AdventureMaker.Core.Controls
 				TextAlignment = TextAlignment.Right
 			};
 
-			label.MouseDown += (sender, e) =>
-			{
-				content.Focus();
-			};
+			label.MouseDown += (sender, e) => content.Focus();
 
 			TableRow row = new TableRow()
 			{

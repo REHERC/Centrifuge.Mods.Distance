@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿#pragma warning disable RCS1110
+using System.Reflection;
 
 public static class ObjectExtensions
 {

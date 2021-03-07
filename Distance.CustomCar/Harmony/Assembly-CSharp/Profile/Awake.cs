@@ -3,7 +3,7 @@
 namespace Distance.CustomCar.Harmony
 {
 	[HarmonyPatch(typeof(Profile), "Awake")]
-	internal class Profile__Awake
+	internal static class Profile__Awake
 	{
         [HarmonyPostfix]
 		internal static void Postfix(Profile __instance)

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Distance.NoServerLimit.Harmony
 {
 	[HarmonyPatch(typeof(NetworkingManager), "CreateServer")]
-	internal class NetworkingManager__CreateServer
+	internal static class NetworkingManager__CreateServer
 	{
 		internal static bool Prefix(NetworkingManager __instance, string serverTitle, string password, int maxPlayerCount)
 		{
@@ -22,7 +22,7 @@ namespace Distance.NoServerLimit.Harmony
 
 				G.Sys.GameData_.SetInt("MaxPlayersDefault", __instance.maxPlayerCount_);
 
-				int num = 1;
+				const int num = 1;
 				int connections = __instance.maxPlayerCount_ - num;
 
 				NetworkConnectionError networkConnectionError = Network.InitializeServer(connections, 32323, true);

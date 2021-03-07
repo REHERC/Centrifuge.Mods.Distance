@@ -56,7 +56,7 @@ namespace Distance.EditorAdditions
 			if (!settingsPath.Exists) settingsPath.Create();
 
 			string configPath = new FileInfo(Path.Combine(settingsPath.FullName, settingsFileName)).FullName;
-			
+
 			return new TrackNodeColors(configPath);
 		}
 		#endregion
@@ -82,7 +82,7 @@ namespace Distance.EditorAdditions
 							return item.Value;
 						}
 					}
-					
+
 					return null;
 				}
 			}
@@ -169,7 +169,6 @@ namespace Distance.EditorAdditions
 				}
 			}
 		}
-
 
 		#region Data Class
 		[Serializable]

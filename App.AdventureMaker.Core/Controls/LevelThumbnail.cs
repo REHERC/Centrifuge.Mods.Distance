@@ -42,7 +42,7 @@ namespace App.AdventureMaker.Core.Controls
 
 			g.FillRectangle(new LinearGradientBrush(
 				Color.FromArgb(BackgroundColor.Rb, BackgroundColor.Gb, BackgroundColor.Bb, 96),
-				BackgroundColor, 
+				BackgroundColor,
 				new Point((int)(Width * gradientDelta_), 0),
 				new Point(Width, 0)
 			), Bounds);

@@ -35,7 +35,7 @@ namespace Distance.NitronicHUD.Scripts
 
 			if (!Bundle)
 			{
-				Mod.Instance.Logger.Error($"The following assets file could not be loaded: countdown.assets");
+				Mod.Instance.Logger.Error("The following assets file could not be loaded: countdown.assets");
 
 				DestroyImmediate(this);
 				return;
@@ -126,7 +126,7 @@ namespace Distance.NitronicHUD.Scripts
 		{
 			float peak = data.start + (data.duration / 2);
 			float diff = peak - data.start;
-			float curve = (1 / diff) * (-Mathf.Abs(time - data.start - diff)) + 1;
+			float curve = (1 / diff * (-Mathf.Abs(time - data.start - diff))) + 1;
 			return Mathf.Max(0, curve);
 		}
 	}

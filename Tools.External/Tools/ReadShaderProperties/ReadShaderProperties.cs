@@ -101,7 +101,7 @@ namespace Tools.External.Tools
 				output.WriteLine($"{nl}{nl}");
 			}
 
-			state.SetStatus($"Done!");
+			state.SetStatus("Done!");
 
 			log.Dispose();
 

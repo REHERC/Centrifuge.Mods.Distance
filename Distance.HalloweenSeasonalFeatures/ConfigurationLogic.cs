@@ -22,8 +22,6 @@ namespace Distance.HalloweenSeasonalFeatures
 		public void Awake()
 		{
 			Load();
-
-
 			Save();
 		}
 

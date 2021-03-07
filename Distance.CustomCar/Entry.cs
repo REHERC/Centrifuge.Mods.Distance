@@ -1,4 +1,4 @@
-﻿#pragma warning disable IDE0051
+﻿#pragma warning disable IDE0051, RCS1213
 
 using Centrifuge.Distance.Game;
 using Centrifuge.Distance.GUI.Controls;

@@ -49,7 +49,6 @@ namespace Tools.External
 						break;
 				}
 
-
 				obj.Dispose();
 			}
 		}
@@ -79,7 +78,7 @@ namespace Tools.External
 		{
 			T result = null;
 
-			parent_.Invoke((MethodInvoker)delegate ()
+			parent_.Invoke((MethodInvoker)(() =>
 			{
 				result = parent_.OpenWindow(window);
 				result.FormClosing += (s, e) =>
@@ -95,7 +94,7 @@ namespace Tools.External
 				//result.WindowState = FormWindowState.Maximized;
 
 				disposeResources_.Add(result);
-			});
+			}));
 
 			return result;
 		}

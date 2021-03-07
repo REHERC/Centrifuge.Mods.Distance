@@ -10,7 +10,6 @@ namespace Solution.Task.PreBuild
 		[STAThread]
 		private static void Main()
 		{
-
 		}
 	}
 }

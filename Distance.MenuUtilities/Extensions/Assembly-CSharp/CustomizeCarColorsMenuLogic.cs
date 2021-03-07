@@ -1,4 +1,5 @@
-﻿using Distance.MenuUtilities.Scripts;
+﻿#pragma warning disable RCS1110
+using Distance.MenuUtilities.Scripts;
 using System;
 
 public static class CustomizeCarColorsMenuLogicExtensions

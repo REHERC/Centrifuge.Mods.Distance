@@ -4,7 +4,7 @@ using System.Linq;
 namespace Distance.EditorAdditions.Harmony
 {
 	[HarmonyPatch(typeof(LevelEditorLevelNameSelectMenuLogic), "GenerateLevelNameList")]
-	internal class LevelEditorLevelNameSelectMenuLogic__GenerateLevelNameList
+	internal static class LevelEditorLevelNameSelectMenuLogic__GenerateLevelNameList
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(LevelEditorLevelNameSelectMenuLogic __instance)

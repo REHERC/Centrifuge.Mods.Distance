@@ -1,4 +1,5 @@
-﻿using App.AdventureMaker.Core.Forms.ResourceDialogs;
+﻿#pragma warning disable RCS1110
+using App.AdventureMaker.Core.Forms.ResourceDialogs;
 using Distance.AdventureMaker.Common.Enums;
 using Distance.AdventureMaker.Common.Models.Resources;
 using System;
@@ -24,7 +25,7 @@ public static partial class Constants
 	public const string DIALOG_FILTER_TGA = "Truevision Advanced Raster Graphics Adapter (*.tga)|*.tga";
 	public const string DIALOG_FILTER_TIF = "Tag Image File Format (*.tif;*.tiff)|*.tif;*.tiff";
 	public const string DIALOG_FILTER_BMP = "Bitmap (*.bmp)|*.bmp";
-	
+
 	// Game-specific filters
 	public const string DIALOG_FILTER_BYTES = "Distance Serialized Binary File (*.bytes)|*.bytes";
 

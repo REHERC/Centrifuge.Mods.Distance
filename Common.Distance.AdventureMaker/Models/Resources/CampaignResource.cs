@@ -13,7 +13,6 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 	[JsonSubtypes.KnownSubType(typeof(Level), ResourceType.Level)]
 	public abstract partial class CampaignResource
 	{
-
 		[JsonProperty("guid")]
 		public string guid;
 
@@ -28,7 +27,7 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 		public abstract int dependencies_count { get; }
 		#endif
 
-		public CampaignResource()
+		protected CampaignResource()
 		{
 			guid = Guid.NewGuid().ToString();
 		}

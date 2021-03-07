@@ -4,17 +4,14 @@ using UnityEngine;
 namespace Distance.EditorAdditions.Harmony
 {
 	[HarmonyPatch(typeof(LibraryTab), "Start")]
-	internal class LibraryTab__Start
+	internal static class LibraryTab__Start
 	{
 		[HarmonyPrefix]
 		internal static bool Prefix(LibraryTab __instance)
 		{
 			ConfigurationLogic Config = Mod.Instance.Config;
 
-			__instance.iconSizeSlider_.onChange.Add(new EventDelegate(() =>
-			{
-				Config.EditorIconSize = __instance.IconSize_;
-			}));
+			__instance.iconSizeSlider_.onChange.Add(new EventDelegate(() => Config.EditorIconSize = __instance.IconSize_));
 
 			__instance.iconSize_ = Config.EditorIconSize;
 

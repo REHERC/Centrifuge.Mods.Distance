@@ -1,4 +1,6 @@
-﻿// Original code by James Newton King:
+﻿#pragma warning disable RCS1110
+
+// Original code by James Newton King:
 // http://james.newtonking.com/archive/2008/03/29/formatwith-2-0-string-formatting-with-named-variables
 // I modified it to not throw errors when non-existent properties are used, thanks for this stackoverflow post, took me some time to find
 // https://stackoverflow.com/questions/3773857/escape-curly-brace-in-string-format
@@ -19,14 +21,14 @@ public static class FormatWithExtensions
 	{
 		if (format == null)
 		{
-			throw new ArgumentNullException("format");
+			throw new ArgumentNullException(nameof(format));
 		}
 
 		Regex r = new Regex(@"(?<start>\{)+(?<property>[\w\.\[\]]+)(?<format>:[^}]+)?(?<end>\})+",
 		  RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
 
 		List<object> values = new List<object>();
-		string rewrittenFormat = r.Replace(format, delegate (Match m)
+		string rewrittenFormat = r.Replace(format, (Match m) =>
 		{
 			Group startGroup = m.Groups["start"];
 			Group propertyGroup = m.Groups["property"];
@@ -44,7 +46,7 @@ public static class FormatWithExtensions
 			}
 			catch
 			{
-				return $"{"{{"}{propertyGroup.Value}{"}}"}";
+				return $"{{{{{propertyGroup.Value}}}}}";
 			}
 		});
 

@@ -10,7 +10,7 @@ namespace Distance.AdventureMaker.Common.Validation.Validators
 	public class CampaignFileValidator : Validator<CampaignFile>
 	{
 		#region Members / Properties and Constructor
-		public DirectoryInfo Directory { get; private set; }
+		public DirectoryInfo Directory { get; }
 
 		public CampaignFileValidator(DirectoryInfo dir)
 		{
@@ -119,7 +119,7 @@ namespace Distance.AdventureMaker.Common.Validation.Validators
 											{
 												CampaignResource[] resources_search = resources.Where(res => Equals(res.guid, level.resource_id) && res.resource_type == ResourceType.Level).ToArray();
 
-												if (resources_search.Count() != 1)
+												if (resources_search.Length != 1)
 												{
 													Log(StatusLevel.ERR, "The level playlist item was null when validating (data.playlists[].levels[])");
 												}

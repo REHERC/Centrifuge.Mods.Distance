@@ -46,10 +46,7 @@ namespace Distance.MenuUtilities.Scripts
 
 			Color color = Menu.colorPicker_.Color_;
 
-			InputPromptPanel.Create(OnSubmit, () =>
-			{
-				Mod.Instance.StartCoroutine(CloseInput());
-			}, "HEX COLOR", $"#{ColorEx.ColorToHexUnity(color).ToUpper()}");
+			InputPromptPanel.Create(OnSubmit, () => Mod.Instance.StartCoroutine(CloseInput()), "HEX COLOR", $"#{ColorEx.ColorToHexUnity(color).ToUpper()}");
 		}
 
 		private bool OnSubmit(out string error, string input)

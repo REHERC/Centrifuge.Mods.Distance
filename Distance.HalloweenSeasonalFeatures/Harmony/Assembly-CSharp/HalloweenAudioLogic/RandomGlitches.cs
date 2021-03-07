@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Distance.HalloweenSeasonalFeatures.Harmony
 {
 	[HarmonyPatch(typeof(HalloweenAudioLogic), "RandomGlitches")]
-	internal class HalloweenAudioLogic__RandomGlitches
+	internal static class HalloweenAudioLogic__RandomGlitches
 	{
 		[HarmonyPrefix]
 		internal static bool Prefix(ref IEnumerator __result, HalloweenAudioLogic __instance)

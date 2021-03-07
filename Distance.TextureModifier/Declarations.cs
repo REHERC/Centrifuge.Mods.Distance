@@ -2,7 +2,7 @@
 
 namespace Distance.TextureModifier
 {
-	public class Declarations
+	public static class Declarations
 	{
 		public const string CustomShadelessTexture = "Custom/Shadeless/Texture";
 
@@ -39,7 +39,7 @@ namespace Distance.TextureModifier
 		{
 			foreach (var blacklistEntry in materialBlackList)
 			{
-				if (material.name.ToLower().Contains(blacklistEntry.ToLower()))
+				if (material.name.IndexOf(blacklistEntry, System.StringComparison.InvariantCultureIgnoreCase) >= 0)
 				{
 					return true;
 				}

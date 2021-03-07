@@ -23,15 +23,12 @@ namespace App.AdventureMaker.Core.Forms
 			//MinimumSize = Size;
 
 			Icon = Resources.GetIcon("App.ico");
-			
+
 			Content = mainView = new MainView();
 			ToolBar = new MainToolbar(mainView);
 			Menu = new MainMenu(this, mainView);
 
-			mainView.OnModified += (editor) =>
-			{
-				UpdateTitle();
-			};
+			mainView.OnModified += (_) => UpdateTitle();
 
 			//WindowState = WindowState.Maximized;
 
@@ -40,7 +37,6 @@ namespace App.AdventureMaker.Core.Forms
 
 		private void UpdateTitle()
 		{
-
 			if (mainView.CurrentFile != null)
 			{
 				Title = $"{Name} - [{mainView.CurrentFile.FullName}{(mainView.Modified ? "*" : string.Empty)}]";

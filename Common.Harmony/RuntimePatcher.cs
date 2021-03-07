@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿#pragma warning disable RCS1110
+using HarmonyLib;
 using System.Reflection;
 
 public static class RuntimePatcher

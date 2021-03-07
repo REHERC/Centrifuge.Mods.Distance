@@ -3,7 +3,7 @@
 namespace Distance.ChristmasSeasonalFeatures.Harmony
 {
 	[HarmonyPatch(typeof(BlackFadeLogic), "OnEnable")]
-	internal class BlackFadeLogic__OnEnable
+	internal static class BlackFadeLogic__OnEnable
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(BlackFadeLogic __instance)

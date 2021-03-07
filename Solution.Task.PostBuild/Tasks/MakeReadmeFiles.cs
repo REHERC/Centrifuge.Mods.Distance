@@ -116,7 +116,7 @@ namespace Solution.Task.PostBuild.Tasks
 
 			foreach (DirectoryInfo subdirectory in directory.GetDirectories())
 			{
-				if (string.Equals(subdirectory.Name, "Build", StringComparison.InvariantCultureIgnoreCase) || subdirectory.Name.ToLower().EndsWith(".Content"))
+				if (string.Equals(subdirectory.Name, "Build", StringComparison.InvariantCultureIgnoreCase) || subdirectory.Name.EndsWith(".Content", StringComparison.InvariantCultureIgnoreCase))
 				{
 					continue;
 				}

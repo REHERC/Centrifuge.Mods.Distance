@@ -3,7 +3,7 @@
 namespace Distance.NoServerLimit.Harmony
 {
 	[HarmonyPatch(typeof(HostAGame), "IncrementMaxPlayers")]
-	internal class HostAGame__IncrementMaxPlayers
+	internal static class HostAGame__IncrementMaxPlayers
 	{
 		internal static bool Prefix(HostAGame __instance, int direction)
 		{

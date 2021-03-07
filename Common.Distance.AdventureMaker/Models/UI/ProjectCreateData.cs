@@ -35,7 +35,7 @@ namespace Distance.AdventureMaker.Common.Models.UI
 				flag = false;
 			}
 
-			if (Directory.Exists(path) && Directory.GetFileSystemEntries(path).Any())
+			if (Directory.Exists(path) && Directory.GetFileSystemEntries(path).Length > 0)
 			{
 				sb.AppendLine("The selected project folder must be empty.");
 				flag = false;

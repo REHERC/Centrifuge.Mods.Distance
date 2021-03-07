@@ -25,7 +25,7 @@ namespace App.AdventureMaker.Core.Views
 			//AddRow("Development build", devBuildBox = new CheckBox());
 			AddRow("Development status", devBuildBox = new EnumDropDown<DevelopmentStatus>());
 			AddRow("Project unique ID", guidBox = new GuidLabel() { Text = string.Empty });
-			
+
 			CompleteRows();
 
 			titleBox.TextChanged += (_, __) => editor.Modified = true;

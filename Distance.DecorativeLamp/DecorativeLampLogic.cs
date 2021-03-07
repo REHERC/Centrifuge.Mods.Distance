@@ -98,7 +98,6 @@ namespace Distance.DecorativeLamp
 		}
 		#endregion
 
-
 		#region Unity Messages
 		public void Start()
 		{

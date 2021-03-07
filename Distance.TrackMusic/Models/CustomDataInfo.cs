@@ -58,7 +58,6 @@ namespace Distance.TrackMusic.Models
 
 		public static CustomDataInfo GetInfo(Type type, Type innerType)
 		{
-
 			DeepInfos.TryGetValue(innerType, out Dictionary<Type, CustomDataInfo> dict);
 
 			if (dict == null)

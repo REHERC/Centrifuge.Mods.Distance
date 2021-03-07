@@ -30,12 +30,10 @@ namespace Tools.External
 			string integer = Math.Floor(range).ToString();
 			string floating = number.Substring(integer.Length).Replace(".", "").Replace(",", "");
 
-
 			while (integer.Length < 3)
 			{
 				integer = $"0{integer}";
 			}
-
 
 			while (floating.Length < decimals)
 			{

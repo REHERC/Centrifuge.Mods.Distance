@@ -4,7 +4,7 @@ using HarmonyLib;
 namespace Distance.CustomDeathMessages.Harmony
 {
 	[HarmonyPatch(typeof(ClientLogic), "OnEventToAllClientsRemotePlayerActionMessage")]
-	internal class ClientLogic__OnEventToAllClientsRemotePlayerActionMessage
+	internal static class ClientLogic__OnEventToAllClientsRemotePlayerActionMessage
 	{
 		[HarmonyPrefix]
 		internal static bool Prefix(ClientLogic __instance, ToAllClientsRemotePlayerActionMessage.Data data)

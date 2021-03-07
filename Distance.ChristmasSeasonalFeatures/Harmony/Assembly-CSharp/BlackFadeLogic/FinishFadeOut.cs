@@ -3,7 +3,7 @@
 namespace Distance.ChristmasSeasonalFeatures.Harmony.Assembly_CSharp
 {
 	[HarmonyPatch(typeof(BlackFadeLogic), "FinishFadeOut")]
-	internal class BlackFadeLogic__FinishFadeOut
+	internal static class BlackFadeLogic__FinishFadeOut
 	{
 		[HarmonyPrefix]
 		internal static void Prefix(BlackFadeLogic __instance)

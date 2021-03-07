@@ -69,7 +69,6 @@ namespace App.AdventureMaker.Core.Views
 									Font = new Font(SystemFont.Bold),
 									TextColor = Colors.Red
 								}, new Padding(8), centered: true)
-								
 								#endif
 							}
 						}
@@ -126,7 +125,7 @@ namespace App.AdventureMaker.Core.Views
 					}
 				}.Start();
 			};
-			
+
 			RecentProjects.OnChanged += RecentFilesUpdated;
 			RecentFilesUpdated();
 
@@ -165,7 +164,7 @@ namespace App.AdventureMaker.Core.Views
 						Items =
 						{
 							(button = new Button()
-							{ 
+							{
 								Text = $"{projectTitle} ({file.Directory.FullName})"
 							})
 						},
@@ -174,22 +173,16 @@ namespace App.AdventureMaker.Core.Views
 						{
 							Items =
 							{
-								(new ButtonMenuItem((sender, e) => 
-								{ 
-									RecentProjects.Remove(file);
-								})
+								new ButtonMenuItem((sender, e) => RecentProjects.Remove(file))
 								{
 									Text = "Remove",
 									Image = Resources.GetIcon("CloseRed.ico")
-								}),
-								(new ButtonMenuItem((sender, e) =>
-								{
-									RecentProjects.Clear();
-								})
+								},
+								new ButtonMenuItem((sender, e) => RecentProjects.Clear())
 								{
 									Text = "Clear all",
 									Image = Resources.GetIcon("CloseGray.ico")
-								})
+								}
 							}
 						}
 					});

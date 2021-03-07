@@ -81,7 +81,7 @@ namespace App.AdventureMaker.Core.Views
 
 		public void LoadFile(FileInfo file, bool resetUI = true)
 		{
-			if (file != null && file.Exists)
+			if (file?.Exists == true)
 			{
 				CurrentFile = file;
 				CampaignFile project = Json.Load<CampaignFile>(file);

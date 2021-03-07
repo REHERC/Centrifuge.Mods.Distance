@@ -52,7 +52,7 @@ namespace App.AdventureMaker.Core.Forms
 
 			dropDown.SelectedValueChanged += (sender, e) => DefaultButton.Enabled = true;
 		}
-	
+
 		protected void OnConfirm(object sender, EventArgs e)
 		{
 			if (dropDown.SelectedIndex > -1)
@@ -62,7 +62,7 @@ namespace App.AdventureMaker.Core.Forms
 				Close(Constants.RESOURCE_DIALOGS[dropDown.SelectedValue](null));
 			}
 		}
-		
+
 		protected void OnCancel(object sender, EventArgs e)
 		{
 			Close(null);

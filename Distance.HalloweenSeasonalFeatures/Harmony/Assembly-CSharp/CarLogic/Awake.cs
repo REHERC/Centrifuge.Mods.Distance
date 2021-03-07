@@ -3,7 +3,7 @@
 namespace Distance.HalloweenSeasonalFeatures.Harmony
 {
 	[HarmonyPatch(typeof(CarLogic), "Awake")]
-	internal class CarLogic__Awake
+	internal static class CarLogic__Awake
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(CarLogic __instance)

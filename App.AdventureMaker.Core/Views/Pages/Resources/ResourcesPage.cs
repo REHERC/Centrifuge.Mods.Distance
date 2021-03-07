@@ -11,7 +11,7 @@ namespace App.AdventureMaker.Core.Views
 {
 	public class ResourcesPage : StackLayout, ISaveLoad<CampaignFile>
 	{
-		private ObservableCollection<CampaignResource> collection;
+		private readonly ObservableCollection<CampaignResource> collection;
 
 		private readonly IEditor<CampaignFile> editor;
 
@@ -148,7 +148,7 @@ namespace App.AdventureMaker.Core.Views
 			int index = resourceGrid.SelectedRow;
 
 			editResourceButton.Enabled
-			= removeResourceButton.Enabled 
+			= removeResourceButton.Enabled
 			= editResourceMenuButton.Enabled
 			= removeResourceMenuButton.Enabled
 			= index >= 0;

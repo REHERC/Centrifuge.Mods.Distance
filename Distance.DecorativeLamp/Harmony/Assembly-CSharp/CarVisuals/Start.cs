@@ -3,7 +3,7 @@
 namespace Distance.DecorativeLamp.Harmony
 {
 	[HarmonyPatch(typeof(CarVisuals), "Start")]
-	internal class CarVisuals__Start
+	internal static class CarVisuals__Start
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(CarVisuals __instance)

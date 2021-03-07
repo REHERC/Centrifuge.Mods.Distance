@@ -13,7 +13,7 @@ namespace App.AdventureMaker.Core
 			Style.Add<TableLayout>(null, item => item.Spacing = new Size(4, 8));
 			Style.Add<Scrollable>(null, item => item.Border = BorderType.None);
 
-			Style.Add<Button>("icon", item => 
+			Style.Add<Button>("icon", item =>
 			{
 				Size size = new Size(32, 32);
 				item.Size = size;

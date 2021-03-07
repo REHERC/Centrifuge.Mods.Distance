@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Distance.MenuUtilities.Harmony
 {
 	[HarmonyPatch(typeof(LevelGridGrid), "Update")]
-	internal class LevelGridGrid__UpdatePageButtons
+	internal static class LevelGridGrid__UpdatePageButtons
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(LevelGridGrid __instance)

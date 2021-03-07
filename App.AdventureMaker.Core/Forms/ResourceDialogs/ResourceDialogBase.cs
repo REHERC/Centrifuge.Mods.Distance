@@ -46,7 +46,6 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 							{
 								Text = "Cancel",
 								Image = Resources.GetIcon("CloseRed.ico", 16)
-
 							})
 						}
 					}, false)

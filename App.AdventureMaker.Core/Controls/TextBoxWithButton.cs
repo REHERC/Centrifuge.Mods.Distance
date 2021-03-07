@@ -13,17 +13,15 @@ namespace App.AdventureMaker.Core.Controls
 			set
 			{
 				Control.Text = value;
-				TextChanged?.Invoke(this, new EventArgs());
+				TextChanged?.Invoke(this, EventArgs.Empty);
 			}
 		}
 
 		public TextBoxWithButton() : base(new TextBox())
-		{ 
+		{
 			Button.Text = "...";
 			Control.TextChanged += (sender, e) =>
-			{
-				Text = Control.Text;
-			};
+			Text = Control.Text;
 		}
 	}
 }

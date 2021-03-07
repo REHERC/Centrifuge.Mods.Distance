@@ -1,7 +1,7 @@
 ﻿#if APP
 #pragma warning disable IDE0063
 #endif
-
+#pragma warning disable RCS1110
 using Newtonsoft.Json;
 using System;
 using System.IO;

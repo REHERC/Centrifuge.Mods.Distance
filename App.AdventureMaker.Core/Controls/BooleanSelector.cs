@@ -19,7 +19,7 @@ namespace App.AdventureMaker.Core.Controls
 				if (value_ != value)
 				{
 					value_ = value;
-					ValueChanged?.Invoke(this, new EventArgs());
+					ValueChanged?.Invoke(this, EventArgs.Empty);
 
 					SelectedIndex = value ? 0 : 1;
 				}

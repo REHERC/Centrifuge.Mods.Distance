@@ -57,7 +57,7 @@ namespace Distance.TrackMusic
 
 			var failed = false;
 
-			void local_MusicSegmentEnd(Events.Audio.MusicSegmentEnd.Data data)
+			void local_MusicSegmentEnd(Events.Audio.MusicSegmentEnd.Data _)
 			{
 				failed = true;
 			}
@@ -116,7 +116,7 @@ namespace Distance.TrackMusic
 		{
 			var listener = obj.GetComponent<ZEventListener>();
 
-			if (listener == null || !listener.eventName_.StartsWith(CustomDataInfo.GetPrefix<MusicChoice>()))
+			if (listener?.eventName_.StartsWith(CustomDataInfo.GetPrefix<MusicChoice>()) != true)
 			{
 				return null;
 			}
@@ -142,7 +142,7 @@ namespace Distance.TrackMusic
 		{
 			var levelPath = G.Sys.GameManager_.LevelPath_;
 
-			if (G.Sys.LevelEditor_ != null && G.Sys.LevelEditor_.Active_)
+			if (G.Sys.LevelEditor_?.Active_ == true)
 			{
 				levelPath = "EditorMusic/EditorMusic";
 			}

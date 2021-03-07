@@ -1,4 +1,5 @@
-﻿using System;
+﻿#pragma warning disable RCS1085
+using System;
 using System.IO;
 using UnityEngine;
 

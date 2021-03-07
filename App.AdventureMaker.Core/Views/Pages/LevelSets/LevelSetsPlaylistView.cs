@@ -34,7 +34,7 @@ namespace App.AdventureMaker.Core.Views
 
 		private readonly GridView<CampaignLevel> levelList;
 
-		private ObservableCollection<CampaignLevel> collection;
+		private readonly ObservableCollection<CampaignLevel> collection;
 
 		public LevelSetsPlaylistView(IEditor<CampaignFile> editor)
 		{
@@ -234,7 +234,7 @@ namespace App.AdventureMaker.Core.Views
 
 			int index = levelList.SelectedRow;
 
-			moveUpButton.Enabled 
+			moveUpButton.Enabled
 			= moveUpMenuButton.Enabled
 			= index > 0;
 
@@ -302,7 +302,7 @@ namespace App.AdventureMaker.Core.Views
 		{
 			MoveCurrentItem(-1);
 		}
-		
+
 		private void MoveLevelDown(object sender, EventArgs e)
 		{
 			MoveCurrentItem(+1);

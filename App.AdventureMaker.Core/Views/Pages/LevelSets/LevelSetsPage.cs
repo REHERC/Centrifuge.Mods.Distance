@@ -120,11 +120,11 @@ namespace App.AdventureMaker.Core.Views
 			if (!resetUI)
 			{
 				listBox.SelectedIndex = row;
-				SelectPlaylist(listBox, new EventArgs());
+				SelectPlaylist(listBox, EventArgs.Empty);
 
 				listBox.ResumeLayout();
 				properties.ResumeLayout();
-			}	
+			}
 		}
 
 		public void SaveData(CampaignFile project)

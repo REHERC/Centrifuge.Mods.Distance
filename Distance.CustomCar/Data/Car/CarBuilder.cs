@@ -134,7 +134,7 @@ namespace Distance.CustomCar.Data.Car
 				}
 			}
 
-			foreach (FileInfo assetsFile in ArrayEx.Concat(assetsDirectory.GetFiles("*", SearchOption.AllDirectories), globalCarsDirectory.GetFiles("*", SearchOption.AllDirectories)).OrderBy(x => x.Name))
+			foreach (FileInfo assetsFile in assetsDirectory.GetFiles("*", SearchOption.AllDirectories).Concat(globalCarsDirectory.GetFiles("*", SearchOption.AllDirectories)).OrderBy(x => x.Name))
 			{
 				try
 				{
@@ -202,7 +202,7 @@ namespace Distance.CustomCar.Data.Car
 			for (int childIndex = 0; childIndex < obj.transform.childCount; childIndex++)
 			{
 				GameObject childObject = obj.transform.GetChild(childIndex).gameObject;
-				if (childObject.name.ToLower().Contains("wheel"))
+				if (childObject.name.IndexOf("wheel", StringComparison.InvariantCultureIgnoreCase) >= 0)
 				{
 					wheelsToRemove.Add(childObject);
 				}
@@ -223,13 +223,13 @@ namespace Distance.CustomCar.Data.Car
 			GameObject.Destroy(refractor.gameObject);
 			foreach (GameObject wheel in wheelsToRemove)
 			{
-				GameObject.Destroy(wheel);
+				UnityEngine.Object.Destroy(wheel);
 			}
 		}
 
 		private GameObject AddNewCarOnPrefab(GameObject obj, GameObject car)
 		{
-			return GameObject.Instantiate(car, obj.transform);
+			return UnityEngine.Object.Instantiate(car, obj.transform);
 		}
 
 		private void SetCarDatas(GameObject obj, GameObject car)
@@ -498,10 +498,10 @@ namespace Distance.CustomCar.Data.Car
 				uniformChanger.materialIndex_ = materialIndex;
 				uniformChanger.colorType_ = ColorType(arguments[2]);
 				uniformChanger.name_ = UniformName(arguments[3]);
-				
+
 				float.TryParse(arguments[4], out float multiplier);
 				uniformChanger.mul_ = multiplier;
-				uniformChanger.alpha_ = arguments[5].ToLower() == "true";
+				uniformChanger.alpha_ = string.Equals(arguments[5], "true", StringComparison.InvariantCultureIgnoreCase);
 
 				uniformChangers.Add(uniformChanger);
 			}
@@ -613,12 +613,12 @@ namespace Distance.CustomCar.Data.Car
 
 			mesh.boneWeights = bones;
 			Transform transform = renderer.transform;
-			Matrix4x4[] bindPoses = new Matrix4x4[1] { 
-				transform.worldToLocalMatrix * renderer.transform.localToWorldMatrix 
-			};
-			mesh.bindposes = bindPoses;
-			renderer.bones = new Transform[1] 
-			{ 
+			mesh.bindposes = (new Matrix4x4[1]
+			{
+				transform.worldToLocalMatrix * renderer.transform.localToWorldMatrix
+			});
+			renderer.bones = new Transform[1]
+			{
 				transform
 			};
 		}
@@ -742,7 +742,7 @@ namespace Distance.CustomCar.Data.Car
 				// MODIFIED: Default was to return the following as a result directly
 				// return transform.gameObject.name.ToLower().Contains("driverposition") ? transform : FindCarDriver(transform);
 
-				Transform driver = transform.gameObject.name.ToLower().Contains("driverposition") ? transform : FindCarDriver(transform);
+				Transform driver = transform.gameObject.name.IndexOf("driverposition", StringComparison.InvariantCultureIgnoreCase) >= 0 ? transform : FindCarDriver(transform);
 
 				if (driver != null)
 				{
@@ -764,7 +764,7 @@ namespace Distance.CustomCar.Data.Car
 					CarWheelVisuals comp = childObject.AddComponent<CarWheelVisuals>();
 					foreach (MeshRenderer renderer in childObject.GetComponentsInChildren<MeshRenderer>())
 					{
-						if (renderer.gameObject.name.ToLower().Contains("tire"))
+						if (renderer.gameObject.name.IndexOf("tire", StringComparison.InvariantCultureIgnoreCase) >= 0)
 						{
 							comp.tire_ = renderer;
 							break;

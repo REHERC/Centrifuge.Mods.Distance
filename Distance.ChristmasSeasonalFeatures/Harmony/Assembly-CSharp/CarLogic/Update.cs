@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Distance.ChristmasSeasonalFeatures.Harmony
 {
 	[HarmonyPatch(typeof(CarLogic), "Update")]
-	internal class CarLogic__Update
+	internal static class CarLogic__Update
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(CarLogic __instance)

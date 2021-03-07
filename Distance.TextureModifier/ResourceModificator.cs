@@ -1,5 +1,4 @@
-﻿#pragma warning disable CS0618 // Type or member is obsolete
-#pragma warning disable CS0162 // unreachable code detected
+﻿#pragma warning disable CS0618
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

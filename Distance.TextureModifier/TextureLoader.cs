@@ -39,7 +39,7 @@ namespace Distance.TextureModifier
 
 		public void ClearResources(ref Object[] list)
 		{
-			for (int index = 0; index < list.Count(); index++)
+			for (int index = 0; index < list.Length; index++)
 			{
 				ref Object resource = ref list[index];
 

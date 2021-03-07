@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Distance.EditorAdditions.Harmony
 {
 	[HarmonyPatch(typeof(LevelEditorMusicTrackSelectMenuLogic), "GenerateMusicNameList")]
-	internal class LevelEditorMusicTrackSelectMenuLogic__GenerateMusicNameList
+	internal static class LevelEditorMusicTrackSelectMenuLogic__GenerateMusicNameList
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(LevelEditorMusicTrackSelectMenuLogic __instance)

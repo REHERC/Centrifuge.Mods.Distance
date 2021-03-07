@@ -44,12 +44,12 @@ namespace App.AdventureMaker.Core.Forms
 						{
 							null,
 							(confirmButton = new Button(OnConfirm)
-							{ 
+							{
 								Text = "OK",
 								Image = Resources.GetIcon("CheckGreen.ico", 16)
 							}),
 							(cancelButton = new Button(OnCancel)
-							{ 
+							{
 								Text = "Cancel",
 								Image = Resources.GetIcon("CloseRed.ico", 16)
 							})

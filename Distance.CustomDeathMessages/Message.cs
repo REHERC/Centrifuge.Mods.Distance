@@ -29,7 +29,7 @@ namespace Distance.CustomDeathMessages
 		{
 			foreach (var element in MessageDictionary)
 			{
-				if (message.ToLower().Contains(element.Key.ToLower()))
+				if (message.IndexOf(element.Key, System.StringComparison.InvariantCultureIgnoreCase) >= 0)
 				{
 					return element.Value;
 				}
@@ -59,7 +59,7 @@ namespace Distance.CustomDeathMessages
 
 			string[] entries = values.ToObject<string[]>().Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
-			if (type == MessageType.None || !entries.Any())
+			if (type == MessageType.None || entries.Length == 0)
 			{
 				return $"{username} {message}";
 			}

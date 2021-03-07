@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Distance.CustomWheelHologram.Harmony
 {
 	[HarmonyPatch(typeof(WheelPOV), "Awake")]
-	internal class WheelPOV__Awake
+	internal static class WheelPOV__Awake
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(WheelPOV __instance)

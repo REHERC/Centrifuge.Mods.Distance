@@ -5,7 +5,7 @@ using System.Text;
 namespace Common.SharpCompress.Harmony
 {
 	[HarmonyPatch(typeof(ArchiveEncoding), MethodType.Constructor)]
-	internal class SharpCompress__Common__ArchiveEncoding___ctor__Patch
+	internal static class SharpCompress__Common__ArchiveEncoding___ctor__Patch
 	{
 		[HarmonyPrefix]
 		internal static bool Prefix(ArchiveEncoding __instance)

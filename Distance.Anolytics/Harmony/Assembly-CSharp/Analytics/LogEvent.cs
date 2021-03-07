@@ -3,7 +3,7 @@
 namespace Distance.Anolytics.Harmony
 {
 	[HarmonyPatch(typeof(Analytics), "LogEvent")]
-	internal class Analytics__LogEvent
+	internal static class Analytics__LogEvent
 	{
 		[HarmonyPrefix]
 		internal static bool Prefix(string page, string category, string action, string opt_label, int opt_value)

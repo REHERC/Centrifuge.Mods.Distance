@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Distance.HalloweenSeasonalFeatures.Harmony
 {
 	[HarmonyPatch(typeof(CarScreenLogic), "UpdateSpecialObjects")]
-	internal class CarScreenLogic__UpdateSpecialObjects
+	internal static class CarScreenLogic__UpdateSpecialObjects
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(CarScreenLogic __instance)

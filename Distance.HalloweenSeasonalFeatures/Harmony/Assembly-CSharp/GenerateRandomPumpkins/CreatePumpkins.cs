@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Distance.HalloweenSeasonalFeatures.Harmony
 {
 	[HarmonyPatch(typeof(GenerateRandomPumpkins), "CreatePumpkins")]
-	internal class GenerateRandomPumpkins__CreatePumpkins
+	internal static class GenerateRandomPumpkins__CreatePumpkins
 	{
 		[HarmonyPrefix]
 		internal static bool Prefix(GenerateRandomPumpkins __instance)
@@ -57,7 +57,7 @@ namespace Distance.HalloweenSeasonalFeatures.Harmony
 						if (Vector3.Angle(info.Up_, Vector3.up) <= 35.0)
 						{
 							float max = info.scale_ * __instance.percentageOfRoadWidth_;
-							Vector3 _pos = info.posOnTrack_ + Random.Range(-max, max) * info.Right_;
+							Vector3 _pos = info.posOnTrack_ + (Random.Range(-max, max) * info.Right_);
 							Quaternion _rot = Quaternion.LookRotation(info.Forward_, info.Up_) * Quaternion.AngleAxis(Random.Range(0.0f, 359f), info.Up_);
 
 							string name = __instance.pumpkinPrefabs_[Random.Range(0, __instance.pumpkinPrefabs_.Length)].name;

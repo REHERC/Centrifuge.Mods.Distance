@@ -152,15 +152,9 @@ namespace App.AdventureMaker.Core.Forms
 				}
 			};
 
-			previewModeRunMethod.SelectedIndexChanged += (sender, e) =>
-			{
-				previewModeRunExecutable.Enabled = previewModeRunMethod.SelectedIndex == 1;
-			};
+			previewModeRunMethod.SelectedIndexChanged += (sender, e) => previewModeRunExecutable.Enabled = previewModeRunMethod.SelectedIndex == 1;
 
-			previewModeEnableRemoteConsole.CheckedChanged += (sender, e) =>
-			{
-				previewModeRemoteConsolePort.Enabled = previewModeEnableRemoteConsole.Checked == true;
-			};
+			previewModeEnableRemoteConsole.CheckedChanged += (sender, e) => previewModeRemoteConsolePort.Enabled = previewModeEnableRemoteConsole.Checked == true;
 
 			previewModeInfoLabel.Font = new Font(previewModeInfoLabel.Font.Family, previewModeInfoLabel.Font.Size, FontStyle.Bold);
 		}

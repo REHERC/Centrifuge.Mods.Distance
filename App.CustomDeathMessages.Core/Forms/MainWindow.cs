@@ -209,14 +209,13 @@ namespace App.CustomDeathMessages.Core.Forms
 
 			builder.AppendLine("\nAre you sure you want to continue?");
 
-
 			return MessageBox.Show(this, builder.ToString(), title, MessageBoxButtons.YesNo, MessageBoxType.Warning);
 		}
 
 		private void ResetView()
 		{
 			View.Sections.SelectedIndex = 0;
-			View.OnSectionChanged(View, new EventArgs());
+			View.OnSectionChanged(View, EventArgs.Empty);
 		}
 	}
 }

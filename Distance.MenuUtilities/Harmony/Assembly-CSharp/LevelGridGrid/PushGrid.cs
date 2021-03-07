@@ -4,7 +4,7 @@ using HarmonyLib;
 namespace Distance.MenuUtilities.Harmony
 {
 	[HarmonyPatch(typeof(LevelGridGrid), "PushGrid")]
-	internal class LevelGridGrid__PushGrid
+	internal static class LevelGridGrid__PushGrid
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(LevelGridGrid __instance)

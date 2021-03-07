@@ -22,10 +22,7 @@ namespace App.AdventureMaker.Core.Commands
 
 			Enabled = false;
 
-			editor.OnLoaded += (_) =>
-			{
-				Enabled = editor.CurrentFile != null;
-			};
+			editor.OnLoaded += (_) => Enabled = editor.CurrentFile != null;
 		}
 
 		protected override void OnExecuted(EventArgs e)

@@ -7,7 +7,7 @@ namespace Distance.AdventureMaker.Common.Validation
 {
 	public abstract class Validator<T> : IValidator<T>
 	{
-		public Queue<ValidationItem> Messages { get; private set; } = new Queue<ValidationItem>();
+		public Queue<ValidationItem> Messages { get; } = new Queue<ValidationItem>();
 
 		public ValidationItem[] GetMessages(StatusLevel status)
 		{
@@ -15,13 +15,13 @@ namespace Distance.AdventureMaker.Common.Validation
 		}
 
 		public void Log(StatusLevel sl, string msg) => Messages.Enqueue(new ValidationItem(sl, msg));
-		
+
 		public void Log(StatusLevel sl, string msg, params string[] values) => Messages.Enqueue(new ValidationItem(sl, msg, values));
 
 		public override string ToString() => string.Join(Environment.NewLine, Messages.Select(m => m.ToString()).ToArray());
 
 		public abstract void Validate(T item);
 
-		public static implicit operator bool(Validator<T> x) => x != null && !x.GetMessages(StatusLevel.ERR).Any();
+		public static implicit operator bool(Validator<T> x) => x?.GetMessages(StatusLevel.ERR).Length == 0;
 	}
 }

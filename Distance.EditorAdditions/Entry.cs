@@ -40,7 +40,6 @@ namespace Distance.EditorAdditions
 
 			CreateSettingsMenu();
 
-
 			foreach (var mesh in Resources.FindObjectsOfTypeAll<Mesh>())
 			{
 				Logger.Error($"Mesh: {mesh.name}");

@@ -64,7 +64,7 @@ namespace App.AdventureMaker.Core.Controls
 						{
 							null,
 							(addButton = new Button(OnAddItem)
-							{ 
+							{
 								Style = "icon",
 								Image = Resources.GetIcon("AddGreen.ico", 16)
 							}),
@@ -140,12 +140,12 @@ namespace App.AdventureMaker.Core.Controls
 			SelectedIndex = idx + shift;
 			raiseListEvents = true;
 
-			ItemsReordered?.Invoke(this, new EventArgs());
+			ItemsReordered?.Invoke(this, EventArgs.Empty);
 		}
 
 		public void SelectIndex(int index)
 		{
-			var e = new EventArgs();
+			var e = EventArgs.Empty;
 
 			raiseListEvents = false;
 			SelectedIndex = index;
@@ -189,7 +189,7 @@ namespace App.AdventureMaker.Core.Controls
 			{
 				if (raiseListEvents) SelectedKeyChanged?.Invoke(sender, e);
 			};
-			
+
 			listBox.SelectedValueChanged += (sender, e) =>
 			{
 				if (raiseListEvents) SelectedValueChanged?.Invoke(sender, e);

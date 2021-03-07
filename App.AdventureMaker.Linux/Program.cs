@@ -4,7 +4,7 @@ using System;
 
 namespace App.AdventureMaker.Linux
 {
-	internal class Program
+	internal static class Program
 	{
 		[STAThread]
 		private static void Main()

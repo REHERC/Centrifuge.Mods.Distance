@@ -22,7 +22,7 @@ namespace Solution.Task.PostBuild.Tasks
 			};
 
 			// Get only mod folders
-			DirectoryInfo[] directories = build.GetDirectories().Where(d => d.GetDirectories().Where(x => string.Equals(x.Name, "Centrifuge", StringComparison.InvariantCultureIgnoreCase)).Any()).ToArray();
+			DirectoryInfo[] directories = build.GetDirectories().Where(d => d.GetDirectories().Any(x => string.Equals(x.Name, "Centrifuge", StringComparison.InvariantCultureIgnoreCase))).ToArray();
 
 			foreach (DirectoryInfo mod_directory in from x in directories where build_exclusion.All(y => !string.Equals(x.Name, y, StringComparison.InvariantCultureIgnoreCase)) select x)
 			{
@@ -30,8 +30,7 @@ namespace Solution.Task.PostBuild.Tasks
 
 				common.CopyTo(mod_directory, true);
 
-				Console.WriteLine($"Content copied successfully!");
-
+				Console.WriteLine("Content copied successfully!");
 			}
 		}
 	}

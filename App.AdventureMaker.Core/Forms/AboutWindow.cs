@@ -5,7 +5,6 @@ namespace App.AdventureMaker.Core.Forms
 {
 	public class AboutWindow : Dialog
 	{
-
 		private void InitializeComponent()
 		{
 			Title = "About";

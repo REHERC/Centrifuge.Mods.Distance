@@ -21,20 +21,12 @@ namespace Tools.External.Forms
 			window.MdiParent = this;
 			window.Show();
 
-			window.FormClosed += (s, e) =>
-			{
-				ForceLayout();
-			};
+			window.FormClosed += (s, e) => ForceLayout();
 
-			window.Move += (s, e) =>
-			{
-				ForceLayout();
-			};
+			window.Move += (s, e) => ForceLayout();
 
-			window.Resize += (s, e) =>
-			{
-				ForceLayout();
-			};
+			window.Resize += (s, e) => ForceLayout();
+
 			SetBorders(window);
 			ForceLayout();
 			return window;
@@ -101,7 +93,6 @@ namespace Tools.External.Forms
 				{
 					try
 					{
-
 						tool.SetRunning(true);
 						tool.Run(provider);
 
@@ -110,9 +101,11 @@ namespace Tools.External.Forms
 							tool.CloseResources();
 						}
 					}
-					catch (Exception)
+					catch (Exception e)
 					{
-
+						LoggerWindow logger = OpenWindow<LoggerWindow>()
+						.Rename("Log - Exception");
+						logger.WriteLine(e.ToString());
 					}
 					finally
 					{
@@ -192,10 +185,8 @@ namespace Tools.External.Forms
 		{
 			frm.FormBorderStyle = value ? FormBorderStyle.Sizable : FormBorderStyle.FixedSingle;
 
-
 			frm.MaximizeBox = value;
 			frm.MinimizeBox = value;
-
 
 			//frm.WindowState = value ? FormWindowState.Normal : FormWindowState.Maximized;
 		}

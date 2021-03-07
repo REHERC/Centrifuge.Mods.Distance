@@ -38,7 +38,7 @@ namespace Distance.NitronicHUD.Scripts
 
 			if (!Bundle)
 			{
-				Mod.Instance.Logger.Error($"The following assets file could not be loaded: hud.assets");
+				Mod.Instance.Logger.Error("The following assets file could not be loaded: hud.assets");
 
 				DestroyImmediate(this);
 				return;
@@ -165,7 +165,7 @@ namespace Distance.NitronicHUD.Scripts
 							blink = (heat - config.HeatBlinkStartAmount) / (1 - config.HeatBlinkStartAmount);
 						}
 
-						blink *= 0.5f * Mathf.Sin((float)Timex.ModeTime_ * (config.HeatBlinkFrequence - ((1 - heat) * heat * config.HeatBlinkFrequenceBoost)) * 3 * Mathf.PI) + 0.5f;
+						blink *= (0.5f * Mathf.Sin((float)Timex.ModeTime_ * (config.HeatBlinkFrequence - ((1 - heat) * heat * config.HeatBlinkFrequenceBoost)) * 3 * Mathf.PI)) + 0.5f;
 						instance.main.color = new Color(1, 1 - (blink * config.HeatBlinkAmount), 1 - (blink * config.HeatBlinkAmount));
 
 						float flame = 0;

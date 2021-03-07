@@ -4,7 +4,7 @@ using HarmonyLib;
 namespace Distance.MenuUtilities.Harmony
 {
 	[HarmonyPatch(typeof(CustomizeCarColorsMenuLogic), "PickColorForType")]
-	internal class CustomizeCarColorsMenuLogic__PickColorForType
+	internal static class CustomizeCarColorsMenuLogic__PickColorForType
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(CustomizeCarColorsMenuLogic __instance, ColorChanger.ColorType colorType)

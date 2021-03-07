@@ -64,7 +64,7 @@ namespace Distance.TextureModifier
 				MenuDisplayMode.Both,
 				"texturemodifier#main.menu/datafolder-open",
 				"OPEN DATA FOLDER",
-				() => { Process.Start(Path.Combine(Data.RootDirectory, "Data")); },
+				() => Process.Start(Path.Combine(Data.RootDirectory, "Data")),
 				"Open the folder used to load textures."
 			);
 
@@ -82,7 +82,6 @@ namespace Distance.TextureModifier
 
 			StartCoroutine(ReskinLevelObjects(data.level_));
 		}
-
 
 		internal IEnumerator ReskinResourcePrefabs()
 		{
@@ -111,10 +110,7 @@ namespace Distance.TextureModifier
 			objects.AddRange(Resources.FindObjectsOfTypeAll<GameObject>());
 			objects.AddRange(level.AllGameObjectsInLevelIEnumerable_);
 
-			level.Layers_.ForEach((layer) =>
-			{
-				objects.AddRange(layer.GameObjects_);
-			});
+			level.Layers_.ForEach((layer) => objects.AddRange(layer.GameObjects_));
 
 			objects.AddRange(from affector in TrackMaster.affectorNodes_ select affector.Key.Link_.Spline_.gameObject);
 			objects.AddRange(from renderer in FindObjectsOfType<Renderer>() select renderer.gameObject);

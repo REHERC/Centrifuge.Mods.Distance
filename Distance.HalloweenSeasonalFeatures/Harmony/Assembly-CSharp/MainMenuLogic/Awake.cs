@@ -3,7 +3,7 @@
 namespace Distance.HalloweenSeasonalFeatures.Harmony
 {
 	[HarmonyPatch(typeof(MainMenuLogic), "Awake")]
-	internal class MainMenuLogic__Awake
+	internal static class MainMenuLogic__Awake
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(MainMenuLogic __instance)

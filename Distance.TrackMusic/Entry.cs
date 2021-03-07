@@ -96,16 +96,13 @@ namespace Distance.TrackMusic
 
 			var list = G.Sys.AudioManager_.subscriberList_;
 
-			var item = new StaticEvent<Events.Level.PostLoad.Data>.Subscriber(new StaticEvent<Events.Level.PostLoad.Data>.Delegate(data =>
-			{
-				G.Sys.AudioManager_.OnEventPostLoad(data);
-			}));
+			var item = new StaticEvent<Events.Level.PostLoad.Data>.Subscriber(new StaticEvent<Events.Level.PostLoad.Data>.Delegate(data => G.Sys.AudioManager_.OnEventPostLoad(data)));
 
 			list.Add(item);
 
 			if (subscribe)
 			{
-				(item as IEventSubscriber).Subscribe();
+				(item as IEventSubscriber)?.Subscribe();
 			}
 		}
 

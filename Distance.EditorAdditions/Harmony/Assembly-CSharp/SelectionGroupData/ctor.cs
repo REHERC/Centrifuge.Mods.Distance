@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Distance.EditorAdditions.Harmony
 {
 	[HarmonyPatch(typeof(SelectionGroupData), MethodType.Constructor, new Type[2] { typeof(IEnumerable<GameObject>), typeof(GameObject) })]
-	internal class SelectionGroupData__ctor_
+	internal static class SelectionGroupData__ctor_
 	{
 		[HarmonyPostfix]
 		internal static void Postfix(ref Vector3 ___position_, ref Quaternion ___rotation_, IEnumerable<GameObject> selectedObjects, GameObject activeObject)

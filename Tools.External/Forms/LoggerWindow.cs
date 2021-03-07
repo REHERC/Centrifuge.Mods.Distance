@@ -34,16 +34,15 @@ namespace Tools.External.Forms
 
 		public void SetText(string value)
 		{
-			Box.Invoke((MethodInvoker)delegate ()
+			Box.Invoke((MethodInvoker)(() =>
 			{
 				Box.SuspendLayout();
 				Box.Text = value;
-			});
+			}));
 			ScrollToEnd();
-			Box.Invoke((MethodInvoker)delegate ()
-			{
-				Box.ResumeLayout();
-			});
+			Box.Invoke((MethodInvoker)(() =>
+				Box.ResumeLayout()
+			));
 		}
 
 		public void WriteLine(string line)
@@ -51,21 +50,21 @@ namespace Tools.External.Forms
 			//output.AppendLine(line);
 			//SetText(output.ToString());
 
-			Box.Invoke((MethodInvoker)delegate ()
+			Box.Invoke((MethodInvoker)(() =>
 			{
-				string value = $"{(Box.Text.Length > 0 ? "\n" : string.Empty)}{line}".Replace("\n", System.Environment.NewLine);
+				string value = ((Box.Text.Length > 0 ? "\n" : string.Empty) + line).Replace("\n", System.Environment.NewLine);
 				Box.AppendText(value);
-			});
+			}));
 		}
 
 		public void ScrollToEnd()
 		{
-			Box.Invoke((MethodInvoker)delegate ()
+			Box.Invoke((MethodInvoker)(() =>
 			{
 				Box.SelectionStart = Box.Text.Length;
 				Box.SelectionLength = 0;
 				Box.ScrollToCaret();
-			});
+			}));
 		}
 	}
 }

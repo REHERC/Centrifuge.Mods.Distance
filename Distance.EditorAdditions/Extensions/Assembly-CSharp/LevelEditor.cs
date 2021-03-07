@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#pragma warning disable RCS1110
+using UnityEngine;
 
 public static class LevelEditorExtensions
 {

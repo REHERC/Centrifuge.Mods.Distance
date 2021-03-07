@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.FileIO;
+﻿#pragma warning disable RCS1110
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.IO;
 

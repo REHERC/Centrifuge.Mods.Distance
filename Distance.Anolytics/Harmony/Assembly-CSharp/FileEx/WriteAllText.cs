@@ -4,7 +4,7 @@ using System;
 namespace Distance.Anolytics.Harmony
 {
 	[HarmonyPatch(typeof(FileEx), "WriteAllText")]
-	internal class FileEx__WriteAllText
+	internal static class FileEx__WriteAllText
 	{
 		[HarmonyPrefix]
 		internal static bool Prefix(string path)

@@ -160,11 +160,7 @@ namespace Distance.NitronicHUD
 				.WithDescription("Configure advanced settings for the hud."),
 
 				new ActionButton(MenuDisplayMode.Both, "action:preview_hud", "PREVIEW HUD")
-				.WhenClicked(
-					() => 
-					{
-						VisualDisplay.ForceDisplay = !VisualDisplay.ForceDisplay;
-					})
+				.WhenClicked(() => VisualDisplay.ForceDisplay = !VisualDisplay.ForceDisplay)
 				.WithDescription("Show the hud to preview changes.")
 			};
 

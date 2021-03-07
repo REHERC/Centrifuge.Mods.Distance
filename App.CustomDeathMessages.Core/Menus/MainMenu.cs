@@ -19,7 +19,6 @@ namespace App.CustomDeathMessages.Core.Menus
 			ApplicationItems.Add(new SeparatorMenuItem());
 			ApplicationItems.Add(new QuitCommand(form_));
 
-
 			HelpItems.Add(new FormattingHelp(form_));
 			HelpItems.Add(new SeparatorMenuItem());
 			HelpItems.Add(new AboutCommand(form_));

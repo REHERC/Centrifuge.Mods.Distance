@@ -16,7 +16,7 @@ namespace App.AdventureMaker.Core.Controls
 			set
 			{
 				Control.Text = value;
-				TextChanged?.Invoke(this, new EventArgs());
+				TextChanged?.Invoke(this, EventArgs.Empty);
 			}
 		}
 

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Distance.EditorAdditions.Harmony
 {
 	[HarmonyPatch(typeof(Group), "Visit")]
-	internal class Group__Visit
+	internal static class Group__Visit
 	{
 		[HarmonyPrefix]
 		internal static bool Prefix(Group __instance, IVisitor visitor)
@@ -14,7 +14,7 @@ namespace Distance.EditorAdditions.Harmony
 			{
 				GameObject[] SubObjects = __instance.gameObject.GetChildren();
 
-				if (!SubObjects.Any())
+				if (SubObjects.Length == 0)
 				{
 					visitor.VisualLabel("No child objects found!".Colorize(Color.white));
 					return false;

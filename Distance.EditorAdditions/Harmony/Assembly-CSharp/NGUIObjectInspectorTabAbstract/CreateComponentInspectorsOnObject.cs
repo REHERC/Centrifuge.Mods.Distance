@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Distance.EditorAdditions.Harmony
 {
 	[HarmonyPatch(typeof(NGUIObjectInspectorTabAbstract), "CreateComponentInspectorsOnObject")]
-	internal class NGUIObjectInspectorTabAbstract__CreateComponentInspectorsOnObject
+	internal static class NGUIObjectInspectorTabAbstract__CreateComponentInspectorsOnObject
 	{
 		[HarmonyPrefix]
 		internal static bool Prefix(NGUIObjectInspectorTabAbstract __instance, ref DontInspectComponents.Set ignoreList, ref bool objectSupportsUndo, ref GameObject obj)
