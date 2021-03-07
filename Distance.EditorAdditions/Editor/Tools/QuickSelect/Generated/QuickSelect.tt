@@ -20,29 +20,29 @@ namespace Distance.EditorAdditions.Editor.Tools.QuickSelect
 	{
 		internal static new ToolInfo info_ => new ToolInfo("Save Selection <#= memory #>", "Saves the inspected object into the memory.", ToolCategory.View, ToolButtonState.Button, true, <#= memory * 10 + 1100 #>);
 
-        public override ToolInfo Info_ => info_;
+		public override ToolInfo Info_ => info_;
 
-        public override int QuickAccessIndex => <#= memory #>;
+		public override int QuickAccessIndex => <#= memory #>;
 
-        public static new void Register()
-        {
-            G.Sys.LevelEditor_.RegisterTool(info_);
-        }
+		public static new void Register()
+		{
+			G.Sys.LevelEditor_.RegisterTool(info_);
+		}
 	}
 
-    [EditorTool, KeyboardShortcut("SHIFT+ALPHA<#= memory #>")]
+	[EditorTool, KeyboardShortcut("SHIFT+ALPHA<#= memory #>")]
 	public class LoadSelection<#= memory #> : LoadSelectionToolBase
 	{
 		internal static new ToolInfo info_ => new ToolInfo("Load Selection <#= memory #>", "Inspects the object saved into the memory.", ToolCategory.View, ToolButtonState.Button, false, <#= memory * 10 + 1200 #>);
 
-        public override ToolInfo Info_ => info_;
+		public override ToolInfo Info_ => info_;
 
-        public override int QuickAccessIndex => <#= memory #>;
+		public override int QuickAccessIndex => <#= memory #>;
 
-        public static new void Register()
-        {
-            G.Sys.LevelEditor_.RegisterTool(info_);
-        }
+		public static new void Register()
+		{
+			G.Sys.LevelEditor_.RegisterTool(info_);
+		}
 	}
 	#endregion
 <# } // end for loop #>

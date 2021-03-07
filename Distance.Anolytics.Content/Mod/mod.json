@@ -9,6 +9,6 @@
   "Priority": 10,
   "SkipLoad": false,
   "RequiredGSLs": [
-    "com.github.reherc/Centrifuge.Distance"
+	"com.github.reherc/Centrifuge.Distance"
   ]
 }

@@ -10,6 +10,6 @@
   "SkipLoad": false,
   "Dependencies": [],
   "RequiredGSLs": [
-    "com.github.reherc/Centrifuge.Distance"
+	"com.github.reherc/Centrifuge.Distance"
   ]
 }

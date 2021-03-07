@@ -1,34 +1,34 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
-    <Authors>Nico (larnin), Reherc</Authors>
-    <RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
-    <NeutralLanguage>English</NeutralLanguage>
-    <Product>Configuration editor for the Custom Death Messages mod for Distance</Product>
+	<OutputType>WinExe</OutputType>
+	<TargetFramework>netcoreapp3.1</TargetFramework>
+	<ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
+	<Authors>Nico (larnin), Reherc</Authors>
+	<RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
+	<NeutralLanguage>English</NeutralLanguage>
+	<Product>Configuration editor for the Custom Death Messages mod for Distance</Product>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
+	<GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+	<DebugType>full</DebugType>
+	<DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="publish\**" />
-    <EmbeddedResource Remove="publish\**" />
-    <None Remove="publish\**" />
+	<Compile Remove="publish\**" />
+	<EmbeddedResource Remove="publish\**" />
+	<None Remove="publish\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Eto.Forms" Version="2.5.10" />
-    <PackageReference Include="Eto.Platform.Gtk" Version="2.5.10" />
+	<PackageReference Include="Eto.Forms" Version="2.5.10" />
+	<PackageReference Include="Eto.Platform.Gtk" Version="2.5.10" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\App.CustomDeathMessages.Core\App.CustomDeathMessages.Core.csproj" />
+	<ProjectReference Include="..\App.CustomDeathMessages.Core\App.CustomDeathMessages.Core.csproj" />
   </ItemGroup>
 
 </Project>

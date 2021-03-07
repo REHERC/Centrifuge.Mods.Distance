@@ -1,44 +1,44 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>1.0.0</Version>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <NeutralLanguage>en</NeutralLanguage>
-    <RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
-    <Product>Campaign Editor for Distance</Product>
-    <Company />
-    <Authors>Reherc</Authors>
+	<TargetFramework>netcoreapp3.1</TargetFramework>
+	<Version>1.0.0</Version>
+	<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	<NeutralLanguage>en</NeutralLanguage>
+	<RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
+	<Product>Campaign Editor for Distance</Product>
+	<Company />
+	<Authors>Reherc</Authors>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;APP PREVIEW</DefineConstants>
+	<DefineConstants>TRACE;APP PREVIEW</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>TRACE;APP PREVIEW</DefineConstants>
+	<DefineConstants>TRACE;APP PREVIEW</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Images\NoLevelImageFound.png" />
-    <None Remove="Resources\Images\sample thumbnail.bytes.png" />
+	<None Remove="Resources\Images\NoLevelImageFound.png" />
+	<None Remove="Resources\Images\sample thumbnail.bytes.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Images\NoLevelImageFound.png" />
-    <EmbeddedResource Include="Resources\Images\sample thumbnail.bytes.png" />
+	<EmbeddedResource Include="Resources\Images\NoLevelImageFound.png" />
+	<EmbeddedResource Include="Resources\Images\sample thumbnail.bytes.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Eto.Forms" Version="2.5.10" />
-    <PackageReference Include="HarmonyX" Version="2.3.2" />
-    <PackageReference Include="JsonSubTypes" Version="1.8.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="SharpCompress" Version="0.27.1" />
+	<PackageReference Include="Eto.Forms" Version="2.5.10" />
+	<PackageReference Include="HarmonyX" Version="2.3.2" />
+	<PackageReference Include="JsonSubTypes" Version="1.8.0" />
+	<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+	<PackageReference Include="SharpCompress" Version="0.27.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Images\NoLevelImageFound.png" />
+	<Resource Include="Resources\Images\NoLevelImageFound.png" />
   </ItemGroup>
 
   <Import Project="..\App.SharedResources\App.Icons.projitems" Label="Shared" />

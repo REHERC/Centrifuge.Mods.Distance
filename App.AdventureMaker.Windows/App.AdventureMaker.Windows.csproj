@@ -1,33 +1,33 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <OutputType>WinExe</OutputType>
-    <ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
-    <Authors>Reherc</Authors>
-    <Product>Campaign Editor for Distance</Product>
-    <RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
-    <NeutralLanguage>English</NeutralLanguage>
+	<TargetFramework>netcoreapp3.1</TargetFramework>
+	<OutputType>WinExe</OutputType>
+	<ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
+	<Authors>Reherc</Authors>
+	<Product>Campaign Editor for Distance</Product>
+	<RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
+	<NeutralLanguage>English</NeutralLanguage>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <NoWarn>NU1701;NU1702</NoWarn>
-    <WarningsAsErrors>NU1605</WarningsAsErrors>
+	<NoWarn>NU1701;NU1702</NoWarn>
+	<WarningsAsErrors>NU1605</WarningsAsErrors>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="publish\**" />
-    <EmbeddedResource Remove="publish\**" />
-    <None Remove="publish\**" />
+	<Compile Remove="publish\**" />
+	<EmbeddedResource Remove="publish\**" />
+	<None Remove="publish\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Eto.Forms" Version="2.5.10" />
-    <PackageReference Include="Eto.Platform.Windows" Version="2.5.10" />
+	<PackageReference Include="Eto.Forms" Version="2.5.10" />
+	<PackageReference Include="Eto.Platform.Windows" Version="2.5.10" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\App.AdventureMaker.Core\App.AdventureMaker.Core.csproj" />
+	<ProjectReference Include="..\App.AdventureMaker.Core\App.AdventureMaker.Core.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,28 +1,28 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <OutputType>WinExe</OutputType>
-    <ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
-    <Authors>Reherc</Authors>
-    <Product>Campaign Editor for Distance</Product>
-    <NeutralLanguage>English</NeutralLanguage>
-    <RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
+	<TargetFramework>netcoreapp3.1</TargetFramework>
+	<OutputType>WinExe</OutputType>
+	<ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
+	<Authors>Reherc</Authors>
+	<Product>Campaign Editor for Distance</Product>
+	<NeutralLanguage>English</NeutralLanguage>
+	<RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="publish\**" />
-    <EmbeddedResource Remove="publish\**" />
-    <None Remove="publish\**" />
+	<Compile Remove="publish\**" />
+	<EmbeddedResource Remove="publish\**" />
+	<None Remove="publish\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Eto.Forms" Version="2.5.10" />
-    <PackageReference Include="Eto.Platform.Gtk" Version="2.5.10" />
+	<PackageReference Include="Eto.Forms" Version="2.5.10" />
+	<PackageReference Include="Eto.Platform.Gtk" Version="2.5.10" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\App.AdventureMaker.Core\App.AdventureMaker.Core.csproj" />
+	<ProjectReference Include="..\App.AdventureMaker.Core\App.AdventureMaker.Core.csproj" />
   </ItemGroup>
 
 </Project>

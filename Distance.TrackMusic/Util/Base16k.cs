@@ -115,7 +115,7 @@ namespace Distance.TrackMusic.Util
 			}
 
 			// decode characters to bytes
-			int i = 0;    // byte position modulo 7 (0..6 wrapping around)
+			int i = 0;	// byte position modulo 7 (0..6 wrapping around)
 			int code = 0;
 			byte byteValue = 0;
 

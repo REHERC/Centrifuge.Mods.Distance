@@ -11,11 +11,11 @@ namespace Distance.HalloweenSeasonalFeatures.Harmony
 		internal static bool Prefix(GenerateRandomPumpkins __instance)
 		{
 			/*__instance.pumpkinPrefabs_ = new GameObject[]
-            {
-                Resources.Load<GameObject>("Prefabs/LevelEditor/Decorations/EmpireLamp"),
-                Resources.Load<GameObject>("Prefabs/LevelEditor/Decorations/EmpireLamp02"),
-                Resources.Load<GameObject>("Prefabs/LevelEditor/Decorations/Echoes/NitronicLamp")
-            };*/
+			{
+				Resources.Load<GameObject>("Prefabs/LevelEditor/Decorations/EmpireLamp"),
+				Resources.Load<GameObject>("Prefabs/LevelEditor/Decorations/EmpireLamp02"),
+				Resources.Load<GameObject>("Prefabs/LevelEditor/Decorations/Echoes/NitronicLamp")
+			};*/
 
 			List<TrackSegment> componentsOfType = G.Sys.GameManager_.Level_.FindComponentsOfType<TrackSegment>();
 

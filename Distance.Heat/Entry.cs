@@ -116,9 +116,9 @@ namespace Distance.Heat
 		public string GetHeatLevel()
 		{
 			string percent = Mathf.RoundToInt(100 * Mathf.Clamp(Vehicle.HeatLevel, 0, 1)).ToString();
-            while (percent.Length< 3)
+			while (percent.Length< 3)
 			{
-                percent = $"0{percent}";
+				percent = $"0{percent}";
 			}
 
 			return $"{percent} %";

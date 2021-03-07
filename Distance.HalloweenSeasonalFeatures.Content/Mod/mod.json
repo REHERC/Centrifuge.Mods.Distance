@@ -6,7 +6,7 @@
   "ModuleFileName": "Distance.HalloweenSeasonalFeatures.dll",
   "Dependencies": [],
   "RequiredGSLs": [
-    "com.github.reherc/Centrifuge.Distance"
+	"com.github.reherc/Centrifuge.Distance"
   ],
   "SkipLoad": false,
   "Priority": 10

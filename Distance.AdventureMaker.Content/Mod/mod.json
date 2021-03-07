@@ -6,12 +6,12 @@
   "ModuleFileName": "Distance.AdventureMaker.dll",
   "Priority": 10,
   "SkipLoad": false,
-    "Dependencies": [
-        "FluentCommandLineParser.dll",
-        "JsonSubTypes.dll",
-        "SharpCompress.dll"
-    ],
+	"Dependencies": [
+		"FluentCommandLineParser.dll",
+		"JsonSubTypes.dll",
+		"SharpCompress.dll"
+	],
   "RequiredGSLs": [
-    "com.github.reherc/Centrifuge.Distance"
+	"com.github.reherc/Centrifuge.Distance"
   ]
 }
