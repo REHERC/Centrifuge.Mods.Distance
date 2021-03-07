@@ -14,7 +14,6 @@ namespace Distance.EditorAdditions
 	{
 		// When specifying connections between two spline types
 		public const char ITEM_DELIMITER = '/';
-		public const char ITEM_ANY = '*';
 
 		#region Events
 		public event EventHandler OnFileReloaded;
@@ -155,7 +154,7 @@ namespace Distance.EditorAdditions
 					string[] subSplines = item.Key.Split(ITEM_DELIMITER);
 					Array.Sort(subSplines);
 
-					string lcaseKey = string.Join("", subSplines).ToLower();
+					string lcaseKey = string.Join(string.Empty, subSplines).ToLower();
 
 					Color color = item.Value;
 					splineColors.Add(lcaseKey, color);
