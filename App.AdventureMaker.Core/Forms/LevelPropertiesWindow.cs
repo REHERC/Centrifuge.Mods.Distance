@@ -1,4 +1,6 @@
-﻿using Distance.AdventureMaker.Common.Models;
+﻿#pragma warning disable
+
+using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
 using Eto.Drawing;
 using System;
@@ -11,10 +13,10 @@ namespace App.AdventureMaker.Core.Forms
 		private CampaignLevel Data { get; set; }
 
 		private readonly ExtendedTabControl tabs;
-		private readonly PropertiesListBase generalProperties;
-		private readonly PropertiesListBase loadingScreenProperties;
-		private readonly PropertiesListBase introSequenceProperties;
-		private readonly PropertiesListBase gameplayProperties;
+		private readonly DynamicLayout generalProperties;
+		private readonly DynamicLayout loadingScreenProperties;
+		private readonly DynamicLayout introSequenceProperties;
+		private readonly DynamicLayout gameplayProperties;
 
 		public LevelPropertiesWindow(CampaignLevel level)
 		{
@@ -56,19 +58,43 @@ namespace App.AdventureMaker.Core.Forms
 							{
 								Text = "Cancel",
 								Image = Resources.GetIcon("CloseRed.ico", 16)
-							})                      }
+							})
+						}
 					}, false)
 				}
 			};
 
+			#region General Tab
+			tabs.AddPage("General", generalProperties = new DynamicLayout());
 
+			generalProperties.BeginScrollable();
 
-			tabs.AddPage("General", generalProperties = new PropertiesListBase(), scrollable: true);
-			tabs.AddPage("Gameplay", gameplayProperties = new PropertiesListBase(), scrollable: true);
-			tabs.AddPage("Loading screen", loadingScreenProperties = new PropertiesListBase(), scrollable: true);
-			tabs.AddPage("Intro sequence", introSequenceProperties = new PropertiesListBase(), scrollable: true);
+			for (int groupID = 1; groupID < 10; ++groupID)
+			{
+				DynamicGroup dynGP = null;
+				CheckBox dynGPenabled;
+				generalProperties.AddSeparateRow($"Enable group #{groupID}", dynGPenabled = new CheckBox());
 
+				dynGPenabled.CheckedChanged += (sender, e) =>
+				{
+					dynGP.GroupBox.Enabled = dynGPenabled.Checked == true;
+				};
 
+				dynGP = generalProperties.BeginGroup($"Group #{groupID}");
+				for (int propID = 1; propID < 10; ++propID)
+				{
+					generalProperties.AddRow($"Property {groupID}.{propID}", new TextBox());
+
+				}
+				generalProperties.EndGroup();
+			}
+
+			generalProperties.EndScrollable();
+			#endregion
+
+			tabs.AddPage("Gameplay", gameplayProperties = new DynamicLayout());
+			tabs.AddPage("Loading screen", loadingScreenProperties = new DynamicLayout());
+			tabs.AddPage("Intro sequence", introSequenceProperties = new DynamicLayout());
 		}
 
 		private void OnCancel(object sender, EventArgs e)

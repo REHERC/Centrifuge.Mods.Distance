@@ -112,9 +112,11 @@
     <Compile Include="Harmony\Assembly-CSharp\ResourceManager\SetupPrefabFileDatas.cs" />
     <Compile Include="Harmony\Assembly-CSharp\SelectionGroupData\ctor.cs" />
     <Compile Include="Harmony\Assembly-CSharp\SelectMusicTrackNameFromListTool\AddEntries.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\TrackManipulatorNode\SetColorAndMesh.cs" />
     <Compile Include="Harmony\Assembly-CSharp\TransformWrapper\Visit.cs" />
     <Compile Include="Harmony\Assembly-CSharp\UngroupTool\Run.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrackNodeColors.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Editor\Tools\QuickSelect\Generated\.gitignore" />
@@ -135,6 +137,8 @@
       <Name>Centrifuge.Distance</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
+  <Import Project="..\Common.Json\Common.Json.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <!-- 15.0 is for VS2017, adjust if necessary -->

@@ -35,7 +35,7 @@ namespace Distance.AdventureMaker
 
 		private void OnMainMenuInitialized(Initialized.Data data)
 		{
-			MessageBox.Create($"Arguments:\npreview: {StartParameters.IsPreviewMode}\nfile: {StartParameters.CampaignFile}\nrcon: {StartParameters.RConPort}").Show();
+			//MessageBox.Create($"Arguments:\npreview: {StartParameters.IsPreviewMode}\nfile: {StartParameters.CampaignFile}\nrcon: {StartParameters.RConPort}").Show();
 		}
 	}
 }

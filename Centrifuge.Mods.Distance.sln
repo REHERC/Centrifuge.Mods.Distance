@@ -290,6 +290,7 @@ Global
 		App.SharedResources\App.Icons.projitems*{5a8f08f8-dee7-412a-95a8-3dc81f72f50e}*SharedItemsImports = 13
 		Common.Json\Common.Json.projitems*{755cb009-36fb-47e4-91fa-3d9a378fa7e8}*SharedItemsImports = 13
 		Distance.Heat.Content\Distance.Heat.Content.projitems*{7f00b47c-1cb4-4d7d-96ab-3cfd23b03ace}*SharedItemsImports = 13
+		Common.Json\Common.Json.projitems*{83c8f38b-07e9-4a9b-8e5c-37981a28136e}*SharedItemsImports = 4
 		Distance.MenuUtilities.Content\Distance.MenuUtilities.Content.projitems*{878494b6-cd3f-4d65-82e1-c250887fe8ba}*SharedItemsImports = 13
 		Distance.CustomWheelHologram.Content\Distance.CustomWheelHologram.Content.projitems*{a26d9216-daea-4876-a182-70df4ff5997b}*SharedItemsImports = 13
 		Distance.DecorativeLamp.Content\Distance.DecorativeLamp.Content.projitems*{a7ee87a2-a395-4018-a8c0-b12b44005e52}*SharedItemsImports = 13
@@ -600,7 +601,6 @@ Global
 		{D008E276-12E7-40CB-911F-3F395582317A} = {B9198DEA-AD30-4B4D-A630-85F667A9A258}
 		{65CAC900-69F3-4A16-9079-5CF1213CEB44} = {B9198DEA-AD30-4B4D-A630-85F667A9A258}
 		{AEE4B99D-C164-4495-AEE2-94CE4DBAAFDD} = {B9198DEA-AD30-4B4D-A630-85F667A9A258}
-		{4DA6AF01-8F55-48AF-8044-9C0C10E8F797} = {0FC121F4-6F94-4C7D-A2B5-D92AC9CC91A6}
 		{C0573B40-FE3F-4E65-BB05-CC143A10A700} = {4DA6AF01-8F55-48AF-8044-9C0C10E8F797}
 		{C6C7A7A2-BAE8-4C15-9BC6-61BAB6A42006} = {E48EFDD5-0C0F-461E-A411-6EB459050E7E}
 		{23D64D48-DA47-4121-9E52-978C85687AC5} = {E48EFDD5-0C0F-461E-A411-6EB459050E7E}

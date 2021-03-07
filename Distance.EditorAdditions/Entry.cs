@@ -20,6 +20,8 @@ namespace Distance.EditorAdditions
 
 		public Log Logger { get; set; }
 
+		public TrackNodeColors TrackNodeColors { get; set; }
+
 		public ConfigurationLogic Config { get; private set; }
 
 		public void Initialize(IManager manager)
@@ -31,9 +33,26 @@ namespace Distance.EditorAdditions
 			Logger = LogManager.GetForCurrentAssembly();
 			Config = gameObject.AddComponent<ConfigurationLogic>();
 
+			TrackNodeColors = TrackNodeColors.FromSettings("SplineColors.json");
+			TrackNodeColors.OnFileReloaded += ReloadTrackNodeColors;
+
 			RuntimePatcher.AutoPatch();
 
 			CreateSettingsMenu();
+
+
+			foreach (var mesh in Resources.FindObjectsOfTypeAll<Mesh>())
+			{
+				Logger.Error($"Mesh: {mesh.name}");
+			}
+		}
+
+		private void ReloadTrackNodeColors(object sender, EventArgs e)
+		{
+			foreach (var node in FindObjectsOfType<TrackManipulatorNode>())
+			{
+				node.SetColorAndMesh();
+			}
 		}
 
 		public void CreateSettingsMenu()
