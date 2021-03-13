@@ -19,26 +19,26 @@ namespace Distance.AdventureMaker.Common.Models
 		public static CampaignFile CreateNew()
 		{
 			CampaignFile file = new CampaignFile();
-			file.metadata.guid = Guid.NewGuid().ToString();
+			file.Metadata.Guid = Guid.NewGuid().ToString();
 			return file;
 		}
 
 		public CampaignFile WithTitle(string title)
 		{
-			metadata.title = title;
+			Metadata.Title = title;
 			return this;
 		}
 
 		public CampaignFile WithDescription(string description)
 		{
-			metadata.description = description;
+			Metadata.Description = description;
 			return this;
 		}
 
 		public CampaignFile WithAuthor(string author, string contact = "")
 		{
-			metadata.author = author;
-			metadata.contact = contact;
+			Metadata.Author = author;
+			Metadata.Contact = contact;
 			return this;
 		}
 		#endif

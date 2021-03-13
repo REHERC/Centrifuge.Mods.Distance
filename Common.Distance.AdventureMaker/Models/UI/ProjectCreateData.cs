@@ -49,8 +49,8 @@ namespace Distance.AdventureMaker.Common.Models.UI
 		{
 			CampaignFile project = new CampaignFile();
 
-			project.metadata.title = name;
-			project.metadata.description = description;
+			project.Metadata.Title = name;
+			project.Metadata.Description = description;
 
 			return project;
 		}

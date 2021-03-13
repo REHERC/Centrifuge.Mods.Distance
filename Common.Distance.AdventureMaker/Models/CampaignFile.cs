@@ -1,21 +1,25 @@
-﻿using Newtonsoft.Json;
+﻿#pragma warning disable CS0067
+using Newtonsoft.Json;
 using System;
+using System.ComponentModel;
 
 namespace Distance.AdventureMaker.Common.Models
 {
 	[Serializable]
-	public partial class CampaignFile
+	public partial class CampaignFile : INotifyPropertyChanged
 	{
+		public event PropertyChangedEventHandler PropertyChanged;
+
 		[JsonProperty("metadata")]
-		public CampaignMetadata metadata;
+		public CampaignMetadata Metadata { get; set; }
 
 		[JsonProperty("data")]
-		public CampaignData data;
+		public CampaignData Data { get; set; }
 
 		public CampaignFile()
 		{
-			metadata = new CampaignMetadata();
-			data = new CampaignData();
+			Metadata = new CampaignMetadata();
+			Data = new CampaignData();
 		}
 	}
 }

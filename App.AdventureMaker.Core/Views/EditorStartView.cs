@@ -150,7 +150,7 @@ namespace App.AdventureMaker.Core.Views
 
 				try
 				{
-					projectTitle = Json.Load<CampaignFile>(file).metadata.title;
+					projectTitle = Json.Load<CampaignFile>(file).Metadata.Title;
 				}
 				finally
 				{

@@ -20,7 +20,7 @@ namespace App.AdventureMaker.Core.Controls
 		{
 			get
 			{
-				var items = editor.Document.data.resources.Where(res => Equals(res.guid, resource_) && Equals(res.resource_type, type));
+				var items = editor.Document.Data.Resources.Where(res => Equals(res.guid, resource_) && Equals(res.resource_type, type));
 				return items.FirstOrDefault();
 			}
 			set

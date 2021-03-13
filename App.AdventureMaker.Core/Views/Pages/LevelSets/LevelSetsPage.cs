@@ -89,8 +89,8 @@ namespace App.AdventureMaker.Core.Views
 		{
 			var playlist = new CampaignPlaylist()
 			{
-				guid = Guid.NewGuid().ToString(),
-				display_in_campaign = true
+				Guid = Guid.NewGuid().ToString(),
+				DisplayInCampaign = true
 			};
 
 			listBox.Items.Add(playlist);
@@ -112,7 +112,7 @@ namespace App.AdventureMaker.Core.Views
 			listBox.Items.Clear();
 			listBox.UnselectItem();
 
-			foreach (CampaignPlaylist playlist in project.data.playlists)
+			foreach (CampaignPlaylist playlist in project.Data.Playlists)
 			{
 				listBox.Items.Add(playlist);
 			}
@@ -131,7 +131,7 @@ namespace App.AdventureMaker.Core.Views
 		{
 			foreach (CampaignPlaylist playlist in listBox.Items)
 			{
-				project.data.playlists.Add(playlist);
+				project.Data.Playlists.Add(playlist);
 			}
 		}
 	}

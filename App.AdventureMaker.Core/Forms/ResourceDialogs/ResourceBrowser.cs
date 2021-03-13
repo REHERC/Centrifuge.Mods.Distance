@@ -102,7 +102,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 
 		private void UpdateDataStore()
 		{
-			resourceList = editor.Document.data.resources.Where(res => Equals(res.resource_type, type)).ToList();
+			resourceList = editor.Document.Data.Resources.Where(res => Equals(res.resource_type, type)).ToList();
 
 			resourcePicker.DataStore = resourceList;
 
@@ -133,7 +133,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 			{
 				CampaignFile project = editor.Document;
 
-				project.data.resources.Add(imported);
+				project.Data.Resources.Add(imported);
 
 				//TODO: Fix level sets page unselecting current object after assigning document
 				editor.Document = project;

@@ -21,7 +21,7 @@ namespace App.AdventureMaker.Core.Forms
 			Data = level.CloneObject()
 			?? new CampaignLevel()
 			{
-				guid = Guid.NewGuid().ToString()
+				Guid = Guid.NewGuid().ToString()
 			};
 
 			Title = $"{(Equals(level, null) ? "Add" : "Edit")} level";

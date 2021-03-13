@@ -19,7 +19,7 @@ namespace App.AdventureMaker.Core
 				resourcesDir.CreateSubdirectory("audio");
 
 				CampaignFile project = data.ToProject();
-				project.metadata.guid = Guid.NewGuid().ToString();
+				project.Metadata.Guid = Guid.NewGuid().ToString();
 
 				Json.Save(Path.Combine(projectDir.FullName, "project.json"), project, true);
 

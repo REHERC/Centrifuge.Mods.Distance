@@ -234,7 +234,7 @@ namespace App.AdventureMaker.Core.Views
 			project.data.resources.Add(new CampaignResource.Level() { file = "placeholder", thumbnail = "sample text" });
 			*/
 
-			project.data.resources = collection.ToList();
+			project.Data.Resources = collection.ToList();
 		}
 
 		void ISaveLoad<CampaignFile>.LoadData(CampaignFile project, bool resetUI)
@@ -244,7 +244,7 @@ namespace App.AdventureMaker.Core.Views
 
 			collection.Clear();
 
-			foreach (CampaignResource res in project.data.resources)
+			foreach (CampaignResource res in project.Data.Resources)
 			{
 				collection.Add(res);
 			}

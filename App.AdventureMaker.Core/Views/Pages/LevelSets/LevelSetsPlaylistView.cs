@@ -114,7 +114,7 @@ namespace App.AdventureMaker.Core.Views
 
 						DataCell = new TextBoxCell()
 						{
-							Binding = Binding.Property<CampaignLevel, string>(lvl => $"{lvl.name}")
+							Binding = Binding.Property<CampaignLevel, string>(lvl => $"{lvl.Name}")
 						}
 					},
 					new GridColumn()
@@ -127,7 +127,7 @@ namespace App.AdventureMaker.Core.Views
 
 						DataCell = new TextBoxCell()
 						{
-							Binding = Binding.Property<CampaignLevel, string>(lvl => $"{lvl.title}")
+							Binding = Binding.Property<CampaignLevel, string>(lvl => $"{lvl.Title}")
 						}
 					}
 				},
@@ -224,13 +224,13 @@ namespace App.AdventureMaker.Core.Views
 			{
 				level = new CampaignLevel()
 				{
-					name = " ",
-					title = "<no level selected>"
+					Name = " ",
+					Title = "<no level selected>"
 				};
 			}
 
-			selectionHeader.Text = level?.name?.ToUpper();
-			selectionText.Text = level?.title;
+			selectionHeader.Text = level?.Name?.ToUpper();
+			selectionText.Text = level?.Title;
 
 			int index = levelList.SelectedRow;
 
@@ -329,7 +329,7 @@ namespace App.AdventureMaker.Core.Views
 
 			levelList.SuspendLayout();
 
-			foreach (CampaignLevel level in playlist?.levels?.ToArray() ?? new CampaignLevel[0])
+			foreach (CampaignLevel level in playlist?.Levels?.ToArray() ?? new CampaignLevel[0])
 			{
 				collection.Add(level);
 			}
@@ -340,11 +340,11 @@ namespace App.AdventureMaker.Core.Views
 
 		public void SaveData(CampaignPlaylist playlist)
 		{
-			playlist.levels = new List<CampaignLevel>();
+			playlist.Levels = new List<CampaignLevel>();
 
 			foreach (CampaignLevel level in collection)
 			{
-				playlist.levels.Add(level);
+				playlist.Levels.Add(level);
 			}
 		}
 	}

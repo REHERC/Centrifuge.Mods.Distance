@@ -73,15 +73,15 @@ namespace App.AdventureMaker.Core.Views
 			{
 				raiseEvents = false;
 
-				nameBox.Text = playlist.name;
-				descriptionBox.Text = playlist.description;
+				nameBox.Text = playlist.Name;
+				descriptionBox.Text = playlist.Description;
 
-				var resourceQuery = editor.Document.data.resources.Where(res => Equals(res.guid, playlist.icon));
+				var resourceQuery = editor.Document.Data.Resources.Where(res => Equals(res.guid, playlist.Icon));
 				iconBox.Resource = resourceQuery.FirstOrDefault();
 
-				guidBox.Text = playlist.guid;
-				sprintDisplayBox.Value = playlist.display_in_sprint;
-				campaignDisplayBox.Value = playlist.display_in_campaign;
+				guidBox.Text = playlist.Guid;
+				sprintDisplayBox.Value = playlist.DisplayInSprint;
+				campaignDisplayBox.Value = playlist.DisplayInCampaign;
 
 				raiseEvents = true;
 			}
@@ -91,12 +91,12 @@ namespace App.AdventureMaker.Core.Views
 		{
 			//raiseEvents = false;
 
-			playlist.name = nameBox.Text;
-			playlist.description = descriptionBox.Text;
-			playlist.icon = iconBox.Resource?.guid;
-			playlist.guid = guidBox.Text;
-			playlist.display_in_sprint = sprintDisplayBox.Value;
-			playlist.display_in_campaign = campaignDisplayBox.Value;
+			playlist.Name = nameBox.Text;
+			playlist.Description = descriptionBox.Text;
+			playlist.Icon = iconBox.Resource?.guid;
+			playlist.Guid = guidBox.Text;
+			playlist.DisplayInSprint = sprintDisplayBox.Value;
+			playlist.DisplayInCampaign = campaignDisplayBox.Value;
 			//raiseEvents = true;
 
 			//NotifyModified(null, null);

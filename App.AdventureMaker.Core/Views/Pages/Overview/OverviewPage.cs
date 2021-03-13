@@ -38,22 +38,22 @@ namespace App.AdventureMaker.Core.Views
 
 		void ISaveLoad<CampaignFile>.SaveData(CampaignFile project)
 		{
-			project.metadata.title = titleBox.Text;
-			project.metadata.description = descriptionBox.Text;
-			project.metadata.author = authorBox.Text;
-			project.metadata.contact = contactBox.Text;
-			project.metadata.development_status = devBuildBox.SelectedValue;
-			project.metadata.guid = guidBox.Text;
+			project.Metadata.Title = titleBox.Text;
+			project.Metadata.Description = descriptionBox.Text;
+			project.Metadata.Author = authorBox.Text;
+			project.Metadata.Contact = contactBox.Text;
+			project.Metadata.DevelopmentStatus = devBuildBox.SelectedValue;
+			project.Metadata.Guid = guidBox.Text;
 		}
 
 		void ISaveLoad<CampaignFile>.LoadData(CampaignFile project, bool resetUI)
 		{
-			titleBox.Text = project.metadata.title;
-			descriptionBox.Text = project.metadata.description;
-			authorBox.Text = project.metadata.author;
-			contactBox.Text = project.metadata.contact;
-			devBuildBox.SelectedValue = project.metadata.development_status;
-			guidBox.Text = project.metadata.guid;
+			titleBox.Text = project.Metadata.Title;
+			descriptionBox.Text = project.Metadata.Description;
+			authorBox.Text = project.Metadata.Author;
+			contactBox.Text = project.Metadata.Contact;
+			devBuildBox.SelectedValue = project.Metadata.DevelopmentStatus;
+			guidBox.Text = project.Metadata.Guid;
 		}
 	}
 }

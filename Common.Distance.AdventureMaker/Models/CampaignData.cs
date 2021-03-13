@@ -1,23 +1,27 @@
-﻿using Distance.AdventureMaker.Common.Models.Resources;
+﻿#pragma warning disable CS0067
+using Distance.AdventureMaker.Common.Models.Resources;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Distance.AdventureMaker.Common.Models
 {
 	[Serializable]
-	public class CampaignData
+	public class CampaignData : INotifyPropertyChanged
 	{
+		public event PropertyChangedEventHandler PropertyChanged;
+
 		[JsonProperty("playlists")]
-		public List<CampaignPlaylist> playlists;
-		
+		public List<CampaignPlaylist> Playlists { get; set; }
+
 		[JsonProperty("resources")]
-		public List<CampaignResource> resources;
+		public List<CampaignResource> Resources { get; set; }
 
 		public CampaignData()
 		{
-			playlists = new List<CampaignPlaylist>();
-			resources = new List<CampaignResource>();
+			Playlists = new List<CampaignPlaylist>();
+			Resources = new List<CampaignResource>();
 		}
 	}
 }

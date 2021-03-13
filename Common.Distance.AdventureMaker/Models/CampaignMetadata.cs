@@ -1,30 +1,32 @@
-﻿#pragma warning disable CS0649
-
+﻿#pragma warning disable CS0067, CS0649
 using Distance.AdventureMaker.Common.Enums;
 using Newtonsoft.Json;
 using System;
+using System.ComponentModel;
 
 namespace Distance.AdventureMaker.Common.Models
 {
 	[Serializable]
-	public partial class CampaignMetadata
+	public class CampaignMetadata : INotifyPropertyChanged
 	{
+		public event PropertyChangedEventHandler PropertyChanged;
+
 		[JsonProperty("guid")]
-		public string guid;
+		public string Guid { get; set; }
 
 		[JsonProperty("title")]
-		public string title;
+		public string Title { get; set; }
 
 		[JsonProperty("description")]
-		public string description;
+		public string Description { get; set; }
 
 		[JsonProperty("author")]
-		public string author;
+		public string Author { get; set; }
 
 		[JsonProperty("contact")]
-		public string contact;
+		public string Contact { get; set; }
 
 		[JsonProperty("development_status")]
-		public DevelopmentStatus development_status;
+		public DevelopmentStatus DevelopmentStatus { get; set; }
 	}
 }
