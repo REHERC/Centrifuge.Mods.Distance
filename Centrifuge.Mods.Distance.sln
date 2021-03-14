@@ -84,6 +84,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Task.PostBuild", "
 		{5AA5A388-EB90-4280-BB32-4496138DD00E} = {5AA5A388-EB90-4280-BB32-4496138DD00E}
 		{5C9E788B-C9B8-462D-A561-431EBA706C0F} = {5C9E788B-C9B8-462D-A561-431EBA706C0F}
 		{83C8F38B-07E9-4A9B-8E5C-37981A28136E} = {83C8F38B-07E9-4A9B-8E5C-37981A28136E}
+		{004F8E95-36D7-400D-873F-60288E533802} = {004F8E95-36D7-400D-873F-60288E533802}
 		{06A78A9A-7A66-431F-8023-36EAA5D0FBAF} = {06A78A9A-7A66-431F-8023-36EAA5D0FBAF}
 		{AEE4B99D-C164-4495-AEE2-94CE4DBAAFDD} = {AEE4B99D-C164-4495-AEE2-94CE4DBAAFDD}
 		{0AD5BDA8-85AB-4163-BA40-CF49F769BADF} = {0AD5BDA8-85AB-4163-BA40-CF49F769BADF}
@@ -276,6 +277,15 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Centrifuge.Distance.Shared"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wiki", "Wiki", "{B278157B-15FE-472F-A7DC-79C8217A0F3B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResearchAndDevelopment", "ResearchAndDevelopment", "{2474388E-8D7C-4287-8A9E-7878D89E989A}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distance.ResearchAndDevelopment.Content", "Distance.ResearchAndDevelopment.Content\Distance.ResearchAndDevelopment.Content.shproj", "{F6C2C5DD-2F7C-4423-A3BD-D54F3FA8E6C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.ResearchAndDevelopment", "Distance.ResearchAndDevelopment\Distance.ResearchAndDevelopment.csproj", "{004F8E95-36D7-400D-873F-60288E533802}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{02cd7385-b155-4974-843d-9d0dd6bbfbe5}*SharedItemsImports = 13
@@ -313,6 +323,7 @@ Global
 		Distance.EditorAdditions.Content\Distance.EditorAdditions.Content.projitems*{e2e4ac75-d500-4d5d-a706-613a3df688e3}*SharedItemsImports = 13
 		Centrifuge.Distance\Centrifuge.GameSupport.Distance.Shared\Centrifuge.Distance.Shared.projitems*{e4ac586e-ad6d-43a8-a0cb-aa4d2d6fe578}*SharedItemsImports = 13
 		Distance.SceneDumper.Content\Distance.SceneDumper.Content.projitems*{e84718c2-200c-415f-ad1d-0cc133c38e70}*SharedItemsImports = 13
+		Distance.ResearchAndDevelopment.Content\Distance.ResearchAndDevelopment.Content.projitems*{f6c2c5dd-2f7c-4423-a3bd-d54f3fa8e6c9}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -537,6 +548,14 @@ Global
 		{C0573B40-FE3F-4E65-BB05-CC143A10A700}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C0573B40-FE3F-4E65-BB05-CC143A10A700}.Release|x86.ActiveCfg = Release|Any CPU
 		{C0573B40-FE3F-4E65-BB05-CC143A10A700}.Release|x86.Build.0 = Release|Any CPU
+		{004F8E95-36D7-400D-873F-60288E533802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{004F8E95-36D7-400D-873F-60288E533802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{004F8E95-36D7-400D-873F-60288E533802}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{004F8E95-36D7-400D-873F-60288E533802}.Debug|x86.Build.0 = Debug|Any CPU
+		{004F8E95-36D7-400D-873F-60288E533802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{004F8E95-36D7-400D-873F-60288E533802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{004F8E95-36D7-400D-873F-60288E533802}.Release|x86.ActiveCfg = Release|Any CPU
+		{004F8E95-36D7-400D-873F-60288E533802}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -614,6 +633,9 @@ Global
 		{0F2C2BE7-27A2-408A-841F-643B3549A55E} = {23D64D48-DA47-4121-9E52-978C85687AC5}
 		{27ADDC41-184A-417C-ABD0-13264475C380} = {C6C7A7A2-BAE8-4C15-9BC6-61BAB6A42006}
 		{E4AC586E-AD6D-43A8-A0CB-AA4D2D6FE578} = {4DA6AF01-8F55-48AF-8044-9C0C10E8F797}
+		{2474388E-8D7C-4287-8A9E-7878D89E989A} = {0FC121F4-6F94-4C7D-A2B5-D92AC9CC91A6}
+		{F6C2C5DD-2F7C-4423-A3BD-D54F3FA8E6C9} = {2474388E-8D7C-4287-8A9E-7878D89E989A}
+		{004F8E95-36D7-400D-873F-60288E533802} = {2474388E-8D7C-4287-8A9E-7878D89E989A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C475AB02-6F97-4575-9527-2F31F5AF847C}

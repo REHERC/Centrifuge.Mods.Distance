@@ -1,5 +1,4 @@
-﻿using Centrifuge.Distance.Game;
-using Events.MainMenu;
+﻿using Events.MainMenu;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;

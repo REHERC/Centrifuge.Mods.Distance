@@ -1,0 +1,13 @@
+﻿{
+	"FriendlyName": "Research and Development",
+	"Description": "Testing grounds for potential GSL features.",
+	"Author": "Reherc",
+	"Contact": "Github: @REHERC",
+	"ModuleFileName": "Distance.ResearchAndDevelopment.dll",
+	"Priority": 10,
+	"SkipLoad": false,
+	"Dependencies": [],
+	"RequiredGSLs": [
+		"com.github.reherc/Centrifuge.Distance"
+	]
+}
