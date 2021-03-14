@@ -47,7 +47,7 @@ namespace Distance.AdventureMaker.Common.Models
 		[JsonIgnore]
 		public string Text
 		{
-			get => Name?.Length > 0 ? Name : Constants.PLAYLIST_NO_NAME; 
+			get => Name?.Length > 0 ? Name : Constants.PLAYLIST_NO_NAME;
 			set => Name = value;
 		}
 
