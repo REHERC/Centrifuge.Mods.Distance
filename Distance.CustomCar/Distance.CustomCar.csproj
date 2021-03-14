@@ -34,8 +34,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HarmonyX.2.3.2\lib\net35\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HarmonyX.2.4.0\lib\net35\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\Centrifuge.Distance\Centrifuge.GameSupport.Distance.Shared\Binaries\Distance\Assembly-CSharp.dll</HintPath>
@@ -55,8 +55,8 @@
     <Reference Include="MonoMod.RuntimeDetour, Version=21.1.11.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MonoMod.RuntimeDetour.21.1.11.1\lib\net35\MonoMod.RuntimeDetour.dll</HintPath>
     </Reference>
-    <Reference Include="MonoMod.Utils, Version=21.1.11.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MonoMod.Utils.21.1.11.1\lib\net35\MonoMod.Utils.dll</HintPath>
+    <Reference Include="MonoMod.Utils, Version=21.3.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoMod.Utils.21.3.1.1\lib\net35\MonoMod.Utils.dll</HintPath>
     </Reference>
     <Reference Include="NAudio">
       <HintPath>..\Centrifuge.Distance\Centrifuge.GameSupport.Distance.Shared\Binaries\UnityEngine\NAudio.dll</HintPath>
