@@ -27,6 +27,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Resources\Level.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Resources\Texture.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\UI\ProjectCreateData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\CampaignFile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Validation\IValidator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Validation\Validator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Validation\ValidationItem.cs" />

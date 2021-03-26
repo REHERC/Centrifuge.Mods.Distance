@@ -13,6 +13,10 @@ namespace App.AdventureMaker.Core
 			Style.Add<TableLayout>(null, item => item.Spacing = new Size(4, 8));
 			Style.Add<Scrollable>(null, item => item.Border = BorderType.None);
 
+			Style.Add<Scrollable>(null, (item) => {
+				item.Border = BorderType.None;
+			});
+
 			Style.Add<Button>("icon", item =>
 			{
 				Size size = new Size(32, 32);
@@ -32,6 +36,11 @@ namespace App.AdventureMaker.Core
 			{
 				item.Orientation = Orientation.Horizontal;
 				item.VerticalContentAlignment = VerticalAlignment.Stretch;
+			});
+
+			Style.Add<Label>(null, (item) =>
+			{
+				item.VerticalAlignment = VerticalAlignment.Center;
 			});
 		}
 	}

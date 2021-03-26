@@ -15,7 +15,7 @@ namespace Distance.AdventureMaker.Common.Models
 		public string Guid { get; set; }
 
 		[JsonProperty("name")]
-		public string Name;
+		public string Name { get; set; }
 
 		[JsonProperty("resource_id")]
 		public string ResourceId { get; set; }
@@ -34,6 +34,9 @@ namespace Distance.AdventureMaker.Common.Models
 		#region Loading Screen
 		[JsonProperty("loading_background")]
 		public string LoadingBackground { get; set; }
+
+		[JsonProperty("loading_background_icon")]
+		public string LoadingBackgroundIcon { get; set; }
 
 		[JsonProperty("override_loading_text")]
 		public bool OverrideLoadingText { get; set; }

@@ -251,7 +251,7 @@ namespace App.AdventureMaker.Core.Views
 
 		private void AddLevel(object sender, EventArgs e)
 		{
-			CampaignLevel level = new LevelPropertiesWindow(null).ShowModal();
+			CampaignLevel level = new LevelPropertiesWindow(editor, null).ShowModal();
 
 			if (!Equals(level, null))
 			{
@@ -268,7 +268,7 @@ namespace App.AdventureMaker.Core.Views
 			{
 				int index = levelList.SelectedRow;
 
-				level = new LevelPropertiesWindow(level).ShowModal();
+				level = new LevelPropertiesWindow(editor, level).ShowModal();
 
 				if (!Equals(level, null))
 				{
