@@ -76,7 +76,8 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 							(importResource = new Button(ImportNew)
 							{
 								Text = $"Import new {type.ToString().ToLower()}",
-								Image = Resources.GetIcon("AddGreen.ico", 16)
+								Image = Resources.GetIcon("AddGreen.ico", 16),
+								Enabled = false
 							}),
 							null,
 							(DefaultButton = new Button(Confirm)
@@ -103,6 +104,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 		private void UpdateDataStore()
 		{
 			resourceList = editor.Document.Data.Resources.Where(res => Equals(res.resource_type, type)).ToList();
+			resourceList.Insert(0, new CampaignResource.Dummy());
 
 			resourcePicker.DataStore = resourceList;
 

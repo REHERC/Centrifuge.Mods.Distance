@@ -47,7 +47,11 @@ namespace App.AdventureMaker.Core.Controls
 
 			CampaignResource resource = new ResourceBrowser(editor, type).ShowModal();
 
-			if (resource != null)
+			if (resource is CampaignResource.Dummy)
+			{
+				Resource = null;
+			}
+			else if (resource != null)
 			{
 				Resource = resource;
 			}

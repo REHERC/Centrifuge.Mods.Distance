@@ -3,10 +3,11 @@
 namespace Distance.AdventureMaker.Common.Enums
 {
 	[Flags]
-	public enum ResourceType : byte
+	public enum ResourceType : short
 	{
-		Level,
-		Texture,
+		None = -1,
+		Level = 0,
+		Texture = 1,
 		//Audio,
 		//UnityAsset,
 		//Assembly,
