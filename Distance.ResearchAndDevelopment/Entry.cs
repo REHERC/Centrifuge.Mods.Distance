@@ -4,7 +4,11 @@ using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
 using Reactor.API.Runtime.Patching;
+using Reactor.API.Storage;
+using Serializers;
 using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace Distance.ResearchAndDevelopment
@@ -33,7 +37,38 @@ namespace Distance.ResearchAndDevelopment
 
 		private void OnMainMenuInitialized(Initialized.Data data)
 		{
-			Task.Run(MyTask);
+			/*SteamworksUGC ugc = G.Sys.SteamworksManager_.UGC_;
+
+			FileSystem files = new FileSystem();
+
+			string filePath = Path.Combine(files.VirtualFileSystemRoot, "obscuration");
+
+			SteamworksUGC.LevelStuff wItem = new SteamworksUGC.LevelStuff
+			(
+				"Obscuration [preview]",
+				"obscuration",
+				"MyLevels/obscuration-preview.bytes",
+				"This is a level I made for a campaign project that I will release in the future, meanwhile here's a very short preview :D",
+				new List<string>()
+				{
+					"Level"
+				}
+			);
+
+			MessageBox.Create(filePath, "UPLOAD")
+			.SetButtons(Centrifuge.Distance.Data.MessageButtons.YesNo)
+			.OnConfirm(() =>
+			{
+				ugc.SteamFileWrite("obscuration", filePath);
+				ugc.SteamFileWrite("obscuration.png", filePath + ".png");
+
+				ugc.AddTask(new SteamworksUGC.PublishWorkshopFileTask(ugc, wItem, SteamworksManager.AppID_, (success, steam_ugc) => { }));
+
+			})
+			.Show();*/
+
+
+			//Task.Run(MyTask);
 		}
 
 		private IEnumerator MyTask(Task.Status status)
