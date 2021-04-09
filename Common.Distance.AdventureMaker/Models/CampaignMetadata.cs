@@ -14,6 +14,9 @@ namespace Distance.AdventureMaker.Common.Models
 		[JsonProperty("guid")]
 		public string Guid { get; set; }
 
+		[JsonProperty("version")]
+		public long Version { get; set; }
+
 		[JsonProperty("title")]
 		public string Title { get; set; }
 
