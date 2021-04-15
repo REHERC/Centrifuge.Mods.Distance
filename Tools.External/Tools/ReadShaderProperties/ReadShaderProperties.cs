@@ -81,8 +81,6 @@ namespace Tools.External.Tools
 				state.SetStatus($"[{state.Progress}%] - Scanning...");
 			}
 
-
-
 			output = OpenWindow<LoggerWindow>().Rename("Output");
 
 			state.SetMaxProgress(count);
