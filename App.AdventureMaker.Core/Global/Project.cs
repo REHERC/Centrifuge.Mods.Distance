@@ -1,4 +1,5 @@
-﻿using Distance.AdventureMaker.Common.Models;
+﻿using App.AdventureMaker.Core.Interfaces;
+using Distance.AdventureMaker.Common.Models;
 using Distance.AdventureMaker.Common.Models.UI;
 using System;
 using System.IO;
@@ -29,6 +30,11 @@ namespace App.AdventureMaker.Core
 			{
 				return null;
 			}
+		}
+
+		public static void ExportProject(FileInfo destination, IEditor<CampaignFile> editor)
+		{
+
 		}
 	}
 }

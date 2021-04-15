@@ -48,7 +48,7 @@ namespace App.AdventureMaker.Core.Forms.FileChecker
 							ImageBinding = Binding.Property<ValidationItem, Image>(message => STATUS_IMAGES[message.status]()),
 							ImageInterpolation = ImageInterpolation.High,
 							VerticalAlignment = VerticalAlignment.Center
-							
+
 							//TextAlignment = TextAlignment.Right BRUH
 						}
 					},

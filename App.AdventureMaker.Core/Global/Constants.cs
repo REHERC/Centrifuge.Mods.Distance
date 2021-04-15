@@ -22,6 +22,7 @@ public static partial class Constants
 
 	// Tool-specific filters
 	public const string DIALOG_FILTER_PROJECT = "Json project files (project.json)|project.json";
+	public const string DIALOG_FILTER_ARCHIVE = "Extension description|*";
 
 	// Image filters
 	public const string DIALOG_FILTER_PNG = "Portable Network Graphics (*.png)|*.png";
@@ -36,6 +37,7 @@ public static partial class Constants
 	public const string DIALOG_MESSAGE_EDITOR_PREVIEW = "This software is currently still work in progress!\nPlease only use it for testing purposes and feedback as many breaking changes may occur in the future.";
 	public const string DIALOG_MESSAGE_UNSAVED_CHANGES = "The currently opened file has unsaved changes!\nContinue without saving?";
 	public const string DIALOG_MESSAGE_UNSAVED_CHANGES_CONTINUE = "You must save your changes before you continue!\nDo you want to save now?";
+	public const string DIALOG_MESSAGE_SAVE_CHANGES_CONTINUE = "You must save your changes to continue!\nSave now?";
 	public const string DIALOG_MESSAGE_REMOVE_PLAYLIST = "Are you sure you want to remove the following playlist: \"{0}\" ?";
 	public const string DIALOG_MESSAGE_REMOVE_LEVEL = "Do you want to remove \"{0}\" from this playlist?";
 	public const string DIALOG_MESSAGE_REMOVE_RESOURCE = "Are you sure you want to remove this resource ?\nObjects requiring this resource will need to be updated manually !";

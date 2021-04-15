@@ -21,7 +21,7 @@ namespace App.AdventureMaker.Core.Menus
 				Items =
 				{
 					new ImportFileCommand(),
-					new ExportFileCommand()
+					new ExportFileCommand(editor)
 				}
 			});
 			ApplicationItems.Add(new SeparatorMenuItem());

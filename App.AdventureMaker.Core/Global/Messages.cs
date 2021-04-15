@@ -10,6 +10,11 @@ namespace App.AdventureMaker.Core
 			return MessageBox.Show(Constants.DIALOG_MESSAGE_UNSAVED_CHANGES, caption, MessageBoxButtons.YesNo, MessageBoxType.Warning);
 		}
 
+		public static DialogResult SaveChangesDialog(string caption)
+		{
+			return MessageBox.Show(Constants.DIALOG_MESSAGE_UNSAVED_CHANGES, caption, MessageBoxButtons.YesNo, MessageBoxType.Warning);
+		}
+
 		public static DialogResult RemovePlaylist(CampaignPlaylist playlist)
 		{
 			return MessageBox.Show(string.Format(Constants.DIALOG_MESSAGE_REMOVE_PLAYLIST, playlist.Name), Constants.DIALOG_CAPTION_REMOVE_PLAYLIST, MessageBoxButtons.YesNo, MessageBoxType.Question);

@@ -36,4 +36,17 @@ public static class Dialogs
 			}
 		};
 	}
+
+	public static SaveFileDialog ExportCampaignDialog(string title)
+	{
+		return new SaveFileDialog()
+		{
+			Title = title,
+			CheckFileExists = false,
+			Filters =
+			{
+				DIALOG_FILTER_ARCHIVE
+			}
+		};
+	}
 }
