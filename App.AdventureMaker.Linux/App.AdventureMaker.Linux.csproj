@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFramework>net6.0</TargetFramework>
-	<OutputType>WinExe</OutputType>
+	<TargetFramework>netcoreapp3.1</TargetFramework>
+        <OutputType>WinExe</OutputType>
 	<ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
 	<Authors>Reherc</Authors>
 	<Product>Campaign Editor for Distance</Product>
