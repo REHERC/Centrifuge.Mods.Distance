@@ -249,6 +249,12 @@ namespace App.AdventureMaker.Core.Forms
 
 		private void OnConfirm(object sender, EventArgs e)
 		{
+			if (propLevelFile.Resource is null)
+			{
+				MessageBox.Show("You must specify a level file!", Constants.DIALOG_CAPTION_MISSING_FILE);
+				return;
+			}
+
 			SaveData(Data);
 			Close(Data);
 		}

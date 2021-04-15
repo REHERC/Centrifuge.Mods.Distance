@@ -22,4 +22,18 @@ public static class Dialogs
 			}
 		};
 	}
+
+	public static OpenFileDialog SelectBytesFileDialog(string title)
+	{
+		return new OpenFileDialog()
+		{
+			Title = title,
+			CheckFileExists = true,
+			Filters =
+			{
+				DIALOG_FILTER_BYTES,
+				DIALOG_FILTER_ANY
+			}
+		};
+	}
 }

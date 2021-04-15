@@ -1,7 +1,9 @@
 ﻿using App.AdventureMaker.Core.Controls;
 using App.AdventureMaker.Core.Forms;
 using App.AdventureMaker.Core.Interfaces;
+using Distance.AdventureMaker.Common.Enums;
 using Distance.AdventureMaker.Common.Models;
+using Distance.AdventureMaker.Common.Models.Resources;
 using Eto.Drawing;
 using Eto.Forms;
 using System;
@@ -41,7 +43,7 @@ namespace App.AdventureMaker.Core.Views
 			this.editor = editor;
 			collection = new ObservableCollection<CampaignLevel>();
 
-			Style = "vertical";
+			Style = "no-padding vertical";
 			Spacing = 0;
 
 			Items.Add(new StackLayoutItem(new StackLayout()
@@ -176,8 +178,7 @@ namespace App.AdventureMaker.Core.Views
 				{
 					new StackLayoutItem(selectionThumbnail = new StretchedImageBox()
 					{
-						//Image = Resources.GetImage("NoLevelImageFound.png"),
-						Image = Resources.GetImage("sample thumbnail.bytes.png"),
+						Image = Resources.GetImage("NoLevelImageFound.png"),
 						Width = THUMBNAIL_WIDTH_SMALL,
 						Height = THUMBNAIL_HEIGHT_SMALL
 					}, false),
@@ -192,13 +193,11 @@ namespace App.AdventureMaker.Core.Views
 						{
 							(selectionHeader = new Label()
 							{
-								Text = "LEVEL NAME",
 								TextColor = Colors.White,
 								Font = new Font(FontFamilies.Sans, 12, FontStyle.Bold)
 							}),
 							(selectionText = new Label()
 							{
-								Text = "Second line æ",
 								TextColor = Colors.White,
 								Font = new Font(FontFamilies.Sans, 10, FontStyle.None)
 							})
@@ -228,6 +227,7 @@ namespace App.AdventureMaker.Core.Views
 				};
 			}
 
+			selectionThumbnail.Image = (editor.Document.GetResource(level.ResourceId, ResourceType.Level) as CampaignResource.Level)?.AsImage(editor) ?? Resources.GetImage("NoLevelImageFound.png");
 			selectionHeader.Text = level?.Name?.ToUpper();
 			selectionText.Text = level?.Title;
 

@@ -1,5 +1,11 @@
-﻿using Distance.AdventureMaker.Common.Enums;
+﻿#if APP
+using App.AdventureMaker.Core.Interfaces;
+using Eto.Drawing;
+#endif
+using Distance.AdventureMaker.Common.Enums;
 using Newtonsoft.Json;
+using System.IO;
+using System;
 
 namespace Distance.AdventureMaker.Common.Models.Resources
 {
@@ -15,6 +21,25 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 
 			#if APP
 			public override int dependencies_count => 1;
+
+			public Image AsImage(IEditor<CampaignFile> editor)
+			{
+				FileInfo textureFile = editor.GetResourceFile(thumbnail);
+
+				if (textureFile.Exists)
+				{
+					try
+					{
+						return new Bitmap(textureFile.FullName);
+					}
+					catch (Exception)
+					{
+						return null;
+					}
+				}
+
+				return null;
+			}
 			#endif
 		}
 	}
