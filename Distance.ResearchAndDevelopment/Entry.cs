@@ -67,7 +67,6 @@ namespace Distance.ResearchAndDevelopment
 			})
 			.Show();*/
 
-
 			//Task.Run(MyTask);
 		}
 

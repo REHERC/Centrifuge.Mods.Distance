@@ -3,12 +3,21 @@ using Distance.AdventureMaker.Common.Validation;
 using Distance.AdventureMaker.Common.Validation.Validators;
 using Eto.Drawing;
 using Eto.Forms;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace App.AdventureMaker.Core.Forms.FileChecker
 {
 	public class FileCheckWindow : Form
 	{
+		private static readonly Dictionary<StatusLevel, Func<Image>> STATUS_IMAGES = new Dictionary<StatusLevel, Func<Image>>()
+		{
+			{ StatusLevel.Info, () => Resources.GetImage("StatusInfo.png") },
+			{ StatusLevel.Warning, () => Resources.GetImage("StatusWarning.png") },
+			{ StatusLevel.Error, () => Resources.GetImage("StatusError.png") }
+		};
+
 		private readonly GridView messagesView;
 		private readonly Label status;
 
@@ -33,9 +42,13 @@ namespace App.AdventureMaker.Core.Forms.FileChecker
 						Resizable = false,
 						Width = 96,
 
-						DataCell = new TextBoxCell()
+						DataCell = new ImageTextCell()
 						{
-							Binding = Binding.Property<ValidationItem, string>(message => $"{message.status.ToString().ToUpper()}"),
+							TextBinding = Binding.Property<ValidationItem, string>(message => $"{message.status.ToString().ToUpper()}"),
+							ImageBinding = Binding.Property<ValidationItem, Image>(message => STATUS_IMAGES[message.status]()),
+							ImageInterpolation = ImageInterpolation.High,
+							VerticalAlignment = VerticalAlignment.Center
+							
 							//TextAlignment = TextAlignment.Right BRUH
 						}
 					},

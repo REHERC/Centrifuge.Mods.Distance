@@ -20,13 +20,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<None Remove="Resources\Images\NoLevelImageFound.png" />
-	<None Remove="Resources\Images\sample thumbnail.bytes.png" />
+    <None Remove="Resources\Images\NoLevelImageFound.png" />
+    <None Remove="Resources\Images\sample thumbnail.bytes.png" />
+    <None Remove="Resources\Images\StatusError.png" />
+    <None Remove="Resources\Images\StatusInfo.png" />
+    <None Remove="Resources\Images\StatusWarning.png" />
   </ItemGroup>
 
   <ItemGroup>
-	<EmbeddedResource Include="Resources\Images\NoLevelImageFound.png" />
-	<EmbeddedResource Include="Resources\Images\sample thumbnail.bytes.png" />
+    <EmbeddedResource Include="Resources\Images\NoLevelImageFound.png" />
+    <EmbeddedResource Include="Resources\Images\sample thumbnail.bytes.png" />
+    <EmbeddedResource Include="Resources\Images\StatusError.png" />
+    <EmbeddedResource Include="Resources\Images\StatusInfo.png" />
+    <EmbeddedResource Include="Resources\Images\StatusWarning.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,7 +49,11 @@
   </ItemGroup>
 
   <ItemGroup>
-	<Resource Include="Resources\Images\NoLevelImageFound.png" />
+    <Resource Include="Resources\Images\NoLevelImageFound.png" />
+    <Resource Include="Resources\Images\sample thumbnail.bytes.png" />
+    <Resource Include="Resources\Images\StatusError.png" />
+    <Resource Include="Resources\Images\StatusInfo.png" />
+    <Resource Include="Resources\Images\StatusWarning.png" />
   </ItemGroup>
 
   <Import Project="..\App.SharedResources\App.Icons.projitems" Label="Shared" />

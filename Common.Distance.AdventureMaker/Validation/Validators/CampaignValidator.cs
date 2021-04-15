@@ -130,7 +130,7 @@ namespace Distance.AdventureMaker.Common.Validation.Validators
 								Log(StatusLevel.Error, "The level unique ID cannot be null and must be renewed");
 
 							if (string.IsNullOrEmpty(level.Name))
-								Log(StatusLevel.Error, $"The level name is not set");
+								Log(StatusLevel.Error, "The level name is not set");
 
 							if (string.IsNullOrEmpty(level.ResourceId))
 								Log(StatusLevel.Error, $"The level file reference for \"{level.Name}\" is not set");
