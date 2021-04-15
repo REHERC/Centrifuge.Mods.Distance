@@ -117,7 +117,7 @@ namespace App.AdventureMaker.Core.Forms
 					{
 						Width = 160,
 						Height = 90
-					}), 
+					}),
 					null
 				}
 			});
@@ -175,7 +175,6 @@ namespace App.AdventureMaker.Core.Forms
 		private void OnLoadingIconSelected(object sender, EventArgs e)
 		{
 			propLoadingBackgroundIconPreview.Image = (propLoadingBackgroundIcon.Resource as CampaignResource.Texture)?.AsImage(editor);
-
 		}
 
 		private void OnBackgroundSelected(object sender, EventArgs e)

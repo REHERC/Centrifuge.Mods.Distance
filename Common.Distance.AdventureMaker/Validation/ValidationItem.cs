@@ -4,8 +4,8 @@ namespace Distance.AdventureMaker.Common.Validation
 {
 	public struct ValidationItem
 	{
-		public StatusLevel status;
-		public string details;
+		public readonly StatusLevel status;
+		public readonly string details;
 
 		public ValidationItem(StatusLevel sl, string d)
 		{

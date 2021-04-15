@@ -32,6 +32,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Validation\IValidator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Validation\Validator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Validation\ValidationItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Validation\Validators\CampaignFileValidator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validation\Validators\CampaignValidator.cs" />
   </ItemGroup>
 </Project>

@@ -22,6 +22,6 @@ namespace Distance.AdventureMaker.Common.Validation
 
 		public abstract void Validate(T item);
 
-		public static implicit operator bool(Validator<T> x) => x?.GetMessages(StatusLevel.ERR).Length == 0;
+		public static implicit operator bool(Validator<T> x) => x?.GetMessages(StatusLevel.Error).Length == 0;
 	}
 }

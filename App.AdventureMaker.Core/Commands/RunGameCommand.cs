@@ -18,7 +18,6 @@ namespace App.AdventureMaker.Core.Commands
 			Shortcut = Application.Instance.CommonModifier | Keys.F5;
 
 			Enabled = false;
-
 			editor.OnLoaded += (_) => Enabled = editor.CurrentFile != null;
 		}
 

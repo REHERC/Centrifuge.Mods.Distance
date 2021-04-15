@@ -5,9 +5,10 @@ namespace Distance.AdventureMaker.Common.Enums
 	[Flags]
 	public enum StatusLevel
 	{
-		MSG,
-		WRN,
-		ERR,
-		Any = MSG | WRN | ERR
+		None = 0,
+		Info = 1,
+		Warning = 2,
+		Error = 4,
+		Any = Info | Warning | Error
 	}
 }

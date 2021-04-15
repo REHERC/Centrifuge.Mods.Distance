@@ -42,7 +42,7 @@ namespace App.AdventureMaker.Core.Menus
 				Items =
 				{
 					new RunGameCommand(editor),
-					new CheckFilesCommand(),
+					new CheckFilesCommand(editor),
 					new ProjectFolderCommand(editor)
 				}
 			});
