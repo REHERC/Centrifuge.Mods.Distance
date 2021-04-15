@@ -129,7 +129,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 
 		private void ImportNew(object sender, EventArgs e)
 		{
-			CampaignResource imported = Constants.RESOURCE_DIALOGS[type](null);
+			CampaignResource imported = Constants.RESOURCE_DIALOGS[type](null, editor);
 
 			if (!Equals(imported, null))
 			{

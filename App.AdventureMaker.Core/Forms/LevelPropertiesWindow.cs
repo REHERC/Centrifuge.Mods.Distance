@@ -5,6 +5,7 @@ using System;
 using App.AdventureMaker.Core.Controls;
 using Distance.AdventureMaker.Common.Enums;
 using App.AdventureMaker.Core.Interfaces;
+using Distance.AdventureMaker.Common.Models.Resources;
 
 namespace App.AdventureMaker.Core.Forms
 {
@@ -24,9 +25,11 @@ namespace App.AdventureMaker.Core.Forms
 		private readonly TextBox propLevelName;
 		private readonly ResourceSelector propLevelFile;
 		private readonly ResourceSelector propLoadingBackground;
+		private readonly StretchedImageBox propLoadingBackgroundPreview;
 		private readonly BooleanSelector propLoadingOverwriteText;
 		private readonly TextBox propLoadingText;
 		private readonly ResourceSelector propLoadingBackgroundIcon;
+		private readonly StretchedImageBox propLoadingBackgroundIconPreview;
 		private readonly EnumDropDown<LevelTransitionType> propIntroType;
 		private readonly TextBox propIntroLine1;
 		private readonly TextBox propIntroLine2;
@@ -103,9 +106,39 @@ namespace App.AdventureMaker.Core.Forms
 			loadingScreenProperties.BeginVertical();
 
 			loadingScreenProperties.AddRow("Background image", propLoadingBackground = new ResourceSelector(editor, ResourceType.Texture));
+
+			loadingScreenProperties.AddRow(string.Empty, new StackLayout()
+			{
+				Style = "no-padding horizontal",
+
+				Items =
+				{
+					(propLoadingBackgroundPreview = new StretchedImageBox()
+					{
+						Width = 160,
+						Height = 90
+					}), 
+					null
+				}
+			});
+
 			loadingScreenProperties.AddRow("Overwrite loading text", propLoadingOverwriteText = new BooleanSelector());
 			loadingScreenProperties.AddRow("Loading text", propLoadingText = new TextBox());
 			loadingScreenProperties.AddRow("Progress indicator icon", propLoadingBackgroundIcon = new ResourceSelector(editor, ResourceType.Texture));
+			loadingScreenProperties.AddRow(string.Empty, new StackLayout()
+			{
+				Style = "no-padding horizontal",
+
+				Items =
+				{
+					(propLoadingBackgroundIconPreview = new StretchedImageBox()
+					{
+						Width = 64,
+						Height = 64
+					}),
+					null
+				}
+			});
 
 			loadingScreenProperties.EndVertical();
 			loadingScreenProperties.AddSpace();
@@ -132,9 +165,22 @@ namespace App.AdventureMaker.Core.Forms
 			#region Event Subscribing
 			propLoadingOverwriteText.ValueChanged += OnOverwriteLoadingTextChanged;
 			propIntroType.SelectedValueChanged += OnTransitionTypeChanged;
+			propLoadingBackground.ResourceSelected += OnBackgroundSelected;
+			propLoadingBackgroundIcon.ResourceSelected += OnLoadingIconSelected;
 			#endregion
 
 			LoadData(Data);
+		}
+
+		private void OnLoadingIconSelected(object sender, EventArgs e)
+		{
+			propLoadingBackgroundIconPreview.Image = (propLoadingBackgroundIcon.Resource as CampaignResource.Texture)?.AsImage(editor);
+
+		}
+
+		private void OnBackgroundSelected(object sender, EventArgs e)
+		{
+			propLoadingBackgroundPreview.Image = (propLoadingBackground.Resource as CampaignResource.Texture)?.AsImage(editor);
 		}
 
 		private void OnOverwriteLoadingTextChanged(object sender, EventArgs e)
@@ -184,7 +230,6 @@ namespace App.AdventureMaker.Core.Forms
 			level.Guid = propLevelGuid.Text;
 			level.ResourceId = propLevelFile.Resource?.guid;
 			level.Name = propLevelName.Text;
-
 
 			level.LoadingBackground = propLoadingBackground.Resource?.guid;
 			level.LoadingBackgroundIcon = propLoadingBackgroundIcon.Resource?.guid;

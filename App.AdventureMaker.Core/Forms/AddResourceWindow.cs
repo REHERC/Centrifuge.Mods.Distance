@@ -1,16 +1,24 @@
-﻿using Distance.AdventureMaker.Common.Enums;
+﻿using App.AdventureMaker.Core.Interfaces;
+using Distance.AdventureMaker.Common.Enums;
+using Distance.AdventureMaker.Common.Models;
 using Distance.AdventureMaker.Common.Models.Resources;
 using Eto.Drawing;
 using Eto.Forms;
 using System;
+using System.Linq;
 
 namespace App.AdventureMaker.Core.Forms
 {
 	public class AddResourceWindow : Dialog<CampaignResource>
 	{
+		private readonly IEditor<CampaignFile> editor;
+
 		private readonly EnumDropDown<ResourceType> dropDown;
-		public AddResourceWindow()
+
+		public AddResourceWindow(IEditor<CampaignFile> editor)
 		{
+			this.editor = editor;
+
 			Size = MinimumSize = new Size(400, 250);
 			Resizable = false;
 
@@ -50,6 +58,14 @@ namespace App.AdventureMaker.Core.Forms
 				}
 			};
 
+			const ResourceType typeToRemove = ResourceType.None;
+
+			dropDown.Items.Remove(dropDown.Items.First(item =>
+			{
+				return Equals(item.Key, ((int)typeToRemove).ToString())
+					&& Equals(item.Text, typeToRemove.ToString());
+			}));
+
 			dropDown.SelectedValueChanged += (sender, e) => DefaultButton.Enabled = true;
 		}
 
@@ -59,7 +75,7 @@ namespace App.AdventureMaker.Core.Forms
 			{
 				Visible = false;
 				ParentWindow.BringToFront();
-				Close(Constants.RESOURCE_DIALOGS[dropDown.SelectedValue](null));
+				Close(Constants.RESOURCE_DIALOGS[dropDown.SelectedValue](null, editor));
 			}
 		}
 

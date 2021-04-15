@@ -1,11 +1,11 @@
 ﻿using App.AdventureMaker.Core.Forms;
 using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
-using Eto;
 using Eto.Forms;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using static Constants;
 using static Distance.AdventureMaker.Common.CommandLine;
 using static System.String;
 using static Utils;
@@ -19,7 +19,7 @@ namespace App.AdventureMaker.Core
 			switch (AppSettings.Instance.PreviewModeRunMethod)
 			{
 				case 0:
-					string url = $"{Constants.DISTANCE_STEAM_PROTOCOL_HANDLER_URL}{Uri.EscapeUriString(ArgumentList(editor)).Replace("/", "%2F")}";
+					string url = DISTANCE_STEAM_PROTOCOL_HANDLER_URL + Uri.EscapeUriString(ArgumentList(editor)).Replace("/", "%2F");
 
 					ShellOpen(url);
 					break;
@@ -35,6 +35,7 @@ namespace App.AdventureMaker.Core
 					{
 						try
 						{
+							CreateSteamAppIdFile();
 							Execute(AppSettings.Instance.GameExe, ArgumentList(editor));
 						}
 						catch (Exception)
@@ -59,10 +60,12 @@ namespace App.AdventureMaker.Core
 			AddCommand(arguments, $"/{CLARG_FLG_PREVIEW_MODE}");
 			AddKeyValue(arguments, CLARG_VAL_CAMPAIGN_PROJECT_FILE, editor.CurrentFile.FullName);
 
-			if (AppSettings.Instance.EnableRcon)
+			// TODO: Send proper agrument set to the game's exe file to connect remotely to the tool
+			// For remote access (see logs from the game in the tool and stuff)
+			/*if (AppSettings.Instance.EnableRcon)
 			{
 				AddKeyValue(arguments, CLARG_VAL_REMOTE_CONSOLE_PORT, AppSettings.Instance.RconPort.ToString());
-			}
+			}*/
 
 			return Join(' ', arguments.ToArray());
 		}
@@ -108,7 +111,6 @@ namespace App.AdventureMaker.Core
 		{
 			return '"';
 
-			
 			/*if (EtoEnvironment.Platform.IsLinux)
 			{
 				return '\'';
@@ -119,6 +121,23 @@ namespace App.AdventureMaker.Core
 			}
 
 			return '\0';*/
+		}
+
+		// When starting the game from its exe file, it usually closes immediately and
+		// restarts with steam... the problem is that by doing this, all startup
+		// arguments are "lost"
+		// However, if there's a file called "steam_appid.txt" near the game exe file
+		// the game will start normally without a problem
+		// This function ensures the presence of that file
+		public static void CreateSteamAppIdFile()
+		{
+			FileInfo Executable = new FileInfo(AppSettings.Instance.GameExe);
+			FileInfo Manifest = new FileInfo(Path.Combine(Executable.Directory.FullName, STEAM_APPID_FILE));
+
+			if (Executable.Exists && !Manifest.Exists)
+			{
+				File.WriteAllText(Manifest.FullName, DISTANCE_STEAM_APPID);
+			}
 		}
 	}
 }

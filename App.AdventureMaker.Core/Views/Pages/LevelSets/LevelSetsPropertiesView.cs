@@ -2,9 +2,10 @@
 using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Enums;
 using Distance.AdventureMaker.Common.Models;
+using Distance.AdventureMaker.Common.Models.Resources;
+using Eto.Drawing;
 using Eto.Forms;
 using System;
-using System.Linq;
 
 namespace App.AdventureMaker.Core.Views
 {
@@ -20,6 +21,7 @@ namespace App.AdventureMaker.Core.Views
 		private readonly TextBox nameBox;
 		private readonly TextBox descriptionBox;
 		private readonly ResourceSelector iconBox;
+		private readonly StretchedImageBox iconPreview;
 		private readonly GuidLabel guidBox;
 		private readonly BooleanSelector campaignDisplayBox;
 		private readonly BooleanSelector sprintDisplayBox;
@@ -28,15 +30,27 @@ namespace App.AdventureMaker.Core.Views
 		{
 			editor = editor_;
 
-			//Style = "no-padding";
-			Orientation = Orientation.Vertical;
-			HorizontalContentAlignment = HorizontalAlignment.Stretch;
+			Style = "vertical";
 
 			properties = new PropertiesListBase();
 
 			properties.AddRow("Name", nameBox = new TextBox());
 			properties.AddRow("Description", descriptionBox = new TextBox());
 			properties.AddRow("Icon", iconBox = new ResourceSelector(editor, ResourceType.Texture));
+			properties.AddRow(null, new StackLayout()
+			{
+				Style = "no-padding horizontal",
+
+				Items =
+				{
+					(iconPreview = new StretchedImageBox()
+					{
+						Height = 96,
+						Width = 96,
+					}),
+					null
+				}
+			});
 
 			properties.AddRow("Campaign playlist", campaignDisplayBox = new BooleanSelector());
 			properties.AddRow("Sprint playlist", sprintDisplayBox = new BooleanSelector());
@@ -53,6 +67,7 @@ namespace App.AdventureMaker.Core.Views
 			nameBox.TextChanged += NotifyModified;
 			descriptionBox.TextChanged += NotifyModified;
 			iconBox.ResourceSelected += NotifyModified;
+			iconBox.ResourceSelected += IconSelected;
 			guidBox.TextChanged += NotifyModified;
 			sprintDisplayBox.ValueChanged += NotifyModified;
 			campaignDisplayBox.ValueChanged += NotifyModified;
@@ -65,6 +80,13 @@ namespace App.AdventureMaker.Core.Views
 			var playlist = new CampaignPlaylist();
 			SaveData(playlist);
 			OnModified?.Invoke(playlist);
+		}
+
+		private void IconSelected(object sender, EventArgs e)
+		{
+			CampaignResource.Texture texture = iconBox.Resource as CampaignResource.Texture;
+
+			iconPreview.Image = texture?.AsImage(editor);
 		}
 
 		public void LoadData(CampaignPlaylist playlist, bool resetUI)

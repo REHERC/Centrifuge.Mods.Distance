@@ -26,7 +26,6 @@ namespace App.AdventureMaker.Core.Controls
 			}
 		}
 
-
 		public BooleanSelector(string trueText = "Yes", string falseText = "No", Orientation orientation = Orientation.Horizontal)
 		{
 			Style = "no-padding";

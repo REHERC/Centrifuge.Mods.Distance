@@ -17,7 +17,7 @@ namespace App.AdventureMaker.Core.Views
 
 		private readonly IEditor<CampaignFile> editor;
 
-		private readonly LevelThumbnail selectionThumbnail;
+		private readonly StretchedImageBox selectionThumbnail;
 		private readonly Label selectionHeader;
 		private readonly Label selectionText;
 
@@ -174,11 +174,10 @@ namespace App.AdventureMaker.Core.Views
 
 				Items =
 				{
-					new StackLayoutItem(selectionThumbnail = new LevelThumbnail()
+					new StackLayoutItem(selectionThumbnail = new StretchedImageBox()
 					{
 						//Image = Resources.GetImage("NoLevelImageFound.png"),
 						Image = Resources.GetImage("sample thumbnail.bytes.png"),
-						GradientDelta = 0.1f,
 						Width = THUMBNAIL_WIDTH_SMALL,
 						Height = THUMBNAIL_HEIGHT_SMALL
 					}, false),

@@ -156,7 +156,7 @@ namespace App.AdventureMaker.Core.Views
 
 		private void OnAddResource(object sender, EventArgs e)
 		{
-			CampaignResource res = new AddResourceWindow().ShowModal();
+			CampaignResource res = new AddResourceWindow(editor).ShowModal();
 
 			if (!Equals(res, null))
 			{
@@ -175,7 +175,7 @@ namespace App.AdventureMaker.Core.Views
 
 			CampaignResource res = collection[row];
 
-			CampaignResource edited = Constants.RESOURCE_DIALOGS[res.resource_type](res);
+			CampaignResource edited = Constants.RESOURCE_DIALOGS[res.resource_type](res, editor);
 
 			if (!Equals(edited, null))
 			{

@@ -33,7 +33,6 @@ namespace App.AdventureMaker.Core.Controls
 		}
 
 		public ResourceSelector(IEditor<CampaignFile> editor, ResourceType type)
-		: base()
 		{
 			this.editor = editor;
 			this.type = type;

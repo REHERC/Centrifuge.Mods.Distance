@@ -1,5 +1,4 @@
-﻿#pragma warning disable IDE1006
-using Distance.AdventureMaker.Common.Enums;
+﻿using Distance.AdventureMaker.Common.Enums;
 using Newtonsoft.Json;
 
 namespace Distance.AdventureMaker.Common.Models.Resources

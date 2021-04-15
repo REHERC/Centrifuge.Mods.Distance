@@ -56,4 +56,6 @@
 
   <Import Project="..\Common.Harmony\Common.Harmony.projitems" Label="Shared" />
 
+  <Import Project="..\Common.Extensions\Common.Extensions.projitems" Label="Shared" />
+
 </Project>

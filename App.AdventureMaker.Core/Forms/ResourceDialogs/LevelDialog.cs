@@ -1,4 +1,6 @@
 ﻿using App.AdventureMaker.Core.Controls;
+using App.AdventureMaker.Core.Interfaces;
+using Distance.AdventureMaker.Common.Models;
 using Distance.AdventureMaker.Common.Models.Resources;
 
 namespace App.AdventureMaker.Core.Forms.ResourceDialogs
@@ -8,7 +10,7 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 		private TextBoxWithButton levelFile;
 		private TextBoxWithButton thumbnailFile;
 
-		public LevelDialog(CampaignResource.Level data) : base(data)
+		public LevelDialog(CampaignResource.Level data, IEditor<CampaignFile> editor) : base(data, editor)
 		{
 		}
 

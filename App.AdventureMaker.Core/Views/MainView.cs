@@ -71,6 +71,8 @@ namespace App.AdventureMaker.Core.Views
 			{
 				CampaignFile project = new CampaignFile();
 				editorView.SaveData(project);
+				project.Metadata.Version = DateTime.Now.TimeOfDay.Ticks;
+
 				Json.Save(CurrentFile, project, true);
 
 				Modified = false;

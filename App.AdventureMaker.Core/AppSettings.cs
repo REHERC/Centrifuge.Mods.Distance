@@ -35,9 +35,6 @@ namespace App.AdventureMaker.Core
 
 		[JsonProperty("enable_rcon")]
 		public bool EnableRcon { get; set; } = false;
-
-		[JsonProperty("rcon_port")]
-		public int RconPort { get; set; } = 5000;
 		#endregion
 		#endregion
 	}

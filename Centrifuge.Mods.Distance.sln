@@ -286,6 +286,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance.ResearchAndDevelop
 		{F9FB724F-6555-4B6B-8D51-3140CA47D2FE} = {F9FB724F-6555-4B6B-8D51-3140CA47D2FE}
 	EndProjectSection
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Common.Extensions", "Common.Extensions\Common.Extensions.shproj", "{F4DB0D96-1B9C-4851-A07C-87CF2313A6B8}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Distance.NoServerLimit.Content\Distance.NoServerLimit.Content.projitems*{02cd7385-b155-4974-843d-9d0dd6bbfbe5}*SharedItemsImports = 13
@@ -317,12 +319,14 @@ Global
 		Distance.ChristmasSeasonalFeatures.Content\Distance.ChristmasSeasonalFeatures.Content.projitems*{ccca412e-616c-49d3-80a6-a0111b879118}*SharedItemsImports = 13
 		App.SharedResources\App.Icons.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
 		Common.Distance.AdventureMaker\Common.Distance.AdventureMaker.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
+		Common.Extensions\Common.Extensions.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
 		Common.Harmony\Common.Harmony.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
 		Common.Json\Common.Json.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
 		Common.SharpCompress\Common.SharpCompress.projitems*{d008e276-12e7-40cb-911f-3f395582317a}*SharedItemsImports = 5
 		Distance.EditorAdditions.Content\Distance.EditorAdditions.Content.projitems*{e2e4ac75-d500-4d5d-a706-613a3df688e3}*SharedItemsImports = 13
 		Centrifuge.Distance\Centrifuge.GameSupport.Distance.Shared\Centrifuge.Distance.Shared.projitems*{e4ac586e-ad6d-43a8-a0cb-aa4d2d6fe578}*SharedItemsImports = 13
 		Distance.SceneDumper.Content\Distance.SceneDumper.Content.projitems*{e84718c2-200c-415f-ad1d-0cc133c38e70}*SharedItemsImports = 13
+		Common.Extensions\Common.Extensions.projitems*{f4db0d96-1b9c-4851-a07c-87cf2313a6b8}*SharedItemsImports = 13
 		Distance.ResearchAndDevelopment.Content\Distance.ResearchAndDevelopment.Content.projitems*{f6c2c5dd-2f7c-4423-a3bd-d54f3fa8e6c9}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -636,6 +640,7 @@ Global
 		{2474388E-8D7C-4287-8A9E-7878D89E989A} = {0FC121F4-6F94-4C7D-A2B5-D92AC9CC91A6}
 		{F6C2C5DD-2F7C-4423-A3BD-D54F3FA8E6C9} = {2474388E-8D7C-4287-8A9E-7878D89E989A}
 		{004F8E95-36D7-400D-873F-60288E533802} = {2474388E-8D7C-4287-8A9E-7878D89E989A}
+		{F4DB0D96-1B9C-4851-A07C-87CF2313A6B8} = {C6C7A7A2-BAE8-4C15-9BC6-61BAB6A42006}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C475AB02-6F97-4575-9527-2F31F5AF847C}

@@ -1,4 +1,6 @@
 ﻿using App.AdventureMaker.Core.Controls;
+using App.AdventureMaker.Core.Interfaces;
+using Distance.AdventureMaker.Common.Models;
 using Eto.Drawing;
 using Eto.Forms;
 using System;
@@ -11,9 +13,11 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 
 		private readonly StackLayout stackLayout;
 		protected readonly PropertiesListBase properties;
+		protected readonly IEditor<CampaignFile> editor;
 
-		protected ResourceDialogBase(T data)
+		protected ResourceDialogBase(T data, IEditor<CampaignFile> editor)
 		{
+			this.editor = editor;
 			Data = data.CloneObject() ?? new T();
 			Size = MinimumSize = new Size(360, 180);
 			Resizable = false;
@@ -59,12 +63,12 @@ namespace App.AdventureMaker.Core.Forms.ResourceDialogs
 			properties.CompleteRows();
 		}
 
-		private void Confirm(object sender, EventArgs e)
+		protected virtual void Confirm(object sender, EventArgs e)
 		{
 			Close(Data);
 		}
 
-		private void Cancel(object sender, EventArgs e)
+		protected virtual void Cancel(object sender, EventArgs e)
 		{
 			Close(null);
 		}

@@ -1,20 +1,24 @@
 ﻿#pragma warning disable RCS1110
 using App.AdventureMaker.Core.Forms.ResourceDialogs;
+using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Enums;
+using Distance.AdventureMaker.Common.Models;
 using Distance.AdventureMaker.Common.Models.Resources;
 using System;
 using System.Collections.Generic;
 
 public static partial class Constants
 {
-	public const string DISTANCE_STEAM_PROTOCOL_HANDLER_URL = "steam://rungameid/233610//";
+	public const string STEAM_APPID_FILE = "steam_appid.txt";
+	public const string DISTANCE_STEAM_APPID = "233610";
+	public const string DISTANCE_STEAM_PROTOCOL_HANDLER_URL = "steam://rungameid/" + DISTANCE_STEAM_APPID + "//";
 
 	public const string GITHUB_ISSUES_PAGE = "https://github.com/REHERC/Centrifuge.Mods.Distance/issues";
 	public const string GITHUB_WIKI = "https://github.com/REHERC/Centrifuge.Mods.Distance/wiki";
 	public const string DISCORD_DISTANCE = "https://discord.gg/distance";
 
 	// File filters
-	public const string DIALOG_FILTER_ANY = "All files|";
+	public const string DIALOG_FILTER_ANY = "All files|*";
 
 	// Tool-specific filters
 	public const string DIALOG_FILTER_PROJECT = "Json project files (project.json)|project.json";
@@ -47,6 +51,7 @@ public static partial class Constants
 	public const string DIALOG_CAPTION_REMOVE_LEVEL = "Remove level";
 	public const string DIALOG_CAPTION_REMOVE_RESOURCE = "Remove resource";
 	public const string DIALOG_CAPTION_START_PREVIEW = "Preview mode";
+	public const string DIALOG_CAPTION_MISSING_FILE = "Missing file";
 
 	public const string PLAYLIST_NO_NAME = "(No playlist name)";
 
@@ -56,9 +61,9 @@ public static partial class Constants
 	public const int THUMBNAIL_HEIGHT_SMALL = THUMBNAIL_HEIGHT / 4;
 	public const double THUMBNAIL_RATIO = THUMBNAIL_WIDTH / THUMBNAIL_HEIGHT;
 
-	public static readonly Dictionary<ResourceType, Func<CampaignResource, CampaignResource>> RESOURCE_DIALOGS = new Dictionary<ResourceType, Func<CampaignResource, CampaignResource>>()
+	public static readonly Dictionary<ResourceType, Func<CampaignResource, IEditor<CampaignFile>, CampaignResource>> RESOURCE_DIALOGS = new Dictionary<ResourceType, Func<CampaignResource, IEditor<CampaignFile>, CampaignResource>>()
 	{
-		{ ResourceType.Level, (data) => new LevelDialog(data as CampaignResource.Level).ShowModal() },
-		{ ResourceType.Texture, (data) => new TextureDialog(data as CampaignResource.Texture).ShowModal() }
+		{ ResourceType.Level, (data, editor) => new LevelDialog(data as CampaignResource.Level, editor).ShowModal() },
+		{ ResourceType.Texture, (data, editor) => new TextureDialog(data as CampaignResource.Texture, editor).ShowModal() }
 	};
 }

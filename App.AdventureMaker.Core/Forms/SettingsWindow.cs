@@ -7,8 +7,6 @@ namespace App.AdventureMaker.Core.Forms
 {
 	public class SettingsWindow : Dialog
 	{
-		public const int TCP_PORT_MAX_NUMBER = 65535;
-
 		private readonly TabControl tabs;
 
 		private readonly CheckBox generalOpenLastProject;
@@ -16,7 +14,6 @@ namespace App.AdventureMaker.Core.Forms
 		private readonly RadioButtonList previewModeRunMethod;
 		private readonly TextBoxWithButton previewModeRunExecutable;
 		private readonly CheckBox previewModeEnableRemoteConsole;
-		private readonly NumericStepper previewModeRemoteConsolePort;
 
 		#region Constructors
 		public SettingsWindow()
@@ -120,14 +117,7 @@ namespace App.AdventureMaker.Core.Forms
 							(previewModeRunExecutable = new TextBoxWithButton()),
 							(previewModeEnableRemoteConsole = new CheckBox()
 							{
-								Text = "Intercept log messages from the game (set TCP communication port below)",
-							}),
-							(previewModeRemoteConsolePort = new NumericStepper()
-							{
-								DecimalPlaces = 0,
-								MinValue = 0,
-								MaxValue = TCP_PORT_MAX_NUMBER,
-								Enabled = AppSettings.Instance.EnableRcon
+								Text = "Intercept log messages from the game (using named memory pipes)",
 							})
 						}
 					}
@@ -154,8 +144,6 @@ namespace App.AdventureMaker.Core.Forms
 
 			previewModeRunMethod.SelectedIndexChanged += (sender, e) => previewModeRunExecutable.Enabled = previewModeRunMethod.SelectedIndex == 1;
 
-			previewModeEnableRemoteConsole.CheckedChanged += (sender, e) => previewModeRemoteConsolePort.Enabled = previewModeEnableRemoteConsole.Checked == true;
-
 			previewModeInfoLabel.Font = new Font(previewModeInfoLabel.Font.Family, previewModeInfoLabel.Font.Size, FontStyle.Bold);
 		}
 
@@ -173,7 +161,6 @@ namespace App.AdventureMaker.Core.Forms
 			previewModeRunMethod.SelectedIndex = AppSettings.Instance.PreviewModeRunMethod;
 			previewModeRunExecutable.Text = AppSettings.Instance.GameExe;
 			previewModeEnableRemoteConsole.Checked = AppSettings.Instance.EnableRcon;
-			previewModeRemoteConsolePort.Value = AppSettings.Instance.RconPort;
 		}
 
 		private void SaveSettings()
@@ -183,7 +170,6 @@ namespace App.AdventureMaker.Core.Forms
 			AppSettings.Instance.PreviewModeRunMethod = previewModeRunMethod.SelectedIndex;
 			AppSettings.Instance.GameExe = previewModeRunExecutable.Text;
 			AppSettings.Instance.EnableRcon = previewModeEnableRemoteConsole.Checked == true;
-			AppSettings.Instance.RconPort = (int)previewModeRemoteConsolePort.Value;
 
 			AppSettings.Save();
 		}
