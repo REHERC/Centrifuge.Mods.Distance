@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
 	<OutputType>WinExe</OutputType>
-	<TargetFramework>netcoreapp3.1</TargetFramework>
+	<TargetFramework>net6.0-windows</TargetFramework>
 	<ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
 	<Authors>Nico (larnin), Reherc</Authors>
 	<NeutralLanguage>English</NeutralLanguage>

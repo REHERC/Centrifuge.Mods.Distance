@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<OutputType>WinExe</OutputType>
-	<TargetFramework>netcoreapp3.1</TargetFramework>
+	<TargetFramework>net6.0</TargetFramework>
 	<ApplicationIcon>..\App.SharedResources\Resources\Icons\App.ico</ApplicationIcon>
 	<Authors>Nico (larnin), Reherc</Authors>
 	<RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
