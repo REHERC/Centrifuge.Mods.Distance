@@ -19,7 +19,7 @@ namespace App.AdventureMaker.Core
 			switch (AppSettings.Instance.PreviewModeRunMethod)
 			{
 				case 0:
-					string url = DISTANCE_STEAM_PROTOCOL_HANDLER_URL + Uri.EscapeUriString(ArgumentList(editor)).Replace("/", "%2F");
+					string url = DISTANCE_STEAM_PROTOCOL_HANDLER_URL + Uri.EscapeDataString(ArgumentList(editor)).Replace("/", "%2F");
 
 					ShellOpen(url);
 					break;
