@@ -15,14 +15,14 @@ public static class DirectoryInfoEx
 	// Example: C:\ABC\DEF => 3 | C:\ABC\DEF\GHI\JKL => 5
 	public static int GetFolderLength(this DirectoryInfo directory)
 	{
-		return directory.FullName.Split(GetSeparatorChars()).Count(item => !string.IsNullOrWhiteSpace(item));
+		return directory.FullName.Split(GetSeparatorChars()).Count(item => !string.IsNullOrEmpty(item));
 	}
 
 	// Returns a string representing a folder path with its beginning n folders "cut" from the string
 	// Example: C:\ABC\DEF\GHI;2 => DEF\GHI
 	public static string CutFolderStart(this DirectoryInfo directory, int cut)
 	{
-		return string.Join(Path.DirectorySeparatorChar, directory.FullName.Split(GetSeparatorChars()).Skip(cut));
+		return string.Join("" + Path.DirectorySeparatorChar, directory.FullName.Split(GetSeparatorChars()).Skip(cut).ToArray());
 	}
 
 	public static void CreateIfDoesntExist(this DirectoryInfo directory)

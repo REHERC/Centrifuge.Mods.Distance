@@ -313,6 +313,7 @@ Global
 		Repository.Metadata\Repository.Metadata.projitems*{af094e78-872d-4473-9c5f-063c6640f94e}*SharedItemsImports = 13
 		Distance.CustomCar.Content\Distance.CustomCar.Content.projitems*{b250cc3f-e2f1-40e6-8a89-5ad23d54c019}*SharedItemsImports = 13
 		Common.Distance.AdventureMaker\Common.Distance.AdventureMaker.projitems*{b3f55581-78bd-4ba4-bb36-d80f3716dbe4}*SharedItemsImports = 4
+		Common.Extensions\Common.Extensions.projitems*{b3f55581-78bd-4ba4-bb36-d80f3716dbe4}*SharedItemsImports = 4
 		Common.Json\Common.Json.projitems*{b3f55581-78bd-4ba4-bb36-d80f3716dbe4}*SharedItemsImports = 4
 		Common.SharpCompress\Common.SharpCompress.projitems*{b3f55581-78bd-4ba4-bb36-d80f3716dbe4}*SharedItemsImports = 4
 		Distance.AdventureMaker.Content\Distance.AdventureMaker.Content.projitems*{b6eca462-ea0b-4bd3-8419-2a59f1db34ed}*SharedItemsImports = 13

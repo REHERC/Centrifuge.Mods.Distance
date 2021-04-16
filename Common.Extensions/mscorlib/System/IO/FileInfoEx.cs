@@ -10,14 +10,14 @@ public static class FileInfoEx
 	// Example: C:\ABC\DEF.txt => 3 | C:\ABC\DEF\GHI\JKL.txt => 5
 	public static int GetFolderLength(this FileInfo file)
 	{
-		return file.FullName.Split(GetSeparatorChars()).Count(item => !string.IsNullOrWhiteSpace(item));
+		return file.FullName.Split(GetSeparatorChars()).Count(item => !string.IsNullOrEmpty(item));
 	}
 
 	// Returns a string representing a folder path with its beginning n folders "cut" from the string
 	// Example: C:\ABC\DEF\GHI.txt;2 => DEF\GHI.txt
 	public static string CutFolderStart(this FileInfo file, int cut)
 	{
-		return string.Join(Path.DirectorySeparatorChar, file.FullName.Split(GetSeparatorChars()).Skip(cut));
+		return string.Join("" + Path.DirectorySeparatorChar, file.FullName.Split(GetSeparatorChars()).Skip(cut).ToArray());
 	}
 
 	public static bool PathEquals(this FileInfo file, FileInfo other)

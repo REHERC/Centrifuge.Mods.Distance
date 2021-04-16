@@ -25,6 +25,7 @@
     <None Remove="Resources\Images\StatusError.png" />
     <None Remove="Resources\Images\StatusInfo.png" />
     <None Remove="Resources\Images\StatusWarning.png" />
+    <None Remove="Resources\Text\archive_readme.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +34,7 @@
     <EmbeddedResource Include="Resources\Images\StatusError.png" />
     <EmbeddedResource Include="Resources\Images\StatusInfo.png" />
     <EmbeddedResource Include="Resources\Images\StatusWarning.png" />
+    <EmbeddedResource Include="Resources\Text\archive_readme.txt" />
   </ItemGroup>
 
   <ItemGroup>

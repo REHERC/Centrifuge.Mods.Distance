@@ -7,7 +7,7 @@ using Distance.AdventureMaker.Common.Models.Resources;
 using System;
 using System.Collections.Generic;
 
-public static partial class Constants
+public static class Constants
 {
 	public const string STEAM_APPID_FILE = "steam_appid.txt";
 	public const string DISTANCE_STEAM_APPID = "233610";
@@ -22,7 +22,7 @@ public static partial class Constants
 
 	// Tool-specific filters
 	public const string DIALOG_FILTER_PROJECT = "Json project files (project.json)|project.json";
-	public const string DIALOG_FILTER_ARCHIVE = "Extension description|*";
+	public const string DIALOG_FILTER_ARCHIVE = "Campaign Resource Assed Bundle (.crab)|*.crab";
 
 	// Image filters
 	public const string DIALOG_FILTER_PNG = "Portable Network Graphics (*.png)|*.png";
@@ -54,6 +54,7 @@ public static partial class Constants
 	public const string DIALOG_CAPTION_REMOVE_RESOURCE = "Remove resource";
 	public const string DIALOG_CAPTION_START_PREVIEW = "Preview mode";
 	public const string DIALOG_CAPTION_MISSING_FILE = "Missing file";
+	public const string DIALOG_CAPTION_EXPORT_CANCELED = "Export canceled!";
 
 	public const string PLAYLIST_NO_NAME = "(No playlist name)";
 
