@@ -1,5 +1,6 @@
 ﻿#if APP
 using App.AdventureMaker.Core.Interfaces;
+using App.AdventureMaker.Core.Lib_Interop;
 using Eto.Drawing;
 #endif
 using Distance.AdventureMaker.Common.Enums;
@@ -22,7 +23,7 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 			#if APP
 			public override int dependencies_count => 1;
 
-			public Image AsImage(IEditor<CampaignFile> editor)
+			public override Image AsImage(IEditor<CampaignFile> editor)
 			{
 				FileInfo textureFile = editor.GetResourceFile(thumbnail);
 
@@ -30,7 +31,7 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 				{
 					try
 					{
-						return new Bitmap(textureFile.FullName);
+						return PfimImage.FromFile(textureFile);
 					}
 					catch (Exception)
 					{

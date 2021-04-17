@@ -1,5 +1,11 @@
-﻿using Distance.AdventureMaker.Common.Enums;
+﻿#if APP
+#pragma warning disable RCS1079
+using App.AdventureMaker.Core.Interfaces;
+using Eto.Drawing;
+#endif
+using Distance.AdventureMaker.Common.Enums;
 using Newtonsoft.Json;
+using System;
 
 namespace Distance.AdventureMaker.Common.Models.Resources
 {
@@ -13,7 +19,12 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 			#if APP
 			[JsonIgnore]
 			public override int dependencies_count => 0;
-			#endif
+
+			public override Image AsImage(IEditor<CampaignFile> editor)
+			{
+				throw new NotImplementedException();
+			}
+#endif
 
 			public Dummy()
 			{

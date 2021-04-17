@@ -1,5 +1,8 @@
 ﻿#pragma warning disable IDE1006
-
+#if APP
+using App.AdventureMaker.Core.Interfaces;
+using Eto.Drawing;
+#endif
 using Distance.AdventureMaker.Common.Enums;
 using JsonSubTypes;
 using Newtonsoft.Json;
@@ -25,6 +28,8 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 		#if APP
 		[JsonIgnore]
 		public abstract int dependencies_count { get; }
+
+		public abstract Image AsImage(IEditor<CampaignFile> editor);
 		#endif
 
 		protected CampaignResource()
