@@ -2,15 +2,12 @@
 using Eto.Drawing;
 using System;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace App.AdventureMaker.Core.Lib_Interop
 {
 	public static class PfimImage
 	{
-		private const float RATIO = byte.MaxValue;
-
 		public static Image FromFile(string filePath) => FromFile(new FileInfo(filePath));
 
 		public static Image FromFile(FileInfo file)
