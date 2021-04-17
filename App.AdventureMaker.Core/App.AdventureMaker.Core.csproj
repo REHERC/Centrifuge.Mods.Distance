@@ -46,6 +46,7 @@
 	<PackageReference Include="HarmonyX" Version="2.4.1" />
 	<PackageReference Include="JsonSubTypes" Version="1.8.0" />
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	<PackageReference Include="Pfim" Version="0.10.0" />
 	<PackageReference Include="PropertyChanged.Fody" Version="3.3.3" PrivateAssets="All" />
 	<PackageReference Include="SharpCompress" Version="0.28.1" />
   </ItemGroup>
