@@ -13,9 +13,11 @@ public static class Dialogs
 			CheckFileExists = true,
 			Filters =
 			{
+				DIALOG_FILTER_IMAGES,
 				DIALOG_FILTER_PNG,
 				DIALOG_FILTER_JPG,
 				DIALOG_FILTER_BMP,
+				DIALOG_FILTER_DDS,
 				DIALOG_FILTER_TGA,
 				DIALOG_FILTER_TIF,
 				DIALOG_FILTER_ANY

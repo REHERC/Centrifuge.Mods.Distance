@@ -25,9 +25,11 @@ public static class Constants
 	public const string DIALOG_FILTER_ARCHIVE = "Campaign Resource Assed Bundle (.crab)|.crab";
 
 	// Image filters
+	public const string DIALOG_FILTER_IMAGES = "Image files (*.png;*.jpeg;*.jpg;*.jpe;*.jif;*.jfif;*.jfi;*.tga;*.dds;*.tif;*.tiff;*.bmp)|*.png;*.jpeg;*.jpg;*.jpe;*.jif;*.jfif;*.jfi;*.tga;*.dds;*.tif;*.tiff;*.bmp";
 	public const string DIALOG_FILTER_PNG = "Portable Network Graphics (*.png)|*.png";
 	public const string DIALOG_FILTER_JPG = "Joint Photographic Experts Group (*.jpeg;*.jpg;*.jpe;*.jif;*.jfif;*.jfi)|*.jpeg;*.jpg;*.jpe;*.jif;*.jfif;*.jfi";
 	public const string DIALOG_FILTER_TGA = "Truevision Advanced Raster Graphics Adapter (*.tga)|*.tga";
+	public const string DIALOG_FILTER_DDS = "Direct Draw Surface (*.dds)|*.dds";
 	public const string DIALOG_FILTER_TIF = "Tag Image File Format (*.tif;*.tiff)|*.tif;*.tiff";
 	public const string DIALOG_FILTER_BMP = "Bitmap (*.bmp)|*.bmp";
 
