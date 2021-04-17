@@ -27,7 +27,6 @@ namespace App.AdventureMaker.Core.Lib_Interop
 				{
 					GCHandle handle = GCHandle.Alloc(image.Data, GCHandleType.Pinned);
 
-
 					try
 					{
 						int[] pixels = new int[image.Width * image.Height];
