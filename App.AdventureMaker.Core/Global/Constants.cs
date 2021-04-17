@@ -22,7 +22,7 @@ public static class Constants
 
 	// Tool-specific filters
 	public const string DIALOG_FILTER_PROJECT = "Json project files (project.json)|project.json";
-	public const string DIALOG_FILTER_ARCHIVE = "Campaign Resource Assed Bundle (.crab)|*.crab";
+	public const string DIALOG_FILTER_ARCHIVE = "Campaign Resource Assed Bundle (.crab)|.crab";
 
 	// Image filters
 	public const string DIALOG_FILTER_PNG = "Portable Network Graphics (*.png)|*.png";

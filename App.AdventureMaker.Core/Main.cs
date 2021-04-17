@@ -1,4 +1,5 @@
 ﻿using App.AdventureMaker.Core.Forms;
+using Eto;
 using System.Globalization;
 using System.Threading;
 
@@ -6,7 +7,7 @@ namespace App.AdventureMaker.Core
 {
 	public static class Main
 	{
-		public static void Start(string platformID)
+		public static void Start()
 		{
 			CultureInfo english = new CultureInfo("en-US");
 
@@ -20,7 +21,7 @@ namespace App.AdventureMaker.Core
 
 			RuntimePatcher.AutoPatch();
 
-			new Eto.Forms.Application(platformID).Run(new MainWindow());
+			new Eto.Forms.Application(Platform.Detect).Run(new MainWindow());
 		}
 	}
 }

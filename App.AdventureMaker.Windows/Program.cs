@@ -1,6 +1,5 @@
-﻿using static App.AdventureMaker.Core.Main;
-using Eto;
-using System;
+﻿using System;
+using static App.AdventureMaker.Core.Main;
 
 namespace App.AdventureMaker.Windows
 {
@@ -9,7 +8,7 @@ namespace App.AdventureMaker.Windows
 		[STAThread]
 		private static void Main()
 		{
-			Start(Platforms.WinForms);
+			Start();
 		}
 	}
 }
