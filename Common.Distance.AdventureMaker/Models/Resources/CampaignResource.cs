@@ -27,7 +27,7 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 
 		#if APP
 		[JsonIgnore]
-		public abstract int dependencies_count { get; }
+		public abstract int required_files { get; }
 
 		public abstract Image AsImage(IEditor<CampaignFile> editor);
 		#endif

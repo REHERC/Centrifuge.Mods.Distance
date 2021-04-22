@@ -1,66 +1,32 @@
 ﻿#pragma warning disable IDE0063
-using App.AdventureMaker.Core.Forms;
 using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
 using Distance.AdventureMaker.Common.Models.Resources;
-using Distance.AdventureMaker.Common.Models.UI;
 using Newtonsoft.Json;
 using SharpCompress.Archives.Zip;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
-using System.Threading;
+using System.Threading.Tasks;
 
-namespace App.AdventureMaker.Core
+namespace App.AdventureMaker.Core.Tasks
 {
-	public static class Project
+	public class ExportProjectTask : TaskBase
 	{
-		public static CampaignFile CreateProject(ProjectCreateData data)
+		private readonly FileInfo destination;
+		private readonly IEditor<CampaignFile> editor;
+
+		public ExportProjectTask(FileInfo destination, IEditor<CampaignFile> editor)
 		{
-			try
-			{
-				DirectoryInfo projectDir = Directory.CreateDirectory(data.path);
-				DirectoryInfo resourcesDir = projectDir.CreateSubdirectory("resources");
-
-				resourcesDir.CreateSubdirectory("levels");
-				resourcesDir.CreateSubdirectory("textures");
-				//resourcesDir.CreateSubdirectory("audio"); UNUSED FOR NOW
-
-				CampaignFile project = data.ToProject();
-				project.Metadata.Guid = Guid.NewGuid().ToString();
-
-				Json.Save(Path.Combine(projectDir.FullName, "project.json"), project, true);
-
-				return project;
-			}
-			catch (Exception)
-			{
-				return null;
-			}
+			this.destination = destination;
+			this.editor = editor;
 		}
 
-		public static void ExportProject(FileInfo destination, IEditor<CampaignFile> editor)
+		public override bool Execute(IProgressData progress)
 		{
+			progress.Status = "Test";
 
-			// Just testing...
-			/*using (Stream file = File.Create(destination.FullName))
-			{
-				using (IWriter archive = WriterFactory.Open(file, ArchiveType.Zip, CompressionType.LZMA))
-				{
-					archive.CreateEntry("project.json", JsonConvert.SerializeObject(editor.Document));
-				}
-			}*/
-
-			var progress = new ProgressWindow();
-			progress.ShowModalAsync();
-
-			// Testing something
-			for (int i = 0; i < 100; ++i)
-			{
-				progress.Status = $"Operation number {i}";
-				Thread.Sleep(100);
-			}
 
 			Dictionary<string, string> hashes = new Dictionary<string, string>();
 
@@ -68,6 +34,8 @@ namespace App.AdventureMaker.Core
 			{
 				void hash(string resource)
 				{
+					progress.Status = $"Calculating hash for {resource}";
+
 					FileInfo file = editor.GetResourceFile(resource);
 					if (hashes.ContainsKey(resource) || !file.Exists) return;
 
@@ -127,7 +95,7 @@ namespace App.AdventureMaker.Core
 				}
 			}
 
-			progress.NotifyCompleted();
+			return true; // JUST SO THE COMPILER GETS LESS ANNOYING
 		}
 	}
 }

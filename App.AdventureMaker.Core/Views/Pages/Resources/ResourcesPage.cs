@@ -126,11 +126,11 @@ namespace App.AdventureMaker.Core.Views
 					}),
 					(resourceDependenciesColumn = new GridColumn()
 					{
-						HeaderText = "Dependencies",
+						HeaderText = "Number of files",
 						Width = 120,
 						DataCell = new TextBoxCell()
 						{
-							Binding = Binding.Property<CampaignResource, string>(res => $"{(res.dependencies_count == 0 ? "none" : $"{res.dependencies_count} other resource(s)")}"),
+							Binding = Binding.Property<CampaignResource, string>(res => $"{(res.required_files == 0 ? "none" : $"{res.required_files} file(s)")}"),
 						},
 						Editable = false,
 						Resizable = true

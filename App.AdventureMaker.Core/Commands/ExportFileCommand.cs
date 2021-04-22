@@ -1,5 +1,7 @@
-﻿using App.AdventureMaker.Core.Forms.FileChecker;
+﻿using App.AdventureMaker.Core.Forms;
+using App.AdventureMaker.Core.Forms.FileChecker;
 using App.AdventureMaker.Core.Interfaces;
+using App.AdventureMaker.Core.Tasks;
 using Distance.AdventureMaker.Common.Enums;
 using Distance.AdventureMaker.Common.Models;
 using Distance.AdventureMaker.Common.Validation.Validators;
@@ -37,7 +39,7 @@ namespace App.AdventureMaker.Core.Commands
 				CampaignValidator validator = new CampaignValidator(editor.CurrentFile.Directory);
 				validator.Validate(editor.Document);
 
-				if (validator.GetMessages(StatusLevel.Error).Length > 0)
+				/*if (validator.GetMessages(StatusLevel.Error).Length > 0)
 				{
 					new FileCheckWindow(validator)
 					{
@@ -46,7 +48,10 @@ namespace App.AdventureMaker.Core.Commands
 				}
 				else
 				{
-				}
+				}*/
+
+				//ExportProjectTask task = new ExportProjectTask(new FileInfo(dialog.FileName), editor);
+				//TaskBase.Run<ProgressWindow>(task);
 				Project.ExportProject(new FileInfo(dialog.FileName), editor);
 			}
 		}

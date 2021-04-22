@@ -18,7 +18,7 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 
 			#if APP
 			[JsonIgnore]
-			public override int dependencies_count => 0;
+			public override int required_files => 0;
 
 			public override Image AsImage(IEditor<CampaignFile> editor)
 			{
