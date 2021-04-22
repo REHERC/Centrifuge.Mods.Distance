@@ -14,8 +14,8 @@ namespace App.AdventureMaker.Core.Forms
 			Content = new StackLayout()
 			{
 				Style = "vertical",
-				Spacing = 20,
-				Padding = new Padding(24),
+				Spacing = 12,
+				Padding = new Padding(16),
 
 				//Spacing = new Size(15, 15),
 				Items =
@@ -40,6 +40,11 @@ namespace App.AdventureMaker.Core.Forms
 					new Label()
 					{
 						Text = "Community content making tool for Distance",
+						TextAlignment = TextAlignment.Center
+					},
+					new Label()
+					{
+						Text = Main.GetVersionString(),
 						TextAlignment = TextAlignment.Center
 					},
 					//new StackLayout()

@@ -2,7 +2,6 @@
 using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
-using System;
 using System.Collections.Generic;
 
 namespace App.AdventureMaker.Core.Views

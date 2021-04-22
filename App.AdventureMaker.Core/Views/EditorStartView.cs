@@ -5,6 +5,7 @@ using Eto.Drawing;
 using Eto.Forms;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 
 namespace App.AdventureMaker.Core.Views
 {
@@ -68,8 +69,13 @@ namespace App.AdventureMaker.Core.Views
 									TextAlignment = TextAlignment.Center,
 									Font = new Font(SystemFont.Bold),
 									TextColor = Colors.Red
-								}, new Padding(8), centered: true)
+								}, new Padding(8), centered: true),
 								#endif
+								TableLayout.AutoSized(new Label()
+								{
+									Text = Main.GetVersionString(),
+									TextAlignment = TextAlignment.Center,
+								}, new Padding(8), centered: true),
 							}
 						}
 					}, false),

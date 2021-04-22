@@ -12,6 +12,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)mscorlib\System\IO\FileInfoEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)mscorlib\System\IO\DirectoryInfoEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)mscorlib\System\IO\IO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)mscorlib\System\Reflection\AssemblyEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)mscorlib\System\StringEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)mscorlib\System\VersionEx.cs" />
   </ItemGroup>
 </Project>
