@@ -1,16 +1,9 @@
 ﻿#pragma warning disable IDE0063
-using App.AdventureMaker.Core.Forms;
-using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
-using Distance.AdventureMaker.Common.Models.Resources;
 using Distance.AdventureMaker.Common.Models.UI;
 using Newtonsoft.Json;
-using SharpCompress.Archives.Zip;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Security.Cryptography;
-using System.Threading;
 
 namespace App.AdventureMaker.Core
 {
@@ -40,91 +33,31 @@ namespace App.AdventureMaker.Core
 			}
 		}
 
-		public static void ExportProject(FileInfo destination, IEditor<CampaignFile> editor)
+		public static bool IsValidProjectManifest(string content)
 		{
-
-			// Just testing...
-			/*using (Stream file = File.Create(destination.FullName))
+			try
 			{
-				using (IWriter archive = WriterFactory.Open(file, ArchiveType.Zip, CompressionType.LZMA))
-				{
-					archive.CreateEntry("project.json", JsonConvert.SerializeObject(editor.Document));
-				}
-			}*/
-
-			var progress = new ProgressWindow();
-			progress.ShowModalAsync();
-
-			// Testing something
-			for (int i = 0; i < 100; ++i)
-			{
-				progress.Status = $"Operation number {i}";
-				Thread.Sleep(100);
+				return JsonConvert.DeserializeObject<CampaignFile>(content) != null;
 			}
-
-			Dictionary<string, string> hashes = new Dictionary<string, string>();
-
-			using (HashAlgorithm ha = SHA512.Create())
+			catch (Exception)
 			{
-				void hash(string resource)
-				{
-					FileInfo file = editor.GetResourceFile(resource);
-					if (hashes.ContainsKey(resource) || !file.Exists) return;
-
-					using (Stream stream = File.OpenRead(file.FullName))
-					{
-						byte[] hashed = ha.ComputeHash(stream);
-						hashes[resource] = BitConverter.ToString(hashed).Replace("-", "");
-					}
-				}
-
-				foreach (CampaignResource resource in editor.Document.Data.Resources)
-				{
-					switch (resource)
-					{
-						case CampaignResource.Texture texture:
-							hash(texture.file);
-							break;
-						case CampaignResource.Level level:
-							hash(level.file);
-							hash(level.thumbnail);
-							break;
-					}
-				}
+				return false;
 			}
+		}
 
-			using (Stream file = File.Create(destination.FullName))
+		public static bool IsValidProjectManifest(Stream stream)
+		{
+			using (TextReader reader = new StreamReader(stream))
 			{
-				using (ZipArchive archive = ZipArchive.Create())
-				{
-					archive.AddEntry("readme.txt", Resources.GetText("archive_readme.txt").GetStream());
-					archive.AddEntry("project.json", JsonConvert.SerializeObject(editor.Document).GetStream());
-					archive.AddEntry("hashes.json", JsonConvert.SerializeObject(hashes).GetStream());
+				return IsValidProjectManifest(reader.ReadToEnd());
+			}
+		}
 
-					void addfile(string resource)
-					{
-						FileInfo file = editor.GetResourceFile(resource);
-						if (!file.Exists) return;
-
-						archive.AddEntry($"resources/{resource}", File.OpenRead(file.FullName));
-					}
-
-					foreach (CampaignResource resource in editor.Document.Data.Resources)
-					{
-						switch (resource)
-						{
-							case CampaignResource.Texture texture:
-								addfile(texture.file);
-								break;
-							case CampaignResource.Level level:
-								addfile(level.file);
-								addfile(level.thumbnail);
-								break;
-						}
-					}
-
-					archive.SaveTo(file);
-				}
+		public static bool IsValidProjectManifest(FileInfo file)
+		{
+			using (FileStream stream = File.OpenRead(file.FullName))
+			{
+				return IsValidProjectManifest(stream);
 			}
 		}
 	}

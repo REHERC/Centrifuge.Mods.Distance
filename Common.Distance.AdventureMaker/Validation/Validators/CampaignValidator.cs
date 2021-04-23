@@ -93,11 +93,15 @@ namespace Distance.AdventureMaker.Common.Validation.Validators
 			}
 			else
 			{
-				if (!playlists.Any(playlist => playlist.DisplayInCampaign))
+				if (!playlists.Any(playlist => playlist.DisplayInCampaign && playlist.Levels.Count > 0))
 					Log(StatusLevel.Error, "The campaign must have at least one campaign playlist");
+
+				HashSet<string> referenced_levels = new HashSet<string>();
 
 				foreach (CampaignPlaylist playlist in playlists)
 				{
+					referenced_levels.Clear();
+
 					Log(StatusLevel.Info, $"Validating playlist #{playlists.IndexOf(playlist) + 1} ({playlist.Name})");
 
 					if (string.IsNullOrEmpty(playlist.Guid))
@@ -125,6 +129,11 @@ namespace Distance.AdventureMaker.Common.Validation.Validators
 						foreach (CampaignLevel level in levels)
 						{
 							Log(StatusLevel.Info, $"Validating level {levels.IndexOf(level) + 1} ({level.Name})...");
+
+							if (referenced_levels.Contains(level.ResourceId))
+								Log(StatusLevel.Error, "The level file was already referenced by another item in the playlist");
+
+							referenced_levels.Add(level.ResourceId);
 
 							if (string.IsNullOrEmpty(level.Guid))
 								Log(StatusLevel.Error, "The level unique ID cannot be null and must be renewed");

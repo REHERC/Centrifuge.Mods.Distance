@@ -16,13 +16,13 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 	[JsonSubtypes.KnownSubType(typeof(Level), ResourceType.Level)]
 	public abstract partial class CampaignResource
 	{
-		[JsonProperty("guid")]
+		[JsonProperty("guid", Required = Required.Always)]
 		public string guid;
 
-		[JsonProperty("file")]
+		[JsonProperty("file", Required = Required.Always)]
 		public string file;
 
-		[JsonProperty("resource_type")]
+		[JsonProperty("resource_type", Required = Required.Always)]
 		public virtual ResourceType resource_type { get; }
 
 		#if APP

@@ -17,25 +17,25 @@ namespace Distance.AdventureMaker.Common.Models
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		[JsonProperty("guid")]
+		[JsonProperty("guid", Required = Required.Always)]
 		public string Guid { get; set; }
 
-		[JsonProperty("name")]
+		[JsonProperty("name", Required = Required.Always)]
 		public string Name { get; set; }
 
-		[JsonProperty("description")]
+		[JsonProperty("description", Required = Required.Always)]
 		public string Description { get; set; }
 
-		[JsonProperty("icon")]
+		[JsonProperty("icon", Required = Required.Always)]
 		public string Icon { get; set; }
 
-		[JsonProperty("display_in_sprint")]
+		[JsonProperty("display_in_sprint", Required = Required.Always)]
 		public bool DisplayInSprint { get; set; }
 
-		[JsonProperty("display_in_campaign")]
+		[JsonProperty("display_in_campaign", Required = Required.Always)]
 		public bool DisplayInCampaign { get; set; }
 
-		[JsonProperty("levels")]
+		[JsonProperty("levels", Required = Required.Always)]
 		public List<CampaignLevel> Levels { get; set; }
 
 		public CampaignPlaylist()

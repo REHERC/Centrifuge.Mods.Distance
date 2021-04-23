@@ -13,7 +13,7 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 	{
 		public class Texture : CampaignResource
 		{
-			[JsonProperty("resource_type")]
+			[JsonProperty("resource_type", Required = Required.Always)]
 			public override ResourceType resource_type => ResourceType.Texture;
 
 			#if APP

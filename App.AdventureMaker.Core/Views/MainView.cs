@@ -85,9 +85,12 @@ namespace App.AdventureMaker.Core.Views
 		{
 			if (file?.Exists == true)
 			{
-				CurrentFile = file;
-				CampaignFile project = Json.Load<CampaignFile>(file);
-				editorView.LoadData(project, resetUI);
+				if (Project.IsValidProjectManifest(file))
+				{
+					CurrentFile = file;
+					CampaignFile project = Json.Load<CampaignFile>(file);
+					editorView.LoadData(project, resetUI);
+				}
 			}
 			else
 			{
