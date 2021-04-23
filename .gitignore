@@ -340,3 +340,5 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /App.CustomDeathMessages.Linux/Properties/PublishProfiles/linux-x64.pubxml.user
+/App.CustomDeathMessages.Windows/Properties/launchSettings.json
+/App.CustomDeathMessages.Linux/Properties/launchSettings.json
