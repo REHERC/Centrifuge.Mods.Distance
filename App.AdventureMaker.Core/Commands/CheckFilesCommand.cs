@@ -28,7 +28,10 @@ namespace App.AdventureMaker.Core.Commands
 		{
 			CampaignValidator validator = new CampaignValidator(editor.CurrentFile.Directory);
 			validator.Validate(editor.Document);
-			new FileCheckWindow(validator).Show();
+			new FileCheckWindow(validator)
+			{
+				Title = "Project file structure checker"
+			}.Show();
 		}
 	}
 }

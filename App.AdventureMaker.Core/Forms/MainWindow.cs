@@ -9,7 +9,7 @@ namespace App.AdventureMaker.Core.Forms
 {
 	public class MainWindow : Form
 	{
-		private const string Name = "Distance - Campaign Editor";
+		private const string Name = "Distance Campaign Editor";
 
 		private MainView mainView;
 
