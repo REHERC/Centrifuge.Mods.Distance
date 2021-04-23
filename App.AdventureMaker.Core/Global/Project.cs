@@ -126,8 +126,6 @@ namespace App.AdventureMaker.Core
 					archive.SaveTo(file);
 				}
 			}
-
-			progress.NotifyCompleted();
 		}
 	}
 }

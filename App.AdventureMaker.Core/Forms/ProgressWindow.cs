@@ -3,14 +3,15 @@ using App.AdventureMaker.Core.Interfaces;
 using App.AdventureMaker.Core.Tasks;
 using Eto.Drawing;
 using Eto.Forms;
+using System;
 using System.ComponentModel;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace App.AdventureMaker.Core.Forms
 {
-	public class ProgressWindow : Dialog, IProgressData
+	public class ProgressWindow : Dialog, IProgressReporter
 	{
+		#region Properties
 		private bool CanClose { get; set; }
 
 		public string Status
@@ -25,29 +26,39 @@ namespace App.AdventureMaker.Core.Forms
 
 		public int Value
 		{
-			get => progress.Value;
+			get => bar.Value;
 			set
 			{
-				progress.Value = value;
+				bar.Value = value;
 				Invalidate();
 			}
 		}
 
 		public int Maximum
 		{
-			get => progress.MaxValue;
+			get => bar.MaxValue;
 			set
 			{
-				progress.MaxValue = value;
+				bar.MaxValue = value;
 				Invalidate();
 			}
 		}
+		#endregion
 
-		private readonly ProgressBar progress;
+		private readonly ProgressBar bar;
 		private readonly Label status;
+		private readonly Progress progress;
+		private readonly Control owner;
+
+		public ProgressWindow(Control owner) : this()
+		{
+			this.owner = owner;
+		}
 
 		public ProgressWindow()
 		{
+			progress = new Progress();
+
 			MinimumSize = new Size(384, 128);
 			Size = MinimumSize;
 
@@ -62,12 +73,13 @@ namespace App.AdventureMaker.Core.Forms
 				Items =
 				{
 					new StackLayoutItem(status = new Label(), false),
-					new StackLayoutItem(progress = new ProgressBar(), false),
+					new StackLayoutItem(bar = new ProgressBar(), false),
 				}
 			};
 
-
 			WindowStyle = WindowStyle.Utility;
+
+			this.owner = null;
 		}
 
 		protected override void OnClosing(CancelEventArgs e)
@@ -81,34 +93,45 @@ namespace App.AdventureMaker.Core.Forms
 			base.OnClosing(e);
 		}
 
-		public void NotifyCompleted()
+		public async Task RunTask(TaskBase task)
 		{
-			CanClose = true;
-			Close();
+			progress.PropertyChanged += OnProgressDataChanged;
+
+			Task showDialogTask = ShowModalAsync(owner);
+
+			Task callbackTask = task.Execute(progress).ContinueWith((_) =>
+			{
+				CanClose = true;
+				Application.Instance.Invoke(Close);
+			});
+
+			await callbackTask.ConfigureAwait(false);
+			await showDialogTask.ConfigureAwait(false);
+
+			//await Task.WhenAll(showDialogTask, callbackTask).ConfigureAwait(false);
+
+			progress.PropertyChanged -= OnProgressDataChanged;
 		}
 
-		public bool Run(TaskBase task)
+		protected void OnProgressDataChanged(object sender, EventArgs e)
 		{
-			bool result = false;
-
-			Thread thread = new Thread(() =>
+			Application.Instance.Invoke(() =>
 			{
-				ShowModal(null);
-				result = task.Execute(this);
-			})
-			{
-				IsBackground = true
-			};
+				Title = progress.Title;
+				status.Text = progress.Status;
+				bar.MaxValue = progress.Maximum;
+				bar.Value = progress.Value;
+			});
+		}
 
-			thread.Start();
+		Task IProgressReporter.RunTask(TaskBase task)
+		{
+			return RunTask(task);
+		}
 
-			while (thread.IsAlive)
-			{
-				//Task.Delay(1);
-				Thread.Yield();
-			}
-
-			return result;
+		void IProgressReporter.OnProgressDataChanged(object sender, EventArgs e)
+		{
+			OnProgressDataChanged(sender, e);
 		}
 	}
 }

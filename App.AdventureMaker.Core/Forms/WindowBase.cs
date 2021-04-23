@@ -1,6 +1,6 @@
 ﻿#pragma warning disable RCS1110
 
-public static class Window
+public static class WindowBase
 {
 	private const string BADGE_FORMAT = "[{0}]";
 	private const string BADGE_SEPARATOR = " | ";
@@ -36,7 +36,7 @@ public abstract class Form : Eto.Forms.Form
 	public new string Title
 	{
 		get => base.Title;
-		set => base.Title = Window.Name(value);
+		set => base.Title = WindowBase.Name(value);
 	}
 }
 
@@ -45,7 +45,7 @@ public abstract class Dialog : Eto.Forms.Dialog
 	public new string Title
 	{
 		get => base.Title;
-		set => base.Title = Window.Name(value);
+		set => base.Title = WindowBase.Name(value);
 	}
 }
 
@@ -54,6 +54,6 @@ public abstract class Dialog<T> : Eto.Forms.Dialog<T>
 	public new string Title
 	{
 		get => base.Title;
-		set => base.Title = Window.Name(value);
+		set => base.Title = WindowBase.Name(value);
 	}
 }

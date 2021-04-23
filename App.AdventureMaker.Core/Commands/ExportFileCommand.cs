@@ -17,10 +17,12 @@ namespace App.AdventureMaker.Core.Commands
 	{
 		private readonly IEditor<CampaignFile> editor;
 		private readonly SaveFileDialog dialog;
+		private readonly Control owner;
 
-		public ExportFileCommand(IEditor<CampaignFile> editor)
+		public ExportFileCommand(IEditor<CampaignFile> editor, Control owner)
 		{
 			this.editor = editor;
+			this.owner = owner;
 
 			MenuText = "&Export";
 			ToolBarText = "Export";
@@ -32,27 +34,23 @@ namespace App.AdventureMaker.Core.Commands
 			editor.OnLoaded += (_) => Enabled = editor.CurrentFile != null;
 		}
 
-		protected override void OnExecuted(EventArgs e)
+		protected override async void OnExecuted(EventArgs e)
 		{
-			if (dialog.ShowDialog(null) == DialogResult.Ok)
+			CampaignValidator validator = new CampaignValidator(editor.CurrentFile.Directory);
+			validator.Validate(editor.Document);
+
+			if (validator.GetMessages(StatusLevel.Error).Length > 0)
 			{
-				CampaignValidator validator = new CampaignValidator(editor.CurrentFile.Directory);
-				validator.Validate(editor.Document);
-
-				/*if (validator.GetMessages(StatusLevel.Error).Length > 0)
+				new FileCheckWindow(validator)
 				{
-					new FileCheckWindow(validator)
-					{
-						Title = DIALOG_CAPTION_EXPORT_CANCELED
-					}.Show();
-				}
-				else
-				{
-				}*/
-
-				//ExportProjectTask task = new ExportProjectTask(new FileInfo(dialog.FileName), editor);
-				//TaskBase.Run<ProgressWindow>(task);
-				Project.ExportProject(new FileInfo(dialog.FileName), editor);
+					Title = DIALOG_CAPTION_EXPORT_CANCELED
+				}.Show();
+			}
+			else if (dialog.ShowDialog(null) == DialogResult.Ok)
+			{
+				ExportProjectTask task = new ExportProjectTask(new FileInfo(dialog.FileName), editor);
+				ProgressWindow progressWindow = new ProgressWindow(owner);
+				await TaskBase.Run(progressWindow, task).ConfigureAwait(false);
 			}
 		}
 	}
