@@ -13,11 +13,13 @@ namespace App.AdventureMaker.Core.Forms
 	{
 		private readonly IEditor<CampaignFile> editor;
 
-		private readonly EnumDropDown<ResourceType> dropDown;
+		private readonly EnumRadioButtonList<ResourceType> dropDown;
 
 		public AddResourceWindow(IEditor<CampaignFile> editor)
 		{
 			this.editor = editor;
+
+			Title = "Add new resource";
 
 			Size = MinimumSize = new Size(400, 250);
 			Resizable = false;
@@ -32,7 +34,11 @@ namespace App.AdventureMaker.Core.Forms
 					new StackLayoutItem(new GroupBox()
 					{
 						Text = "Select a resource type to add",
-						Content = (dropDown = new EnumDropDown<ResourceType>())
+						Content = (dropDown = new EnumRadioButtonList<ResourceType>()
+						{
+							Orientation = Orientation.Vertical,
+							Spacing = new Size(8, 8)
+						})
 					}, true),
 					new StackLayoutItem(new StackLayout()
 					{

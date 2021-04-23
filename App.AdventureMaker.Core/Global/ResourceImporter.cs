@@ -4,6 +4,7 @@ using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
 using System;
 using System.IO;
+using System.Text;
 
 public static class ResourceImporter
 {
@@ -49,10 +50,21 @@ public static class ResourceImporter
 
 	public static string GenerateDirectoryName(string path)
 	{
-		string guid = Guid.NewGuid().ToString("D");
-		string date = DateTime.Now.Ticks.ToString();
+		//string guid = Guid.NewGuid().ToString("D");
+		//string date = DateTime.Now.Ticks.ToString();
 		string root = !string.IsNullOrWhiteSpace(path) ? $"{path}/" : "";
 
-		return $"{root}imported/{guid}_{date}";
+		//return $"{root}imported/{guid}_{date}";
+
+		Random random = new Random((int)(DateTime.Now.Ticks % int.MaxValue));
+
+		StringBuilder sb = new StringBuilder();
+
+		while (sb.Length < 4)
+		{
+			sb.Append(random.Next(10));
+		}
+
+		return $"{root}imported/{sb}";
 	}
 }
