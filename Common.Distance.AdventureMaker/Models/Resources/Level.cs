@@ -21,7 +21,7 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 			public string thumbnail;
 
 			#if APP
-			public override int required_files => 1;
+			public override int required_files => 2;
 
 			public override Image AsImage(IEditor<CampaignFile> editor)
 			{

@@ -17,7 +17,7 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 			public override ResourceType resource_type => ResourceType.Texture;
 
 			#if APP
-			public override int required_files => 0;
+			public override int required_files => 1;
 
 			public override Image AsImage(IEditor<CampaignFile> editor)
 			{
