@@ -24,9 +24,14 @@ namespace App.AdventureMaker.Core
 			new Eto.Forms.Application(Platform.Detect).Run(new MainWindow());
 		}
 
-		public static string GetVersionString()
+		public static string GetFullVersionString()
 		{
-			return $"V.{typeof(Main).Assembly.GetName().Version} - Built on {typeof(Main).Assembly.GetBuildDate():g}";
+			return $"V.{GetVersionString()} - Built on {typeof(Main).Assembly.GetBuildDate():g}";
+		}
+
+		public static string GetVersionString(int fieldCount = 4)
+		{
+			return typeof(Main).Assembly.GetName().Version.ToString(fieldCount);
 		}
 	}
 }

@@ -35,7 +35,7 @@ namespace App.AdventureMaker.Core.Forms
 		{
 			if (mainView.CurrentFile != null)
 			{
-				Title = $"{Name} - [{mainView.CurrentFile.FullName}{(mainView.Modified ? "*" : string.Empty)}]";
+				Title = $"{Name} {Main.GetVersionString(2)} - [{mainView.CurrentFile.FullName}{(mainView.Modified ? "*" : string.Empty)}]";
 			}
 			else
 			{

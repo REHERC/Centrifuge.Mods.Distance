@@ -73,7 +73,7 @@ namespace App.AdventureMaker.Core.Views
 								#endif
 								TableLayout.AutoSized(new Label()
 								{
-									Text = Main.GetVersionString(),
+									Text = Main.GetFullVersionString(),
 									TextAlignment = TextAlignment.Center,
 								}, new Padding(8), centered: true),
 							}

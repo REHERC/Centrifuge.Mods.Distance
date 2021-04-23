@@ -44,7 +44,7 @@ namespace App.AdventureMaker.Core.Forms
 					},
 					new Label()
 					{
-						Text = Main.GetVersionString(),
+						Text = Main.GetFullVersionString(),
 						TextAlignment = TextAlignment.Center
 					},
 					//new StackLayout()
