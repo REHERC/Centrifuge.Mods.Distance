@@ -4,7 +4,7 @@
 	<TargetFramework>netcoreapp3.1</TargetFramework>
 	<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
 	<Version>1.0.0.0</Version>
-	<AssemblyVersion>1.0.*</AssemblyVersion>
+	<AssemblyVersion>2.0.*</AssemblyVersion>
 	<Deterministic>false</Deterministic>
 	<NeutralLanguage>en</NeutralLanguage>
 	<RepositoryUrl>github.com/reherc/centrifuge.mods.distance</RepositoryUrl>
