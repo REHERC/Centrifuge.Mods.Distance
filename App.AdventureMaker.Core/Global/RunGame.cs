@@ -26,7 +26,7 @@ namespace App.AdventureMaker.Core
 				case 1:
 					if (IsNullOrWhiteSpace(AppSettings.Instance.GameExe))
 					{
-						if (Messages.GameExeNotSet() == DialogResult.Yes)
+						if (Messages.GameExeNotSetDialog() == DialogResult.Yes)
 						{
 							new SettingsWindow(0).ShowModal();
 						}
@@ -40,12 +40,12 @@ namespace App.AdventureMaker.Core
 						}
 						catch (Exception)
 						{
-							Messages.GameExeError();
+							Messages.GameExeErrorDialog();
 						}
 					}
 					else
 					{
-						Messages.MissingGameExe();
+						Messages.MissingGameExeDialog();
 					}
 					break;
 			}

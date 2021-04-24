@@ -1,5 +1,9 @@
 ﻿using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
+using System;
+using System.IO;
+using System.Text;
+using static Constants;
 
 namespace App.AdventureMaker.Core
 {
@@ -7,53 +11,61 @@ namespace App.AdventureMaker.Core
 	{
 		public static DialogResult UnsavedChangesDialog(string caption)
 		{
-			return MessageBox.Show(Constants.DIALOG_MESSAGE_UNSAVED_CHANGES, caption, MessageBoxButtons.YesNo, MessageBoxType.Warning);
+			return MessageBox.Show(DIALOG_MESSAGE_UNSAVED_CHANGES, caption, MessageBoxButtons.YesNo, MessageBoxType.Warning);
 		}
 
 		public static DialogResult SaveChangesDialog(string caption)
 		{
-			return MessageBox.Show(Constants.DIALOG_MESSAGE_UNSAVED_CHANGES, caption, MessageBoxButtons.YesNo, MessageBoxType.Warning);
+			return MessageBox.Show(DIALOG_MESSAGE_UNSAVED_CHANGES, caption, MessageBoxButtons.YesNo, MessageBoxType.Warning);
 		}
 
-		public static DialogResult RemovePlaylist(CampaignPlaylist playlist)
+		public static DialogResult RemovePlaylistDialog(CampaignPlaylist playlist)
 		{
-			return MessageBox.Show(string.Format(Constants.DIALOG_MESSAGE_REMOVE_PLAYLIST, playlist.Name), Constants.DIALOG_CAPTION_REMOVE_PLAYLIST, MessageBoxButtons.YesNo, MessageBoxType.Question);
+			return MessageBox.Show(string.Format(DIALOG_MESSAGE_REMOVE_PLAYLIST, playlist.Name), DIALOG_CAPTION_REMOVE_PLAYLIST, MessageBoxButtons.YesNo, MessageBoxType.Question);
 		}
 
-		public static DialogResult RemoveLevel(CampaignLevel level)
+		public static DialogResult RemoveLevelDialog(CampaignLevel level)
 		{
-			return MessageBox.Show(string.Format(Constants.DIALOG_MESSAGE_REMOVE_LEVEL, level.Name), Constants.DIALOG_CAPTION_REMOVE_LEVEL, MessageBoxButtons.YesNo, MessageBoxType.Question);
+			return MessageBox.Show(string.Format(DIALOG_MESSAGE_REMOVE_LEVEL, level.Name), DIALOG_CAPTION_REMOVE_LEVEL, MessageBoxButtons.YesNo, MessageBoxType.Question);
 		}
 
-		public static DialogResult RemoveResource()
+		public static DialogResult RemoveResourceDialog()
 		{
-			return MessageBox.Show(Constants.DIALOG_MESSAGE_REMOVE_RESOURCE, Constants.DIALOG_CAPTION_REMOVE_RESOURCE, MessageBoxButtons.YesNo, MessageBoxType.Question);
+			return MessageBox.Show(DIALOG_MESSAGE_REMOVE_RESOURCE, DIALOG_CAPTION_REMOVE_RESOURCE, MessageBoxButtons.YesNo, MessageBoxType.Question);
 		}
 
-		public static DialogResult PreviewMessage()
+		public static DialogResult ApplicationPreviewDialog()
 		{
-			return MessageBox.Show(Constants.DIALOG_MESSAGE_EDITOR_PREVIEW, Constants.DIALOG_CAPTION_EDITOR_PREVIEW, MessageBoxButtons.OK, MessageBoxType.Information);
-			//return DialogResult.Ok;
+			return MessageBox.Show(DIALOG_MESSAGE_EDITOR_PREVIEW, DIALOG_CAPTION_EDITOR_PREVIEW, MessageBoxButtons.OK, MessageBoxType.Information);
 		}
 
-		public static DialogResult SaveBeforeContinue()
+		public static DialogResult SaveBeforeContinueDialog()
 		{
-			return MessageBox.Show(Constants.DIALOG_MESSAGE_UNSAVED_CHANGES_CONTINUE, Constants.DIALOG_CAPTION_START_PREVIEW, MessageBoxButtons.YesNo, MessageBoxType.Question);
+			return MessageBox.Show(DIALOG_MESSAGE_UNSAVED_CHANGES_CONTINUE, DIALOG_CAPTION_START_PREVIEW, MessageBoxButtons.YesNo, MessageBoxType.Question);
 		}
 
-		public static DialogResult MissingGameExe()
+		public static DialogResult MissingGameExeDialog()
 		{
-			return MessageBox.Show(Constants.DIALOG_MESSAGE_MISSING_GAME_EXE, Constants.DIALOG_CAPTION_START_PREVIEW, MessageBoxButtons.OK, MessageBoxType.Error);
+			return MessageBox.Show(DIALOG_MESSAGE_MISSING_GAME_EXE, DIALOG_CAPTION_START_PREVIEW, MessageBoxButtons.OK, MessageBoxType.Error);
 		}
 
-		public static DialogResult GameExeError()
+		public static DialogResult GameExeErrorDialog()
 		{
-			return MessageBox.Show(Constants.DIALOG_MESSAGE_ERROR_GAME_EXE, Constants.DIALOG_CAPTION_START_PREVIEW, MessageBoxButtons.OK, MessageBoxType.Error);
+			return MessageBox.Show(DIALOG_MESSAGE_ERROR_GAME_EXE, DIALOG_CAPTION_START_PREVIEW, MessageBoxButtons.OK, MessageBoxType.Error);
 		}
 
-		public static DialogResult GameExeNotSet()
+		public static DialogResult GameExeNotSetDialog()
 		{
-			return MessageBox.Show(Constants.DIALOG_MESSAGE_GAME_EXE_NOT_SET, Constants.DIALOG_CAPTION_START_PREVIEW, MessageBoxButtons.YesNo, MessageBoxType.Question);
+			return MessageBox.Show(DIALOG_MESSAGE_GAME_EXE_NOT_SET, DIALOG_CAPTION_START_PREVIEW, MessageBoxButtons.YesNo, MessageBoxType.Question);
+		}
+
+		public static DialogResult InvalidFileDialog(FileInfo file, Exception error)
+		{
+			StringBuilder errorString = new StringBuilder();
+			errorString.AppendLine(error.GetType().FullName);
+			errorString.AppendLine(error.Message);
+
+			return MessageBox.Show(string.Format(DIALOG_MESSAGE_INVALID_FILE, file.FullName, errorString.ToString()), DIALOG_CAPTION_INVALID_FILE, MessageBoxButtons.OK, MessageBoxType.Error);
 		}
 	}
 }

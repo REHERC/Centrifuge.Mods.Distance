@@ -25,7 +25,7 @@ namespace App.AdventureMaker.Core.Commands
 		{
 			base.OnExecuted(e);
 
-			if (editor.Modified && Messages.SaveBeforeContinue() == DialogResult.No)
+			if (editor.Modified && Messages.SaveBeforeContinueDialog() == DialogResult.No)
 			{
 				return;
 			}

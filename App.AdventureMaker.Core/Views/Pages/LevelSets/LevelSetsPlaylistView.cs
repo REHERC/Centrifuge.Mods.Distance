@@ -290,7 +290,7 @@ namespace App.AdventureMaker.Core.Views
 		{
 			CampaignLevel level = levelList.SelectedItem;
 
-			if (!Equals(level, null) && Messages.RemoveLevel(level) == DialogResult.Yes)
+			if (!Equals(level, null) && Messages.RemoveLevelDialog(level) == DialogResult.Yes)
 			{
 				collection.Remove(level);
 				OnModified?.Invoke(this, EventArgs.Empty);

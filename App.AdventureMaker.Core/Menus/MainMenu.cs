@@ -20,7 +20,7 @@ namespace App.AdventureMaker.Core.Menus
 				Image = Resources.GetIcon("Package.ico"),
 				Items =
 				{
-					new ImportFileCommand(),
+					new ImportFileCommand(editor, form),
 					new ExportFileCommand(editor, form)
 				}
 			});

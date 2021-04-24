@@ -46,6 +46,7 @@ public static class Constants
 	public const string DIALOG_MESSAGE_MISSING_GAME_EXE = "Could not locate the game executable when starting preview mode!\nPlease locate it in the settings (File > Settings).";
 	public const string DIALOG_MESSAGE_ERROR_GAME_EXE = "An error occured when attempting to run the game!\n\nMake sure the following conditions are met:\n- The executable exists\n- The file is marked as executable (linux)\n- You have the adequate user permissions\n- You have enough system resources available\n\nTo set the game path, open the settings (File > Settings)";
 	public const string DIALOG_MESSAGE_GAME_EXE_NOT_SET = "The game executable path is currently not defined, the current operation cannot continue.\n\nDo you want to open the settings to set it?";
+	public const string DIALOG_MESSAGE_INVALID_FILE = "The content of the following file is not readable: \"{0}\".\n\n{1}";
 
 	public const string DIALOG_CAPTION_EDITOR_PREVIEW = "Campaign Editor - Preview";
 	public const string DIALOG_CAPTION_APP_CLOSE = "Close application";
@@ -56,6 +57,7 @@ public static class Constants
 	public const string DIALOG_CAPTION_REMOVE_RESOURCE = "Remove resource";
 	public const string DIALOG_CAPTION_START_PREVIEW = "Preview mode";
 	public const string DIALOG_CAPTION_MISSING_FILE = "Missing file";
+	public const string DIALOG_CAPTION_INVALID_FILE = "Invalid file";
 	public const string DIALOG_CAPTION_EXPORT_CANCELED = "Export canceled!";
 
 	public const string PLAYLIST_NO_NAME = "(No playlist name)";

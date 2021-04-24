@@ -189,7 +189,7 @@ namespace App.AdventureMaker.Core.Views
 
 		private void OnRemoveResource(object sender, EventArgs e)
 		{
-			if (Messages.RemoveResource() == DialogResult.Yes)
+			if (Messages.RemoveResourceDialog() == DialogResult.Yes)
 			{
 				DeleteCurrentResourceEntry();
 			}

@@ -18,7 +18,7 @@ public static class WindowBase
 	{
 		get
 		{
-			return string.Format(BADGE_FORMAT, string.Join(BADGE_SEPARATOR, BADGES));
+			return BADGES.Length > 0 ? string.Format(BADGE_FORMAT, string.Join(BADGE_SEPARATOR, BADGES)) : string.Empty;
 		}
 	}
 

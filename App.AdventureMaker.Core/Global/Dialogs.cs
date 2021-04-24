@@ -51,4 +51,17 @@ public static class Dialogs
 			}
 		};
 	}
+
+	public static OpenFileDialog ImportCampaignDialog(string title)
+	{
+		return new OpenFileDialog()
+		{
+			Title = title,
+			CheckFileExists = true,
+			Filters =
+			{
+				DIALOG_FILTER_ARCHIVE
+			}
+		};
+	}
 }

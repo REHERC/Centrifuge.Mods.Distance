@@ -85,7 +85,11 @@ namespace App.AdventureMaker.Core.Views
 		{
 			if (file?.Exists == true)
 			{
-				if (Project.IsValidProjectManifest(file))
+				if (!Project.IsValidProjectManifest(file, out Exception exception))
+				{
+					Messages.InvalidFileDialog(file, exception);
+				}
+				else
 				{
 					CurrentFile = file;
 					CampaignFile project = Json.Load<CampaignFile>(file);

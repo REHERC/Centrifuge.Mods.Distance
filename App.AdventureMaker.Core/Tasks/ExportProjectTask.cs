@@ -17,7 +17,7 @@ namespace App.AdventureMaker.Core.Tasks
 		private readonly FileInfo destination;
 		private readonly IEditor<CampaignFile> editor;
 
-		public ExportProjectTask(FileInfo destination, IEditor<CampaignFile> editor)
+		public ExportProjectTask(IEditor<CampaignFile> editor, FileInfo destination)
 		{
 			this.destination = destination;
 			this.editor = editor;
@@ -32,17 +32,19 @@ namespace App.AdventureMaker.Core.Tasks
 
 			using (HashAlgorithm ha = SHA512.Create())
 			{
-				async Task hash(string resource)
+				void hash(string resource)
 				{
+					string key = resource.Replace("\\", "/");
+
 					progress.Status = $"Calculating hash for \"{Path.GetFileName(resource)}\"";
 
 					FileInfo file = editor.GetResourceFile(resource);
-					if (hashes.ContainsKey(resource) || !file.Exists) return;
+					if (hashes.ContainsKey(key) || !file.Exists) return;
 
 					using (Stream stream = File.OpenRead(file.FullName))
 					{
 						byte[] hashed = ha.ComputeHash(stream);
-						hashes[resource] = BitConverter.ToString(hashed).Replace("-", "");
+						hashes[key] = BitConverter.ToString(hashed).Replace("-", "");
 					}
 				}
 
@@ -52,11 +54,11 @@ namespace App.AdventureMaker.Core.Tasks
 					switch (resource)
 					{
 						case CampaignResource.Texture texture:
-							await hash(texture.file).ConfigureAwait(false);
+							hash(texture.file);
 							break;
 						case CampaignResource.Level level:
-							await hash(level.file).ConfigureAwait(false);
-							await hash(level.thumbnail).ConfigureAwait(false);
+							hash(level.file);
+							hash(level.thumbnail);
 							break;
 					}
 
@@ -65,7 +67,7 @@ namespace App.AdventureMaker.Core.Tasks
 			}
 
 			progress.Value = 0;
-			progress.Maximum = hashes.Count + 3;
+			progress.Maximum = hashes.Count + 4;
 
 			using (Stream file = File.Create(destination.FullName))
 			{
@@ -74,12 +76,14 @@ namespace App.AdventureMaker.Core.Tasks
 					progress.Status = "Packaging manifests...";
 					archive.AddEntry("readme.txt", Resources.GetText("archive_readme.txt").GetStream());
 					progress.Value++;
+					archive.AddEntry("$campaign", string.Empty.GetStream());
+					progress.Value++;
 					archive.AddEntry("project.json", JsonConvert.SerializeObject(editor.Document).GetStream());
 					progress.Value++;
 					archive.AddEntry("hashes.json", JsonConvert.SerializeObject(hashes).GetStream());
 					progress.Value++;
 
-					async Task addfile(string resource)
+					void addfile(string resource)
 					{
 						progress.Status = $"Packaging file \"{Path.GetFileName(resource)}\"...";
 
@@ -95,11 +99,11 @@ namespace App.AdventureMaker.Core.Tasks
 						switch (resource)
 						{
 							case CampaignResource.Texture texture:
-								await addfile(texture.file).ConfigureAwait(false);
+								addfile(texture.file);
 								break;
 							case CampaignResource.Level level:
-								await addfile(level.file).ConfigureAwait(false);
-								await addfile(level.thumbnail).ConfigureAwait(false);
+								addfile(level.file);
+								addfile(level.thumbnail);
 								break;
 						}
 					}

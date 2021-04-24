@@ -3,6 +3,7 @@ using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
 using Eto.Drawing;
 using Eto.Forms;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -51,10 +52,9 @@ namespace App.AdventureMaker.Core.Views
 									Command = new OpenFileCommand(editor),
 									Text = "Open existing project"
 								},
-								new Button()
+								new Button(OnImportButtonClicked)
 								{
-									Text = "Import campaign package",
-									Enabled = false
+									Text = "Import campaign package"
 								},
 								new Button()
 								{
@@ -136,6 +136,11 @@ namespace App.AdventureMaker.Core.Views
 			RecentFilesUpdated();
 
 			editor.OnLoaded += OnLoaded;
+		}
+
+		private void OnImportButtonClicked(object sender, EventArgs e)
+		{
+			new ImportFileCommand(editor, this).Execute();
 		}
 
 		private void OnLoaded(IEditor<CampaignFile> editor)

@@ -28,7 +28,7 @@ namespace App.AdventureMaker.Core.Commands
 			ToolBarText = "Export";
 			Shortcut = Application.Instance.CommonModifier | Keys.Shift | Keys.E;
 
-			dialog = ExportCampaignDialog("Export campaign as...");
+			dialog = ExportCampaignDialog("Export campaign as package...");
 
 			Enabled = false;
 			editor.OnLoaded += (_) => Enabled = editor.CurrentFile != null;
@@ -46,9 +46,9 @@ namespace App.AdventureMaker.Core.Commands
 					Title = DIALOG_CAPTION_EXPORT_CANCELED
 				}.Show();
 			}
-			else if (dialog.ShowDialog(null) == DialogResult.Ok)
+			else if (dialog.ShowDialog(owner) == DialogResult.Ok)
 			{
-				ExportProjectTask task = new ExportProjectTask(new FileInfo(dialog.FileName), editor);
+				ExportProjectTask task = new ExportProjectTask(editor, new FileInfo(dialog.FileName));
 				ProgressWindow progressWindow = new ProgressWindow(owner);
 				await TaskBase.Run(progressWindow, task).ConfigureAwait(false);
 			}

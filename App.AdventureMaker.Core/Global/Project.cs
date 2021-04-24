@@ -33,31 +33,33 @@ namespace App.AdventureMaker.Core
 			}
 		}
 
-		public static bool IsValidProjectManifest(string content)
+		public static bool IsValidProjectManifest(string content, out Exception exception)
 		{
+			exception = null;
 			try
 			{
 				return JsonConvert.DeserializeObject<CampaignFile>(content) != null;
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
+				exception = ex;
 				return false;
 			}
 		}
 
-		public static bool IsValidProjectManifest(Stream stream)
+		public static bool IsValidProjectManifest(Stream stream, out Exception exception)
 		{
 			using (TextReader reader = new StreamReader(stream))
 			{
-				return IsValidProjectManifest(reader.ReadToEnd());
+				return IsValidProjectManifest(reader.ReadToEnd(), out exception);
 			}
 		}
 
-		public static bool IsValidProjectManifest(FileInfo file)
+		public static bool IsValidProjectManifest(FileInfo file, out Exception exception)
 		{
 			using (FileStream stream = File.OpenRead(file.FullName))
 			{
-				return IsValidProjectManifest(stream);
+				return IsValidProjectManifest(stream, out exception);
 			}
 		}
 	}

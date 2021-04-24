@@ -78,7 +78,7 @@ namespace App.AdventureMaker.Core.Views
 
 		private void RemovePlaylist(object sender, EventArgs e)
 		{
-			if (Messages.RemovePlaylist(listBox.SelectedValue as CampaignPlaylist) == DialogResult.Yes)
+			if (Messages.RemovePlaylistDialog(listBox.SelectedValue as CampaignPlaylist) == DialogResult.Yes)
 			{
 				listBox.Items.RemoveAt(listBox.SelectedIndex);
 				editor.Modified = true;
