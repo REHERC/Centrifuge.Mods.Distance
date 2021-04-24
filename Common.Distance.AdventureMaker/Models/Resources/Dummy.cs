@@ -13,7 +13,7 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 	{
 		public class Dummy : CampaignResource
 		{
-			[JsonProperty("resource_type", Required = Required.Always)]
+			[JsonProperty("resource_type")]
 			public override ResourceType resource_type => ResourceType.None;
 
 			#if APP

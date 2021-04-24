@@ -12,10 +12,10 @@ namespace Distance.AdventureMaker.Common.Models
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		[JsonProperty("playlists", Required = Required.Always)]
+		[JsonProperty("playlists")]
 		public List<CampaignPlaylist> Playlists { get; set; }
 
-		[JsonProperty("resources", Required = Required.Always)]
+		[JsonProperty("resources")]
 		public List<CampaignResource> Resources { get; set; }
 
 		public CampaignData()

@@ -10,10 +10,10 @@ namespace Distance.AdventureMaker.Common.Models
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		[JsonProperty("metadata", Required = Required.Always)]
+		[JsonProperty("metadata")]
 		public CampaignMetadata Metadata { get; set; }
 
-		[JsonProperty("data", Required = Required.Always)]
+		[JsonProperty("data")]
 		public CampaignData Data { get; set; }
 
 		public CampaignFile()

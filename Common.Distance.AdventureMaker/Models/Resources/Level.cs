@@ -14,10 +14,10 @@ namespace Distance.AdventureMaker.Common.Models.Resources
 	{
 		public class Level : CampaignResource
 		{
-			[JsonProperty("resource_type", Required = Required.Always)]
+			[JsonProperty("resource_type")]
 			public override ResourceType resource_type => ResourceType.Level;
 
-			[JsonProperty("thumbnail", Required = Required.Always)]
+			[JsonProperty("thumbnail")]
 			public string thumbnail;
 
 			#if APP

@@ -11,25 +11,25 @@ namespace Distance.AdventureMaker.Common.Models
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		[JsonProperty("guid", Required = Required.Always)]
+		[JsonProperty("guid")]
 		public string Guid { get; set; }
 
-		[JsonProperty("version", Required = Required.Always)]
+		[JsonProperty("version")]
 		public long Version { get; set; }
 
-		[JsonProperty("title", Required = Required.Always)]
+		[JsonProperty("title")]
 		public string Title { get; set; }
 
-		[JsonProperty("description", Required = Required.Always)]
+		[JsonProperty("description")]
 		public string Description { get; set; }
 
-		[JsonProperty("author", Required = Required.Always)]
+		[JsonProperty("author")]
 		public string Author { get; set; }
 
-		[JsonProperty("contact", Required = Required.Always)]
+		[JsonProperty("contact")]
 		public string Contact { get; set; }
 
-		[JsonProperty("development_status", Required = Required.Always)]
+		[JsonProperty("development_status")]
 		public DevelopmentStatus DevelopmentStatus { get; set; }
 	}
 }
