@@ -59,6 +59,7 @@ public static class Constants
 	public const string DIALOG_CAPTION_MISSING_FILE = "Missing file";
 	public const string DIALOG_CAPTION_INVALID_FILE = "Invalid file";
 	public const string DIALOG_CAPTION_EXPORT_CANCELED = "Export canceled!";
+	public const string DIALOG_CAPTION_IMPORT = "Import package";
 
 	public const string PLAYLIST_NO_NAME = "(No playlist name)";
 

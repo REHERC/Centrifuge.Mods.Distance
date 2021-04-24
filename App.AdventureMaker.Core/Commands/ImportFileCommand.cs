@@ -31,13 +31,15 @@ namespace App.AdventureMaker.Core.Commands
 			{
 				Title = "Select the destination folder to extract the files"
 			};
-
-			Enabled = false;
-			editor.OnLoaded += (_) => Enabled = editor.CurrentFile != null;
 		}
 
 		protected override async void OnExecuted(EventArgs e)
 		{
+			if (editor.CurrentFile != null && editor.Modified && Messages.UnsavedChangesDialog(Constants.DIALOG_CAPTION_IMPORT) == DialogResult.No)
+			{
+				return;
+			}
+
 			if (fileDialog.ShowDialog(owner) == DialogResult.Ok && folderDialog.ShowDialog(owner) == DialogResult.Ok)
 			{
 				ImportProjectTask task = new ImportProjectTask(editor, new FileInfo(fileDialog.FileName), new DirectoryInfo(folderDialog.Directory));
