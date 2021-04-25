@@ -5,7 +5,6 @@ using Distance.AdventureMaker.Common.Models;
 using Eto.Forms;
 using System;
 using System.IO;
-using static Constants;
 using static Dialogs;
 
 namespace App.AdventureMaker.Core.Commands
@@ -51,10 +50,7 @@ namespace App.AdventureMaker.Core.Commands
 				}
 				else
 				{
-					Application.Instance.Invoke(() =>
-					{
-						editor.LoadFile(Path.Combine(folderDialog.Directory, "project.json"));
-					});
+					Application.Instance.Invoke(() => editor.LoadFile(Path.Combine(folderDialog.Directory, "project.json")));
 				}
 			}
 		}
