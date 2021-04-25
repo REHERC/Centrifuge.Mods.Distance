@@ -96,7 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationArguments.cs" />
+    <Compile Include="Loader\CampaignLoaderLogic.cs" />
     <Compile Include="Entry.cs" />
+    <Compile Include="Loader\Steps\CampaignReader.cs" />
+    <Compile Include="Loader\Steps\CampaignExtractor.cs" />
+    <Compile Include="Loader\Steps\CampaignListing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +113,7 @@
       <Name>Centrifuge.Distance</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\Common.Distance.AdventureMaker\Common.Distance.AdventureMaker.projitems" Label="Shared" />
   <Import Project="..\Common.Json\Common.Json.projitems" Label="Shared" />
   <Import Project="..\Common.SharpCompress\Common.SharpCompress.projitems" Label="Shared" />

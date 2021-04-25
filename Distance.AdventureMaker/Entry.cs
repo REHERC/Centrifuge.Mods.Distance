@@ -1,4 +1,5 @@
-﻿using Events.MainMenu;
+﻿using Distance.AdventureMaker.Loader;
+using Events.MainMenu;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
@@ -18,6 +19,8 @@ namespace Distance.AdventureMaker
 
 		public ApplicationArguments StartParameters { get; set; }
 
+		private CampaignLoaderLogic CampaignLoader { get; set; }
+
 		public void Initialize(IManager manager)
 		{
 			DontDestroyOnLoad(this);
@@ -25,6 +28,9 @@ namespace Distance.AdventureMaker
 			Instance = this;
 			Manager = manager;
 			Logger = LogManager.GetForCurrentAssembly();
+
+			CampaignLoader = gameObject.AddComponent<CampaignLoaderLogic>();
+
 			StartParameters = ApplicationArguments.Parse();
 
 			RuntimePatcher.AutoPatch();
