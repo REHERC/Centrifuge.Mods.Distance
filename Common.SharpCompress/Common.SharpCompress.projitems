@@ -9,7 +9,8 @@
     <Import_RootNamespace>Common.SharpCompress</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Extensions\SharpCompress\Archives\Zip\ZipArchiveEntryEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\SharpCompress\Archives\IArchiveEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\SharpCompress\Archives\IArchiveEntryEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\SharpCompress\Writers\IWriterEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Harmony\SharpCompress\Common\ArchiveEncoding\ctor.cs" />
   </ItemGroup>

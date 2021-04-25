@@ -1,11 +1,12 @@
 ﻿using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
 using Newtonsoft.Json;
+using SharpCompress.Archives;
 using SharpCompress.Archives.Zip;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using System.Linq
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
@@ -65,11 +66,9 @@ namespace App.AdventureMaker.Core.Tasks
 			{
 				using (Stream stream = File.OpenRead(file.FullName))
 				{
-					using (ZipArchive archive = ZipArchive.Open(stream))
+					using (IArchive archive = ZipArchive.Open(stream))
 					{
-						Dictionary<string, ZipArchiveEntry> entries = archive.Entries
-						.Where(entry => !entry.IsDirectory)
-						.ToDictionary(entry => entry.Key);
+						Dictionary<string, IArchiveEntry> entries = archive.GetFileEntries();
 
 						bool required_entries_present =
 						   entries.ContainsKey("$campaign")
@@ -98,7 +97,7 @@ namespace App.AdventureMaker.Core.Tasks
 						foreach (var hashEntry in hashes)
 						{
 							progress.Status = $"Checking data validity... ({progress.Value + 1}/{progress.Maximum})";
-							
+
 							if (!string.Equals(hashEntry.Value, hash(hashEntry.Key)))
 							{
 								Fail(new InvalidDataException($"File \"{hashEntry.Key}\" hash didn't match the contents of the hash table..."));
@@ -133,7 +132,7 @@ namespace App.AdventureMaker.Core.Tasks
 			}
 		}
 
-		private void Extract(ZipArchiveEntry entry)
+		private void Extract(IArchiveEntry entry)
 		{
 			FileInfo destination = new FileInfo(Path.Combine(directory.FullName, entry.Key));
 

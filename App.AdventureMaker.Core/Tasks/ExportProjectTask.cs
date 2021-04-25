@@ -3,6 +3,7 @@ using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
 using Distance.AdventureMaker.Common.Models.Resources;
 using Newtonsoft.Json;
+using SharpCompress.Archives;
 using SharpCompress.Archives.Zip;
 using System;
 using System.Collections.Generic;

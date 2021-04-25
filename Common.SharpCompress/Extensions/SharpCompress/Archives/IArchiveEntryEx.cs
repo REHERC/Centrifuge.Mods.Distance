@@ -1,10 +1,10 @@
 ﻿#pragma warning disable RCS1110, IDE0063
-using SharpCompress.Archives.Zip;
+using SharpCompress.Archives;
 using System.IO;
 
-public static class ZipArchiveEntryEx
+public static class IArchiveEntryEx
 {
-    public static string GetText(this ZipArchiveEntry entry)
+    public static string GetText(this IArchiveEntry entry)
     {
         using (StreamReader reader = new StreamReader(entry.OpenEntryStream()))
         {
