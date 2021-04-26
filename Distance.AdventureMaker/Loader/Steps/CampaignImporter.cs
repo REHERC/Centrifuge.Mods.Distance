@@ -4,7 +4,7 @@ using static Distance.AdventureMaker.Loader.CampaignLoaderLogic;
 
 namespace Distance.AdventureMaker.Loader.Steps
 {
-	public class CampaignExtractor : LoaderTask
+	public class CampaignImporter : LoaderTask
 	{
 		public override IEnumerator Run(Task.Status status, CampaignLoader loader)
 		{

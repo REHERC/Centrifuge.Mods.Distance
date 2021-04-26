@@ -98,9 +98,10 @@
     <Compile Include="ApplicationArguments.cs" />
     <Compile Include="Loader\CampaignLoaderLogic.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="Loader\Steps\CampaignReader.cs" />
+    <Compile Include="Loader\Steps\CampaignImporter.cs" />
     <Compile Include="Loader\Steps\CampaignExtractor.cs" />
     <Compile Include="Loader\Steps\CampaignListing.cs" />
+    <Compile Include="Loader\Steps\CampaignWorkspaceSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
