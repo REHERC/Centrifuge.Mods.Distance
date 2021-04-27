@@ -6,9 +6,13 @@ namespace Distance.AdventureMaker.Loader.Steps
 {
 	public class CampaignImporter : LoaderTask
 	{
-		public override IEnumerator Run(Task.Status status, CampaignLoader loader)
+		public CampaignImporter(CampaignLoader loader) : base(loader)
 		{
-			throw new System.NotImplementedException();
+		}
+
+		public override IEnumerator Run(Task.Status status)
+		{
+			yield break;
 		}
 	}
 }

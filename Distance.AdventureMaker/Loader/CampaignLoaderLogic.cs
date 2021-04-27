@@ -1,5 +1,6 @@
 ﻿using Centrifuge.Distance.Game;
 using Distance.AdventureMaker.Loader.Steps;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,17 +16,29 @@ namespace Distance.AdventureMaker.Loader
 			loader = new CampaignLoader();
 		}
 
-		public IEnumerator Run(Task.Status status)
+		public void Run()
 		{
 			foreach (LoaderTask task in loader)
 			{
-				yield return Task.Wrap(task.Run(status, loader));
+				Task.Run(task);
 			}
 		}
 
 		public abstract class LoaderTask
 		{
-			public abstract IEnumerator Run(Task.Status status, CampaignLoader loader);
+			protected readonly CampaignLoader loader;
+
+			protected LoaderTask(CampaignLoader loader)
+			{
+				this.loader = loader;
+			}
+
+			public abstract IEnumerator Run(Task.Status status);
+
+			public static implicit operator Task.TaskDelegate(LoaderTask task)
+			{
+				return task.Run;
+			}
 		}
 
 		public sealed class CampaignLoader : IEnumerable<LoaderTask>
@@ -44,10 +57,10 @@ namespace Distance.AdventureMaker.Loader
 			{
 				tasks = new Queue<LoaderTask>();
 
-				tasks.Enqueue(WorkspaceSetup = new CampaignWorkspaceSetup());
-				tasks.Enqueue(Listing = new CampaignListing());
-				tasks.Enqueue(Extractor = new CampaignExtractor());
-				tasks.Enqueue(Importer = new CampaignImporter());
+				tasks.Enqueue(WorkspaceSetup = new CampaignWorkspaceSetup(this));
+				tasks.Enqueue(Listing = new CampaignListing(this));
+				tasks.Enqueue(Extractor = new CampaignExtractor(this));
+				tasks.Enqueue(Importer = new CampaignImporter(this));
 			}
 
 			public IEnumerator<LoaderTask> GetEnumerator()

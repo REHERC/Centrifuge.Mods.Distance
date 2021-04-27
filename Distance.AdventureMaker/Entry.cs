@@ -1,9 +1,11 @@
-﻿using Distance.AdventureMaker.Loader;
+﻿using Centrifuge.Distance.Game;
+using Distance.AdventureMaker.Loader;
 using Events.MainMenu;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
 using Reactor.API.Runtime.Patching;
+using System;
 using UnityEngine;
 
 namespace Distance.AdventureMaker
@@ -40,7 +42,11 @@ namespace Distance.AdventureMaker
 
 		private void OnMainMenuInitialized(Initialized.Data data)
 		{
+			//Task.Run(CampaignLoader);
+			CampaignLoader.Run();
 			//MessageBox.Create($"Arguments:\npreview: {StartParameters.IsPreviewMode}\nfile: {StartParameters.CampaignFile}\nrcon: {StartParameters.RConPort}").Show();
+
+			Initialized.Unsubscribe(OnMainMenuInitialized);
 		}
 	}
 }
