@@ -93,7 +93,7 @@ namespace App.AdventureMaker.Core.Tasks
 							}
 						}
 
-						foreach (var hashEntry in hashes)
+						foreach (KeyValuePair<string, string> hashEntry in hashes)
 						{
 							progress.Status = $"Checking data validity... ({progress.Value + 1}/{progress.Maximum})";
 

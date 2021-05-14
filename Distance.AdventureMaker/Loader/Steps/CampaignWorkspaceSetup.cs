@@ -1,18 +1,25 @@
 ﻿using Centrifuge.Distance.Game;
 using Reactor.API.Storage;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using static Distance.AdventureMaker.Loader.CampaignLoaderLogic;
 
 namespace Distance.AdventureMaker.Loader.Steps
 {
-	public class CampaignWorkspaceSetup : LoaderTask
+	public class CampaignWorkspaceSetup : LoaderTask, IEnumerable<DirectoryInfo>
 	{
-		DirectoryInfo LocalCampaignsFolder;
-		DirectoryInfo DocumentsCampaignsFolder;
+		private DirectoryInfo LocalCampaignsFolder;
+		private DirectoryInfo DocumentsCampaignsFolder;
 
 		public CampaignWorkspaceSetup(CampaignLoader loader) : base(loader)
 		{
+		}
+
+		public IEnumerator<DirectoryInfo> GetEnumerator()
+		{
+			yield return LocalCampaignsFolder;
+			yield return DocumentsCampaignsFolder;
 		}
 
 		public override IEnumerator Run(Task.Status status)
@@ -28,6 +35,11 @@ namespace Distance.AdventureMaker.Loader.Steps
 			DocumentsCampaignsFolder.CreateIfDoesntExist();
 
 			yield break;
+		}
+
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			yield return GetEnumerator();
 		}
 	}
 }

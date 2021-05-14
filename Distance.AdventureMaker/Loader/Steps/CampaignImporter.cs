@@ -15,6 +15,9 @@ namespace Distance.AdventureMaker.Loader.Steps
 
 		public override IEnumerator Run(Task.Status status)
 		{
+			yield break;
+
+			/*
 			DiscordRpc.RichPresence rpc = new DiscordRpc.RichPresence();
 			rpc.details = "Waiting...";
 			rpc.state = "In Main Menu";
@@ -39,6 +42,7 @@ namespace Distance.AdventureMaker.Loader.Steps
 				DiscordRpc.UpdatePresence(ref rpc);
 				yield return null;
 			}
+			*/
 		}
 	}
 }

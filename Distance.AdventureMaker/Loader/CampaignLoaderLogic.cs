@@ -1,6 +1,5 @@
 ﻿using Centrifuge.Distance.Game;
 using Distance.AdventureMaker.Loader.Steps;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,7 +44,7 @@ namespace Distance.AdventureMaker.Loader
 		{
 			private readonly Queue<LoaderTask> tasks;
 
-			public CampaignWorkspaceSetup WorkspaceSetup { get; }
+			public CampaignWorkspaceSetup Workspace { get; }
 
 			public CampaignListing Listing { get; }
 
@@ -57,7 +56,7 @@ namespace Distance.AdventureMaker.Loader
 			{
 				tasks = new Queue<LoaderTask>();
 
-				tasks.Enqueue(WorkspaceSetup = new CampaignWorkspaceSetup(this));
+				tasks.Enqueue(Workspace = new CampaignWorkspaceSetup(this));
 				tasks.Enqueue(Listing = new CampaignListing(this));
 				tasks.Enqueue(Extractor = new CampaignExtractor(this));
 				tasks.Enqueue(Importer = new CampaignImporter(this));

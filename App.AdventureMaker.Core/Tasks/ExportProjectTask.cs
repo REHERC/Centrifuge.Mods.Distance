@@ -3,7 +3,6 @@ using App.AdventureMaker.Core.Interfaces;
 using Distance.AdventureMaker.Common.Models;
 using Distance.AdventureMaker.Common.Models.Resources;
 using Newtonsoft.Json;
-using SharpCompress.Archives;
 using SharpCompress.Archives.Zip;
 using System;
 using System.Collections.Generic;
@@ -78,7 +77,8 @@ namespace App.AdventureMaker.Core.Tasks
 					archive.AddEntry("readme.txt", Resources.GetText("archive_readme.txt").GetStream());
 					progress.Value++;
 					archive.AddEntry("$campaign", string.Empty.GetStream());
-					progress.Value++;
+					progress.Value++; 
+					editor.Document.Metadata.Version = DateTime.Now.TimeOfDay.Ticks;
 					archive.AddEntry("project.json", JsonConvert.SerializeObject(editor.Document).GetStream());
 					progress.Value++;
 					archive.AddEntry("hashes.json", JsonConvert.SerializeObject(hashes).GetStream());
