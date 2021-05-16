@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationArguments.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\SteamworksUGC\OnEnable.cs" />
     <Compile Include="Loader\CampaignLoaderLogic.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Loader\Steps\CampaignImporter.cs" />

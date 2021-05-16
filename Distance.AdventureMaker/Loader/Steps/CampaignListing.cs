@@ -13,13 +13,17 @@ using static Distance.AdventureMaker.Loader.CampaignLoaderLogic;
 
 namespace Distance.AdventureMaker.Loader.Steps
 {
-	public class CampaignListing : LoaderTask, IEnumerable<KeyValuePair<string, CampaignListing.CampaignItem>>
+	public class CampaignListing : LoaderTask //, IEnumerable<KeyValuePair<string, CampaignListing.CampaignItem>>
 	{
-		private readonly CampaignItem.Collection Manifests;
+		public readonly CampaignItem.Collection Folders;
+		public readonly CampaignItem.Collection Archives;
+		public readonly CampaignItem.Collection AllManifests;
 
 		public CampaignListing(CampaignLoader loader) : base(loader)
 		{
-			Manifests = new CampaignItem.Collection();
+			Folders = new CampaignItem.Collection();
+			Archives = new CampaignItem.Collection();
+			AllManifests = new CampaignItem.Collection();
 		}
 
 		public override IEnumerator Run(Task.Status status)
@@ -55,7 +59,8 @@ namespace Distance.AdventureMaker.Loader.Steps
 
 						if (manifest != null)
 						{
-							Manifests.Add(manifest, directory);
+							Folders.Add(manifest, directory);
+							AllManifests.Add(manifest, directory);
 						}
 					}
 				}
@@ -106,7 +111,8 @@ namespace Distance.AdventureMaker.Loader.Steps
 
 								if (manifest != null)
 								{
-									Manifests.Add(manifest, file);
+									Archives.Add(manifest, file);
+									AllManifests.Add(manifest, file);
 								}
 							}
 							catch (Exception)
@@ -117,22 +123,17 @@ namespace Distance.AdventureMaker.Loader.Steps
 					}
 				}
 			}
-
+			
 			status.SetText("");
 			status.SetProgress(0, 1);
 
-			yield return Task.Wait(1.5f);
+			yield return Task.Wait(5.5f);
 		}
 
-		IEnumerator IEnumerable.GetEnumerator()
+		/*public IEnumerator<KeyValuePair<string, CampaignItem>> GetEnumerator()
 		{
-			return GetEnumerator();
-		}
-
-		public IEnumerator<KeyValuePair<string, CampaignItem>> GetEnumerator()
-		{
-			return Manifests.GetEnumerator();
-		}
+			return AllManifests.GetEnumerator();
+		}*/
 
 		public struct CampaignItem : IEquatable<CampaignItem>, IComparable<CampaignItem>
 		{
