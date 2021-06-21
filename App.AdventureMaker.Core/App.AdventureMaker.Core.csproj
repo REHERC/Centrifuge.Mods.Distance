@@ -49,12 +49,12 @@
 	  <PrivateAssets>all</PrivateAssets>
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
-	<PackageReference Include="HarmonyX" Version="2.4.1" />
+	<PackageReference Include="HarmonyX" Version="2.4.2" />
 	<PackageReference Include="JsonSubTypes" Version="1.8.0" />
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	<PackageReference Include="Pfim" Version="0.10.0" />
-	<PackageReference Include="PropertyChanged.Fody" Version="3.3.3" PrivateAssets="All" />
-	<PackageReference Include="SharpCompress" Version="0.28.1" />
+	<PackageReference Include="PropertyChanged.Fody" Version="3.4.0" PrivateAssets="All" />
+	<PackageReference Include="SharpCompress" Version="0.28.3" />
   </ItemGroup>
 
   <ItemGroup>

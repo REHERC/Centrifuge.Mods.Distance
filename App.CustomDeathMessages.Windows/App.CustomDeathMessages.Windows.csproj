@@ -24,8 +24,8 @@
 	<None Remove="publish\**" />
   </ItemGroup>
   <ItemGroup>
-	<PackageReference Include="Eto.Forms" Version="2.5.10" />
-	<PackageReference Include="Eto.Platform.Windows" Version="2.5.10" />
+	<PackageReference Include="Eto.Forms" Version="2.5.11" />
+	<PackageReference Include="Eto.Platform.Windows" Version="2.5.11" />
   </ItemGroup>
   <ItemGroup>
 	<ProjectReference Include="..\App.CustomDeathMessages.Core\App.CustomDeathMessages.Core.csproj" />
