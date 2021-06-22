@@ -27,7 +27,7 @@ namespace Distance.AdventureMaker.Scripts.MainMenu
 			}
 		}
 
-		public void Setup(MainMenuLogic menuLogic)
+		protected void Setup(MainMenuLogic menuLogic)
 		{
 			// Do not create the button if it has already been created
 			if (menuLogic_) return;
