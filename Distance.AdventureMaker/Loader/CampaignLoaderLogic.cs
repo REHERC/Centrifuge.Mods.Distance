@@ -17,6 +17,8 @@ namespace Distance.AdventureMaker.Loader
 
 		public void Run()
 		{
+			// TODO: REMOVE
+			return;
 			foreach (LoaderTask task in loader)
 			{
 				Task.Run(task);

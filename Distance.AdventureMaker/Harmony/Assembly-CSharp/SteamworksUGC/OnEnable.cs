@@ -8,7 +8,7 @@ namespace Distance.AdventureMaker.Harmony
 		[HarmonyPrefix]
 		internal static void Prefix(SteamworksUGC __instance)
 		{
-			Mod.Instance.Logger.Error("THIS IS A TEST");
+			//Mod.Instance.Logger.Error("THIS IS A TEST");
 		}
 	}
 }

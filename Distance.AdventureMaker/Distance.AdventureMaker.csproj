@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationArguments.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\MainMenuLogic\Start.cs" />
     <Compile Include="Harmony\Assembly-CSharp\SteamworksUGC\OnEnable.cs" />
     <Compile Include="Loader\CampaignLoaderLogic.cs" />
     <Compile Include="Entry.cs" />
@@ -104,6 +105,8 @@
     <Compile Include="Loader\Steps\CampaignListing.cs" />
     <Compile Include="Loader\Steps\CampaignWorkspaceSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\MainMenu\MainMenuButton.cs" />
+    <Compile Include="Scripts\MainMenu\CampaignsMenuButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
