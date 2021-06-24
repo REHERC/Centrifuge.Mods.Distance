@@ -1,11 +1,9 @@
-﻿using Centrifuge.Distance.Game;
-using Distance.AdventureMaker.Loader;
+﻿using Distance.AdventureMaker.Loader;
 using Events.MainMenu;
 using Reactor.API.Attributes;
 using Reactor.API.Interfaces.Systems;
 using Reactor.API.Logging;
 using Reactor.API.Runtime.Patching;
-using System;
 using UnityEngine;
 
 namespace Distance.AdventureMaker

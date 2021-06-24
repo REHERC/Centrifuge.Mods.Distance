@@ -96,17 +96,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationArguments.cs" />
-    <Compile Include="Harmony\Assembly-CSharp\MainMenuLogic\Start.cs" />
+    <Compile Include="Harmony\Assembly-CSharp\MainMenuLogic\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\SteamworksUGC\OnEnable.cs" />
-    <Compile Include="Loader\CampaignLoaderLogic.cs" />
+    <Compile Include="Scripts\Loader\CampaignLoaderLogic.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="Loader\Steps\CampaignImporter.cs" />
-    <Compile Include="Loader\Steps\CampaignExtractor.cs" />
-    <Compile Include="Loader\Steps\CampaignListing.cs" />
-    <Compile Include="Loader\Steps\CampaignWorkspaceSetup.cs" />
+    <Compile Include="Scripts\Loader\Steps\CampaignImporter.cs" />
+    <Compile Include="Scripts\Loader\Steps\CampaignExtractor.cs" />
+    <Compile Include="Scripts\Loader\Steps\CampaignListing.cs" />
+    <Compile Include="Scripts\Loader\Steps\CampaignWorkspaceSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scripts\MainMenu\MainMenuButton.cs" />
-    <Compile Include="Scripts\MainMenu\CampaignsMenuButton.cs" />
+    <Compile Include="Scripts\MainMenu\Buttons\DefaultMainMenuButton.cs" />
+    <Compile Include="Scripts\MainMenu\Buttons\MainMenuButton.cs" />
+    <Compile Include="Scripts\MainMenu\Buttons\ContentPacksButton.cs" />
+    <Compile Include="Scripts\MainMenu\MainMenuButtonController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

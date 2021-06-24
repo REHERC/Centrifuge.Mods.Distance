@@ -10,13 +10,38 @@ namespace Distance.AdventureMaker.Scripts.MainMenu
 
 		protected virtual int ItemPosition => 0;
 
-		private MainMenuLogic menuLogic_;
+		protected MainMenuLogic menuLogic_;
 
 		protected MainMenuLogic MenuLogic => menuLogic_;
 
-		protected GameObject Button { get; private set; }
+		public GameObject Button { get; protected set; }
 
-		protected UITable Table { get; private set; }
+		public UITable Table { get; protected set; }
+
+		public bool Visible
+		{
+			get
+			{
+				return Button.activeInHierarchy;
+			}
+			set
+			{
+				SetButtonVisible(value);
+			}
+		}
+
+		public bool ShowIndicator
+		{
+			get
+			{
+				UnclickedMenuStatusIconLogic unclickedIcon = Button.GetComponentInChildren<UnclickedMenuStatusIconLogic>();
+				return unclickedIcon && unclickedIcon.image_.enabled;
+			}
+			set
+			{
+				SetIndicatorVisible(value);
+			}
+		}
 
 		public void Awake()
 		{
@@ -27,7 +52,7 @@ namespace Distance.AdventureMaker.Scripts.MainMenu
 			}
 		}
 
-		protected void Setup(MainMenuLogic menuLogic)
+		public virtual void Setup(MainMenuLogic menuLogic)
 		{
 			// Do not create the button if it has already been created
 			if (menuLogic_) return;
@@ -43,14 +68,6 @@ namespace Distance.AdventureMaker.Scripts.MainMenu
 
 			// Set the button's label (text)
 			Button.GetComponentInChildren<UILabel>().text = ButtonText;
-
-
-			UnclickedMenuStatusIconLogic unclickedIcon = Button.GetComponentInChildren<UnclickedMenuStatusIconLogic>();
-			if (unclickedIcon)
-			{
-				unclickedIcon.isDisabled_ = true;
-				unclickedIcon.image_.enabled = true;
-			}
 
 			// There may be multiple UIExButton scripts, we only wanna set the
 			// event handler on one of them. Otherwise the click event will 
@@ -69,7 +86,7 @@ namespace Distance.AdventureMaker.Scripts.MainMenu
 			}
 		}
 
-		private UITable FindTable()
+		protected UITable FindTable()
 		{
 			return MenuLogic.mainButtons_.GetComponentInChildren<UITable>();
 		}
@@ -86,10 +103,20 @@ namespace Distance.AdventureMaker.Scripts.MainMenu
 			return Instantiate(buttonTemplate.gameObject, buttonTable);
 		}
 
-		public void SetVisible(bool value)
+		public void SetButtonVisible(bool value)
 		{
 			Button.SetActive(value);
 			Table.Reposition();
+		}
+
+		public void SetIndicatorVisible(bool value)
+		{
+			UnclickedMenuStatusIconLogic unclickedIcon = Button.GetComponentInChildren<UnclickedMenuStatusIconLogic>();
+			if (unclickedIcon)
+			{
+				unclickedIcon.isDisabled_ = true;
+				unclickedIcon.image_.enabled = value;
+			}
 		}
 
 		protected abstract void OnButtonClick();

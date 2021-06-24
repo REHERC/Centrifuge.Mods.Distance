@@ -34,8 +34,6 @@ namespace Distance.AdventureMaker.Loader.Steps
 			DocumentsCampaignsFolder = new DirectoryInfo(Path.Combine(Resource.personalDistanceDirPath_, "Campaigns"));
 			DocumentsCampaignsFolder.CreateIfDoesntExist();
 
-			Mod.Instance.Logger.Error("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-
 			yield break;
 		}
 

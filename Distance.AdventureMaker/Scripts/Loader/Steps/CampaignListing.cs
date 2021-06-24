@@ -123,11 +123,12 @@ namespace Distance.AdventureMaker.Loader.Steps
 					}
 				}
 			}
-			
-			status.SetText("");
-			status.SetProgress(0, 1);
 
-			yield return Task.Wait(5.5f);
+			//status.SetText("");
+			//status.SetProgress(0, 1);
+
+			//yield return Task.Wait(5.5f);
+			yield break;
 		}
 
 		/*public IEnumerator<KeyValuePair<string, CampaignItem>> GetEnumerator()
