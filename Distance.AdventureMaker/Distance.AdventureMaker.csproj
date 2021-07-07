@@ -98,6 +98,7 @@
     <Compile Include="ApplicationArguments.cs" />
     <Compile Include="Harmony\Assembly-CSharp\MainMenuLogic\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\SteamworksUGC\OnEnable.cs" />
+    <Compile Include="Scripts\CustomMenus\CampaignSelectMenuLogic.cs" />
     <Compile Include="Scripts\Loader\CampaignLoaderLogic.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Scripts\Loader\Steps\CampaignImporter.cs" />

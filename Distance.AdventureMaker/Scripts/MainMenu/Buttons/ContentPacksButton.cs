@@ -1,4 +1,4 @@
-﻿using Centrifuge.Distance.Game;
+﻿using Distance.AdventureMaker.Scripts.CustomMenus;
 using UnityEngine;
 
 namespace Distance.AdventureMaker.Scripts.MainMenu
@@ -11,7 +11,7 @@ namespace Distance.AdventureMaker.Scripts.MainMenu
 
 		protected override int ItemPosition => 5;
 
-		protected LevelSelectMenuAbstract levelSelect;
+		protected CampaignSelectMenuLogic campaignSelect;
 
 		public override void Setup(MainMenuLogic menuLogic)
 		{
@@ -21,20 +21,20 @@ namespace Distance.AdventureMaker.Scripts.MainMenu
 
 			GameObject levelSelectObj = Instantiate(levelGrid.advancedMenu_.gameObject);
 			levelSelectObj.name = "CampaignSelectRoot";
-			levelSelect = levelSelectObj.GetComponent<LevelSelectMenuLogic>();
+			campaignSelect = CampaignSelectMenuLogic.CreateFromLevelSelect(levelSelectObj.GetComponent<LevelSelectMenuLogic>());
 		}
 
 		protected override void OnButtonClick()
 		{
+			campaignSelect.Display();
+
 			//MenuLogic.levelSelectLogic_
-			levelSelect.Display(LevelSelectMenuAbstract.DisplayType.Arcade, new LevelSelectMenuAbstract.OnLevelSelectedDelegate((_, __) => { }), null);
-
-
+			//levelSelect.Display(LevelSelectMenuAbstract.DisplayType.Arcade, new LevelSelectMenuAbstract.OnLevelSelectedDelegate((_, __) => { }), null);
 
 			//MessageBox.Create("This feature isn't currently implemented.", ButtonText).Show();
 
 			//return;
-			
+
 			/*var controller = MenuLogic.gameObject.GetComponent<MainMenuButtonController>();
 
 			if (!controller) return;
