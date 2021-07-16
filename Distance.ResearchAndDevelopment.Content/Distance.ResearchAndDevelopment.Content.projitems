@@ -9,10 +9,9 @@
     <Import_RootNamespace>Distance.ResearchAndDevelopment.Content</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)Mod\Data\obscuration.png" />
     <Content Include="$(MSBuildThisFileDirectory)Mod\mod.json" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Mod\Data\obscuration" />
+    <Folder Include="$(MSBuildThisFileDirectory)Mod\Data\" />
   </ItemGroup>
 </Project>

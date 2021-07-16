@@ -11,6 +11,8 @@ using UnityEngine;
 using System;
 using Centrifuge.Distance.Data;
 using System.Runtime.InteropServices;
+using Reactor.API.Storage;
+using System.IO;
 
 namespace Distance.ResearchAndDevelopment
 {
@@ -23,9 +25,23 @@ namespace Distance.ResearchAndDevelopment
 
 		public Log Logger { get; set; }
 
+
+		//private Texture tex;
+
+		//public void OnGUI()
+		//{
+		//	if (tex == null)
+		//	{
+		//		tex = Resource.LoadTextureFromFile(Path.Combine(new FileSystem().VirtualFileSystemRoot, "whatsapp.png"), 512, 512);
+		//	}
+
+		//	GUI.DrawTexture(new Rect(0, 0, 64, 64), tex);
+		//}
+
 		public void Initialize(IManager manager)
 		{
 			DontDestroyOnLoad(this);
+			enabled = true;
 
 			Instance = this;
 			Manager = manager;
@@ -220,7 +236,7 @@ namespace Distance.ResearchAndDevelopment
 			//Task.Run(MyTask);
 		}
 
-		private IEnumerator MyTask(Task.Status status)
+		/*private IEnumerator MyTask(Task.Status status)
 		{
 			const int max = 500;
 
@@ -241,6 +257,6 @@ namespace Distance.ResearchAndDevelopment
 			status.SetProgress(1, 1);
 
 			yield return Task.Wait(2.0f);
-		}
+		}*/
 	}
 }
