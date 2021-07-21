@@ -11,10 +11,23 @@ using static Distance.AdventureMaker.Loader.CampaignLoaderLogic;
 
 namespace Distance.AdventureMaker.Loader.Steps
 {
-	public class CampaignExtractor : LoaderTask
+	public class CampaignExtractor : LoaderTask, IEnumerable<DirectoryInfo>
 	{
+		private List<DirectoryInfo> directories;
+
 		public CampaignExtractor(CampaignLoader loader) : base(loader)
 		{
+			directories = new List<DirectoryInfo>();
+		}
+
+		public IEnumerator<DirectoryInfo> GetEnumerator()
+		{
+			return new HashSet<string>(directories.Where(x => x.Exists).Select(x => Path.GetFullPath(x.FullName).ToLower())).Select(x => new DirectoryInfo(x)).GetEnumerator();
+		}
+
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			return GetEnumerator();
 		}
 
 		public override IEnumerator Run(Task.Status status)
@@ -23,9 +36,11 @@ namespace Distance.AdventureMaker.Loader.Steps
 			CampaignListing.CampaignItem data;
 			FileInfo archivePath;
 
+			directories.AddRange(loader.Listing.Folders.Select(x => x.Value.path as DirectoryInfo));
+
 			foreach (var item in loader.Listing.Archives)
 			{
-				Mod.Instance.Logger.Info($"[{item.Value.source}]\t {item.Key} : {item.Value.path.FullName}");
+				//Mod.Instance.Logger.Info($"[{item.Value.source}]\t {item.Key} : {item.Value.path.FullName}");
 
 				id = item.Key;
 				data = item.Value;
@@ -68,13 +83,14 @@ namespace Distance.AdventureMaker.Loader.Steps
 						string entryPath = SanitizeFileName(entry.Key, Path.GetInvalidPathChars);
 						destination = new FileInfo(Path.Combine(extractTo.FullName, entryPath));
 
-						Mod.Instance.Logger.Warning(destination.FullName);
+						//Mod.Instance.Logger.Warning(destination.FullName);
 
 						destination.Directory.CreateIfDoesntExist();
 
 						using (Stream fileStream = File.Open(destination.FullName, FileMode.Create))
 						{
 							status.SetText($"Extracting {item.Value.path.FullName} ...\n{entry.Key}");
+							//Mod.Instance.Logger.Error($"{destination.FullName}");
 
 							entry.Value.WriteTo(fileStream);
 							fileStream.Flush();
@@ -83,9 +99,9 @@ namespace Distance.AdventureMaker.Loader.Steps
 						}
 					}
 				}
-			}
 
-			yield break;
+				directories.Add(extractTo);
+			}
 		}
 
 		protected string SanitizeFileName(string id, Func<char[]> invalidCharsCallback)

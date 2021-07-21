@@ -96,8 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationArguments.cs" />
+    <Compile Include="DataModel\LevelData.cs" />
+    <Compile Include="Extensions\mscorlib\System\StringEx.cs" />
     <Compile Include="Harmony\Assembly-CSharp\MainMenuLogic\Awake.cs" />
     <Compile Include="Harmony\Assembly-CSharp\SteamworksUGC\OnEnable.cs" />
+    <Compile Include="Interfaces\ILevelRegister.cs" />
     <Compile Include="Scripts\CustomMenus\CampaignSelectMenuLogic.cs" />
     <Compile Include="Scripts\Loader\CampaignLoaderLogic.cs" />
     <Compile Include="Entry.cs" />
@@ -110,6 +113,7 @@
     <Compile Include="Scripts\MainMenu\Buttons\MainMenuButton.cs" />
     <Compile Include="Scripts\MainMenu\Buttons\ContentPacksButton.cs" />
     <Compile Include="Scripts\MainMenu\MainMenuButtonController.cs" />
+    <Compile Include="Scripts\Managers\Campaigns\LevelRegister.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -120,6 +124,9 @@
       <Project>{c0573b40-fe3f-4e65-bb05-cc143a10a700}</Project>
       <Name>Centrifuge.Distance</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Scripts\Managers\Campaigns\CampaignManager.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="..\Common.Distance.AdventureMaker\Common.Distance.AdventureMaker.projitems" Label="Shared" />

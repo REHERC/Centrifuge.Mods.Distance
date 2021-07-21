@@ -1,8 +1,9 @@
 ﻿using Centrifuge.Distance.Game;
-using System;
+using Distance.AdventureMaker.Common.Enums;
+using Distance.AdventureMaker.Common.Models;
+using Distance.AdventureMaker.Common.Models.Resources;
 using System.Collections;
-using System.Text;
-using UnityEngine;
+using System.IO;
 using static Distance.AdventureMaker.Loader.CampaignLoaderLogic;
 
 namespace Distance.AdventureMaker.Loader.Steps
@@ -16,33 +17,29 @@ namespace Distance.AdventureMaker.Loader.Steps
 		public override IEnumerator Run(Task.Status status)
 		{
 			yield break;
+			status.SetText("Loading campaigns...");
 
-			/*
-			DiscordRpc.RichPresence rpc = new DiscordRpc.RichPresence();
-			rpc.details = "Waiting...";
-			rpc.state = "In Main Menu";
-			rpc.startTimestamp = 0L;
-			rpc.endTimestamp = 0L;
-			rpc.largeImageKey = "official_level";
-
-			TimeSpan span;
-			StringBuilder dots;
-			double totalTime = 0;
-			while (true)
+			foreach (DirectoryInfo campaignPath in loader.Extractor)
 			{
-				dots = new StringBuilder();
-				dots.Append('.', 1 + ((int)(totalTime * 2) % 3));
+				CampaignFile campaign = Json.Load<CampaignFile>(Path.Combine(campaignPath.FullName, "project.json"));
+				//Mod.Instance.Logger.Warning($"{campaign.Metadata.Title} by {campaign.Metadata.Author}");
 
-				totalTime += Time.deltaTime;
+				foreach (var resource in campaign.GetResources(ResourceType.Level))
+				{
+					CampaignResource.Level level = resource as CampaignResource.Level;
 
-				span = TimeSpan.FromSeconds(totalTime);
-				status.SetText($"You have been waiting for {Colors.red.ToFormattedHex()}{span.Hours:000}:{span.Minutes:00}:{span.Seconds:00}[/c][-] {dots}\n{Colors.gray.ToFormattedHex()}There is nothing of interest here (really)");
-				status.SetProgress((uint)span.Milliseconds, 1000);
+					string levelAlias = $"ModdedLevels/{campaign.Metadata.Guid}/{level.guid}.bytes";
+					string bytesPath = GetResourceFullPath(campaignPath, level.file);
+					string thumbPath = GetResourceFullPath(campaignPath, level.thumbnail);
 
-				DiscordRpc.UpdatePresence(ref rpc);
-				yield return null;
+					Mod.Instance.CampaignManager.Levels.RegisterLevel(levelAlias, bytesPath, thumbPath);
+				}
 			}
-			*/
+		}
+
+		protected string GetResourceFullPath(DirectoryInfo campaignRoot, string file)
+		{
+			return Path.Combine(campaignRoot.FullName, "resources/" + file);
 		}
 	}
 }
